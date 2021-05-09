@@ -83,7 +83,7 @@ function SeccionCompus() {
                                 <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
                                 <li>Gráficos AMD Radeon™</li>
                             </ul>
-                            <span className="precio-producto">$64.000</span>
+                            <span className="precio-producto">$72.000</span>
                             <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
                             <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
                             <button className="btn-comprar mt-2" >Comprar</button>
@@ -99,7 +99,7 @@ function SeccionCompus() {
                                 <li>Gráficos AMD Radeon™</li>
                             </ul>
                             <div className="">
-                            <span className="precio-producto">$86.000</span>
+                            <span className="precio-producto">$49.900</span>
                             <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
                             <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
                             <button className="btn-comprar mt-2" >Comprar</button>
@@ -116,7 +116,7 @@ function SeccionCompus() {
                                 <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
                                 <li>Gráficos AMD Radeon™</li>
                             </ul>
-                            <span className="precio-producto">$124.000</span>
+                            <span className="precio-producto">$156.000</span>
                             <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
                             <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
                             <button className="btn-comprar mt-2" >Comprar</button>

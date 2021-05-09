@@ -154,7 +154,34 @@
 }
 
 .circulo-envpag {
-  background-color: darkgray;
-  width: 100px;
-  height: 100px;
+  background-color: #94C11E;
+  width: 60px;
+  height: 60px;
+  color: white;
+  font-size: 1.8rem;
+
+
+}
+
+.contenedor-circulos {
+  background-color: #0083AD;
+
+}
+
+.text-destacado-envpag {
+  color: white;
+  font-size: 1.2rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 500;
+}
+
+.text-envpag {
+  color: white;
+  font-size: 1rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 300;
+}
+
+.footer {
+  background-color: rgb(243, 243, 243);
 }

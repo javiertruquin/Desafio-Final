@@ -4,6 +4,7 @@ import NavReactB from './components/NavReactB'
 import SlideOfertas from './components/SlideOfertas';
 import SeccionCompus from './components/SeccionCompus';
 import SeccionEnviosPagos from './components/SeccionEnviosPagos';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
     <SlideOfertas />
     <SeccionCompus />
     <SeccionEnviosPagos />
+    <SeccionCompus />
+    <Footer />
     </>
   );
 }
