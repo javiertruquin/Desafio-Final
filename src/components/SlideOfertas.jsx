@@ -6,7 +6,7 @@ import slide2 from "../assets/img/slideofertas-02.jpg"
 export default function SlideOfertas() {
   return (
       <div className="container">
-    <Carousel>
+    <Carousel fade>
   <Carousel.Item interval={2500}>
     <img
       className="d-block w-100"

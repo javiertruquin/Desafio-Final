@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavReactB from './components/NavReactB'
 import SlideOfertas from './components/SlideOfertas';
 import SeccionCompus from './components/SeccionCompus';
+import SeccionEnviosPagos from './components/SeccionEnviosPagos';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <NavReactB />
     <SlideOfertas />
     <SeccionCompus />
+    <SeccionEnviosPagos />
     </>
   );
 }

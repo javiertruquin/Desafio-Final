@@ -49,11 +49,12 @@
 }
 
 .titulo1 {
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-family: 'Saira Semi Condensed', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   position: absolute;
-  top: -51px;
+  top: -41px;
+
   color: darkgray;
 }
 
@@ -75,7 +76,7 @@
   font-size: 1.2rem;
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 600;
-  color: rgb(0, 78, 141);
+  color: #002B4B;
 }
 
 .detalle-producto {
@@ -89,5 +90,71 @@
   font-size: 2rem;
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 500;
-  color: rgb(100, 204, 16);
+  color: #94C11E;
+}
+
+.btn-heart {
+  font-size: 1.2rem;
+  border: 0;
+  color: #0083AC;
+  background-color: white;
+  padding: 5px 10px;
+}
+.btn-heart:hover {
+  font-size: 1.2rem;
+  border: 0;
+  color: #00a8db;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+.btn-cart {
+  font-size: 1.2rem;
+  border: 0;
+  color: #005989;
+  background-color: white;
+  padding: 5px 10px;
+}
+.btn-cart:hover {
+  font-size: 1.2rem;
+  border: 0;
+  color: #00a8db;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+.texto-pagos {
+  font-size: 1rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  padding-top: 60px;
+  padding-right: 60px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.btn-comprar {
+  background-color: #005989;
+  font-size: 1rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 500;
+  border: 0;
+  color: white;
+  padding: 5px 10px;
+}
+
+.btn-comprar:hover {
+  background-color: #00a8db;
+  font-size: 1rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 500;
+  border: 0;
+  color: white;
+  padding: 5px 10px;
+}
+
+.circulo-envpag {
+  background-color: darkgray;
+  width: 100px;
+  height: 100px;
 }

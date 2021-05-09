@@ -5,7 +5,7 @@ import logo from '../assets/img/logo.png'
 
 export default function NavReactB() {
     return (
-        <Navbar bg="light">
+        <Navbar bg="light" className="sticky-top">
             <div className="container">
             <Navbar.Brand href="#home" className="px-4">
                 <img
