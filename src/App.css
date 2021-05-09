@@ -36,3 +36,58 @@
     transform: rotate(360deg);
   }
 }
+
+.condensed {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 13pt;
+}
+
+.contenedor-seccion-compus {
+  background-color: darkgrey;
+  margin-top: 4rem !important;
+}
+
+.titulo1 {
+  font-size: 3rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 500;
+  position: absolute;
+  top: -51px;
+  color: darkgray;
+}
+
+.subtitulo-seccion {
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 300;
+  margin-top: 60px !important;
+  padding-right: 60px !important;
+  text-align: right;
+}
+
+.contenedor-items {
+  background-color: white;
+  border: 1px #ababab solid;
+}
+
+.titulo-producto {
+  font-size: 1.2rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  color: rgb(0, 78, 141);
+}
+
+.detalle-producto {
+  font-size: 0.8rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 400;
+  color: rgb(82, 82, 82);
+}
+
+.precio-producto {
+  font-size: 2rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 500;
+  color: rgb(100, 204, 16);
+}
