@@ -208,3 +208,13 @@
   font-weight: 500;
   color: rgb(71, 71, 71);
 }
+
+.titulo2 {
+  font-size: 3rem;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 700;
+  position: absolute;
+  top: 420px;
+
+  color: darkgray;
+}

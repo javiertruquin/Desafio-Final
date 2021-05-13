@@ -1,16 +1,19 @@
-
+import serieAdvanceCompu from "../assets/img/serieadvancecompu-03.png"
 
 import compu2 from "../assets/img/compu2.jpeg"
 
 export default function Computadoras() {
   return (
     <div className="container position-relative">
-            <span className="titulo1 ps-4">COMPUTADORAS</span>
+        <img src={serieAdvanceCompu} alt="" />
+            
             <div className="row contenedor-seccion-compus">
+            <span className="titulo2 ps-4">COMPUTADORAS</span>
             <p className=" subtitulo-seccion2">Equipos de escritorio para todos los bolsillos</p>
 
 
                 <div className="col-12 contenedor-items pb-4">
+                        
                         <div className="row">
                                 <div className="col-3">
                                     <img src={compu2} alt="" className="img-fluid" />
