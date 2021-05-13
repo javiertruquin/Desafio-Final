@@ -1,22 +1,43 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavReactB from './components/NavReactB'
-import SlideOfertas from './components/SlideOfertas';
-import SeccionCompus from './components/SeccionCompus';
-import SeccionEnviosPagos from './components/SeccionEnviosPagos';
 import Footer from './components/Footer';
+import Inicio from './pages/Inicio.jsx';
+import Computadoras from './pages/Computadoras';
 
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-    <NavReactB />
-    <SlideOfertas />
-    <SeccionCompus />
-    <SeccionEnviosPagos />
-    <SeccionCompus />
-    <Footer />
-    </>
+    <Router>
+            <NavReactB />
+            <Switch>
+                <Route path="/inicio">
+                <Inicio />
+                </Route>
+                <Route path="/computadoras">
+                    <Computadoras />
+                </Route>
+                <Route path="/notebooks">
+                    
+                </Route>
+                <Route path="/accesorios">
+                    
+                </Route>
+                <Route path="/nosotros">
+                    
+                </Route>
+                
+            </Switch>
+            <Footer />
+        </Router>
+
+
+    
+
+
+
   );
 }
 
