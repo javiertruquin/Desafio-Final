@@ -49,11 +49,11 @@
 }
 
 .titulo1 {
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 600;
   position: absolute;
-  top: -41px;
+  top: -52px;
 
   color: darkgray;
 }
@@ -212,9 +212,29 @@
 .titulo2 {
   font-size: 3rem;
   font-family: 'Saira Semi Condensed', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   position: absolute;
   top: 420px;
 
   color: darkgray;
+}
+
+.btn-serie {
+  background-color: white;
+  border: 1px solid #94C11E;
+  color: #94C11E;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-serie:hover {
+  background-color: #94C11E;
+  border: 1px solid #94C11E;
+  color: white;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1.5rem;
 }
