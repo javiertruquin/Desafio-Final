@@ -238,3 +238,44 @@
   font-size: 1rem;
   margin-top: .5rem;
 }
+
+.container-buscador {
+  background-color: rgb(119, 119, 119);
+}
+
+.texto-categoria {
+  color: white;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: italic;
+  padding-left: 25px;
+}
+
+.btn-categoria {
+  background-color: #94C11E;
+  border: 1px solid #94C11E;
+  color: white;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: .5rem;
+}
+
+.btn-categoria:hover {
+  background-color: white;
+  border: 1px solid #94C11E;
+  color: #94C11E;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: .5rem;
+}
+
+.input-buscar {
+  color: #575757;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding-left: 10px;
+}

@@ -28,7 +28,7 @@ function Footer() {
                     <ul>
                         <li className="li-footer py-2">Lunes a viernes: 9:00 a 17:00</li>
                         <li className="li-footer py-2">Sábados: 9:00 a 13:00</li>
-                        <li className="li-footer py-2">contacto@rolligtech.com.ar</li>
+                        <li className="li-footer py-2">contacto@rollingtech.com.ar</li>
                     </ul>
                 </div>
                 <hr className=" mt-4" style={{border: '1px solid #ababab'}} />
