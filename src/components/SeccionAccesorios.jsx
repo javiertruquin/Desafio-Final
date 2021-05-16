@@ -44,6 +44,8 @@ export default function SeccionAccesorios() {
                         ssr={true} // means to render carousel on server-side.
                         infinite={true}
                         autoPlaySpeed={1000}
+                        // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                        // deviceType={this.props.deviceType}
                         keyBoardControl={true}
                         customTransition="all .5"
                         transitionDuration={500}
