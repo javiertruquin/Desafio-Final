@@ -3,7 +3,7 @@ import slideCompu2 from "../assets/img/slidecompus2.png"
 import slideCompu3 from "../assets/img/slidecompus3.png"
 
 import compu2 from "../assets/img/compu2.jpeg"
-import { Carousel } from "react-bootstrap"
+import { Carousel, NavLink } from "react-bootstrap"
 import SeccionEnviosPagos from "../components/SeccionEnviosPagos"
 import BuscadorCategorias from "../components/BuscadorCategorias"
 
@@ -43,7 +43,7 @@ export default function Computadoras() {
                             <span className="precio-producto">$64.000</span>
                             <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
                             <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
+                            <a href="/producto"><button className="btn-comprar mt-2" >Comprar</button></a>
                         </div>
                         <div className="col-3 my-1 p-4">
                             <button className="btn-serie">Serie Advance</button>

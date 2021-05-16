@@ -4,6 +4,7 @@ import NavReactB from "./components/NavReactB";
 import Footer from "./components/Footer";
 import Inicio from "./pages/Inicio.jsx";
 import Computadoras from "./pages/Computadoras";
+import Producto from "./pages/Producto";
 import Login from "./pages/Login";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -22,6 +23,9 @@ function App() {
         <Route path="/notebooks"></Route>
         <Route path="/accesorios"></Route>
         <Route path="/nosotros"></Route>
+        <Route path="/producto">
+          <Producto />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
