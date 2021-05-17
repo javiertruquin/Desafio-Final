@@ -22,7 +22,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route path="/inicio">
           <NavReactB />
           <Inicio />
           <Footer />
