@@ -6,6 +6,7 @@ import Inicio from "./pages/Inicio.jsx";
 import Computadoras from "./pages/Computadoras";
 import Producto from "./pages/Producto";
 import Login from "./pages/Login";
+import Registro from "./pages/Registro";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/registro">
+          <Registro />
         </Route>
       </Switch>
       <Footer />

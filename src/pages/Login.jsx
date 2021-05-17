@@ -1,7 +1,9 @@
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, FormGroup } from "react-bootstrap";
 import { MDBInput } from "mdbreact";
+import { NavLink } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 
-export default function Computadoras() {
+export default function Login() {
   return (
     <Form
       style={{ width: "470px" }}
@@ -13,7 +15,6 @@ export default function Computadoras() {
       <Form.Group controlId="formBasicEmail">
         <MDBInput type="email" label="Escribe tu email" rows="2" icon="at" />
       </Form.Group>
-
       <Form.Group controlId="formBasicEmail">
         <MDBInput
           type="password"
@@ -22,15 +23,32 @@ export default function Computadoras() {
           icon="key"
         />
       </Form.Group>
-
       <Button
         variant="primary"
         type="submit"
         style={{ width: "300px" }}
-        className="mx-auto mt-4 mb-5"
+        className="mx-auto mt-4 mb-2 rounded"
       >
         Entrar
       </Button>
+      <a
+        href=""
+        className="mx-auto text-center mb-4
+      "
+      >
+        ¿Olvidaste la contraseña?
+      </a>
+
+      <FormGroup className="row flex mt-5">
+        <FormGroup>
+          <p className="text-muted text-right mb-3">
+            Si aún no estás registrado, hacelo{" "}
+            <Nav.Link to="/registro" as={NavLink}>
+              ACÁ
+            </Nav.Link>
+          </p>
+        </FormGroup>
+      </FormGroup>
     </Form>
   );
 }
