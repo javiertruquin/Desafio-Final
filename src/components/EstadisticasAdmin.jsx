@@ -4,7 +4,7 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap";
 export default function EstadisticasAdmin() {
   return (
     <>
-      <Container className="py-5">
+      <Container className="mt-5 py-5">
         <Row>
           <Col md={4}>
             <Card className="text-center">

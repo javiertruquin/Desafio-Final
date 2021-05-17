@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export default function NavAdmin() {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar fixed="top" bg="dark" variant="dark">
       <div className="container justify-content-start">
         {/* <Navbar.Brand href="/home" className="col-1"><Image className="w-100" src={logo} rounded /></Navbar.Brand> */}
         <Nav style={{width: "100%"}} className="text-center" variant="tabs" defaultActiveKey="/home">

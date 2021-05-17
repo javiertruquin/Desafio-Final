@@ -11,7 +11,7 @@ export default function UsuariosAdmin() {
 
   return (
     <>
-      <Container>
+      <Container className="mt-5">
         <div className="text-center py-5">
           <Button className="py-3 px-5" onClick={handleCrear} variant="secondary">
             Agregar Vendedor
