@@ -1,43 +1,57 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import NavReactB from './components/NavReactB'
-import Footer from './components/Footer';
-import Inicio from './pages/Inicio.jsx';
-import Computadoras from './pages/Computadoras';
+import "./App.css";
+import "./Admin.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavReactB from "./components/NavReactB";
+import NavAdmin from "./components/NavAdmin";
+import ProductosAdmin from "./components/ProductosAdmin";
+import UsuariosAdmin from "./components/UsuariosAdmin";
+import EstadisticasAdmin from "./components/EstadisticasAdmin";
+import Footer from "./components/Footer";
+import Inicio from "./pages/Inicio.jsx";
+import Computadoras from "./pages/Computadoras";
 
-
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-            <NavReactB />
-            <Switch>
-                <Route path="/inicio">
-                <Inicio />
-                </Route>
-                <Route path="/computadoras">
-                    <Computadoras />
-                </Route>
-                <Route path="/notebooks">
-                    
-                </Route>
-                <Route path="/accesorios">
-                    
-                </Route>
-                <Route path="/nosotros">
-                    
-                </Route>
-                
-            </Switch>
-            <Footer />
-        </Router>
-
-
-    
-
-
-
+      <Switch>
+        <Route path="/inicio">
+          <NavReactB />
+          <Inicio />
+          <Footer />
+        </Route>
+        <Route path="/computadoras">
+          <NavReactB />
+          <Computadoras />
+          <Footer />
+        </Route>
+        <Route path="/notebooks">
+          <NavReactB />
+          <Footer />
+        </Route>
+        <Route path="/accesorios">
+          <NavReactB />
+          <Footer />
+        </Route>
+        <Route path="/nosotros">
+          <NavReactB />
+          <Footer />
+        </Route>
+        <Route path="/productos">
+          <NavAdmin />
+          <ProductosAdmin />
+        </Route>
+        <Route path="/usuarios">
+          <NavAdmin />
+          <UsuariosAdmin />
+        </Route>
+        <Route path="/estadisticas">
+          <NavAdmin />
+          <EstadisticasAdmin />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

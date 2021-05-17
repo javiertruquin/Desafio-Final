@@ -1,0 +1,22 @@
+.categoria-productos {
+    height: inherit;
+    width: 10%;
+    border-radius: 5px 0 0 5px;
+    background-color: rgb(240, 87, 87);
+    /* background: url(./assets/img/compu1.jpeg); */
+}
+.datos-productos {
+    width: 85%;
+    padding: 1rem;
+}
+.botones-productos {
+    width: 5%;
+    display: block;
+    width: 30px;
+}
+.botones-productos Button {
+    width: 50px;
+}
+.numeros-estadisticas {
+    font-size: 80px;
+}
