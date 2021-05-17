@@ -3,9 +3,12 @@ import slideCompu2 from "../assets/img/slidecompus2.png"
 import slideCompu3 from "../assets/img/slidecompus3.png"
 
 import compu2 from "../assets/img/compu2.jpeg"
-import { Carousel, NavLink } from "react-bootstrap"
+// import { Carousel, NavLink } from "react-bootstrap"
 import SeccionEnviosPagos from "../components/SeccionEnviosPagos"
 import BuscadorCategorias from "../components/BuscadorCategorias"
+
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 export default function Computadoras() {
     return (
