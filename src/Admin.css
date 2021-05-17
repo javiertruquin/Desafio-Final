@@ -16,6 +16,8 @@
 }
 .botones-productos Button {
     width: 50px;
+    padding: 0 0;
+    height: 40px;
 }
 .numeros-estadisticas {
     font-size: 80px;
