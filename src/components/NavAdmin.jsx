@@ -1,6 +1,4 @@
-import { Navbar, Nav, Image } from "react-bootstrap";
-import logo from "../assets/img/logo.png";
-import { NavLink } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
 
 export default function NavAdmin() {
   return (

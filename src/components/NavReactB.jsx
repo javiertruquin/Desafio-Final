@@ -32,6 +32,9 @@ export default function NavReactB() {
             <Nav.Link to="/nosotros" as={NavLink}>
               Sobre Nosotros
             </Nav.Link>
+            <Nav.Link to="/usuarios" as={NavLink}>
+              Solo admin
+            </Nav.Link>
             <div className="ps-5 d-flex">
               <Nav.Link href="#link">
                 <i

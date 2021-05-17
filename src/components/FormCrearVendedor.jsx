@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormControl, InputGroup } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 export default function FormCrearVendedor() {
   return (
