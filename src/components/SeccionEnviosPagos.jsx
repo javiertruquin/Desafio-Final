@@ -2,11 +2,11 @@
 
 function SeccionEnviosPagos() {
     return (
-        <div className="container my-5">
-            <div className="row contenedor-circulos">
+
+            <div className="row contenedor-circulos my-4">
                 <div className="col-4 p-3 ">
                     <div className="row">
-                        <div className="col-3  ps-5">
+                        <div className="col-3  ps-4">
                             <div className="rounded-circle circulo-envpag text-center">
                                 <i class="far fa-credit-card pt-3"></i>
                             </div>
@@ -21,7 +21,7 @@ function SeccionEnviosPagos() {
                 </div>
                 <div className="col-4 p-3 ">
                 <div className="row">
-                        <div className="col-3  ps-5" style={{  borderLeft: "6px solid #005889" }}>
+                        <div className="col-3  ps-4" style={{  borderLeft: "6px solid #005889" }}>
                             <div className="rounded-circle circulo-envpag text-center">
                                 <i class="fas fa-money-bill-wave pt-3"></i>
                             </div>
@@ -34,19 +34,19 @@ function SeccionEnviosPagos() {
                 </div>
                 <div className="col-4 p-3 ">
                 <div className="row">
-                        <div className="col-3  ps-5" style={{  borderLeft: "6px solid #005889" }}>
+                        <div className="col-4  ps-5" style={{  borderLeft: "6px solid #005889" }}>
                             <div className="rounded-circle circulo-envpag text-center">
                                 <i class="fas fa-shipping-fast pt-3"></i>
                             </div>
                         </div>
-                        <div className="col-9">
+                        <div className="col-8">
                         <div className="text-destacado-envpag">Envios a todo el país</div>
                         <div className="text-envpag">Trabajamos con Andreani Cargas</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
     )
 }
 
