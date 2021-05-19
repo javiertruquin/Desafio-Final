@@ -281,3 +281,23 @@
   font-size: 1rem;
   padding-left: 10px;
 }
+
+.titulo-azul {
+  color: #002B4B;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  padding-left: 10px;
+}
+
+.texto-verde-grande {
+  color: #94C11E;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 5.5rem;
+  padding-left: 10px;
+}
+
+.input2 {
+  color: white;
+}

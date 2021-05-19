@@ -41,7 +41,7 @@ export default function SeccionAccesorios() {
                         swipeable={true}
                         draggable={false}
                         showDots={false}
-                        ssr={true} // means to render carousel on server-side.
+                        ssr={false} // means to render carousel on server-side.
                         infinite={true}
                         autoPlaySpeed={1000}
                         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
