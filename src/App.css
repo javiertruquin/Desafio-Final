@@ -299,5 +299,11 @@
 }
 
 .input2 {
-  color: white;
+  color: rgb(255, 255, 255);
+  border: #ffffff 1px solid;
+}
+
+.input2:focus {
+  color: rgb(255, 255, 255);
+  border: #ffffff 1px solid;
 }

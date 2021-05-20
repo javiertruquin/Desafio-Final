@@ -15,15 +15,16 @@ export default function Login() {
             <p className="texto-verde-grande">¡Hola!</p>
             <p>Para continuar ingresá tu email y contraseña</p>
           </div>
-          <div className="col-8 card my-auto" style={{backgroundColor:'#777777'}}>
+          <div className="col-1"></div>
+          <div className="col-7 my-auto">
             <div className="row align-items-lg-end">
-              <div className="col-8 white-text">
+              <div className="col-8 gray-text">
                 <Form
 
                   className="pt-2 pr-4 pl-4 mt-4"
                 >
                   <Form.Group controlId="formBasicEmail">
-                    <MDBInput className="input2" type="email" label="Escribe tu email" rows="2" icon="at" required />
+                    <MDBInput className="input2" type="email" label="Escribe tu email" rows="2" icon="at" required validate/>
                   </Form.Group>
                   <Form.Group controlId="formBasicEmail">
                     <MDBInput
@@ -54,39 +55,7 @@ export default function Login() {
               </div>
             </div>
           </div>
-          {/* <div className="row card">
-          <div className="col-8 ">
-            
-              </div>
-              <div className="col-6">
-                <Button
-                  variant="primary"
-                  type="submit"
-                  style={{ width: '100%' }}
-                  className="mx-auto mt-4 mb-2 rounded"
-                >
-                  Entrar
-                </Button>
-                <a
-                  href="/" className="mx-auto text-center mb-4"
-                >
-                 <p> ¿Olvidaste la contraseña?</p>
-                </a>
-                </div>
-
-              <div className="col-4">
-              <FormGroup className="mt-5">
-                <FormGroup>
-                  <p className="text-muted text-right mb-3">
-                    Si aún no estás registrado, hacelo{" "}
-                    <Nav.Link to="/registro" as={NavLink}>
-                      ACÁ
-                    </Nav.Link>
-                  </p>
-                </FormGroup>
-              </FormGroup>
-            </div>
-            </div> */}
+          
         </div>
       </div>
       <Footer />
