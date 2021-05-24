@@ -3,29 +3,25 @@ import compu1 from "../assets/img/compu1.jpeg"
 import compu2 from "../assets/img/compu2.jpeg"
 import compu3 from "../assets/img/compu3.jpeg"
 
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css";
+
+
+
+// import Swiper core and required modules
+import SwiperCore, { Pagination } from "swiper/core";
+
+// install Swiper modules
+SwiperCore.use([Pagination]);
 
 
 
 export default function SeccionAccesorios() {
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 4,
-            slidesToSlide: 1 // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 3,
-            slidesToSlide: 1 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
-        }
-    };
+    
     return (
         <div className="container position-relative">
             <span className="titulo1 ps-4">ACCESORIOS</span>
@@ -35,7 +31,106 @@ export default function SeccionAccesorios() {
 
                 <div className="col-12 contenedor-items pb-4">
 
-                    <Carousel
+                <Swiper
+                        slidesPerView={1}
+                        spaceBetween={10}
+                        
+                        pagination={{
+                            "clickable": true
+                        }}
+                        breakpoints={{
+                            "640": {
+                                slidesPerView: 1,
+                                spaceBetween: 5
+                            },
+                            "768": {
+                                slidesPerView: 2,
+                                spaceBetween: 5
+                            },
+                            "1024": {
+                                slidesPerView: 4,
+                                spaceBetween: 5
+                            }
+                        }}
+                        className="mySwiper"
+                        navigation={true}
+                    >
+                        <SwiperSlide>
+                            <div className="my-1 p-4">
+                                <button className="btn-serie">Serie Advance</button>
+                                <img src={compu2} alt="" className="img-fluid" />
+                                <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
+                                <ul className="detalle-producto">
+                                    <li>Procesador AMD Ryzen™ 3</li>
+                                    <li>Windows 10 Home 64</li>
+                                    <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
+                                    <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
+                                    <li>Gráficos AMD Radeon™</li>
+                                </ul>
+                                <span className="precio-producto">$64.000</span>
+                                <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
+                                <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
+                                <button className="btn-comprar mt-2" >Comprar</button>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="my-1 p-4">
+                                <button className="btn-serie">Serie Advance</button>
+                                <img src={compu2} alt="" className="img-fluid" />
+                                <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
+                                <ul className="detalle-producto">
+                                    <li>Procesador AMD Ryzen™ 3</li>
+                                    <li>Windows 10 Home 64</li>
+                                    <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
+                                    <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
+                                    <li>Gráficos AMD Radeon™</li>
+                                </ul>
+                                <span className="precio-producto">$64.000</span>
+                                <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
+                                <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
+                                <button className="btn-comprar mt-2" >Comprar</button>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="my-1 p-4">
+                                <button className="btn-serie">Serie Advance</button>
+                                <img src={compu2} alt="" className="img-fluid" />
+                                <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
+                                <ul className="detalle-producto">
+                                    <li>Procesador AMD Ryzen™ 3</li>
+                                    <li>Windows 10 Home 64</li>
+                                    <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
+                                    <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
+                                    <li>Gráficos AMD Radeon™</li>
+                                </ul>
+                                <span className="precio-producto">$64.000</span>
+                                <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
+                                <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
+                                <button className="btn-comprar mt-2" >Comprar</button>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="my-1 p-4">
+                                <button className="btn-serie">Serie Advance</button>
+                                <img src={compu2} alt="" className="img-fluid" />
+                                <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
+                                <ul className="detalle-producto">
+                                    <li>Procesador AMD Ryzen™ 3</li>
+                                    <li>Windows 10 Home 64</li>
+                                    <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
+                                    <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
+                                    <li>Gráficos AMD Radeon™</li>
+                                </ul>
+                                <span className="precio-producto">$64.000</span>
+                                <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
+                                <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
+                                <button className="btn-comprar mt-2" >Comprar</button>
+                            </div>
+                        </SwiperSlide>
+
+                    </Swiper>
+
+                    {/* <Carousel
                         partialVisible={true}
                         responsive={responsive}
                         swipeable={true}
@@ -70,206 +165,8 @@ export default function SeccionAccesorios() {
                             <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
                             <button className="btn-comprar mt-2" >Comprar</button>
                         </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu2} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Proce7sador AMD Ryzen™ 3</li>
-                                <li>Windows 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$80.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu3} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Proce7sador AMD Ryzen™ 3</li>
-                                <li>Windows 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$120.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu1} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Proce7sador AMD Ryzen™ 3</li>
-                                <li>Windows 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$54.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu3} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Proces6ador AMD Ryzen™ 3</li>
-                                <li>Windows 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$84.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu2} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Procesa5dor AMD Ryzen™ 3</li>
-                                <li>Windows 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$94.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu1} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Proces4ador AMD Ryzen™ 3</li>
-                                <li>Windows4 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$54.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu2} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Proces3ador AMD Ryzen™ 3</li>
-                                <li>Windows 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$134.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                        <div className="my-1 p-4">
-                            <button className="btn-serie">Serie Advance</button>
-                            <img src={compu3} alt="" className="img-fluid" />
-                            <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                            <ul className="detalle-producto">
-                                <li>Procesa2dor AMD Ryzen™ 3</li>
-                                <li>Windows 10 Home 64</li>
-                                <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                <li>Gráficos AMD Radeon™</li>
-                            </ul>
-                            <span className="precio-producto">$234.000</span>
-                            <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                            <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                            <button className="btn-comprar mt-2" >Comprar</button>
-                        </div>
-                    </Carousel>;
-
-                    {/* <Carousel>
-                        <Carousel.Item interval={2500}>
-                            <div className="row">
-                                <div className="col-3 my-1 p-4">
-                                    <button className="btn-serie">Serie Advance</button>
-                                    <img src={compu2} alt="" className="img-fluid" />
-                                    <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                                    <ul className="detalle-producto">
-                                        <li>Procesador AMD Ryzen™ 3</li>
-                                        <li>Windows 10 Home 64</li>
-                                        <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                        <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                        <li>Gráficos AMD Radeon™</li>
-                                    </ul>
-                                    <span className="precio-producto">$64.000</span>
-                                    <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                                    <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                                    <button className="btn-comprar mt-2" >Comprar</button>
-                                </div>
-                                <div className="col-3 my-1 p-4">
-                                    <button className="btn-serie">Serie Advance</button>
-                                    <img src={compu2} alt="" className="img-fluid" />
-                                    <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                                    <ul className="detalle-producto">
-                                        <li>Procesador AMD Ryzen™ 3</li>
-                                        <li>Windows 10 Home 64</li>
-                                        <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                        <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                        <li>Gráficos AMD Radeon™</li>
-                                    </ul>
-                                    <span className="precio-producto">$64.000</span>
-                                    <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                                    <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                                    <button className="btn-comprar mt-2" >Comprar</button>
-                                </div>
-                                <div className="col-3 my-1 p-4">
-                                    <button className="btn-serie">Serie Advance</button>
-                                    <img src={compu2} alt="" className="img-fluid" />
-                                    <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                                    <ul className="detalle-producto">
-                                        <li>Procesador AMD Ryzen™ 3</li>
-                                        <li>Windows 10 Home 64</li>
-                                        <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                        <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                        <li>Gráficos AMD Radeon™</li>
-                                    </ul>
-                                    <span className="precio-producto">$64.000</span>
-                                    <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                                    <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                                    <button className="btn-comprar mt-2" >Comprar</button>
-                                </div>
-                                <div className="col-3 my-1 p-4">
-                                    <button className="btn-serie">Serie Advance</button>
-                                    <img src={compu2} alt="" className="img-fluid" />
-                                    <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
-                                    <ul className="detalle-producto">
-                                        <li>Procesador AMD Ryzen™ 3</li>
-                                        <li>Windows 10 Home 64</li>
-                                        <li>4 GB de SDRAM DDR4-2400 (1 x 4 GB)</li>
-                                        <li>Unidad de estado sólido PCIe® NVMe™ M.2 de 256 GB</li>
-                                        <li>Gráficos AMD Radeon™</li>
-                                    </ul>
-                                    <span className="precio-producto">$64.000</span>
-                                    <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-                                    <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
-                                    <button className="btn-comprar mt-2" >Comprar</button>
-                                </div>
-                            </div>
-                        </Carousel.Item>
-                    </Carousel> */}
+                        
+                    </Carousel>; */}
 
                 </div>
             </div>

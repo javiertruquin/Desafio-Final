@@ -11,14 +11,14 @@ export default function Login() {
       <NavReactB />
       <div className="container">
         <div className="row">
-          <div className="col-4 text-center p-4 mb-2 titulo-azul">
+          <div className="col-lg-4 col-md-12 text-center p-4 mb-2 titulo-azul">
             <p className="texto-verde-grande">¡Hola!</p>
             <p>Para continuar ingresá tu email y contraseña</p>
           </div>
           <div className="col-1"></div>
-          <div className="col-7 my-auto">
+          <div className="col-lg-7 col-md-12 my-auto">
             <div className="row align-items-lg-end">
-              <div className="col-8 gray-text">
+              <div className="col-md-12 gray-text">
                 <Form
 
                   className="pt-2 pr-4 pl-4 mt-4"
@@ -33,12 +33,13 @@ export default function Login() {
                       rows="2"
                       icon="key"
                       required
+                      validate
                     />
                   </Form.Group>
                 </Form>
               </div>
-              <div className="col-1"></div>
-              <div className="col-3">
+              <div className="col-lg-1 col-md-12"></div>
+              <div className="col-lg-6 col-md-6 mr-md-auto">
               <button
 
                   type="submit"
@@ -50,7 +51,7 @@ export default function Login() {
                 <a
                   href="/" className="mx-auto text-center mb-4"
                 >
-                 <p> ¿Olvidaste la contraseña?</p>
+                 <p className="li-footer"> ¿Olvidaste la contraseña?</p>
                 </a>
               </div>
             </div>

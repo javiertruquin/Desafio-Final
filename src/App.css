@@ -60,9 +60,9 @@
 
 .subtitulo-seccion {
   color: white;
-  font-size: 2.8rem;
+  font-size: clamp(2.5rem, 1vh, 5rem);
   font-weight: 300;
-  margin-top: 60px !important;
+  margin-top: 20px !important;
   padding-right: 60px !important;
   text-align: right;
   font-family: 'Saira Semi Condensed', sans-serif;
@@ -88,7 +88,7 @@
 }
 
 .precio-producto {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 500;
   color: #94C11E;
@@ -306,4 +306,25 @@
 .input2:focus {
   color: rgb(255, 255, 255);
   border: #ffffff 1px solid;
+}
+
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.map-responsive iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+.cuadrado {
+  max-width: 300px;
+
+  background-color: #002B4B;
 }
