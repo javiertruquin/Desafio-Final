@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export default function NavReactB() {
   return (
-    <Navbar bg="light" className="sticky-top">
+    <Navbar collapseOnSelect expand="lg" bg="light" className="sticky-top">
       <div className="container">
         <Navbar.Brand to="/" as={NavLink} className="px-4">
           <img
@@ -14,9 +14,9 @@ export default function NavReactB() {
             alt="React Bootstrap logo"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto condensed">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="ml-auto condensed">
             <Nav.Link to="/inicio" as={NavLink}>
               Inicio
             </Nav.Link>
@@ -46,9 +46,12 @@ export default function NavReactB() {
                 <i style={{ color: "#00598a" }} class="fas fa-user"></i>
               </Nav.Link>
             </div>
+
           </Nav>
+
         </Navbar.Collapse>
       </div>
     </Navbar>
+
   );
 }
