@@ -31,7 +31,7 @@ export default function SeccionProducto() {
             <NavReactB />
             <div className="container my-5 ">
                 <Card className="p-3 m-auto row flex-row">
-           
+
                     <div className="col-5 pe-0">
                         <Card>
                             <Card.Body className="">
@@ -104,8 +104,8 @@ export default function SeccionProducto() {
                                     </Form.Control>
                                 </div>
                                 <Button
-                                    className="w-100 my-1 mx-0"
-                                    Nvariant="primary"
+                                    className="w-100 my-1 mx-0 btn-serie"
+                                    
                                     size="lg"
                                 >
                                     Comprar Ahora

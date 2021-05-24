@@ -13,31 +13,32 @@ import CardProductoView from "../components/CardProductoView"
 
 export default function Computadoras() {
     return (
-        <div className="container position-relative">
+        <div className="container ">
             <Carousel fade>
                 <Carousel.Item interval={2500}>
-                    <img src={slideCompu1} alt="" />
+                    <img src={slideCompu1} alt="" className="img-fluid" style={{  }}/>
                 </Carousel.Item>
                 <Carousel.Item interval={2500}>
-                    <img src={slideCompu2} alt="" />
+                    <img src={slideCompu2} alt="" className="img-fluid" />
                 </Carousel.Item>
                 <Carousel.Item interval={2500}>
-                    <img src={slideCompu3} alt="" />
+                    <img src={slideCompu3} alt="" className="img-fluid" />
                 </Carousel.Item>
             </Carousel>
+            <div className="titulo2 ps-4">COMPUTADORAS</div>
             <div className="row contenedor-seccion-compus">
-                <span className="titulo2 ps-4">COMPUTADORAS</span>
+
                 <p className=" subtitulo-seccion2">Equipos de escritorio para todos los bolsillos</p>
 
 
                 <div className="col-12 contenedor-items pb-4">
                     <BuscadorCategorias />
-                    <div className="row">
+                        <div className="row">
                         <CardProductoView />
                         <CardProductoView />
                         <CardProductoView />
                         <CardProductoView />
-                    </div>
+                        </div>
                     
 
                 </div>

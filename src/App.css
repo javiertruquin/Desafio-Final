@@ -215,8 +215,8 @@
   font-size: 3rem;
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 600;
-  position: absolute;
-  top: 363px;
+  /* position: absolute;
+  top: 363px; */
 
   color: darkgray;
 }

@@ -4,7 +4,7 @@ import metodoPago from "../assets/img/metodospago.png"
 // import compu3 from "../assets/img/compu3.jpeg";
 // slide
 
-import CardProductoView from "../components/CardProductoView"
+import CardProductoSlide from "../components/CardProductoSlide"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,7 +26,7 @@ SwiperCore.use([Pagination]);
 
 function SeccionCompus() {
     return (
-        <div className="container position-relative">
+        <div className="container position-relative mt-5">
             <span className="titulo1 ps-4">COMPUTADORAS</span>
             <div className="row contenedor-seccion-compus">
 
@@ -64,16 +64,16 @@ function SeccionCompus() {
                         navigation={true}
                     >
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
 
                     </Swiper>

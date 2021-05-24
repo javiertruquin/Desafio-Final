@@ -11,7 +11,7 @@ export default function NavReactB() {
             src={logo}
             height="50px"
             className="d-inline-block align-top "
-            alt="React Bootstrap logo"
+            alt="Logo"
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -30,10 +30,11 @@ export default function NavReactB() {
               Accesorios
             </Nav.Link>
             <Nav.Link to="/nosotros" as={NavLink}>
-              Sobre Nosotros
+              <span className="">Nosotros</span>
+              
             </Nav.Link>
             <Nav.Link to="/usuarios" as={NavLink}>
-              Solo admin
+              Admin
             </Nav.Link>
             <div className="ps-5 d-flex">
               <Nav.Link href="#link">

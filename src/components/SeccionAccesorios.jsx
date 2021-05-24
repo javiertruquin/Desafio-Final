@@ -14,7 +14,7 @@ import "swiper/components/pagination/pagination.min.css";
 
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper/core";
-import CardProductoView from "./CardProductoView";
+import CardProductoSlide from "./CardProductoSlide";
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
@@ -24,7 +24,7 @@ SwiperCore.use([Pagination]);
 export default function SeccionAccesorios() {
     
     return (
-        <div className="container position-relative">
+        <div className="container position-relative mt-5">
             <span className="titulo1 ps-4">ACCESORIOS</span>
             <div className="row contenedor-seccion-compus">
                 <p className=" subtitulo-seccion2">Equipos de escritorio para todos los bolsillos</p>
@@ -57,16 +57,16 @@ export default function SeccionAccesorios() {
                         navigation={true}
                     >
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <CardProductoView />
+                            <CardProductoSlide />
                         </SwiperSlide>
 
                     </Swiper>

@@ -1,8 +1,8 @@
 import compu2 from "../assets/img/compu2.jpeg";
 
-export default function CardProductoView() {
+export default function CardProductoSlide() {
   return (
-    <div className="col-4">
+
       <div className="my-1 p-4">
         <button className="btn-serie">Serie Advance</button>
         <img src={compu2} alt="" className="img-fluid" />
@@ -19,6 +19,6 @@ export default function CardProductoView() {
         <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
         <button className="btn-comprar mt-2" >Comprar</button>
       </div>
-    </div>
+
   );
 }
