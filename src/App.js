@@ -1,5 +1,3 @@
-
-
 import "./App.css";
 import "./Admin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,59 +13,60 @@ import Producto from "./pages/Producto";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/inicio">
-          <NavReactB />
-          <Inicio />
-          <Footer />
-        </Route>
-        <Route path="/computadoras">
-          <NavReactB />
-          <Computadoras />
-          <Footer />
-        </Route>
-        <Route path="/notebooks">
-          <NavReactB />
-          <Footer />
-        </Route>
-        <Route path="/accesorios">
-          <NavReactB />
-          <Footer />
-        </Route>
-        <Route path="/nosotros">
-          <NavReactB />
-          <Footer />
-        </Route>
-        <Route path="/producto">
-          <Producto />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/registro">
-          <Registro />
-        </Route>
-        <Route path="/productos">
-          <NavAdmin />
-          <ProductosAdmin />
-        </Route>
-        <Route path="/usuarios">
-          <NavAdmin />
-          <UsuariosAdmin />
-        </Route>
-        <Route path="/estadisticas">
-          <NavAdmin />
-          <EstadisticasAdmin />
-        </Route>
-      </Switch>
-    </Router>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route path="/inicio">
+                    <NavReactB />
+                    <Inicio />
+                    <Footer />
+                </Route>
+                <Route path="/computadoras">
+                    <NavReactB />
+                    <Computadoras />
+                    <Footer />
+                </Route>
+                <Route path="/notebooks">
+                    <NavReactB />
+                    <Footer />
+                </Route>
+                <Route path="/accesorios">
+                    <NavReactB />
+                    <Footer />
+                </Route>
+                <Route path="/nosotros">
+                    <NavReactB />
+                    <Footer />
+                </Route>
+                <Route path="/producto">
+                    <NavReactB />
+                    <Producto />
+                    <Footer />
+                </Route>
+                <Route path="/login">
+                    <Login />
+                </Route>
+                <Route path="/registro">
+                    <Registro />
+                </Route>
+                <Route path="/productos">
+                    <NavAdmin />
+                    <ProductosAdmin />
+                </Route>
+                <Route path="/usuarios">
+                    <NavAdmin />
+                    <UsuariosAdmin />
+                </Route>
+                <Route path="/estadisticas">
+                    <NavAdmin />
+                    <EstadisticasAdmin />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
