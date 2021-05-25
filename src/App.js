@@ -1,5 +1,3 @@
-
-
 import "./App.css";
 import "./Admin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,7 +12,7 @@ import Computadoras from "./pages/Computadoras";
 import Producto from "./pages/Producto";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
-
+import SobreNosotros from "./pages/SobreNosotros";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -38,10 +36,12 @@ function App() {
         </Route>
         <Route path="/accesorios">
           <NavReactB />
+
           <Footer />
         </Route>
         <Route path="/nosotros">
           <NavReactB />
+          <SobreNosotros />
           <Footer />
         </Route>
         <Route path="/producto">
