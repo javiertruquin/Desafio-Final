@@ -712,3 +712,31 @@
 .mu-clients-slider .slick-next {
   background-color: transparent;
 }
+
+.bg-fondo-producto-admin {
+  background-image: url(../src/assets/img/fondo-admin.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 227px;
+  min-width: 100%;
+}
+
+.btn-dash {
+  background-color: #94C11E;
+  border: 1px solid #94C11E;
+  color: white;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: .5rem;
+}
+
+.btn-dash:hover {
+  background-color: white;
+  border: 1px solid #94C11E;
+  color: #94C11E;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: .5rem;
+}
