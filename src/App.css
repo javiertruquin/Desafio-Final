@@ -38,7 +38,7 @@
 }
 
 .condensed {
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 500;
   font-size: 13pt;
 }
@@ -50,7 +50,7 @@
 
 .titulo1 {
   font-size: 2.5rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   position: absolute;
   top: -43px;
@@ -65,7 +65,7 @@
   margin-top: 20px !important;
   padding-right: 60px !important;
   text-align: right;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
 }
 
 .contenedor-items {
@@ -75,29 +75,29 @@
 
 .titulo-producto {
   font-size: 1.2rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
-  color: #002B4B;
+  color: #002b4b;
 }
 
 .detalle-producto {
   font-size: 0.8rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 400;
   color: rgb(82, 82, 82);
 }
 
 .precio-producto {
   font-size: 1.6rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 500;
-  color: #94C11E;
+  color: #94c11e;
 }
 
 .btn-heart {
   font-size: 1.2rem;
   border: 0;
-  color: #0083AC;
+  color: #0083ac;
   background-color: white;
   padding: 5px 10px;
 }
@@ -126,7 +126,7 @@
 
 .texto-pagos {
   font-size: 1rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   padding-top: 60px;
   padding-right: 60px;
@@ -137,7 +137,7 @@
 .btn-comprar {
   background-color: #005989;
   font-size: 1rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 500;
   border: 0;
   color: white;
@@ -147,7 +147,7 @@
 .btn-comprar:hover {
   background-color: #00a8db;
   font-size: 1rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 500;
   border: 0;
   color: white;
@@ -155,31 +155,28 @@
 }
 
 .circulo-envpag {
-  background-color: #94C11E;
+  background-color: #94c11e;
   width: 60px;
   height: 60px;
   color: white;
   font-size: 1.8rem;
-
-
 }
 
 .contenedor-circulos {
-  background-color: #0083AD;
-
+  background-color: #0083ad;
 }
 
 .text-destacado-envpag {
   color: white;
   font-size: 1.2rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 500;
 }
 
 .text-envpag {
   color: white;
   font-size: 1rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 300;
 }
 
@@ -193,27 +190,26 @@
   font-weight: 300;
   margin-top: 25px !important;
   padding-left: 35px !important;
-  font-family: 'Saira Semi Condensed', sans-serif;
-
+  font-family: "Saira Semi Condensed", sans-serif;
 }
 
 .li-footer {
   font-size: 1rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 400;
   color: rgb(117, 117, 117);
 }
 
 .titulos-footer {
   font-size: 1.1rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 500;
   color: rgb(71, 71, 71);
 }
 
 .titulo2 {
   font-size: 3rem;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   /* position: absolute;
   top: 363px; */
@@ -223,22 +219,22 @@
 
 .btn-serie {
   background-color: white;
-  border: 1px solid #94C11E;
-  color: #94C11E;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  border: 1px solid #94c11e;
+  color: #94c11e;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .btn-serie:hover {
-  background-color: #94C11E;
-  border: 1px solid #94C11E;
+  background-color: #94c11e;
+  border: 1px solid #94c11e;
   color: white;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .container-buscador {
@@ -247,7 +243,7 @@
 
 .texto-categoria {
   color: white;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   font-style: italic;
@@ -255,44 +251,63 @@
 }
 
 .btn-categoria {
-  background-color: #94C11E;
-  border: 1px solid #94C11E;
+  background-color: #94c11e;
+  border: 1px solid #94c11e;
   color: white;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .btn-categoria:hover {
   background-color: white;
-  border: 1px solid #94C11E;
-  color: #94C11E;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  border: 1px solid #94c11e;
+  color: #94c11e;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .input-buscar {
   color: #575757;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   padding-left: 10px;
 }
 
 .titulo-azul {
-  color: #002B4B;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  color: #002b4b;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 400;
   font-size: 2rem;
   padding-left: 10px;
 }
 
+.texto-registro {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline;
+  color: #002b4b;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  margin-right: 30px;
+  margin-top: 60px;
+}
+
+.boton-aqui {
+  color: #24c90f !important;
+  font-family: "Saira Semi Condensed", sans-serif;
+  margin: -10px !important;
+}
+
 .texto-verde-grande {
-  color: #94C11E;
-  font-family: 'Saira Semi Condensed', sans-serif;
+  color: #94c11e;
+  font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 300;
   font-size: 5.5rem;
   padding-left: 10px;
@@ -308,23 +323,23 @@
   border: #ffffff 1px solid;
 }
 
-.map-responsive{
-  overflow:hidden;
-  padding-bottom:56.25%;
-  position:relative;
-  height:0;
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
 }
 
-.map-responsive iframe{
-  left:0;
-  top:0;
-  height:100%;
-  width:100%;
-  position:absolute;
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .cuadrado {
   max-width: 180px;
 
-  background-color: #002B4B;
+  background-color: #002b4b;
 }
