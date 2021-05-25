@@ -6,7 +6,7 @@ export default function NavReactB() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" className="sticky-top">
       <div className="container">
-        <Navbar.Brand to="/" as={NavLink} className="px-4">
+        <Navbar.Brand to="/inicio" as={NavLink} className="px-4">
           <img
             src={logo}
             height="50px"
