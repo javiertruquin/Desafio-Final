@@ -11,7 +11,10 @@ export default function Registro() {
       style={{ width: "777px" }}
       className="container card mx-auto pt-2 pr-4 pl-4 mt-4"
     >
-      <h2 style={{ width: "421px" }} className="mx-auto p-4 text-center mb-2">
+      <h2
+        style={{ width: "421px" }}
+        className="mx-auto text-center p-4 mb-2 titulo-azul"
+      >
         Ingresá tus datos
       </h2>
       <MDBContainer className="mb-4">
@@ -38,15 +41,14 @@ export default function Registro() {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      <Button
-        variant="primary"
+      <button
         type="submit"
-        style={{ width: "300px" }}
-        className="mx-auto mt-4 mb-2 rounded"
+        style={{ width: "40%" }}
+        className="mx-auto mt-4 mb-2 btn-categoria"
       >
         REGISTRARSE
-      </Button>
-      <p className="mt-1 mb-5 text-center grey-text">
+      </button>
+      <p className="mt-1 mb-5 text-center advertencia-registro">
         Asegurate de tener acceso al e-mail que ingresaste
       </p>
     </Form>

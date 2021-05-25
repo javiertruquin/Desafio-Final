@@ -299,6 +299,13 @@
   margin-top: 60px;
 }
 
+.advertencia-registro {
+  color: #002b4b;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
 .boton-aqui {
   color: #24c90f !important;
   font-family: "Saira Semi Condensed", sans-serif;
