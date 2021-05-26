@@ -1,8 +1,15 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { React, useState } from "react";
+import { Navbar, Nav, Button, Modal } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
+import CardFavoritos from "./CardFavoritos";
 
 export default function NavReactB() {
+  const [crear, setCrear] = useState(false);
+
+  const handleClose = () => setCrear(false);
+  const handleCrear = () => setCrear(true);
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" className="sticky-top">
       <div className="container">
@@ -31,12 +38,14 @@ export default function NavReactB() {
             </Nav.Link>
             <Nav.Link to="/nosotros" as={NavLink}>
               <span className="">Nosotros</span>
-              
             </Nav.Link>
             <Nav.Link to="/usuarios" as={NavLink}>
               Admin
             </Nav.Link>
             <div className="ps-5 d-flex">
+              <Nav.Link href="#link" onClick={handleCrear}>
+                <i style={{ color: "#00598a" }} class="fas fa-heart"></i>
+              </Nav.Link>
               <Nav.Link href="#link">
                 <i
                   style={{ color: "#00598a" }}
@@ -47,12 +56,23 @@ export default function NavReactB() {
                 <i style={{ color: "#00598a" }} class="fas fa-user"></i>
               </Nav.Link>
             </div>
-
           </Nav>
-
         </Navbar.Collapse>
       </div>
+      {/* Modal's */}
+      <Modal className="modal-favoritos" bsPrefix="modal" size="lg" show={crear} onHide={handleClose}>
+        <Modal.Body scrollable>
+            <CardFavoritos />
+            <CardFavoritos />
+            <CardFavoritos />
+            <CardFavoritos />
+        </Modal.Body>
+        {/* <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Cerrar
+          </Button>
+        </Modal.Footer> */}
+      </Modal>
     </Navbar>
-
   );
 }
