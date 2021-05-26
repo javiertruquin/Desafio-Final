@@ -6,7 +6,7 @@ export default function NavReactB() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" className="sticky-top">
       <div className="container">
-        <Navbar.Brand to="/inicio" as={NavLink} className="px-4">
+        <Navbar.Brand to="/" as={NavLink} className="px-4">
           <img
             src={logo}
             height="50px"
@@ -17,7 +17,7 @@ export default function NavReactB() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto condensed">
-            <Nav.Link to="/inicio" as={NavLink}>
+            <Nav.Link to="/" as={NavLink}>
               Inicio
             </Nav.Link>
             <Nav.Link to="/computadoras" as={NavLink}>
@@ -37,7 +37,7 @@ export default function NavReactB() {
               Admin
             </Nav.Link>
             <div className="ps-5 d-flex">
-              <Nav.Link href="#link">
+              <Nav.Link to="/carrito" as={NavLink}>
                 <i
                   style={{ color: "#00598a" }}
                   class="fas fa-shopping-cart"

@@ -8,7 +8,7 @@ export default function NavAdmin() {
 
 <Navbar collapseOnSelect expand="lg"  bg="dark" variant="dark" className="sticky-top">
       <div className="container">
-        <Navbar.Brand to="/inicio" as={NavLink} className="px-4">
+        <Navbar.Brand to="/" as={NavLink} className="px-4">
           <img
             src={logoW}
             height="50px"

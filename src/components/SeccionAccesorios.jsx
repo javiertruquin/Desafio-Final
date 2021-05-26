@@ -19,8 +19,6 @@ import CardProductoSlide from "./CardProductoSlide";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-
-
 export default function SeccionAccesorios() {
     
     return (
