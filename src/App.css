@@ -376,6 +376,40 @@
   background-color: #002b4b;
 }
 
+.titulo-dash {
+  color: #002b4b;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 3.6em;
+  padding-left: 10px;
+  line-height: 51pt;
+}
+
+.subtitulo-dash {
+  color: #6e6e6e;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 500;
+  font-size: 1.7rem;
+  padding-left: 10px;
+
+}
+
+.titulo-view-dash {
+  color: #777777;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+}
+
+.subtitulo-view-dash {
+  color: #6e6e6e;
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+
+}
+
+
 /*--------------------*/
 /* ABOUT US */
 /*--------------------*/
@@ -753,7 +787,7 @@
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
-  margin-top: .5rem;
+
 }
 
 .btn-dash:hover {
@@ -763,5 +797,6 @@
   font-family: 'Saira Semi Condensed', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
-  margin-top: .5rem;
+
 }
+

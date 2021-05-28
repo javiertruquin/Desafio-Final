@@ -11,11 +11,33 @@ export default function UsuariosAdmin() {
 
   return (
     <>
-      <Container className="mt-5">
-        <div className="text-center py-5">
-          <Button className="py-3 px-5" onClick={handleCrear} variant="secondary">
-            Agregar Vendedor
-          </Button>{" "}
+      <Container className="">
+      <div className="row bg-fondo-producto-admin img-fluid">
+          <div className="col-lg-6 text-lg-right text-center mt-5">
+            <span className="titulo-dash">Click aquí </span>
+            <br></br>
+            <span className="subtitulo-dash">para crear un vendedor</span>
+          </div>
+          <div className="col-lg-6  py-5 mt-4 text-center">
+            <div className=" mx-5"><button onClick={handleCrear} className="btn-dash py-2 px-4">
+              <i class="fas fa-plus-square"></i> Agregar vendedor
+            </button></div>
+
+            {/* <Button
+              className="py-3 px-5"
+              variant="secondary"
+              onClick={handleCrear}
+            >
+              Agregar Producto
+          </Button>{" "} */}
+          </div>
+
+        </div>
+        <div className="">
+          <p className="titulo-view-dash mt-4">Listado de usuarios</p>
+          <p className="subtitulo-view-dash">Aqui podés ver el listado completo de usuarios y podes visualizarlo, editar o eliminarlo.</p>
+
+          <hr className=" mt-4" style={{ border: '1px solid #ababab' }} />
         </div>
         <Table responsive striped bordered hover variant="dark">
           <thead>
