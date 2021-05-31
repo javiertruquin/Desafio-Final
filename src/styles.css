@@ -1,127 +1,285 @@
 body {
-    font-family: Helvetica, sans-serif;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
-  
-  a {
-    color: #666;
-  }
-  
-  h1 {
-    font-weight: bold;
-    margin: 0 0 10px;
-  }
-  
-  h4 {
-    margin-bottom: 30px;
-  }
-  
-  h1,
-  h2,
-  h4 {
-    text-align: center;
-  }
-  
-  .App-payment {
-    padding: 30px;
-  }
-  
-  form {
-    margin: 30px auto 0;
-    max-width: 400px;
-  }
-  
-  .form-actions {
-    margin-top: 15px;
-  }
-  
-  .App-cards {
-    margin: 0 auto;
-    max-width: 1280px;
-    text-align: center;
-  }
-  
-  .App-cards-list {
-    display: flex;
-    margin-top: 30px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .App-cards-list > * {
-    transform: scale(0.8);
-    margin-bottom: 30px !important;
-  }
-  
-  .App-highlight {
-    font-family: serif;
-    margin: 15px auto 0;
-    max-width: 300px;
-  }
-  
-  .App-highlight > div {
-    padding-left: 40px;
-  }
-  
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: #666;
+}
+
+h1 {
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+h4 {
+  margin-bottom: 30px;
+}
+
+h1,
+h2,
+h4 {
+  text-align: center;
+}
+
+.App-payment {
+  padding: 30px;
+}
+
+form {
+  margin: 30px auto 0;
+  max-width: 400px;
+}
+
+.form-actions {
+  margin-top: 15px;
+}
+
+.App-cards {
+  margin: 0 auto;
+  max-width: 1280px;
+  text-align: center;
+}
+
+.App-cards-list {
+  display: flex;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.App-cards-list > * {
+  transform: scale(0.8);
+  margin-bottom: 30px !important;
+}
+
+.App-highlight {
+  font-family: serif;
+  margin: 15px auto 0;
+  max-width: 300px;
+}
+
+.App-highlight > div {
+  padding-left: 40px;
+}
+
+.App-badges {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App-badges a {
+  display: block;
+}
+
+.App-badges a + a {
+  margin-top: 18px;
+}
+
+.github__btn {
+  align-items: center;
+  background-color: #ccc;
+  border-radius: 4px;
+  color: #444;
+  display: flex;
+  line-height: 1;
+  padding: 8px 12px;
+}
+
+.github__btn:hover {
+  color: #444;
+  text-decoration: none;
+}
+
+.github__btn img {
+  display: inline-block;
+  height: 28px;
+  margin-right: 8px;
+}
+
+.App-credits {
+  background-color: #000;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+}
+
+.App-credits a {
+  color: #fff;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
   .App-badges {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
   }
-  
-  .App-badges a {
-    display: block;
-  }
-  
+
   .App-badges a + a {
-    margin-top: 18px;
+    margin-top: 0;
+    margin-left: 18px;
   }
-  
-  .github__btn {
-    align-items: center;
-    background-color: #ccc;
-    border-radius: 4px;
-    color: #444;
-    display: flex;
-    line-height: 1;
-    padding: 8px 12px;
-  }
-  
-  .github__btn:hover {
-    color: #444;
-    text-decoration: none;
-  }
-  
-  .github__btn img {
-    display: inline-block;
-    height: 28px;
-    margin-right: 8px;
-  }
-  
-  .App-credits {
-    background-color: #000;
-    color: #fff;
-    line-height: 50px;
-    text-align: center;
-  }
-  
-  .App-credits a {
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  @media screen and (min-width: 600px) {
-    .App-badges {
-      flex-direction: row;
-    }
-  
-    .App-badges a + a {
-      margin-top: 0;
-      margin-left: 18px;
-    }
-  }
-  
+}
+
+/*--------------------*/
+/* CONTACT US */
+/*--------------------*/
+
+#mu-contact {
+  background-color: #fff;
+  display: inline;
+  float: left;
+  width: 100%;
+}
+
+.mu-contact-area {
+  display: inline;
+  float: left;
+  text-align: center;
+  padding: 100px 0;
+  width: 100%;
+}
+
+.mu-contact-content {
+  display: inline;
+  float: left;
+  width: 100%;
+  padding: 0 28%;
+}
+
+.mu-contact-form-area {
+  display: inline;
+  float: left;
+  width: 100%;
+}
+
+.mu-contact-form {
+  text-align: center;
+}
+
+.mu-contact-form .form-group {
+  position: relative;
+}
+
+.mu-contact-form .mu-contact-icon {
+  color: #0091ea;
+  font-size: 14px;
+  position: absolute;
+  left: 5px;
+  top: 15px;
+}
+
+.mu-contact-form .form-group input {
+  background: transparent;
+  border-radius: 0;
+  color: #333;
+  font-size: 14px;
+  border: 1px #cccccc;
+  border-style: none none solid none;
+  height: 45px;
+  padding: 0 25px;
+  margin-bottom: 24px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.mu-contact-form .form-group textarea {
+  background: transparent;
+  border: 1px #cccccc;
+  border-style: none none solid none;
+  border-radius: 0;
+  color: #333;
+  font-size: 14px;
+  padding: 10px;
+  height: 100px;
+  padding: 13px 25px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.mu-contact-form .form-control:focus {
+  background-color: #fff;
+  border-style: none none solid none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.mu-contact-form .form-control::-webkit-input-placeholder {
+  color: #7e7e7e;
+  font-size: 14px;
+}
+
+.mu-contact-form .form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: #7e7e7e;
+  font-size: 14px;
+}
+
+.mu-contact-form .form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #7e7e7e;
+  font-size: 14px;
+}
+
+.mu-contact-form .form-control:-ms-input-placeholder {
+  color: #7e7e7e;
+  font-size: 14px;
+}
+
+.mu-contact-form .button-default::after,
+.mu-contact-form .button-default > span {
+  padding: 12px 40px;
+}
+
+#form-messages {
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.success {
+  padding: 1em;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #468847;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.error {
+  padding: 1em;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #b94a48;
+  background-color: #f2dede;
+  border: 1px solid rgba(185, 74, 72, 0.3);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/*--------------------*/
+/* ABOUT US */
+/*--------------------*/
+
+.mu-page-header-area {
+  display: inline;
+  float: left;
+  padding: 150px 0;
+  width: 100%;
+  position: relative;
+  z-index: 20;
+}
+
+.mu-page-header-title {
+  color: #0d0e0d;
+  text-align: center;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}

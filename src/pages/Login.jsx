@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 export default function Login() {
   return (
     <div>
-      <NavReactB />
       <div className="container">
         <div className="row">
           <div className="col-lg-4 col-md-12 text-center p-4 mb-2 titulo-azul">

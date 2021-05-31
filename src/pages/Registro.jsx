@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import { Form, Button, FormGroup } from "react-bootstrap";
+import React from "react";
+import { Form } from "react-bootstrap";
 import { MDBInput } from "mdbreact";
-import { NavLink } from "react-router-dom";
-import { Nav } from "react-bootstrap";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 export default function Registro() {

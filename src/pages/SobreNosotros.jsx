@@ -6,6 +6,8 @@ import miembro2 from "../assets/img/javier.png";
 import miembro3 from "../assets/img/tomas.png";
 import miembro4 from "../assets/img/andres.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 import {
   faFacebookF,
   faLinkedinIn,
@@ -139,7 +141,13 @@ export default function SobreNosotros() {
                                 </div>
                               </div>
                             </div>
-                            <h3>Tucumán</h3>
+                            <Nav.Link
+                              to="/tucuman"
+                              as={NavLink}
+                              className="boton-aqui"
+                            >
+                              TUCUMÁN
+                            </Nav.Link>
                             <p>
                               Arturo Cacatúa 5520 - San Miguel de Tucumán -
                               Tucumán. Tel: 338-430158

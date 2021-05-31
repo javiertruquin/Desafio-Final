@@ -1,7 +1,7 @@
 import "./App.css";
 import "./Admin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'react-credit-cards/es/styles-compiled.css';
+import "react-credit-cards/es/styles-compiled.css";
 import NavReactB from "./components/NavReactB";
 import NavAdmin from "./components/NavAdmin";
 import ProductosAdmin from "./components/ProductosAdmin";
@@ -16,6 +16,7 @@ import Registro from "./pages/Registro";
 import SobreNosotros from "./pages/SobreNosotros";
 import Carrito from "./pages/Carrito";
 import Pago from "./pages/Pago";
+import Tucuman from "./pages/Tucuman";
 import styles from "./styles.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -24,7 +25,7 @@ function App() {
   return (
     <Router>
       <Switch>
-      <Route path="/" exact>
+        <Route path="/" exact>
           <NavReactB />
           <Inicio />
           <Footer />
@@ -57,10 +58,14 @@ function App() {
           <Pago />
         </Route>
         <Route path="/login">
+          <NavReactB />
           <Login />
+          <Footer />
         </Route>
         <Route path="/registro">
+          <NavReactB />
           <Registro />
+          <Footer />
         </Route>
         <Route path="/productos">
           <NavAdmin />
@@ -69,6 +74,10 @@ function App() {
         <Route path="/usuarios">
           <NavAdmin />
           <UsuariosAdmin />
+        </Route>
+        <Route path="/tucuman">
+          <NavReactB />
+          <Tucuman />
         </Route>
         <Route path="/estadisticas">
           <NavAdmin />
