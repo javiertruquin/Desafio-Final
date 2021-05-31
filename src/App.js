@@ -17,6 +17,9 @@ import SobreNosotros from "./pages/SobreNosotros";
 import Carrito from "./pages/Carrito";
 import Pago from "./pages/Pago";
 import Tucuman from "./pages/Tucuman";
+import Capital from "./pages/Capital";
+import Rosario from "./pages/Rosario";
+import Sannicolas from "./pages/Sannicolas";
 import styles from "./styles.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -78,6 +81,18 @@ function App() {
         <Route path="/tucuman">
           <NavReactB />
           <Tucuman />
+        </Route>
+        <Route path="/capital">
+          <NavReactB />
+          <Capital />
+        </Route>
+        <Route path="/rosario">
+          <NavReactB />
+          <Rosario />
+        </Route>
+        <Route path="/sannicolas">
+          <NavReactB />
+          <Sannicolas />
         </Route>
         <Route path="/estadisticas">
           <NavAdmin />

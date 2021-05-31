@@ -283,3 +283,11 @@ form {
   text-transform: uppercase;
   margin-bottom: 0;
 }
+
+.mu-skills-circle .mu-circle .text {
+  background-color: #0091ea;
+  color: #fff !important;
+  font-size: 20px;
+  padding: 20px 15px;
+  border-radius: 50%;
+}

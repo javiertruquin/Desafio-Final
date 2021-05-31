@@ -114,10 +114,11 @@ export default function SobreNosotros() {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="mu-title">
-                      <h2>Nuestros Locales</h2>
+                      <h2>Comunicate Con Nosotros</h2>
                       <p>
-                        Estamos en cada parte del país. Porque te queremos cerca
-                        podés pasar por cualquiera de nuestros locales:
+                        Como estamos en cada parte del país, queremos atender tu
+                        consulta donde estemos mas cerca. Seleccioná el local
+                        con el que quieras comunicarte:
                       </p>
                     </div>
                   </div>
@@ -132,25 +133,22 @@ export default function SobreNosotros() {
                           <div className="mu-single-skills">
                             <div className="mu-skills-circle">
                               <div
-                                id="circle-1"
-                                class="mu-circle"
+                                className="mu-circle"
                                 data-circle-dialWidth="15"
                               >
                                 <div className="loader-bg">
-                                  <div className="text">TUCUMÁN</div>
+                                  <div className="text">
+                                    <Nav.Link to="/tucuman" as={NavLink}>
+                                      TUCUMÁN
+                                    </Nav.Link>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                            <Nav.Link
-                              to="/tucuman"
-                              as={NavLink}
-                              className="boton-aqui"
-                            >
-                              TUCUMÁN
-                            </Nav.Link>
+                            <h3>Tucumán</h3>
                             <p>
-                              Arturo Cacatúa 5520 - San Miguel de Tucumán -
-                              Tucumán. Tel: 338-430158
+                              Gral. Paz 576 - Piso 9 - Oficina 2 - San Miguél de
+                              Tucumán - Tucumán. Tel: 381-5783030
                             </p>
                           </div>
                         </div>
@@ -160,12 +158,15 @@ export default function SobreNosotros() {
                           <div className="mu-single-skills">
                             <div className="mu-skills-circle">
                               <div
-                                id="circle-2"
                                 className="mu-circle"
                                 data-circle-dialWidth="15"
                               >
                                 <div className="loader-bg">
-                                  <div className="text">CAPITAL FEDERAL</div>
+                                  <div className="text">
+                                    <Nav.Link to="/capital" as={NavLink}>
+                                      CAPITAL FEDERAL
+                                    </Nav.Link>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -182,12 +183,15 @@ export default function SobreNosotros() {
                           <div className="mu-single-skills">
                             <div className="mu-skills-circle">
                               <div
-                                id="circle-3"
                                 className="mu-circle"
                                 data-circle-dialWidth="15"
                               >
                                 <div className="loader-bg">
-                                  <div className="text">ROSARIO</div>
+                                  <div className="text">
+                                    <Nav.Link to="/rosario" as={NavLink}>
+                                      ROSARIO
+                                    </Nav.Link>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -197,18 +201,22 @@ export default function SobreNosotros() {
                             </p>
                           </div>
                         </div>
+
                         {/*<!-- TERMINA CONTENIDO INDIVIDUAL DE CUADROS 3 -->
                         <!-- CONTENIDO INDIVIDUAL DE CUADROS 4--> */}
                         <div className="col-md-3">
                           <div className="mu-single-skills">
                             <div className="mu-skills-circle">
                               <div
-                                id="circle-4"
                                 className="mu-circle"
                                 data-circle-dialWidth="15"
                               >
                                 <div className="loader-bg">
-                                  <div className="text">SAN NICOLÁS</div>
+                                  <div className="text">
+                                    <Nav.Link to="/sannicolas" as={NavLink}>
+                                      SAN NICOLAS
+                                    </Nav.Link>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -219,6 +227,7 @@ export default function SobreNosotros() {
                             </p>
                           </div>
                         </div>
+
                         {/* <!-- TERMINA CONTENIDO INDIVIDUAL DE CUADROS 4 --> */}
                       </div>
                     </div>

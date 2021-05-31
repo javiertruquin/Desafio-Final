@@ -11,7 +11,7 @@ export default function () {
           <div className="row">
             <div className="col-md-12">
               <div className="mu-page-header-area">
-                <h1 className="mu-page-header-title">SUCURSAL TUCUMÁN</h1>
+                <h1 className="mu-page-header-title">SUCURSAL ROSARIO</h1>
               </div>
             </div>
           </div>
@@ -92,13 +92,9 @@ export default function () {
               >
                 <img src={logo} alt="" style={{ width: "200px" }} />
                 <ul className="pt-2">
-                  <li className="li-footer py-2">
-                    Gral. Paz 576 - Piso 9 - Oficina 2
-                  </li>
-                  <li className="li-footer py-2">
-                    San Miguel de Tucumán - Argentina
-                  </li>
-                  <li className="li-footer py-2">+5493815783030</li>
+                  <li className="li-footer py-2">Além 3636</li>
+                  <li className="li-footer py-2">Rosario - Santa Fe</li>
+                  <li className="li-footer py-2">341-4459854</li>
                 </ul>
               </div>
               <div className="col-xl-6 col-md-12 ">
@@ -119,11 +115,11 @@ export default function () {
                 <p className="titulos-footer ps-3">Horarios de atención:</p>
                 <ul>
                   <li className="li-footer py-2">
-                    Lunes a viernes: 9:00 a 17:00
+                    Lunes a viernes: 9:00 a 18:00
                   </li>
-                  <li className="li-footer py-2">Sábados: 9:00 a 13:00</li>
+                  <li className="li-footer py-2">Sábados: 9:30 a 14:00</li>
                   <li className="li-footer py-2">
-                    contacto@rollingtech.com.ar
+                    contactorosario@rollingtech.com.ar
                   </li>
                 </ul>
               </div>
