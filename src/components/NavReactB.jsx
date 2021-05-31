@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Navbar, Nav, Button, Modal } from "react-bootstrap";
+import { Navbar, Nav, Modal } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
