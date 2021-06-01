@@ -25,7 +25,7 @@ export default function Computadoras() {
                     <img src={slideCompu3} alt="" className="img-fluid" />
                 </Carousel.Item>
             </Carousel>
-            <div className="titulo2 ps-4">COMPUTADORAS</div>
+            <div className="ps-4 mt-5 position-relative"><span className="titulo2 position-absolute">COMPUTADORAS</span></div>
             <div className="row contenedor-seccion-compus">
 
                 <p className=" subtitulo-seccion2">Equipos de escritorio para todos los bolsillos</p>

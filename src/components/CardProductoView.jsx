@@ -2,7 +2,7 @@ import compu2 from "../assets/img/compu2.jpeg";
 
 export default function CardProductoView() {
   return (
-    <div className="col-4">
+    <div className="col-sm-12 col-lg-6 col-xl-4">
       <div className="my-1 p-4">
         <button className="btn-serie">Serie Advance</button>
         <img src={compu2} alt="" className="img-fluid" />

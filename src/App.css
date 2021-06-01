@@ -70,7 +70,7 @@
 
 .contenedor-seccion-compus {
   background-color: darkgrey;
-  margin-top: 4rem !important;
+
 }
 
 .titulo1 {
@@ -211,7 +211,7 @@
 
 .subtitulo-seccion2 {
   color: white;
-  font-size: 2.8rem;
+  font-size: clamp(2.5rem, 1vh, 5rem);
   font-weight: 300;
   margin-top: 25px !important;
   padding-left: 35px !important;
@@ -233,11 +233,11 @@
 }
 
 .titulo2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
-  /* position: absolute;
-  top: 363px; */
+
+  bottom: -17px;
 
   color: darkgray;
 }

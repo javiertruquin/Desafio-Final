@@ -29,9 +29,8 @@ export default function CardProductoAdmin() {
           </div>
           <div className="col-lg-2">
             <div className="botones-productos">
-              <Button variant="primary">
-                <i class="fas fa-info-circle"></i> Ver
-              </Button>{" "}
+              <button className="btn-dash"><i class="fas fa-info-circle"></i> Ver</button>
+              
               <Button className="my-1">
                 <i class="far fa-edit"></i> Editar
               </Button>{" "}
