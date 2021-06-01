@@ -21,10 +21,15 @@ import Capital from "./pages/Capital";
 import Rosario from "./pages/Rosario";
 import Sannicolas from "./pages/Sannicolas";
 import styles from "./styles.css";
+import { useState } from "react";
+
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
+  const [user, setUser] = useState('');
+  const [token, setToken] = useState('');
+
   return (
     <Router>
       <Switch>
@@ -62,12 +67,12 @@ function App() {
         </Route>
         <Route path="/login">
           <NavReactB />
-          <Login />
+          <Login setUser={setUser} setToken={setToken} />
           <Footer />
         </Route>
         <Route path="/registro">
           <NavReactB />
-          <Registro />
+          <Registro setToken={setToken} />
           <Footer />
         </Route>
         <Route path="/productos">
