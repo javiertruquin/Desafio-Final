@@ -31,10 +31,10 @@ function Footer() {
                             <li className="li-footer py-2">contacto@rollingtech.com.ar</li>
                         </ul>
                     </div>
-                    <hr className=" mt-4" style={{ border: '1px solid #ababab' }} />
+                    <hr className=" mt-4" style={{ border: '1px solid #ababab', width: '90%' }} />
                     <div className="row pt-3 sub-footer">
-                        <div className="col-lg-6 detalle-producto"><b> © Rolling Tech </b>- Todos los derechos reservados. Desde 2020 junto a vos</div>
-                        <div className="col-lg-6 text-lg-center"><img src={pagosfooter} alt="" style={{ width: '500px' }} /></div>
+                        <div className="col-lg-6 detalle-producto mb-3"><b> © Rolling Tech </b>- Todos los derechos reservados. Desde 2020 junto a vos</div>
+                        <div className="col-lg-6 text-lg-center"><img src={pagosfooter} alt="" style={{ width: '100%' }} /></div>
                     </div>
 
                 </div>

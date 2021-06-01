@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import compu2 from "../assets/img/compu2.jpeg";
 
 export default function CardProductoAdmin() {
