@@ -319,7 +319,7 @@
   color: #002b4b;
   font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 400;
-  font-size: 1.7rem;
+  font-size: 1.1rem;
   margin-right: 30px;
   margin-top: 60px;
 }
@@ -331,11 +331,29 @@
   font-size: 1rem;
 }
 
-.boton-aqui {
-  color: #24c90f !important;
+.textito-azul-login {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #002b4b !important;
   font-family: "Saira Semi Condensed", sans-serif;
-  margin: -10px !important;
 }
+
+.boton-aqui {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #94c11e !important;
+  font-family: "Saira Semi Condensed", sans-serif;
+  /* margin: -10px !important; */
+}
+
+.boton-aqui:hover {
+  font-weight: 600;
+  color: #94c11e !important;
+  font-family: "Saira Semi Condensed", sans-serif;
+
+}
+
+
 
 .texto-verde-grande {
   color: #94c11e;

@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import CardProductoAdmin from "./CardProductoAdmin";
 import FormEditar from "./FormEditar";
+import Footer from "../components/Footer"
 
 export default function ProductosAdmin() {
   const [crear, setCrear] = useState(false);
@@ -47,6 +48,8 @@ export default function ProductosAdmin() {
         </div>
 
       </Container>
+
+          <Footer />
 
       {/* Modal's */}
       <Modal show={crear} onHide={handleClose}>

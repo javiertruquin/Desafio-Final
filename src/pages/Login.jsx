@@ -72,7 +72,8 @@ export default function Login({ setUser, setToken }) {
                                         />
                                     </Form.Group>
 
-                                    <div className="col-lg-1 col-md-12"></div>
+                                    {/* <div className="col-lg-1 col-md-12"></div> */}
+                                    <div className="row">
                                     <div className="col-lg-6 col-md-6 mr-md-auto">
                                         <button
                                             type="submit"
@@ -91,18 +92,22 @@ export default function Login({ setUser, setToken }) {
                                             </p>
                                         </a>
                                     </div>
+                                    <div className="col-6 text-center pt-4">
+                                        
+                                            <span className="textito-azul-login">Si aún no estás registrado, hacé</span>
+                                            <Nav.Link to="/registro" as={NavLink} className="boton-aqui">
+                                                click AQUÍ
+                                            </Nav.Link>
+                                        
+                                    </div>
+                                    </div>
                                 </Form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="text-right texto-registro">
-                <p>Si aún no estás registrado, hacé</p>
-                <Nav.Link to="/registro" as={NavLink} className="boton-aqui">
-                    click AQUÍ
-                </Nav.Link>
-            </div>
+
         </div>
     );
 }
