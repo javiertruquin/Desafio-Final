@@ -103,7 +103,6 @@ export default function Login({ setUser, setToken }) {
                     click AQUÍ
                 </Nav.Link>
             </div>
-            <Footer />
         </div>
     );
 }
