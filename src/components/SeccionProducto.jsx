@@ -30,14 +30,14 @@ export default function SeccionProducto() {
         <>
             <NavReactB />
             <div className="container my-5 ">
-                <Card className="p-3 m-auto row flex-row">
+                <div className="p-3 m-auto row flex-row">
 
                     <div className="col-5 pe-0">
                         <Card>
-                            <Card.Body className="">
-                                <Card.Title>
+                            <Card.Body className="fuente">
+                                <div className="titulo-producto-view">
                                     Estación de trabajo HP Z2 Mini G4
-                            </Card.Title>
+                            </div>
                                 <h5 className="grey-text">
                                     <del>$55000.00</del>
                                 </h5>
@@ -215,15 +215,15 @@ export default function SeccionProducto() {
                         </Swiper>
 
                         <div className="border-top">
-                            <h3 className="mt-4">
-                                Más publicaciones de RollingTech
+                            <h3 className="mt-4 titulo-infopro-view">
+                                Información del producto
                         </h3>
                             <div>
 
                             </div>
                         </div>
                     </div>
-                </Card>
+                </div>
             </div>
             <Footer />
         </>
