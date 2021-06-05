@@ -824,14 +824,14 @@
 
 .titulo-producto-view {
   font-weight: 600;
-  font-size: 1.7rem;
+  font-size: 1.6rem, 3vw, 2.3rem;
   color: #002b4b;
   
 }
 
 .titulo-infopro-view {
   font-weight: 600;
-  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
   color: #585858;
   font-family: 'Saira Semi Condensed', sans-serif;
 }

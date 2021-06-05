@@ -1,12 +1,12 @@
 import React from "react";
-import compu2 from "../assets/img/compu2.jpeg";
+import compu1 from "../assets/img/compu1/compu1.jpeg";
 
 export default function CardFavoritos() {
   return (
     <>
       <div className="d-flex card-favoritos">
         <div className="col-6">
-          <img src={compu2} alt="" className="img-fluid" />
+          <img src={compu1} alt="" className="img-fluid" />
         </div>
         <div className="col-6">
           <button className="btn-serie">Serie Advance</button>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import compu2 from "../assets/img/compu2.jpeg";
+import compu2 from "../assets/img/compu2/compu2-3.jpeg";
 
 export default function CardProductoAdmin() {
   return (

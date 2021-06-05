@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Button, Card, Carousel, Form } from "react-bootstrap";
-import compu1 from "../assets/img/compu1.jpeg";
-import compu2 from "../assets/img/compu2.jpeg";
-import compu3 from "../assets/img/compu3.jpeg";
+import compu1 from "../assets/img/compu1/compu1.jpeg";
+import compu2 from "../assets/img/compu2/compu2-1.jpeg";
+import compu3 from "../assets/img/compu3/compu3.jpeg";
 import metodoPago from "../assets/img/metodospago.png";
 import NavReactB from "../components/NavReactB"
 import Footer from "../components/Footer"
@@ -35,9 +35,9 @@ export default function SeccionProducto() {
                     <div className="col-5 pe-0">
                         <Card>
                             <Card.Body className="fuente">
-                                <div className="titulo-producto-view">
+                                <p className="titulo-producto-view">
                                     Estación de trabajo HP Z2 Mini G4
-                            </div>
+                            </p>
                                 <h5 className="grey-text">
                                     <del>$55000.00</del>
                                 </h5>

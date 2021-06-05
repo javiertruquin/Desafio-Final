@@ -1,11 +1,11 @@
-import compu2 from "../assets/img/compu2.jpeg";
+import compu3 from "../assets/img/compu3/compu3.jpeg";
 
 export default function CardProductoView() {
   return (
     <div className="col-sm-12 col-lg-6 col-xl-4">
       <div className="my-1 p-4">
         <button className="btn-serie">Serie Advance</button>
-        <img src={compu2} alt="" className="img-fluid" />
+        <img src={compu3} alt="" className="img-fluid" />
         <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
         <ul className="detalle-producto">
           <li>Procesador AMD Ryzen™ 3</li>
