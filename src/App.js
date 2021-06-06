@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import Inicio from "./pages/Inicio.jsx";
 import Computadoras from "./pages/Computadoras";
 import Notebooks from "./pages/Notebooks";
-import Accesorios from "./pages/Accesorios"
+import Accesorios from "./pages/Accesorios";
 import Producto from "./pages/Producto";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
@@ -26,94 +26,97 @@ import Sannicolas from "./pages/Sannicolas";
 import styles from "./styles.css";
 import { useState } from "react";
 
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  const [user, setUser] = useState('');
-  const [token, setToken] = useState('');
+    const [user, setUser] = useState("");
+    const [token, setToken] = useState("");
 
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" exact>
-          <NavReactB />
-          <Inicio />
-          <Footer />
-        </Route>
-        <Route path="/computadoras">
-          <NavReactB />
-          <Computadoras />
-          <Footer />
-        </Route>
-        <Route path="/notebooks">
-          <NavReactB />
-          <Notebooks />
-          <Footer />
-        </Route>
-        <Route path="/accesorios">
-          <NavReactB />
-          <Accesorios />
-          <Footer />
-        </Route>
-        <Route path="/nosotros">
-          <NavReactB />
-          <SobreNosotros />
-          <Footer />
-        </Route>
-        <Route path="/producto">
-          <Producto />
-        </Route>
-        <Route path="/carrito">
-          <Carrito />
-        </Route>
-        <Route path="/envio">
-          <Envio />
-        </Route>
-        <Route path="/pago">
-          <Pago />
-        </Route>
-        <Route path="/login">
-          <NavReactB />
-          <Login setUser={setUser} setToken={setToken} />
-          <Footer />
-        </Route>
-        <Route path="/registro">
-          <NavReactB />
-          <Registro setToken={setToken} />
-          <Footer />
-        </Route>
-        <Route path="/productos">
-          <NavAdmin />
-          <ProductosAdmin />
-        </Route>
-        <Route path="/usuarios">
-          <NavAdmin />
-          <UsuariosAdmin />
-        </Route>
-        <Route path="/tucuman">
-          <NavReactB />
-          <Tucuman />
-        </Route>
-        <Route path="/capital">
-          <NavReactB />
-          <Capital />
-        </Route>
-        <Route path="/rosario">
-          <NavReactB />
-          <Rosario />
-        </Route>
-        <Route path="/sannicolas">
-          <NavReactB />
-          <Sannicolas />
-        </Route>
-        <Route path="/estadisticas">
-          <NavAdmin />
-          <EstadisticasAdmin />
-        </Route>
-      </Switch>
-    </Router>
-  );
+    return (
+        <Router>
+            <Route>
+                <ScrollToTop></ScrollToTop>
+            </Route>
+            <Switch>
+                <Route path="/" exact>
+                    <NavReactB />
+                    <Inicio />
+                    <Footer />
+                </Route>
+                <Route path="/computadoras">
+                    <NavReactB />
+                    <Computadoras />
+                    <Footer />
+                </Route>
+                <Route path="/notebooks">
+                    <NavReactB />
+                    <Notebooks />
+                    <Footer />
+                </Route>
+                <Route path="/accesorios">
+                    <NavReactB />
+                    <Accesorios />
+                    <Footer />
+                </Route>
+                <Route path="/nosotros">
+                    <NavReactB />
+                    <SobreNosotros />
+                    <Footer />
+                </Route>
+                <Route path="/producto">
+                    <Producto />
+                </Route>
+                <Route path="/carrito">
+                    <Carrito />
+                </Route>
+                <Route path="/envio">
+                    <Envio />
+                </Route>
+                <Route path="/pago">
+                    <Pago />
+                </Route>
+                <Route path="/login">
+                    <NavReactB />
+                    <Login setUser={setUser} setToken={setToken} />
+                    <Footer />
+                </Route>
+                <Route path="/registro">
+                    <NavReactB />
+                    <Registro setToken={setToken} />
+                    <Footer />
+                </Route>
+                <Route path="/productos">
+                    <NavAdmin />
+                    <ProductosAdmin />
+                </Route>
+                <Route path="/usuarios">
+                    <NavAdmin />
+                    <UsuariosAdmin />
+                </Route>
+                <Route path="/tucuman">
+                    <NavReactB />
+                    <Tucuman />
+                </Route>
+                <Route path="/capital">
+                    <NavReactB />
+                    <Capital />
+                </Route>
+                <Route path="/rosario">
+                    <NavReactB />
+                    <Rosario />
+                </Route>
+                <Route path="/sannicolas">
+                    <NavReactB />
+                    <Sannicolas />
+                </Route>
+                <Route path="/estadisticas">
+                    <NavAdmin />
+                    <EstadisticasAdmin />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
