@@ -64,7 +64,12 @@ export default class App extends React.Component {
             this.state;
 
         return (
-            <div key="Payment">
+            <div className="container p-4 mt-4" key="Payment ">
+                <div className=" border-bottom">
+                    <h2 className="mx-auto mb-3 text-center titulo-azul">
+                        Ingrese su Tarjeta
+                    </h2>
+                </div>
                 <div className="App-payment">
                     <Card
                         number={number}
@@ -83,20 +88,19 @@ export default class App extends React.Component {
                                 type="tel"
                                 name="number"
                                 className="form-control"
-                                placeholder="Card Number"
+                                placeholder="Numero de Tarjeta"
                                 pattern="[\d| ]{16,22}"
                                 required
                                 onChange={this.handleInputChange}
                                 onFocus={this.handleInputFocus}
                             />
-                            <small>E.g.: 49..., 51..., 36..., 37...</small>
                         </div>
                         <div className="form-group">
                             <input
                                 type="text"
                                 name="name"
                                 className="form-control"
-                                placeholder="Name"
+                                placeholder="Nombre y Apellido"
                                 required
                                 onChange={this.handleInputChange}
                                 onFocus={this.handleInputFocus}
@@ -108,7 +112,7 @@ export default class App extends React.Component {
                                     type="tel"
                                     name="expiry"
                                     className="form-control"
-                                    placeholder="Valid Thru"
+                                    placeholder="Fecha de expiracion"
                                     pattern="\d\d/\d\d"
                                     required
                                     onChange={this.handleInputChange}
@@ -120,18 +124,19 @@ export default class App extends React.Component {
                                     type="tel"
                                     name="cvc"
                                     className="form-control"
-                                    placeholder="CVC"
+                                    placeholder="Codigo de seguridad"
                                     pattern="\d{3,4}"
                                     required
                                     onChange={this.handleInputChange}
                                     onFocus={this.handleInputFocus}
                                 />
                             </div>
+                            <div></div>
                         </div>
                         <input type="hidden" name="issuer" value={issuer} />
                         <div className="form-actions">
-                            <button className="btn btn-primary btn-block">
-                                Aceptar
+                            <button className="btn-comprar w-100">
+                                Comprar
                             </button>
                         </div>
                     </form>

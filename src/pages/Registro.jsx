@@ -57,6 +57,8 @@ export default function Registro({ setToken }) {
                             required
                             type="text"
                             label="Nombre/s"
+                            
+
                         />
                     </MDBCol>
                     <MDBCol>
