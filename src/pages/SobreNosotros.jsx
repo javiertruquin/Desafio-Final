@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import foto1 from "../assets/img/about-us.jpg";
+import empresa from "../assets/img/empresa.jpg";
+import empresa2 from "../assets/img/empresa2.jpg";
 import miembro1 from "../assets/img/fede.png";
 import miembro2 from "../assets/img/javier.png";
 import miembro3 from "../assets/img/tomas.png";
@@ -17,9 +18,17 @@ import {
 
 export default function SobreNosotros() {
   return (
-    <div>
+    <div className="container fuente mt-5">
       {/* // <!-- EMPIEZA AREA DEL HEADER --> */}
-      <div id="mu-page-header">
+      <div className="row">
+        <div className="col-lg-5">
+          <h3>Somos una empresa</h3>
+        </div>
+        <div className="col-lg-7">
+          <img src={empresa} alt="" className="img-nosotros-head" />
+        </div>
+      </div>
+      {/* <div id="mu-page-header">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -29,7 +38,7 @@ export default function SobreNosotros() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* // <!-- TERMINA AREA DEL HEADER --> */}
 
       {/* // <!-- EMPIEZA EL SOBRE NOSOTROS --> */}
@@ -55,7 +64,7 @@ export default function SobreNosotros() {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="mu-about-left">
-                      <img src={foto1} alt="img" />
+                      <img src={empresa2} alt="img" className="img-fluid" />
                     </div>
                   </div>
                   <div className="col-md-6">

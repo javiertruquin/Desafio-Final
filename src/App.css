@@ -838,3 +838,9 @@
 .detalle-producto-seccion li { 
  margin-top: 15px;
 }
+
+.img-nosotros-head {
+  max-height: 295px;
+  width: 100%;
+  object-fit: cover;
+}
