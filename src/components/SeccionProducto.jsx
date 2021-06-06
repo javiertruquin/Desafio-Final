@@ -31,7 +31,6 @@ export default function SeccionProducto() {
             <NavReactB />
             <div className="container my-5 ">
                 <div className="p-3 m-auto row flex-row">
-
                     <div className="col-5 pe-0">
                         <Card>
                             <Card.Body className="fuente">

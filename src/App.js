@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 import SobreNosotros from "./pages/SobreNosotros";
 import Carrito from "./pages/Carrito";
+import Envio from "./pages/Envio";
 import Pago from "./pages/Pago";
 import Tucuman from "./pages/Tucuman";
 import Capital from "./pages/Capital";
@@ -61,6 +62,9 @@ function App() {
         </Route>
         <Route path="/carrito">
           <Carrito />
+        </Route>
+        <Route path="/envio">
+          <Envio />
         </Route>
         <Route path="/pago">
           <Pago />

@@ -5,9 +5,9 @@ import compu1 from "../assets/img/compu2/compu2-1.jpeg";
 import compu2 from "../assets/img/compu2/compu2-2.jpeg";
 import compu3 from "../assets/img/compu2/compu2-3.jpeg";
 
-export default function SeccionCarrito() {
+export default function SeccionCarrito2() {
     return (
-        <div className="container my-4">
+        <div className="container p-4 mt-4">
             <div className=" border-bottom mb-4">
                 <h2 className="mx-auto mb-3 text-center titulo-azul">
                     Mi Carrito
@@ -16,7 +16,7 @@ export default function SeccionCarrito() {
 
             <div className="row">
                 {/* PRODUCTOS */}
-                <div className="col-12 col-lg-8 px-lg-3 ">
+                <div className="col-12">
                     <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
                         <div className="row m-auto mx-0 ">
                             <div className="col-1 m-auto px-0">
@@ -28,7 +28,7 @@ export default function SeccionCarrito() {
                             </div>
                             <div className="col-10 m-auto px-0">
                                 <div className="row">
-                                    <div className="col-12 col-lg-5 m-auto">
+                                    <div className="col-12 col-xl-5 m-auto">
                                         <h5 className="d-flex my-auto ms-3">
                                             <a href="">
                                                 <div
@@ -43,7 +43,7 @@ export default function SeccionCarrito() {
                                             </a>
                                         </h5>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left ">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50"
@@ -52,14 +52,14 @@ export default function SeccionCarrito() {
                                         </div>
                                         <div>$55.999</div>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50"
                                         >
                                             Cantidad:
                                         </div>
-                                        <select className="w-100 text-center text-lg-left">
+                                        <select className="w-100 text-center text-xl-left">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -67,7 +67,7 @@ export default function SeccionCarrito() {
                                             <option>5</option>
                                         </select>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50 m-0"
@@ -97,7 +97,7 @@ export default function SeccionCarrito() {
                             </div>
                             <div className="col-10 m-auto px-0">
                                 <div className="row">
-                                    <div className="col-12 col-lg-5 m-auto">
+                                    <div className="col-12 col-xl-5 m-auto">
                                         <h5 className="d-flex my-auto ms-3">
                                             <a href="">
                                                 <div
@@ -113,7 +113,7 @@ export default function SeccionCarrito() {
                                             </a>
                                         </h5>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left ">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50"
@@ -122,14 +122,14 @@ export default function SeccionCarrito() {
                                         </div>
                                         <div>$45.999</div>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50"
                                         >
                                             Cantidad:
                                         </div>
-                                        <select className="w-100 text-center text-lg-left">
+                                        <select className="w-100 text-center text-xl-left">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -137,7 +137,7 @@ export default function SeccionCarrito() {
                                             <option>5</option>
                                         </select>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50 m-0"
@@ -167,7 +167,7 @@ export default function SeccionCarrito() {
                             </div>
                             <div className="col-10 m-auto px-0">
                                 <div className="row">
-                                    <div className="col-12 col-lg-5 m-auto">
+                                    <div className="col-12 col-xl-5 m-auto">
                                         <h5 className="d-flex my-auto ms-3">
                                             <a href="">
                                                 <div
@@ -182,7 +182,7 @@ export default function SeccionCarrito() {
                                             </a>
                                         </h5>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left ">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50"
@@ -191,14 +191,14 @@ export default function SeccionCarrito() {
                                         </div>
                                         <div>$62.999</div>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50"
                                         >
                                             Cantidad:
                                         </div>
-                                        <select className="w-100 text-center text-lg-left">
+                                        <select className="w-100 text-center text-xl-left">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -206,7 +206,7 @@ export default function SeccionCarrito() {
                                             <option>5</option>
                                         </select>
                                     </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                                    <div className="col-4 col-xl-2 m-auto text-center text-xl-left">
                                         <div
                                             style={{ "font-size": "80%" }}
                                             className="h-50 m-0"
@@ -226,7 +226,7 @@ export default function SeccionCarrito() {
                     </div>
                 </div>
                 {/* Resumen */}
-                <div className="col-12 col-sm-6 col-lg-4 ms-auto">
+                <div className="col-12 col-xl-6 ms-auto">
                     <div
                         className="container card border-1 mb-3"
                         style={{ height: "90px" }}
@@ -242,11 +242,6 @@ export default function SeccionCarrito() {
                     <div className="text-end p-0 d-flex justify-content-between">
                         <Nav.Link to="/" as={NavLink} className="p-0 my-auto">
                             <a>Compra más productos</a>
-                        </Nav.Link>
-                        <Nav.Link to="/envio" as={NavLink} className="p-0">
-                            <button type="button" className="btn-comprar ">
-                                Continuar compra
-                            </button>
                         </Nav.Link>
                     </div>
                 </div>
