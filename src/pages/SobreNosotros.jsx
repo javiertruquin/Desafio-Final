@@ -21,13 +21,16 @@ export default function SobreNosotros() {
     <div className="container fuente mt-5">
       {/* // <!-- EMPIEZA AREA DEL HEADER --> */}
       <div className="row">
-        <div className="col-lg-5">
-          <h3>Somos una empresa</h3>
+        <div className="col-lg-5 text-lg-right ps-lg-5 pe-lg-5 pt-lg-3">
+          <span className="titulo-nosotros">Somos líderes en tecnología y provisión de equipos</span>
+          <div className="subtitulo-nosotros">Conocenos!</div>
         </div>
         <div className="col-lg-7">
           <img src={empresa} alt="" className="img-nosotros-head" />
         </div>
       </div>
+      <hr className=" mt-5" style={{ border: '.3px solid #e2e2e2'}} />
+
       {/* <div id="mu-page-header">
         <div className="container">
           <div className="row">
@@ -51,15 +54,15 @@ export default function SobreNosotros() {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="mu-title">
-                      <h2>Quienes somos</h2>
                       <p>
-                        Somos una empresa con 12 años de trayectoria orientada
-                        exclusivamente a la comercialización de notebooks, pcs e
-                        insumos de computación.
+                        <strong>RollingTech</strong>  es una empresa nacional con 12 años de trayectoria en el mercado orientada
+                        exclusivamente a la venta y comercialización de notebooks, computadoras de escritorio e
+                        insumos de computación para el más alto performance de uso.
                       </p>
                     </div>
                   </div>
                 </div>
+                <hr className=" mt-0 mb-lg-5" style={{ border: '.3px solid #e2e2e2'}} />
                 {/* <!-- EMPIEZA PARTE DE NUESTRAS MISIONES --> */}
                 <div className="row">
                   <div className="col-md-6">
