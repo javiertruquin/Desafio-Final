@@ -441,7 +441,7 @@
 .mu-about-area {
   display: inline;
   float: left;
-  padding: 100px 0;
+  padding: 22px 0;
   width: 100%;
 }
 
@@ -452,6 +452,7 @@
   width: 100%;
   margin-bottom: 35px;
   padding: 0 25%;
+  font-size: 1.2rem;
 }
 
 .mu-title h2 {
@@ -843,4 +844,16 @@
   max-height: 295px;
   width: 100%;
   object-fit: cover;
+}
+
+.titulo-nosotros {
+  font-size: clamp(2rem, 3.1vw, 2.5rem);
+  font-weight: 500;
+  color: #585858;
+}
+
+.subtitulo-nosotros {
+  font-size: clamp(2.3rem, 6vw, 3.4rem);
+  font-weight: 600;
+  color: #94C11E;
 }
