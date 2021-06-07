@@ -18,10 +18,10 @@ import {
 
 export default function SobreNosotros() {
   return (
-    <div className="container fuente mt-5">
-      {/* // <!-- EMPIEZA AREA DEL HEADER --> */}
+    <>
+    <div className="container fuente mt-lg-5 mt-3">
       <div className="row">
-        <div className="col-lg-5 text-lg-right ps-lg-5 pe-lg-5 pt-lg-3">
+        <div className="col-lg-5 text-lg-right ps-lg-5 pe-lg-5 pt-lg-3 mb-4">
           <span className="titulo-nosotros">Somos líderes en tecnología y provisión de equipos</span>
           <div className="subtitulo-nosotros">Conocenos!</div>
         </div>
@@ -29,7 +29,57 @@ export default function SobreNosotros() {
           <img src={empresa} alt="" className="img-nosotros-head" />
         </div>
       </div>
-      <hr className=" mt-5" style={{ border: '.3px solid #e2e2e2'}} />
+      <hr className=" mt-5" style={{ border: '.3px solid #e2e2e2' }} />
+      <div className="row">
+        <div className="col d-flex justify-content-center mt-5">
+        <p className="destacado-nosotros"><strong>RollingTech</strong>  es una empresa nacional con 12 años de trayectoria en el mercado orientada exclusivamente a la venta y comercialización de notebooks, computadoras de escritorio e insumos de computación para el más alto performance de uso.</p>
+        </div>
+      </div>
+      <hr className=" mt-5" style={{ border: '.3px solid #e2e2e2' }} />
+      <div className="row mt-5">
+        <div className="col-lg-6">
+          <img src={empresa2} alt="img" className="img-empresa2" />
+        </div>
+        <div className="col-lg-6 mt-3 ps-4">
+          <span className="titulo-mision mt-4">Misión</span>
+          <p className="sub-mision mt-3">Poner a disposición del cliente la mayor cantidad de opciones a la hora de elegir su computadora, sea de escritorio o portátil, sin dejar de lado el precio más competitivo posible.</p>
+          <span className="titulo-mision mt-4">Nuestro compromiso</span>
+          <p className="sub-mision mt-3">Guiar al cliente desde el minuto cero en la compra.
+                            Nos comprometemos que nuestro cliente se lleve justo
+                            lo que estaba buscando, asesorando en cada paso y
+                            poniendo a su disposición todo nuestro conocimiento
+                            en el rubro.</p>
+          <span className="titulo-mision mt-4">Valor</span>
+          <p className="sub-mision mt-3">Cada producto que vendemos cuenta con su garantía
+                            original, pero además, sumamos nuestra garantía de
+                            RollingTech. Ese valor que sumamos es una
+                            demostración de cuanto valoramos a nuestros
+                            clientes.</p>
+        </div>
+        
+      </div>
+    </div>
+   
+   
+   
+    <div className="container fuente mt-5">
+      {/* // <!-- EMPIEZA AREA DEL HEADER --> */}
+      <div className="row">
+        <div className="col-lg-5 text-lg-right ps-lg-5 pe-lg-5 pt-lg-3">
+          <span className="titulo-nosotros">Somos líderes en tecnología y provisión de equipos</span>
+          <div className="subtitulo-nosotros">Conocenos!</div>
+        </div>
+        
+      </div>
+      
+      <div className="">
+        <p className="mu-title">
+          <strong>RollingTech</strong>  es una empresa nacional con 12 años de trayectoria en el mercado orientada exclusivamente a la venta y comercialización de notebooks, computadoras de escritorio e insumos de computación para el más alto performance de uso.
+        </p>
+      </div>
+      <hr className=" mt-5" style={{ border: '.3px solid #e2e2e2' }} />
+
+
 
       {/* <div id="mu-page-header">
         <div className="container">
@@ -62,7 +112,7 @@ export default function SobreNosotros() {
                     </div>
                   </div>
                 </div>
-                <hr className=" mt-0 mb-lg-5" style={{ border: '.3px solid #e2e2e2'}} />
+                <hr className=" mt-0 mb-lg-5" style={{ border: '.3px solid #e2e2e2' }} />
                 {/* <!-- EMPIEZA PARTE DE NUESTRAS MISIONES --> */}
                 <div className="row">
                   <div className="col-md-6">
@@ -448,5 +498,6 @@ export default function SobreNosotros() {
       </section>
       {/* <!-- TERMINA SECCION DE EQUIPO --> */}
     </div>
+    </>
   );
 }

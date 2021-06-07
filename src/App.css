@@ -857,3 +857,31 @@
   font-weight: 600;
   color: #94C11E;
 }
+
+.destacado-nosotros {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #565656;
+  width: 70%;
+}
+
+.img-empresa2 {
+  height: 425px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.titulo-mision {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #002b4b;
+  border-bottom: #94C11E 3px solid;
+}
+
+.sub-mision {
+  font-weight: 400;
+  font-size: .9rem;
+  color: #4c4c4c;
+  
+}

@@ -7,7 +7,7 @@ import compu3 from "../assets/img/compu2/compu2-3.jpeg";
 
 export default function SeccionCarrito() {
     return (
-        <div className="container my-4">
+        <div className="container my-4 fuente">
             <div className=" border-bottom mb-4">
                 <h2 className="mx-auto mb-3 text-center titulo-azul">
                     Mi Carrito
