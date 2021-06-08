@@ -67,8 +67,10 @@ export default function Login({ setUser, setToken }) {
                                             label="Escribe tu contraseña"
                                             rows="2"
                                             icon="key"
-                                            required
                                             validate
+                                            required
+                                            maxlength="30"
+                                            minlength="6"
                                         />
                                     </Form.Group>
 
