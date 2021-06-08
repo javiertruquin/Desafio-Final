@@ -23,8 +23,10 @@ export default function Login({ setUser, setToken }) {
             const { data } = await axios.post("/auth/login", input);
             localStorage.setItem("token", JSON.stringify(data));
             setToken(data.token);
+            // console.log('data.roll', data.usuarioRoll);
             alert("Logueo exitoso 😎 ");
-            history.push("/");
+            (data.usuarioRoll === 'admin' || data.usuarioRoll === 'vendedor' ) ? history.push("/productos") : history.push("/") ;
+            
         } catch (error) {
             // console.log(error.response.data);
             alert("datos incorrectos.");
