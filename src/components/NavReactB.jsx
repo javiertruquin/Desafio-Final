@@ -65,6 +65,8 @@ export default function NavReactB({ logout }) {
       {/* Modal's */}
       <Modal className="modal-favoritos" bsPrefix="modal" size="lg" show={crear} onHide={handleClose}>
         <Modal.Body scrollable>
+          <span>No te quedés con las ganas</span>
+          <p>Los favoritos pueden ser tuyos ya!</p>
             <CardFavoritos />
             <CardFavoritos />
             <CardFavoritos />

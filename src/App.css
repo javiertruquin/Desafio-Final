@@ -8,7 +8,6 @@
 .modal-dialog .modal-content {
   background-color: rgba(0, 0, 0, 0.0);
   box-shadow:none !important;
-  
 }
 
 .card-favoritos:hover {
@@ -442,7 +441,7 @@
 .mu-about-area {
   display: inline;
   float: left;
-  padding: 100px 0;
+  padding: 22px 0;
   width: 100%;
 }
 
@@ -453,6 +452,7 @@
   width: 100%;
   margin-bottom: 35px;
   padding: 0 25%;
+  font-size: 1.2rem;
 }
 
 .mu-title h2 {
@@ -818,3 +818,70 @@
 
 }
 
+.fuente {
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+.titulo-producto-view {
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: #002b4b;
+  
+}
+
+.titulo-infopro-view {
+  font-weight: 600;
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  color: #585858;
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+
+.detalle-producto-seccion li { 
+ margin-top: 15px;
+}
+
+.img-nosotros-head {
+  max-height: 295px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.titulo-nosotros {
+  font-size: clamp(2rem, 3.1vw, 2.5rem);
+  font-weight: 500;
+  color: #585858;
+}
+
+.subtitulo-nosotros {
+  font-size: clamp(2.3rem, 6vw, 3.4rem);
+  font-weight: 600;
+  color: #94C11E;
+}
+
+.destacado-nosotros {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #565656;
+  width: 70%;
+}
+
+.img-empresa2 {
+  height: 425px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.titulo-mision {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #002b4b;
+  border-bottom: #94C11E 3px solid;
+}
+
+.sub-mision {
+  font-weight: 400;
+  font-size: .9rem;
+  color: #4c4c4c;
+  
+}

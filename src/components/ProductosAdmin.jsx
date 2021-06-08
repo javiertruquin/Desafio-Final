@@ -21,7 +21,7 @@ export default function ProductosAdmin({ token }) {
           </div>
           <div className="col-lg-6  py-5 mt-4 text-center">
             <div className=" mx-5"><button onClick={handleCrear} className="btn-dash py-2 px-4">
-              <i class="fas fa-plus-square"></i> Agregar producto
+              <i class="fas fa-plus-square me-3"></i>Agregar producto
             </button></div>
 
             {/* <Button

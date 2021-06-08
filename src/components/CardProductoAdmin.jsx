@@ -1,12 +1,12 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import compu2 from "../assets/img/compu2.jpeg";
+import compu2 from "../assets/img/compu2/compu2-3.jpeg";
 
 export default function CardProductoAdmin() {
   return (
     <>
       <Card className="mb-3 mt-5">
-        <div className=" p-0 row">
+        <div className="row">
           <div className="col-lg-2 my-auto">
             <div className="categoria-productos">
               <img src={compu2} alt="" className="img-fluid" style={{ minHeight: '120px', width: '100%' }} />
@@ -28,7 +28,7 @@ export default function CardProductoAdmin() {
 
           </div>
           <div className="col-lg-2" style={{ backgroundColor: '#666666' }}>
-            <div className="botones-productos">
+            <div className="botones-productos d-block">
               <button className="btn-ver mb-2 mx-1"><i class="fas fa-info-circle pe-2"></i> Ver</button>
               <button className="btn-editar mb-2 mx-1"><i class="far fa-edit pe-2"></i> Editar</button>
               <button className="btn-eliminar mb-2 mx-1"><i class="far fa-trash-alt pe-2"></i> Eliminar</button>

@@ -1,11 +1,11 @@
-import compu2 from "../assets/img/compu2.jpeg";
+import accesorio4 from "../assets/img/accesorio4/accesorio4-1.jpg";
 
 export default function CardProductoSlide() {
   return (
 
       <div className="my-1 p-4">
         <button className="btn-serie">Serie Advance</button>
-        <img src={compu2} alt="" className="img-fluid" />
+        <img src={accesorio4} alt="" className="img-fluid my-4" />
         <p className="titulo-producto">Estación de trabajo HP Z2 Mini G4</p>
         <ul className="detalle-producto">
           <li>Procesador AMD Ryzen™ 3</li>
