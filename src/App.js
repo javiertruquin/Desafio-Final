@@ -21,38 +21,66 @@ import Capital from "./pages/Capital";
 import Rosario from "./pages/Rosario";
 import Sannicolas from "./pages/Sannicolas";
 import styles from "./styles.css";
-import { useState } from "react";
-
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+const localToken = JSON.parse(localStorage.getItem('token'))?.token || '';
+
+
 function App() {
-  const [user, setUser] = useState('');
-  const [token, setToken] = useState('');
+  const [user, setUser] = useState({});
+  const [token, setToken] = useState(localToken);
+
+  useEffect(() => {
+    if (token) {
+        const request = async () => {
+            axios.defaults.headers = { 'x-auth-token': token };
+            const { data } = await axios.get('/auth');
+            setUser(data);
+        };
+        request();
+    }
+}, [token]);
+
+const logout = () => {
+  localStorage.removeItem('token');
+  axios.defaults.headers = { 'x-auth-token': '' };
+  setUser({});
+  setToken('');
+};
+
+// Para hacer el logout
+
+// const logout = () => {
+//     localStorage.removeItem('token');
+//     axios.defaults.headers = { 'x-auth-token': '' };
+//     setUser({});
+//     setToken('');
+// };
+
+
 
   return (
     <Router>
+      
+      {(user.roll === 'admin' || user.roll === 'vendedor') ? <NavAdmin /> : <NavReactB />}
       <Switch>
         <Route path="/" exact>
-          <NavReactB />
           <Inicio />
           <Footer />
         </Route>
         <Route path="/computadoras">
-          <NavReactB />
           <Computadoras />
           <Footer />
         </Route>
         <Route path="/notebooks">
-          <NavReactB />
           <Footer />
         </Route>
         <Route path="/accesorios">
-          <NavReactB />
           <Footer />
         </Route>
         <Route path="/nosotros">
-          <NavReactB />
           <SobreNosotros />
           <Footer />
         </Route>
@@ -66,41 +94,32 @@ function App() {
           <Pago />
         </Route>
         <Route path="/login">
-          <NavReactB />
           <Login setUser={setUser} setToken={setToken} />
           <Footer />
         </Route>
         <Route path="/registro">
-          <NavReactB />
           <Registro setToken={setToken} />
           <Footer />
         </Route>
         <Route path="/productos">
-          <NavAdmin />
-          <ProductosAdmin />
+          <ProductosAdmin token={token} />
         </Route>
         <Route path="/usuarios">
-          <NavAdmin />
           <UsuariosAdmin />
         </Route>
         <Route path="/tucuman">
-          <NavReactB />
           <Tucuman />
         </Route>
         <Route path="/capital">
-          <NavReactB />
           <Capital />
         </Route>
         <Route path="/rosario">
-          <NavReactB />
           <Rosario />
         </Route>
         <Route path="/sannicolas">
-          <NavReactB />
           <Sannicolas />
         </Route>
         <Route path="/estadisticas">
-          <NavAdmin />
           <EstadisticasAdmin />
         </Route>
       </Switch>

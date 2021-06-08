@@ -1,10 +1,10 @@
 import { React, useState } from "react";
-import { Navbar, Nav, Modal } from "react-bootstrap";
+import { Navbar, Nav, Modal, Button } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
 
-export default function NavReactB() {
+export default function NavReactB({ logout }) {
   const [crear, setCrear] = useState(false);
 
   const handleClose = () => setCrear(false);
@@ -52,6 +52,9 @@ export default function NavReactB() {
               <Nav.Link href="#link" onClick={handleCrear}>
                 <i style={{ color: "#00598a" }} class="fas fa-heart"></i>
               </Nav.Link>
+              <Button onClick={logout}>
+                <i style={{ color: "#00598a" }} class="fas fa-dor"></i>
+              </Button>
               <Nav.Link to="/login" as={NavLink}>
                 <i style={{ color: "#00598a" }} class="fas fa-user"></i>
               </Nav.Link>
