@@ -4,7 +4,7 @@ import CardProductoAdmin from "./CardProductoAdmin";
 import FormEditar from "./FormEditar";
 import Footer from "../components/Footer"
 
-export default function ProductosAdmin() {
+export default function ProductosAdmin({ token }) {
   const [crear, setCrear] = useState(false);
 
   const handleClose = () => setCrear(false);
@@ -57,7 +57,7 @@ export default function ProductosAdmin() {
           <Modal.Title>Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <FormEditar />
+          <FormEditar token={token} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
