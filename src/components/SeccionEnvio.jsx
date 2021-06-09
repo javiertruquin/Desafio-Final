@@ -15,18 +15,38 @@ export default function SeccionEnvio() {
                 <div className="container mb-4">
                     <div className="row">
                         <div className="col-6">
-                            <MDBInput required type="text" label="Provincia" />
+                            <MDBInput
+                                required
+                                type="text"
+                                maxlength="30"
+                                label="Provincia"
+                            />
                         </div>
                         <div className="col-6">
-                            <MDBInput required type="text" label="Localidad" />
+                            <MDBInput
+                                required
+                                type="text"
+                                maxlength="30"
+                                label="Localidad"
+                            />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-6">
-                            <MDBInput required type="text" label="Calle" />
+                            <MDBInput
+                                required
+                                type="text"
+                                maxlength="30"
+                                label="Calle"
+                            />
                         </div>
                         <div className="col-6">
-                            <MDBInput required type="number" label="Número" />
+                            <MDBInput
+                                required
+                                type="number"
+                                maxlength="30"
+                                label="Número"
+                            />
                         </div>
                     </div>
                     <div className="row">
@@ -38,6 +58,8 @@ export default function SeccionEnvio() {
                                 required
                                 type="number"
                                 label="Teléfono de contacto"
+                                maxlength="30"
+                                minlength="7"
                             />
                         </div>
                     </div>
@@ -47,6 +69,8 @@ export default function SeccionEnvio() {
                                 type="textarea"
                                 label="Indicaciones adicionales"
                                 rows="4"
+                                required
+                                maxlength="250"
                             />
                         </div>
                     </div>

@@ -52,17 +52,17 @@ export default function Registro({ setToken }) {
                 <MDBRow>
                     <MDBCol>
                         <MDBInput
+                            maxlength="30"
                             name="nombre"
                             onChange={(e) => handleChange(e)}
                             required
                             type="text"
                             label="Nombre/s"
-                            
-
                         />
                     </MDBCol>
                     <MDBCol>
                         <MDBInput
+                            maxlength="30"
                             name="apellido"
                             onChange={(e) => handleChange(e)}
                             required
@@ -74,22 +74,39 @@ export default function Registro({ setToken }) {
                 <MDBRow>
                     <MDBCol>
                         <MDBInput
+                            maxlength="30"
                             name="email"
                             onChange={(e) => handleChange(e)}
                             required
                             type="text"
                             label="E-mail"
+                            style={{width:"50%"}}
                         />
                     </MDBCol>
+                </MDBRow>
+                <MDBRow>
                     <MDBCol>
                         <MDBInput
                             minLength="6"
+                            maxlength="30"
                             name="password"
                             onChange={(e) => handleChange(e)}
                             type="password"
                             aria-describedby="inputGroupPrepend"
                             required
                             label="Contraseña"
+                        />
+                    </MDBCol>
+                    <MDBCol>
+                        <MDBInput
+                            minLength="6"
+                            maxlength="30"
+                            name="password"
+                            onChange={(e) => handleChange(e)}
+                            type="password"
+                            aria-describedby="inputGroupPrepend"
+                            required
+                            label="Confirmar Contraseña"
                         />
                     </MDBCol>
                 </MDBRow>
