@@ -47,21 +47,15 @@ function App() {
     }
   }, [token]);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    axios.defaults.headers = { "x-auth-token": "" };
-    setUser({});
-    setToken("");
-  };
 
   // Para hacer el logout
 
-  // const logout = () => {
-  //     localStorage.removeItem('token');
-  //     axios.defaults.headers = { 'x-auth-token': '' };
-  //     setUser({});
-  //     setToken('');
-  // };
+  const logout = () => {
+      localStorage.removeItem('token');
+      axios.defaults.headers = { 'x-auth-token': '' };
+      setUser({});
+      setToken('');
+  };
 
   return (
     <Router>
@@ -69,9 +63,9 @@ function App() {
         <ScrollToTop></ScrollToTop>
       </Route>
       {user.roll === "admin" || user.roll === "vendedor" ? (
-        <NavAdmin />
+        <NavAdmin logout={logout} />
       ) : (
-        <NavReactB />
+        <NavReactB  logout={logout}  />
       )}
       <Switch>
         <Route path="/" exact>
