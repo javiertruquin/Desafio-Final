@@ -11,7 +11,7 @@ export default function Registro({ setToken }) {
     const [input, setInput] = useState({});
     const history = useHistory();
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {        
         const form = event.currentTarget;
         event.preventDefault();
         setValidated(true);
@@ -30,8 +30,8 @@ export default function Registro({ setToken }) {
     };
     const handleChange = (e) => {
         const { name, value } = e.target;
-        let changedInput = { ...input,[name]: value };
-        setInput({...changedInput, roll: 'usuario'});
+        let changedInput = { ...input, [name]: value };
+        setInput({ ...changedInput, roll: "usuario" });
     };
 
     return (
@@ -58,7 +58,11 @@ export default function Registro({ setToken }) {
                             required
                             type="text"
                             label="Nombre/s"
-                        />
+                        >
+                            <div className="invalid-feedback">
+                                Ingrese su nombre aquí
+                            </div>
+                        </MDBInput>
                     </MDBCol>
                     <MDBCol>
                         <MDBInput
@@ -68,21 +72,30 @@ export default function Registro({ setToken }) {
                             required
                             type="text"
                             label="Apellido"
-                        />
+                        >
+                            <div className="invalid-feedback">
+                                Ingrese su apellido aquí
+                            </div>
+                        </MDBInput>
                     </MDBCol>
                 </MDBRow>
+
                 <MDBRow>
                     <MDBCol>
                         <MDBInput
-                            maxlength="30"
+                            maxlength="50"
                             name="email"
                             onChange={(e) => handleChange(e)}
                             required
-                            type="text"
+                            type="email"
                             label="E-mail"
-                            style={{width:"50%"}}
-                        />
+                        >
+                            <div className="invalid-feedback">
+                                Ingrese su e-mail aquí
+                            </div>
+                        </MDBInput>
                     </MDBCol>
+                    <MDBCol></MDBCol>
                 </MDBRow>
                 <MDBRow>
                     <MDBCol>
@@ -90,12 +103,17 @@ export default function Registro({ setToken }) {
                             minLength="6"
                             maxlength="30"
                             name="password"
-                            onChange={(e) => handleChange(e)}
+                            // onChange={(e) => handleChange(e)}
                             type="password"
                             aria-describedby="inputGroupPrepend"
                             required
                             label="Contraseña"
-                        />
+                            id="pass1"
+                        >
+                            <div className="invalid-feedback">
+                                Ingrese una contraseña de entre 6 y 30 caracteres
+                            </div>
+                        </MDBInput>
                     </MDBCol>
                     <MDBCol>
                         <MDBInput
@@ -107,7 +125,12 @@ export default function Registro({ setToken }) {
                             aria-describedby="inputGroupPrepend"
                             required
                             label="Confirmar Contraseña"
-                        />
+                            id="pass2"
+                            >
+                            <div className="invalid-feedback">
+                                Ingrese nuevamente la contraseña aquí
+                            </div>
+                        </MDBInput>
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>

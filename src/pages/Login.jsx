@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import { useState } from "react";
 
 export default function Login({ setUser, setToken }) {
+    const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
     const history = useHistory();
 
@@ -18,15 +19,22 @@ export default function Login({ setUser, setToken }) {
     };
 
     const handleSubmit = async (event) => {
+        const form = event.currentTarget;
+
         event.preventDefault();
+        setValidated(true);
+        if (form.checkValidity() === false) {
+            return event.stopPropagation();
+        }
         try {
             const { data } = await axios.post("/auth/login", input);
             localStorage.setItem("token", JSON.stringify(data));
             setToken(data.token);
             // console.log('data.roll', data.usuarioRoll);
             alert("Logueo exitoso 😎 ");
-            (data.usuarioRoll === 'admin' || data.usuarioRoll === 'vendedor' ) ? history.push("/productos") : history.push("/") ;
-            
+            data.usuarioRoll === "admin" || data.usuarioRoll === "vendedor"
+                ? history.push("/productos")
+                : history.push("/");
         } catch (error) {
             // console.log(error.response.data);
             alert("datos incorrectos.");
@@ -46,10 +54,13 @@ export default function Login({ setUser, setToken }) {
                             <div className="col-md-12 gray-text">
                                 <Form
                                     onSubmit={handleSubmit}
+                                    noValidate
+                                    validated={validated}
                                     className="pt-2 pr-4 pl-4 mt-4"
                                 >
                                     <Form.Group controlId="formBasicEmail">
                                         <MDBInput
+                                            maxlength="50"
                                             name="email"
                                             onChange={handleChange}
                                             className="input2"
@@ -58,8 +69,12 @@ export default function Login({ setUser, setToken }) {
                                             rows="2"
                                             icon="at"
                                             required
-                                            validate
-                                        />
+                                            aria-describedby="inputGroupPrepend"
+                                        >
+                                            <div className="invalid-feedback">
+                                                Ingrese su e-mail aquí
+                                            </div>
+                                        </MDBInput>
                                     </Form.Group>
                                     <Form.Group controlId="formBasicEmail">
                                         <MDBInput
@@ -69,41 +84,47 @@ export default function Login({ setUser, setToken }) {
                                             label="Escribe tu contraseña"
                                             rows="2"
                                             icon="key"
-                                            validate
                                             required
                                             maxlength="30"
                                             minlength="6"
-                                        />
+                                        >
+                                            <div className="invalid-feedback">
+                                                Ingrese su contraseña aquí
+                                            </div>
+                                        </MDBInput>
                                     </Form.Group>
 
-                                    {/* <div className="col-lg-1 col-md-12"></div> */}
                                     <div className="row">
-                                    <div className="col-lg-6 mr-md-auto">
-                                        <button
-                                            type="submit"
-                                            style={{ width: "100%" }}
-                                            className="mx-auto mt-4 mb-2 btn-categoria"
-                                        >
-                                            Entrar
-                                        </button>
-                                        <a
-                                            href="/"
-                                            className="mx-auto text-center mb-4"
-                                        >
-                                            <p className="li-footer">
-                                                {" "}
-                                                ¿Olvidaste la contraseña?
-                                            </p>
-                                        </a>
-                                    </div>
-                                    <div className="col-lg-6 text-center pt-4">
-                                        
-                                            <span className="textito-azul-login">Si aún no estás registrado, hacé</span>
-                                            <Nav.Link to="/registro" as={NavLink} className="boton-aqui">
+                                        <div className="col-lg-6 mr-md-auto">
+                                            <button
+                                                type="submit"
+                                                style={{ width: "100%" }}
+                                                className="mx-auto mt-4 mb-2 btn-categoria"
+                                            >
+                                                Entrar
+                                            </button>
+                                            <a
+                                                href="/"
+                                                className="mx-auto text-center mb-4"
+                                            >
+                                                <p className="li-footer">
+                                                    {" "}
+                                                    ¿Olvidaste la contraseña?
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <div className="col-lg-6 text-center pt-4">
+                                            <span className="textito-azul-login">
+                                                Si aún no estás registrado, hacé
+                                            </span>
+                                            <Nav.Link
+                                                to="/registro"
+                                                as={NavLink}
+                                                className="boton-aqui"
+                                            >
                                                 click AQUÍ
                                             </Nav.Link>
-                                        
-                                    </div>
+                                        </div>
                                     </div>
                                 </Form>
                             </div>
@@ -111,7 +132,6 @@ export default function Login({ setUser, setToken }) {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }
