@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-credit-cards/es/styles-compiled.css";
 import NavReactB from "./components/NavReactB";
 import NavAdmin from "./components/NavAdmin";
-import ProductosAdmin from "./components/ProductosAdmin";
 import UsuariosAdmin from "./components/UsuariosAdmin";
 import EstadisticasAdmin from "./components/EstadisticasAdmin";
+import ProductosAdmin from "./components/ProductosAdmin";
 import Footer from "./components/Footer";
 import Inicio from "./pages/Inicio.jsx";
 import Computadoras from "./pages/Computadoras";
@@ -30,11 +30,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 
-const localToken = JSON.parse(localStorage.getItem("token"))?.token || "";
+const localToken = JSON.parse(localStorage.getItem("token")) || "";
+axios.defaults.headers = { "x-auth-token": localToken };
 
 function App() {
   const [user, setUser] = useState("");
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localToken);
 
   useEffect(() => {
     if (token) {
@@ -63,9 +64,9 @@ function App() {
         <ScrollToTop></ScrollToTop>
       </Route>
       {user.roll === "admin" || user.roll === "vendedor" ? (
-        <NavAdmin logout={logout} />
+        <NavAdmin logout={logout} userName={user.nombre} />
       ) : (
-        <NavReactB  logout={logout}  />
+        <NavReactB  logout={logout} userName={user.nombre} />
       )}
       <Switch>
         <Route path="/" exact>

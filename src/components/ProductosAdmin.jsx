@@ -1,14 +1,25 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import CardProductoAdmin from "./CardProductoAdmin";
 import FormEditar from "./FormEditar";
 import Footer from "../components/Footer"
+import axios from "axios";
 
 export default function ProductosAdmin({ token }) {
   const [crear, setCrear] = useState(false);
+  const [productos, setProductos] = useState([]);
 
   const handleClose = () => setCrear(false);
   const handleCrear = () => setCrear(true);
+
+  const getProductos = async () => {
+    console.log( 'header' ,axios.defaults.headers);
+      const response = await axios.get(`/producto`);
+      setProductos(response.data);
+  };
+    useEffect(() => {
+        getProductos();
+    }, []);
 
   return (
     <div>
@@ -41,10 +52,9 @@ export default function ProductosAdmin({ token }) {
           <hr className=" mt-4" style={{ border: '1px solid #ababab' }} />
         </div>
         <div className=" mt-4">
-          <CardProductoAdmin />
-          <CardProductoAdmin />
-          <CardProductoAdmin />
-          <CardProductoAdmin />
+        {productos.map((producto) => (
+          <CardProductoAdmin key={producto._id} producto={producto} />
+        ))}
         </div>
 
       </Container>
@@ -57,14 +67,11 @@ export default function ProductosAdmin({ token }) {
           <Modal.Title>Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <FormEditar token={token} />
+          <FormEditar getProductos={getProductos} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Guardar
           </Button>
         </Modal.Footer>
       </Modal>

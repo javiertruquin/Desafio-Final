@@ -3,7 +3,7 @@ import { React, useState } from "react";
 import { Button, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 
-export default function FormEditar({ token }) {
+export default function FormEditar({ getProductos }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
   const history = useHistory();
@@ -17,8 +17,8 @@ export default function FormEditar({ token }) {
     }
     try {
       // Consulta post a /productos
-      axios.defaults.headers = { 'x-auth-token': token };
       await axios.post("/producto", input);
+      getProductos()
       alert("Producto creado con éxito!😁");
     } catch (error) {
       console.log(error);
@@ -122,8 +122,9 @@ export default function FormEditar({ token }) {
             onChange={(e) => handleChange(e)}
             as="select"
           >
+            <option>Elige una opción</option>
             <option>Computadora de escritorio</option>
-            <option>Laptop</option>
+            <option>Notebook</option>
             <option>Accesorios</option>
             <option>Componentes</option>
             <option>Repuestos</option>

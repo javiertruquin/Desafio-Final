@@ -19,6 +19,9 @@
 .card-favoritos img {
   max-height: 160px;
 }
+.botonDesplegable-menu button {
+  background-color: black !important;
+}
 
 /* Fin agrege tomas */
 

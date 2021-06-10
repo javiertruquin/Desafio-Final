@@ -21,7 +21,7 @@ export default function Login({ setUser, setToken }) {
         event.preventDefault();
         try {
             const { data } = await axios.post("/auth/login", input);
-            localStorage.setItem("token", JSON.stringify(data));
+            localStorage.setItem("token", JSON.stringify(data.token));
             setToken(data.token);
             // console.log('data.roll', data.usuarioRoll);
             alert("Logueo exitoso 😎 ");

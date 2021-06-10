@@ -6,7 +6,6 @@ import SeccionCarrito from '../components/SeccionCarrito';
 export default function Carrito() {
     return (
         <div>
-            <NavReactB />
             <SeccionCarrito />
             <Footer />
         </div>
