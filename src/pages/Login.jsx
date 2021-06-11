@@ -31,7 +31,7 @@ export default function Login({ setUser, setToken }) {
             localStorage.setItem("token", JSON.stringify(data.token));
             setToken(data.token);
             // console.log('data.roll', data.usuarioRoll);
-            alert("Logueo exitoso 😎 ");
+            // alert("Logueo exitoso 😎 ");
             data.usuarioRoll === "admin" || data.usuarioRoll === "vendedor"
                 ? history.push("/productos")
                 : history.push("/");

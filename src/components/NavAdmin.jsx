@@ -1,9 +1,9 @@
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Dropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import logoW from "../assets/img/logoW.png";
 
-export default function NavAdmin() {
+export default function NavAdmin({ logout, userName }) {
   return (
 
 <Navbar collapseOnSelect expand="lg"  bg="dark" variant="dark" className="sticky-top">
@@ -29,11 +29,34 @@ export default function NavAdmin() {
             <Nav.Link href="/estadisticas" eventKey="link-2">Estadísticas</Nav.Link>
           </Nav.Item>
             
-          <Nav.Item className="col">
-              <Nav.Link to="/login" as={NavLink}>
-                <i style={{ color: "#00a8db" }} class="fas fa-user"></i>
-              </Nav.Link>
-              </Nav.Item>
+          <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <i style={{ color: "#00598a" }} class="fas fa-user"></i>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  {!userName && (
+                    <Nav.Link style={{color: '#000'}} to="/login" as={NavLink}>
+                      Entrar
+                    </Nav.Link>
+                  )}
+                  {!userName && (
+                    <Nav.Link style={{color: '#000'}} to="/registro" as={NavLink}>
+                      Registrarte
+                    </Nav.Link>
+                  )}
+                  {userName && (
+                    <Nav.Link style={{color: '#000'}} to="/registro" as={NavLink}>
+                      Perfil
+                    </Nav.Link>
+                  )}
+                  {userName && (
+                    <Nav.Link style={{color: '#000'}} onClick={logout}>
+                      Cerrar Sesión
+                    </Nav.Link>
+                  )}
+                </Dropdown.Menu>
+              </Dropdown>
 
           </Nav>
 
