@@ -5,8 +5,13 @@ import logoW from "../assets/img/logoW.png";
 
 export default function NavAdmin() {
   return (
-
-<Navbar collapseOnSelect expand="lg"  bg="dark" variant="dark" className="sticky-top">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="sticky-top"
+    >
       <div className="container">
         <Navbar.Brand to="/" as={NavLink} className="px-4">
           <img
@@ -19,24 +24,31 @@ export default function NavAdmin() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto condensed">
-          <Nav.Item className="col">
-            <Nav.Link href="/productos">Productos</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="col">
-            <Nav.Link href="/usuarios" eventKey="link-1">Usuarios</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="col">
-            <Nav.Link href="/estadisticas" eventKey="link-2">Estadísticas</Nav.Link>
-          </Nav.Item>
-            
-          <Nav.Item className="col">
+            <Nav.Item className="col">
+              <Nav.Link href="/productos">Productos</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="col">
+              <Nav.Link href="/usuarios" eventKey="link-1">
+                Usuarios
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="col">
+              <Nav.Link href="/estadisticas" eventKey="link-2">
+                Estadísticas
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="col">
+              <Nav.Link href="/mensajes" eventKey="link-2">
+                Mensajes
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item className="col">
               <Nav.Link to="/login" as={NavLink}>
                 <i style={{ color: "#00a8db" }} class="fas fa-user"></i>
               </Nav.Link>
-              </Nav.Item>
-
+            </Nav.Item>
           </Nav>
-
         </Navbar.Collapse>
       </div>
     </Navbar>
