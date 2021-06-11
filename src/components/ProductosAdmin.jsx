@@ -53,7 +53,7 @@ export default function ProductosAdmin({ token }) {
         </div>
         <div className=" mt-4">
         {productos.map((producto) => (
-          <CardProductoAdmin key={producto._id} producto={producto} />
+          <CardProductoAdmin getProductos={getProductos} key={producto._id} producto={producto} />
         ))}
         </div>
 
@@ -67,7 +67,7 @@ export default function ProductosAdmin({ token }) {
           <Modal.Title>Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <FormEditar getProductos={getProductos} />
+          <FormEditar getProductos={getProductos} accion={'crear'} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

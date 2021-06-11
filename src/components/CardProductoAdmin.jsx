@@ -1,13 +1,30 @@
+import axios from "axios";
 import { React, useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
-import compu2 from "../assets/img/compu2/compu2-3.jpeg";
+import FormEditar from "./FormEditar";
 
-export default function CardProductoAdmin({ producto }) {
+export default function CardProductoAdmin({ producto,  getProductos }) {
   const [show, setShow] = useState(false);
-  const { codigo, titulo, descripcion, categoria, stock, image1 } = producto;
-
+  const [show2, setShow2] = useState(false);
   const handleClose = () => setShow(false);
+  const handleClose2 = () => setShow2(false);
   const handleShow = () => setShow(true);
+  const handleShow2 = () => setShow2(true);
+  
+  const { codigo, titulo, descripcion, precio, creator, registro, categoria, serie, stock, image1 } = producto;
+  // console.log(producto)
+  console.log('id' , codigo)
+  const eliminar = async (event) => {
+    // event.preventDefault();
+    try {
+      
+      await axios.delete('/producto', {codigo});
+      getProductos()
+      alert("Producto eliminado con éxito!😁");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
@@ -45,10 +62,10 @@ export default function CardProductoAdmin({ producto }) {
               <button className="btn-ver mb-2 mx-1" onClick={handleShow}>
                 <i class="fas fa-info-circle pe-2"></i> Ver
               </button>
-              <button className="btn-editar mb-2 mx-1">
+              <button className="btn-editar mb-2 mx-1" onClick={handleShow2}>
                 <i class="far fa-edit pe-2"></i> Editar
               </button>
-              <button className="btn-eliminar mb-2 mx-1">
+              <button className="btn-eliminar mb-2 mx-1" onClick={eliminar}>
                 <i class="far fa-trash-alt pe-2"></i> Eliminar
               </button>
             </div>
@@ -57,15 +74,34 @@ export default function CardProductoAdmin({ producto }) {
       </Card>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{titulo}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+              <p><strong>Codigo:</strong> {codigo}</p>
+              <p><strong>Descripción:</strong> {descripcion}</p>
+              <p><strong>Categoria:</strong> {categoria}</p>
+              <p><strong>Serie:</strong> {serie}</p>
+              <p><strong>Precio Actual:</strong> {precio}</p>
+              <p><strong>Stock Actual:</strong> {stock}</p>
+              <p><strong>Fecha de registro:</strong> {registro}</p>
+              <p><strong>Cargado por:</strong> {creator}</p>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cerrar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+        </Modal.Footer>
+      </Modal>
+      <Modal show={show2} onHide={handleClose2}>
+        <Modal.Header closeButton>
+          <Modal.Title>{titulo}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <FormEditar  getProductos={getProductos} producto={producto} accion={'editar'} />              
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose2}>
+            Cerrar
           </Button>
         </Modal.Footer>
       </Modal>

@@ -5,10 +5,6 @@
   background-color: white;
   border-radius: 5px;
 }
-.modal-dialog .modal-content {
-  background-color: rgba(0, 0, 0, 0.0);
-  box-shadow:none !important;
-}
 
 .card-favoritos:hover {
   transform: scale(1.1);

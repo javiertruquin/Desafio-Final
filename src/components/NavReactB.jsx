@@ -3,6 +3,8 @@ import { Navbar, Nav, Modal, Button, Dropdown } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
+import "../Favoritos.css";
+
 
 export default function NavReactB({ logout, userName }) {
   const [crear, setCrear] = useState(false);

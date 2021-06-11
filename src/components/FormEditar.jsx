@@ -3,10 +3,11 @@ import { React, useState } from "react";
 import { Button, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 
-export default function FormEditar({ getProductos }) {
+export default function FormEditar({ getProductos , accion, producto }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
   const history = useHistory();
+  const action = accion;
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -15,13 +16,26 @@ export default function FormEditar({ getProductos }) {
     if (form.checkValidity() === false) {
       return event.stopPropagation();
     }
-    try {
-      // Consulta post a /productos
-      await axios.post("/producto", input);
-      getProductos()
-      alert("Producto creado con éxito!😁");
-    } catch (error) {
-      console.log(error);
+    
+    if (accion === 'crear')
+    {
+      try {
+        // Consulta post a /productos
+        await axios.post("/producto", input);
+        getProductos()
+        alert("Producto creado con éxito!😁");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        // Consulta post a /productos
+        await axios.put("/producto", input);
+        getProductos()
+        alert("Producto editado con éxito!😁");
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   const handleChange = (e) => {
@@ -45,6 +59,7 @@ export default function FormEditar({ getProductos }) {
             type="txt"
             required
             placeholder="Código"
+            value={ accion === 'editar' && producto.codigo }
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -57,6 +72,8 @@ export default function FormEditar({ getProductos }) {
             type="txt"
             required
             placeholder="Título del producto"
+            // placeholder={ accion === 'editar' && producto.titulo }
+            value={ accion === 'editar' && producto.titulo }
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -68,6 +85,7 @@ export default function FormEditar({ getProductos }) {
             onChange={(e) => handleChange(e)}
             type="txt"
             placeholder="Serie"
+            value={ accion === 'editar' && producto.serie }
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -79,6 +97,7 @@ export default function FormEditar({ getProductos }) {
             required
             rows={3}
             placeholder="Descripción"
+            value={ accion === 'editar' && producto.descripcion }
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -97,6 +116,7 @@ export default function FormEditar({ getProductos }) {
               onChange={(e) => handleChange(e)}
               id="inlineFormInputGroupUsername"
               placeholder="Precio"
+              value={ accion === 'editar' && producto.precio }
             />
             <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -110,6 +130,7 @@ export default function FormEditar({ getProductos }) {
             onChange={(e) => handleChange(e)}
             type="number"
             placeholder="Stock"
+            value={ accion === 'editar' && producto.stock }
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -121,6 +142,7 @@ export default function FormEditar({ getProductos }) {
             required
             onChange={(e) => handleChange(e)}
             as="select"
+            value={ accion === 'editar' && producto.categoria }
           >
             <option>Elige una opción</option>
             <option>Computadora de escritorio</option>
@@ -139,6 +161,7 @@ export default function FormEditar({ getProductos }) {
             onChange={(e) => handleChange(e)}
             type="url"
             placeholder="URL Imagen 1"
+            value={ accion === 'editar' && producto.image1 }
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -147,11 +170,13 @@ export default function FormEditar({ getProductos }) {
             onChange={(e) => handleChange(e)}
             type="url"
             placeholder="URL Imagen 1"
+            value={ accion === 'editar' && producto.image2 }
           />
           <Form.Control
             name="image3"
             onChange={(e) => handleChange(e)}
             type="url"
+            value={ accion === 'editar' && producto.image3 }
             placeholder="URL Imagen 1"
           />
           {/* <Form.Control type="url" placeholder="URL Imagen 3" /> */}
@@ -161,7 +186,7 @@ export default function FormEditar({ getProductos }) {
         </Form.Group>
         <Row>
           <Button type="submit" className="mx-auto">
-            Crear Producto
+            { accion === 'crear' ? ('Crear producto') : ('Guardar producto')}
           </Button>
         </Row>
       </Form>
