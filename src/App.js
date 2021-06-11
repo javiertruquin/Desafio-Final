@@ -63,7 +63,7 @@ function App() {
       <Route>
         <ScrollToTop></ScrollToTop>
       </Route>
-      {user.roll === "admin" || user.roll === "vendedor" ? (
+      {user.rol === "admin" || user.rol === "vendedor" ? (
         <NavAdmin logout={logout} userName={user.nombre} />
       ) : (
         <NavReactB logout={logout} userName={user.nombre} />
@@ -93,7 +93,7 @@ function App() {
           <Producto />
         </Route>
         <Route path="/carrito">
-          <Carrito />
+          <Carrito token={token} />
         </Route>
         <Route path="/envio">
           <Envio />
