@@ -5,8 +5,13 @@ import logoW from "../assets/img/logoW.png";
 
 export default function NavAdmin({ logout, userName }) {
   return (
-
-<Navbar collapseOnSelect expand="lg"  bg="dark" variant="dark" className="sticky-top">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="sticky-top"
+    >
       <div className="container">
         <Navbar.Brand to="/" as={NavLink} className="px-4">
           <img
@@ -59,7 +64,6 @@ export default function NavAdmin({ logout, userName }) {
               </Dropdown>
 
           </Nav>
-
         </Navbar.Collapse>
       </div>
     </Navbar>

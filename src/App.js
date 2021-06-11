@@ -23,6 +23,7 @@ import Tucuman from "./pages/Tucuman";
 import Capital from "./pages/Capital";
 import Rosario from "./pages/Rosario";
 import Sannicolas from "./pages/Sannicolas";
+import Mensajes from "./pages/Mensajes";
 import styles from "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -48,14 +49,13 @@ function App() {
     }
   }, [token]);
 
-
   // Para hacer el logout
 
   const logout = () => {
-      localStorage.removeItem('token');
-      axios.defaults.headers = { 'x-auth-token': '' };
-      setUser({});
-      setToken('');
+    localStorage.removeItem("token");
+    axios.defaults.headers = { "x-auth-token": "" };
+    setUser({});
+    setToken("");
   };
 
   return (
@@ -66,7 +66,7 @@ function App() {
       {user.roll === "admin" || user.roll === "vendedor" ? (
         <NavAdmin logout={logout} userName={user.nombre} />
       ) : (
-        <NavReactB  logout={logout} userName={user.nombre} />
+        <NavReactB logout={logout} userName={user.nombre} />
       )}
       <Switch>
         <Route path="/" exact>
@@ -129,6 +129,9 @@ function App() {
         </Route>
         <Route path="/estadisticas">
           <EstadisticasAdmin />
+        </Route>
+        <Route path="/mensajes">
+          <Mensajes />
         </Route>
       </Switch>
     </Router>
