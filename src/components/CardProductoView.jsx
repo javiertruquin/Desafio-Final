@@ -5,6 +5,7 @@ export default function CardProductoView({computadora}) {
   const {  titulo, descripcion, precio , image1  } = computadora;
 
   const addToCart = ()=>{
+    
   } 
   return (
     <div className="col-sm-12 col-lg-6 col-xl-4">
@@ -17,7 +18,7 @@ export default function CardProductoView({computadora}) {
         </ul>
         <span className="precio-producto">${precio}</span>
         <span> <button className="btn-heart"> <i class="fas fa-heart"></i></button></span>
-        <span> <button className="btn-cart"> <i class="fas fa-shopping-cart"></i></button></span>
+        <span> <button className="btn-cart" onClick={addToCart}>  <i class="fas fa-shopping-cart"></i></button></span>
         <button className="btn-comprar mt-2" >Comprar</button>
       </div>
     </div>
