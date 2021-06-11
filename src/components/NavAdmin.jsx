@@ -25,13 +25,16 @@ export default function NavAdmin({ logout, userName }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto condensed">
           <Nav.Item className="col">
-            <Nav.Link href="/productos">Productos</Nav.Link>
+            <Nav.Link href="/productos" eventKey="link-1">Productos</Nav.Link>
           </Nav.Item>
           <Nav.Item className="col">
-            <Nav.Link href="/usuarios" eventKey="link-1">Usuarios</Nav.Link>
+            <Nav.Link href="/usuarios" eventKey="link-2">Usuarios</Nav.Link>
           </Nav.Item>
           <Nav.Item className="col">
-            <Nav.Link href="/estadisticas" eventKey="link-2">Estadísticas</Nav.Link>
+            <Nav.Link href="/mensajes" eventKey="link-3">Mensajes</Nav.Link>
+          </Nav.Item>
+          <Nav.Item className="col">
+            <Nav.Link href="/estadisticas" eventKey="link-4">Estadísticas</Nav.Link>
           </Nav.Item>
             
           <Dropdown>
