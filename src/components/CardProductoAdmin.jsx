@@ -12,8 +12,6 @@ export default function CardProductoAdmin({ producto,  getProductos }) {
   const handleShow2 = () => setShow2(true);
   
   const { codigo, titulo, descripcion, precio, creator, registro, categoria, serie, stock, image1 } = producto;
-  // console.log(producto)
-  console.log('id' , codigo)
   const eliminar = async (event) => {
     // event.preventDefault();
     try {
