@@ -75,7 +75,7 @@ function App() {
         <Route path="/computadoras">
           <Computadoras setUser={setUser} carrito={user.carrito} />
           <Footer />
-        </Route>
+g        </Route>
         <Route path="/notebooks">
           <Notebooks />
         </Route>
