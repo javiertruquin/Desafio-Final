@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import compu1 from "../assets/img/compu2/compu2-1.jpeg";
 import compu2 from "../assets/img/compu2/compu2-2.jpeg";
 import compu3 from "../assets/img/compu2/compu2-3.jpeg";
+import CardCarrito from "../components/CardCarrito";
+import axios from "axios";
 
-export default function SeccionCarrito() {
+export default function SeccionCarrito({ setUser, carrito }) {
+    useEffect(() => {
+        const getCarrito = async () => {
+            const response = await axios.get(`/auth`);
+            console.log("getCarrito ~ response", response);
+            setUser(response.data);
+        };
+        getCarrito();
+    }, []);
+
     return (
         <div className="container my-4 fuente">
             <div className=" border-bottom mb-4">
@@ -17,213 +28,9 @@ export default function SeccionCarrito() {
             <div className="row">
                 {/* PRODUCTOS */}
                 <div className="col-12 col-lg-8 px-lg-3 ">
-                    <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
-                        <div className="row m-auto mx-0 ">
-                            <div className="col-1 m-auto px-0">
-                                <img
-                                    src={compu1}
-                                    className="img-fluid ms-2"
-                                    alt="img"
-                                />
-                            </div>
-                            <div className="col-10 m-auto px-0">
-                                <div className="row">
-                                    <div className="col-12 col-lg-5 m-auto">
-                                        <h5 className="d-flex my-auto ms-3">
-                                            <a href="">
-                                                <div
-                                                    style={{
-                                                        "font-size": "80%",
-                                                    }}
-                                                    className="text-fluid"
-                                                >
-                                                    Notebook HP 15-Dy2051la 15.6
-                                                    " Intel Core i3 8 GB DDR4
-                                                </div>
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50"
-                                        >
-                                            Precio:
-                                        </div>
-                                        <div>$55.999</div>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50"
-                                        >
-                                            Cantidad:
-                                        </div>
-                                        <select className="w-100 text-center text-lg-left">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50 m-0"
-                                        >
-                                            Subtotal:
-                                        </div>
-                                        <div>$55.999</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-1 text-center m-auto px-0">
-                                <a>
-                                    <i className=" text-danger fas fa-trash-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
-                        <div className="row m-auto mx-0 ">
-                            <div className="col-1 m-auto px-0">
-                                <img
-                                    src={compu2}
-                                    className="img-fluid ms-2"
-                                    alt="img"
-                                />
-                            </div>
-                            <div className="col-10 m-auto px-0">
-                                <div className="row">
-                                    <div className="col-12 col-lg-5 m-auto">
-                                        <h5 className="d-flex my-auto ms-3">
-                                            <a href="">
-                                                <div
-                                                    style={{
-                                                        "font-size": "80%",
-                                                    }}
-                                                    className="text-fluid"
-                                                >
-                                                    Notebook HP 9ZE38UT#ABA 15.6
-                                                    " Intel Core i5 4 GB DDR4
-                                                    500GB
-                                                </div>
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50"
-                                        >
-                                            Precio:
-                                        </div>
-                                        <div>$45.999</div>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50"
-                                        >
-                                            Cantidad:
-                                        </div>
-                                        <select className="w-100 text-center text-lg-left">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50 m-0"
-                                        >
-                                            Subtotal:
-                                        </div>
-                                        <div>$45.999</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-1 text-center m-auto px-0">
-                                <a>
-                                    <i className=" text-danger fas fa-trash-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
-                        <div className="row m-auto mx-0 ">
-                            <div className="col-1 m-auto px-0">
-                                <img
-                                    src={compu3}
-                                    className="img-fluid ms-2"
-                                    alt="img"
-                                />
-                            </div>
-                            <div className="col-10 m-auto px-0">
-                                <div className="row">
-                                    <div className="col-12 col-lg-5 m-auto">
-                                        <h5 className="d-flex my-auto ms-3">
-                                            <a href="">
-                                                <div
-                                                    style={{
-                                                        "font-size": "80%",
-                                                    }}
-                                                    className="text-fluid"
-                                                >
-                                                    Notebook HP 14-Ck2096la 14 "
-                                                    Intel Celeron 4 GB 500GB
-                                                </div>
-                                            </a>
-                                        </h5>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50"
-                                        >
-                                            Precio:
-                                        </div>
-                                        <div>$62.999</div>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50"
-                                        >
-                                            Cantidad:
-                                        </div>
-                                        <select className="w-100 text-center text-lg-left">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                    <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
-                                        <div
-                                            style={{ "font-size": "80%" }}
-                                            className="h-50 m-0"
-                                        >
-                                            Subtotal:
-                                        </div>
-                                        <div>$62.999</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-1 text-center m-auto px-0">
-                                <a>
-                                    <i className=" text-danger fas fa-trash-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {carrito?.map((carrito) => (
+                        <CardCarrito carrito={carrito} />
+                    ))}
                 </div>
                 {/* Resumen */}
                 <div className="col-12 col-sm-6 col-lg-4 ms-auto">

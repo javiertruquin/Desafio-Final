@@ -31,7 +31,7 @@ export default function Registro({ setToken }) {
     const handleChange = (e) => {
         const { name, value } = e.target;
         let changedInput = { ...input, [name]: value };
-        setInput({ ...changedInput, roll: "usuario" });
+        setInput({ ...changedInput, rol: "usuario" });
     };
 
     return (
