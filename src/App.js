@@ -13,6 +13,7 @@ import Computadoras from "./pages/Computadoras";
 import Notebooks from "./pages/Notebooks";
 import Accesorios from "./pages/Accesorios";
 import Producto from "./pages/Producto";
+import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 import SobreNosotros from "./pages/SobreNosotros";
@@ -71,23 +72,18 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Inicio />
-          <Footer />
         </Route>
         <Route path="/computadoras">
           <Computadoras />
-          <Footer />
         </Route>
         <Route path="/notebooks">
           <Notebooks />
-          <Footer />
         </Route>
         <Route path="/accesorios">
           <Accesorios />
-          <Footer />
         </Route>
         <Route path="/nosotros">
           <SobreNosotros />
-          <Footer />
         </Route>
         <Route path="/producto">
           <Producto />
@@ -103,11 +99,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login setUser={setUser} setToken={setToken} />
-          <Footer />
         </Route>
         <Route path="/registro">
           <Registro setToken={setToken} />
-          <Footer />
         </Route>
         <Route path="/productos">
           <ProductosAdmin />
@@ -133,7 +127,11 @@ function App() {
         <Route path="/mensajes">
           <Mensajes />
         </Route>
+        <Route path="/profile">
+          <Profile user={user} />
+        </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }
