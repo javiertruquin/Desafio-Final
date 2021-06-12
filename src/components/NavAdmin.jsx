@@ -54,7 +54,7 @@ export default function NavAdmin({ logout, userName }) {
                     </Nav.Link>
                   )}
                   {userName && (
-                    <Nav.Link style={{color: '#000'}} to="/registro" as={NavLink}>
+                    <Nav.Link style={{color: '#000'}} to="/profile" as={NavLink}>
                       Perfil
                     </Nav.Link>
                   )}
