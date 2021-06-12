@@ -73,7 +73,7 @@ export default function NavReactB({ logout, userName }) {
                     </Nav.Link>
                   )}
                   {userName && (
-                    <Nav.Link to="/registro" as={NavLink}>
+                    <Nav.Link to="/profile" as={NavLink}>
                       Perfil
                     </Nav.Link>
                   )}
