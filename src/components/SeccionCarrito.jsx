@@ -7,15 +7,12 @@ import compu3 from "../assets/img/compu2/compu2-3.jpeg";
 import CardCarrito from "../components/CardCarrito";
 import axios from "axios";
 
-export default function SeccionCarrito() {
-
-    const [carrito, setCarrito] = useState([]);
-
+export default function SeccionCarrito({ setUser, carrito }) {
     useEffect(() => {
         const getCarrito = async () => {
             const response = await axios.get(`/auth`);
             console.log("getCarrito ~ response", response);
-            setCarrito(response.data.carrito);
+            setUser(response.data);
         };
         getCarrito();
     }, []);
@@ -30,10 +27,12 @@ export default function SeccionCarrito() {
 
             <div className="row">
                 {/* PRODUCTOS */}
-                {carrito.map((carrito) => (
-                    <CardCarrito carrito={carrito} />
-                ))}
-                ;{/* Resumen */}
+                <div className="col-12 col-lg-8 px-lg-3 ">
+                    {carrito?.map((carrito) => (
+                        <CardCarrito carrito={carrito} />
+                    ))}
+                </div>
+                {/* Resumen */}
                 <div className="col-12 col-sm-6 col-lg-4 ms-auto">
                     <div
                         className="container card border-1 mb-3"

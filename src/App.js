@@ -36,9 +36,8 @@ const localToken = JSON.parse(localStorage.getItem("token")) || "";
 axios.defaults.headers = { "x-auth-token": localToken };
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({});
   const [token, setToken] = useState(localToken);
-
   useEffect(() => {
     if (token) {
       const request = async () => {
@@ -67,14 +66,15 @@ function App() {
       {user.rol === "admin" || user.rol === "vendedor" ? (
         <NavAdmin logout={logout} userName={user.nombre} />
       ) : (
-        <NavReactB logout={logout} userName={user.nombre} />
+        <NavReactB logout={logout} userName={user.nombre} carrito={user.carrito}/>
       )}
       <Switch>
         <Route path="/" exact>
           <Inicio />
         </Route>
         <Route path="/computadoras">
-          <Computadoras />
+          <Computadoras setUser={setUser} carrito={user.carrito} />
+          <Footer />
         </Route>
         <Route path="/notebooks">
           <Notebooks />
@@ -89,7 +89,7 @@ function App() {
           <Producto />
         </Route>
         <Route path="/carrito">
-          <Carrito token={token} />
+          <Carrito setUser={setUser} carrito={user.carrito}/>
         </Route>
         <Route path="/envio">
           <Envio />
