@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Navbar, Nav, Modal, Button, Dropdown } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
@@ -6,7 +6,7 @@ import CardFavoritos from "./CardFavoritos";
 import "../Favoritos.css";
 
 
-export default function NavReactB({ logout, userName }) {
+export default function NavReactB({ logout, userName , carrito }) {
   const [crear, setCrear] = useState(false);
 
   const handleClose = () => setCrear(false);
@@ -49,6 +49,7 @@ export default function NavReactB({ logout, userName }) {
                   style={{ color: "#00598a" }}
                   class="fas fa-shopping-cart"
                 ></i>
+                {carrito?.length}
               </Nav.Link>
               <Nav.Link href="#link" onClick={handleCrear}>
                 <i style={{ color: "#00598a" }} class="fas fa-heart"></i>
