@@ -12,6 +12,7 @@ export default function CardProductoAdmin({ producto,  getProductos }) {
   const handleShow2 = () => setShow2(true);
   
   const { codigo, titulo, descripcion, precio, creator, registro, categoria, serie, stock, image1 } = producto;
+  
   const eliminar = async (event) => {
     // event.preventDefault();
     try {
