@@ -24,7 +24,7 @@ import Tucuman from "./pages/Tucuman";
 import Capital from "./pages/Capital";
 import Rosario from "./pages/Rosario";
 import Sannicolas from "./pages/Sannicolas";
-import Mensajes from "./pages/Mensajes";
+import Mensaje from "./pages/Mensaje";
 import styles from "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -66,7 +66,11 @@ function App() {
       {user.rol === "admin" || user.rol === "vendedor" ? (
         <NavAdmin logout={logout} userName={user.nombre} />
       ) : (
-        <NavReactB logout={logout} userName={user.nombre} carrito={user.carrito}/>
+        <NavReactB
+          logout={logout}
+          userName={user.nombre}
+          carrito={user.carrito}
+        />
       )}
       <Switch>
         <Route path="/" exact>
@@ -74,8 +78,8 @@ function App() {
         </Route>
         <Route path="/computadoras">
           <Computadoras setUser={setUser} carrito={user.carrito} />
-          <Footer />
-g        </Route>
+          <Footer />g{" "}
+        </Route>
         <Route path="/notebooks">
           <Notebooks />
         </Route>
@@ -89,7 +93,7 @@ g        </Route>
           <Producto />
         </Route>
         <Route path="/carrito">
-          <Carrito setUser={setUser} carrito={user.carrito}/>
+          <Carrito setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/envio">
           <Envio />
@@ -124,8 +128,8 @@ g        </Route>
         <Route path="/estadisticas">
           <EstadisticasAdmin />
         </Route>
-        <Route path="/mensajes">
-          <Mensajes />
+        <Route path="/mensaje">
+          <Mensaje />
         </Route>
         <Route path="/profile">
           <Profile user={user} />
