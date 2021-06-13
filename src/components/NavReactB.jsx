@@ -1,12 +1,11 @@
 import { React, useState } from "react";
-import { Navbar, Nav, Modal, Dropdown, DropdownButton, ButtonGroup } from "react-bootstrap";
+import { Navbar, Nav, Modal, Dropdown, ButtonGroup } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
 import "../Favoritos.css";
 
-
-export default function NavReactB({ logout, userName , carrito }) {
+export default function NavReactB({ logout, userName, carrito }) {
   const [crear, setCrear] = useState(false);
 
   const handleClose = () => setCrear(false);
@@ -58,40 +57,35 @@ export default function NavReactB({ logout, userName , carrito }) {
                 <i style={{ color: "#00598a" }} class="fas fa-dor"></i>
               </Button> */}
 
-              <DropdownButton
-                as={ButtonGroup}
-                menuAlign={{ lg: 'right' }}
+              <Dropdown as={ButtonGroup}>
+                <Dropdown.Toggle id="dropdown-custom-1">
+                  <i style={{ color: "#FFFFFF" }} class="fas fa-user pe-2"></i>
+                </Dropdown.Toggle>
 
-                id="dropdown-menu-align-responsive-1"
+                <Dropdown.Menu className="super-colors">
+                  <Dropdown.Item>
+                    {!userName && (
+                      <Nav.Link to="/login" as={NavLink}>
+                        Entrar
+                      </Nav.Link>
+                    )}
 
-              >
-                {/* <i style={{ color: "#FFFFFF" }} class="fas fa-user pe-2"></i> el que lo pueda poner dentro del boton se consagra */}
-
-                <Dropdown.Item>
-                  {!userName && (
-                    <Nav.Link to="/login" as={NavLink}>
-                      Entrar
-                    </Nav.Link>
-                  )}
-                  
-                  {!userName && (
-                    <Nav.Link to="/registro" as={NavLink}>
-                      Registrarte
-                    </Nav.Link>
-                  )}
-                  {userName && (
-                    <Nav.Link to="/registro" as={NavLink}>
-                      Perfil
-                    </Nav.Link>
-                  )}
-                  {userName && (
-                    <Nav.Link onClick={logout}>
-                      Cerrar Sesión
-                    </Nav.Link>
-                  )}
-                </Dropdown.Item>
-
-              </DropdownButton>
+                    {!userName && (
+                      <Nav.Link to="/registro" as={NavLink}>
+                        Registrarte
+                      </Nav.Link>
+                    )}
+                    {userName && (
+                      <Nav.Link to="/registro" as={NavLink}>
+                        Perfil
+                      </Nav.Link>
+                    )}
+                    {userName && (
+                      <Nav.Link onClick={logout}>Cerrar Sesión</Nav.Link>
+                    )}
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
 
               {/* <Dropdown>
                 <Dropdown.Toggle variant="info" id="dropdown-menu-align-responsive-1" menuAlign={{ lg: 'right' }}>
