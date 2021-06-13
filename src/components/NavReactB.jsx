@@ -1,5 +1,5 @@
-import { React, useEffect, useState } from "react";
-import { Navbar, Nav, Modal, Button, Dropdown } from "react-bootstrap";
+import { React, useState } from "react";
+import { Navbar, Nav, Modal, Dropdown, DropdownButton, ButtonGroup } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
@@ -24,7 +24,7 @@ export default function NavReactB({ logout, userName , carrito }) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto condensed">
+          <Nav className="ml-auto condensed align-items-center">
             <Nav.Link to="/" as={NavLink}>
               Inicio
             </Nav.Link>
@@ -43,7 +43,7 @@ export default function NavReactB({ logout, userName , carrito }) {
             {/* <Nav.Link to="/usuarios" as={NavLink}>
               Admin
             </Nav.Link> */}
-            <div className="ps-5 d-flex">
+            <div className="ps-2 d-flex align-items-center">
               <Nav.Link to="/carrito" as={NavLink}>
                 <i
                   style={{ color: "#00598a" }}
@@ -51,15 +51,51 @@ export default function NavReactB({ logout, userName , carrito }) {
                 ></i>
                 {carrito?.length}
               </Nav.Link>
-              <Nav.Link href="#link" onClick={handleCrear}>
-                <i style={{ color: "#00598a" }} class="fas fa-heart"></i>
+              <Nav.Link href="#link" onClick={handleCrear} className="p-3">
+                <i style={{ color: "#00598a" }} class="fas fa-heart "></i>
               </Nav.Link>
               {/* <Button onClick={logout}>
                 <i style={{ color: "#00598a" }} class="fas fa-dor"></i>
               </Button> */}
-              <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                <i style={{ color: "#00598a" }} class="fas fa-user"></i>
+
+              <DropdownButton
+                as={ButtonGroup}
+                menuAlign={{ lg: 'right' }}
+
+                id="dropdown-menu-align-responsive-1"
+
+              >
+                {/* <i style={{ color: "#FFFFFF" }} class="fas fa-user pe-2"></i> el que lo pueda poner dentro del boton se consagra */}
+
+                <Dropdown.Item>
+                  {!userName && (
+                    <Nav.Link to="/login" as={NavLink}>
+                      Entrar
+                    </Nav.Link>
+                  )}
+                  
+                  {!userName && (
+                    <Nav.Link to="/registro" as={NavLink}>
+                      Registrarte
+                    </Nav.Link>
+                  )}
+                  {userName && (
+                    <Nav.Link to="/registro" as={NavLink}>
+                      Perfil
+                    </Nav.Link>
+                  )}
+                  {userName && (
+                    <Nav.Link onClick={logout}>
+                      Cerrar Sesión
+                    </Nav.Link>
+                  )}
+                </Dropdown.Item>
+
+              </DropdownButton>
+
+              {/* <Dropdown>
+                <Dropdown.Toggle variant="info" id="dropdown-menu-align-responsive-1" menuAlign={{ lg: 'right' }}>
+                <i style={{ color: "#FFFFFF" }} class="fas fa-user pe-2"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -84,7 +120,7 @@ export default function NavReactB({ logout, userName , carrito }) {
                     </Nav.Link>
                   )}
                 </Dropdown.Menu>
-              </Dropdown>
+              </Dropdown> */}
             </div>
           </Nav>
         </Navbar.Collapse>
