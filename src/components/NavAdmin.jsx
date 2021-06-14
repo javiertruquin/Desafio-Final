@@ -24,48 +24,63 @@ export default function NavAdmin({ logout, userName }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto condensed">
-          <Nav.Item className="col">
-            <Nav.Link href="/productos" eventKey="link-1">Productos</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="col">
-            <Nav.Link href="/usuarios" eventKey="link-2">Usuarios</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="col">
-            <Nav.Link href="/mensajes" eventKey="link-3">Mensajes</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="col">
-            <Nav.Link href="/estadisticas" eventKey="link-4">Estadísticas</Nav.Link>
-          </Nav.Item>
-            
-          <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Nav.Item className="col">
+              <Nav.Link href="/productos" eventKey="link-1">
+                Productos
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="col">
+              <Nav.Link href="/usuarios" eventKey="link-2">
+                Usuarios
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="col">
+              <Nav.Link href="/mensaje" eventKey="link-3">
+                Mensajes
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="col">
+              <Nav.Link href="/estadisticas" eventKey="link-4">
+                Estadísticas
+              </Nav.Link>
+            </Nav.Item>
+
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
                 <i style={{ color: "#00598a" }} class="fas fa-user"></i>
-                </Dropdown.Toggle>
+              </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  {!userName && (
-                    <Nav.Link style={{color: '#000'}} to="/login" as={NavLink}>
-                      Entrar
-                    </Nav.Link>
-                  )}
-                  {!userName && (
-                    <Nav.Link style={{color: '#000'}} to="/registro" as={NavLink}>
-                      Registrarte
-                    </Nav.Link>
-                  )}
-                  {userName && (
-                    <Nav.Link style={{color: '#000'}} to="/profile" as={NavLink}>
-                      Perfil
-                    </Nav.Link>
-                  )}
-                  {userName && (
-                    <Nav.Link style={{color: '#000'}} onClick={logout}>
-                      Cerrar Sesión
-                    </Nav.Link>
-                  )}
-                </Dropdown.Menu>
-              </Dropdown>
-
+              <Dropdown.Menu>
+                {!userName && (
+                  <Nav.Link style={{ color: "#000" }} to="/login" as={NavLink}>
+                    Entrar
+                  </Nav.Link>
+                )}
+                {!userName && (
+                  <Nav.Link
+                    style={{ color: "#000" }}
+                    to="/registro"
+                    as={NavLink}
+                  >
+                    Registrarte
+                  </Nav.Link>
+                )}
+                {userName && (
+                  <Nav.Link
+                    style={{ color: "#000" }}
+                    to="/profile"
+                    as={NavLink}
+                  >
+                    Perfil
+                  </Nav.Link>
+                )}
+                {userName && (
+                  <Nav.Link style={{ color: "#000" }} onClick={logout}>
+                    Cerrar Sesión
+                  </Nav.Link>
+                )}
+              </Dropdown.Menu>
+            </Dropdown>
           </Nav>
         </Navbar.Collapse>
       </div>
