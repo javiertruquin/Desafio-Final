@@ -1,6 +1,7 @@
 import { MDBCol, MDBContainer, MDBInput, MDBRow } from "mdbreact";
 import { Form } from "react-bootstrap";
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function CajaDeMensajes() {
   const [datos, setDatos] = useState({
@@ -18,7 +19,8 @@ export default function CajaDeMensajes() {
 
   const enviarDatos = (event) => {
     event.preventDefault();
-    console.log(datos);
+    axios.post("/mensaje", datos);
+    alert("Gracias por su consulta. Le responderemos a la brevedad");
   };
 
   return (
