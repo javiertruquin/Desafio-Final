@@ -3,12 +3,14 @@ import { NavLink } from "react-router-dom";
 
 import logoW from "../assets/img/logoW.png";
 
-export default function NavAdmin({ logout, userName }) {
+export default function NavAdmin({ logout, userRol }) {
+  const esAdmin = userRol === 'admin';
+
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="dark"
+      bg="dark" 
       variant="dark"
       className="sticky-top"
     >
@@ -25,22 +27,24 @@ export default function NavAdmin({ logout, userName }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto condensed">
             <Nav.Item className="col">
-              <Nav.Link href="/productos" eventKey="link-1">
+              <Nav.Link to="/productos"  as={NavLink}>
                 Productos
               </Nav.Link>
             </Nav.Item>
+            { esAdmin &&             
             <Nav.Item className="col">
-              <Nav.Link href="/usuarios" eventKey="link-2">
+              <Nav.Link to="/usuarios"  as={NavLink}>
                 Usuarios
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item>            
+            }
             <Nav.Item className="col">
-              <Nav.Link href="/mensaje" eventKey="link-3">
+              <Nav.Link to="/mensaje"  as={NavLink}>
                 Mensajes
               </Nav.Link>
             </Nav.Item>
             <Nav.Item className="col">
-              <Nav.Link href="/estadisticas" eventKey="link-4">
+              <Nav.Link to="/estadisticas"  as={NavLink}>
                 Estadísticas
               </Nav.Link>
             </Nav.Item>
@@ -51,12 +55,12 @@ export default function NavAdmin({ logout, userName }) {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                {!userName && (
+                {!userRol && (
                   <Nav.Link style={{ color: "#000" }} to="/login" as={NavLink}>
                     Entrar
                   </Nav.Link>
                 )}
-                {!userName && (
+                {!userRol && (
                   <Nav.Link
                     style={{ color: "#000" }}
                     to="/registro"
@@ -65,7 +69,7 @@ export default function NavAdmin({ logout, userName }) {
                     Registrarte
                   </Nav.Link>
                 )}
-                {userName && (
+                {userRol && (
                   <Nav.Link
                     style={{ color: "#000" }}
                     to="/profile"
@@ -74,7 +78,7 @@ export default function NavAdmin({ logout, userName }) {
                     Perfil
                   </Nav.Link>
                 )}
-                {userName && (
+                {userRol && (
                   <Nav.Link style={{ color: "#000" }} onClick={logout}>
                     Cerrar Sesión
                   </Nav.Link>
@@ -88,16 +92,16 @@ export default function NavAdmin({ logout, userName }) {
 
     // <Navbar fixed="top" bg="dark" variant="dark">
     //   <div className="container justify-content-start">
-    //     {/* <Navbar.Brand href="/home" className="col-1"><Image className="w-100" src={logo} rounded /></Navbar.Brand> */}
+    //     {/* <Navbar.Brand to="/home" className="col-1"><Image className="w-100" src={logo} rounded /></Navbar.Brand> */}
     //     <Nav style={{width: "100%"}} className="text-center" variant="tabs" defaultActiveKey="/home">
     //       <Nav.Item className="col">
-    //         <Nav.Link href="/productos">Productos</Nav.Link>
+    //         <Nav.Link to="/productos">Productos</Nav.Link>
     //       </Nav.Item>
     //       <Nav.Item className="col">
-    //         <Nav.Link href="/usuarios" eventKey="link-1">Usuarios</Nav.Link>
+    //         <Nav.Link to="/usuarios" eventKey="link-1">Usuarios</Nav.Link>
     //       </Nav.Item>
     //       <Nav.Item className="col">
-    //         <Nav.Link href="/estadisticas" eventKey="link-2">Estadísticas</Nav.Link>
+    //         <Nav.Link to="/estadisticas" eventKey="link-2">Estadísticas</Nav.Link>
     //       </Nav.Item>
     //     </Nav>
     //   </div>

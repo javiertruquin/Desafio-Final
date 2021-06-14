@@ -1,3 +1,5 @@
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -5,8 +7,6 @@ import axios from 'axios';
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
 
 // axios.defaults.baseURL = 'https://desafio-final-rolling.herokuapp.com/api';
 axios.defaults.baseURL = 'http://localhost:4000/api';

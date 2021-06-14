@@ -66,7 +66,7 @@ export default function NavReactB({ logout, userName, carrito }) {
                 <i style={{ color: "#00598a" }} class="fas fa-dor"></i>
               </Button> */}
 
-              <DropdownButton
+              {/* <DropdownButton
                 as={ButtonGroup}
                 menuAlign={{ lg: "right" }}
                 id="dropdown-menu-align-responsive-1"
@@ -93,9 +93,9 @@ export default function NavReactB({ logout, userName, carrito }) {
                     <Nav.Link onClick={logout}>Cerrar Sesión</Nav.Link>
                   )}
                 </Dropdown.Item>
-              </DropdownButton>
+              </DropdownButton> */}
 
-              {/* <Dropdown>
+              <Dropdown>
                 <Dropdown.Toggle variant="info" id="dropdown-menu-align-responsive-1" menuAlign={{ lg: 'right' }}>
                 <i style={{ color: "#FFFFFF" }} class="fas fa-user pe-2"></i>
                 </Dropdown.Toggle>
@@ -122,7 +122,7 @@ export default function NavReactB({ logout, userName, carrito }) {
                     </Nav.Link>
                   )}
                 </Dropdown.Menu>
-              </Dropdown> */}
+              </Dropdown>
             </div>
           </Nav>
         </Navbar.Collapse>

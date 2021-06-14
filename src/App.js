@@ -1,5 +1,3 @@
-import "./App.css";
-import "./Admin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-credit-cards/es/styles-compiled.css";
 import NavReactB from "./components/NavReactB";
@@ -25,6 +23,8 @@ import styles from "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import "./Admin.css";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -52,6 +52,7 @@ function App() {
     axios.defaults.headers = { "x-auth-token": "" };
     setUser({});
     setToken("");
+
   };
 
   return (
@@ -60,7 +61,7 @@ function App() {
         <ScrollToTop></ScrollToTop>
       </Route>
       {user.rol === "admin" || user.rol === "vendedor" ? (
-        <NavAdmin logout={logout} userName={user.nombre} />
+        <NavAdmin logout={logout} userRol={user.rol} /> 
       ) : (
         <NavReactB
           logout={logout}

@@ -1,13 +1,26 @@
-import { React, useState } from "react";
+import axios from "axios";
+import { React, useEffect, useState } from "react";
 import { Button, Container, Modal, Table } from "react-bootstrap";
 import FormCrearVendedor from "./FormCrearVendedor";
+import FilaUsuarios from './FilaUsuarios';
 
 export default function UsuariosAdmin() {
-
   const [crear, setCrear  ] = useState(false);
-
+  const [usuarios, setUsuarios] = useState([]);
   const handleClose = () => setCrear  (false);
   const handleCrear = () => setCrear  (true);
+  const [rol, setRol] = useState('vendedor')
+
+  const getUsuarios = async () => {
+      const params = { rol }
+      const response = await axios.get(`/auth/usuariosAdmin`, {params});
+      setUsuarios(response.data);
+  };
+    useEffect(() => {
+        getUsuarios();
+    }, []);
+
+    
 
   return (
     <>
@@ -44,63 +57,16 @@ export default function UsuariosAdmin() {
             <tr>
               <th>#</th>
               <th>Nombre</th>
+              <th>Rol</th>
               <th>Email</th>
-              <th>Ultima Publicación</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Tomás</td>
-              <td>tomas@rolling.com</td>
-              <td>16/05/21 - 17:55</td>
-              <td>
-                <Button variant="primary">
-                  <i class="fas fa-info-circle"></i>
-                </Button>{" "}
-                <Button onClick={handleCrear} className="my-1" variant="secondary">
-                  <i class="far fa-edit"></i>
-                </Button>{" "}
-                <Button variant="danger">
-                  <i class="far fa-trash-alt"></i>
-                </Button>{" "}
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Tomás</td>
-              <td>tomas@rolling.com</td>
-              <td>16/05/21 - 17:55</td>
-              <td>
-                <Button variant="primary">
-                  <i class="fas fa-info-circle"></i>
-                </Button>{" "}
-                <Button onClick={handleCrear} className="my-1" variant="secondary">
-                  <i class="far fa-edit"></i>
-                </Button>{" "}
-                <Button variant="danger">
-                  <i class="far fa-trash-alt"></i>
-                </Button>{" "}
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Tomás</td>
-              <td>tomas@rolling.com</td>
-              <td>16/05/21 - 17:55</td>
-              <td>
-                <Button variant="primary">
-                  <i class="fas fa-info-circle"></i>
-                </Button>{" "}
-                <Button onClick={handleCrear} className="my-1" variant="secondary">
-                  <i class="far fa-edit"></i>
-                </Button>{" "}
-                <Button variant="danger">
-                  <i class="far fa-trash-alt"></i>
-                </Button>{" "}
-              </td>
-            </tr>
+
+          {usuarios.map((usuario) => (
+            <FilaUsuarios usuario={usuario} key={usuario._id} />
+          ))}            
           </tbody>
         </Table>
       </Container>
@@ -111,14 +77,11 @@ export default function UsuariosAdmin() {
           <Modal.Title>Usuario</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <FormCrearVendedor />
+            <FormCrearVendedor handleClose={handleClose}  getUsuarios={getUsuarios} accion={'crear'}  />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Guardar
+            Cancelar
           </Button>
         </Modal.Footer>
       </Modal>

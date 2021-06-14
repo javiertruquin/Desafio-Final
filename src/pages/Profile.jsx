@@ -21,24 +21,24 @@ export default function Profile({ user, token }) {
         setSubNav(eventKey)
     }
     // const getUsuario = async () => {
-    //   const { data } = await axios.get(`/auth/complete`, user._id);
+    //   const { data } = await axios.get(`/auth/complete`);
     //   // console.log('usuario', data)
     //   setUsuarioCompleto(data);
     // };
     // useEffect(() => {
-      //     getUsuario();
+    //       getUsuario();
     //   }, []);
 
-    // useEffect(() => {
-    //   if (token) {
-    //     const getUsuario = async () => {
-    //       const { data } = await axios.get(`/auth/complete`, user._id);
-    //       // console.log('usuario', data)
-    //       setUsuarioCompleto(data);
-    //     };
-    //     getUsuario();
-    //   }
-    // }, [token]);
+    useEffect(() => {
+      if (token) {
+        const getUsuario = async () => {
+          const { data } = await axios.get(`/auth/complete`);
+          // console.log('usuario', data)
+          setUsuarioCompleto(data);
+        };
+        getUsuario();
+      }
+    }, [token]);
     
 
 
@@ -50,7 +50,7 @@ export default function Profile({ user, token }) {
             <div className="card border-0 shadow">
               <img src={imageProfile} className="card-img-top" />
               <div className="card-body text-center">
-                <h5 className="card-title mb-0">{'usuarioCompleto.nombre'}</h5>
+                <h5 className="card-title mb-0">{usuarioCompleto.nombre}</h5>
                 <div className="card-text text-black-50">Web Developer</div>
               </div>
             </div>
