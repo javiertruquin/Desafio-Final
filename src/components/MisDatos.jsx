@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
+import FormEditar from "./FormEditar";
 
 export default function MisDatos({ userComplete }) {
+  // const [datosCuenta, setDatosCuenta] = useState(false);
+  // const [datosPersonales, setDatosPersonales] = useState();
+  // const [datosDomicilio, setDDomicilio] = useState();
+
+  // const editar = (usestate) => {
+  //   if (usestate === 'datosCuenta'){
+  //     setDatosCuenta(true);
+  //     console.log('datos', datosCuenta)
+  //   }
+  // }
+
+
+
   return (
     <>
       <Card.Body>
@@ -13,9 +27,9 @@ export default function MisDatos({ userComplete }) {
                 Email
               </InputGroup.Text>
             </InputGroup.Prepend>
+            {/* { !datosCuenta && disable } */}
             <FormControl
               aria-label="Default"
-              disabled
               type="email"
               placeholder={'userComplete.email'}
               aria-describedby="inputGroup-sizing-default"
@@ -33,7 +47,9 @@ export default function MisDatos({ userComplete }) {
               placeholder="****************"
             />
           </InputGroup>
-          <Button size="md" className="mt-4" variant="outline-dark">
+          <Button size="md"
+          // onClick={setDatosCuenta(true)}
+          className="mt-4" variant="outline-dark">
             Editar
           </Button>{" "}
         </div>
