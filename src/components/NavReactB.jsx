@@ -1,9 +1,18 @@
 import { React, useState } from "react";
-import { Navbar, Nav, Modal, Dropdown, ButtonGroup } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  Modal,
+  Dropdown,
+  ButtonGroup,
+  DropdownButton,
+} from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
 import "../Favoritos.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavReactB({ logout, userName, carrito }) {
   const [crear, setCrear] = useState(false);
@@ -57,35 +66,34 @@ export default function NavReactB({ logout, userName, carrito }) {
                 <i style={{ color: "#00598a" }} class="fas fa-dor"></i>
               </Button> */}
 
-              <Dropdown as={ButtonGroup}>
-                <Dropdown.Toggle id="dropdown-custom-1">
-                  <i style={{ color: "#FFFFFF" }} class="fas fa-user pe-2"></i>
-                </Dropdown.Toggle>
+              <DropdownButton
+                as={ButtonGroup}
+                menuAlign={{ lg: "right" }}
+                id="dropdown-menu-align-responsive-1"
+                title={<FontAwesomeIcon icon={faUser} />}
+              >
+                <Dropdown.Item>
+                  {!userName && (
+                    <Nav.Link to="/login" as={NavLink}>
+                      Entrar
+                    </Nav.Link>
+                  )}
 
-                <Dropdown.Menu className="super-colors">
-                  <Dropdown.Item>
-                    {!userName && (
-                      <Nav.Link to="/login" as={NavLink}>
-                        Entrar
-                      </Nav.Link>
-                    )}
-
-                    {!userName && (
-                      <Nav.Link to="/registro" as={NavLink}>
-                        Registrarte
-                      </Nav.Link>
-                    )}
-                    {userName && (
-                      <Nav.Link to="/registro" as={NavLink}>
-                        Perfil
-                      </Nav.Link>
-                    )}
-                    {userName && (
-                      <Nav.Link onClick={logout}>Cerrar Sesión</Nav.Link>
-                    )}
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+                  {!userName && (
+                    <Nav.Link to="/registro" as={NavLink}>
+                      Registrarte
+                    </Nav.Link>
+                  )}
+                  {userName && (
+                    <Nav.Link to="/registro" as={NavLink}>
+                      Perfil
+                    </Nav.Link>
+                  )}
+                  {userName && (
+                    <Nav.Link onClick={logout}>Cerrar Sesión</Nav.Link>
+                  )}
+                </Dropdown.Item>
+              </DropdownButton>
 
               {/* <Dropdown>
                 <Dropdown.Toggle variant="info" id="dropdown-menu-align-responsive-1" menuAlign={{ lg: 'right' }}>
