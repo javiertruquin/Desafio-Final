@@ -59,7 +59,7 @@ export default function ProductosAdmin({ token }) {
 
       </Container>
 
-          <Footer />
+          {/* <Footer /> */}
 
       {/* Modal's */}
       <Modal show={crear} onHide={handleClose}>

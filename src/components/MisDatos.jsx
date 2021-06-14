@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
 
-export default function MisDatos() {
+export default function MisDatos({ userComplete }) {
   return (
     <>
       <Card.Body>
@@ -17,7 +17,7 @@ export default function MisDatos() {
               aria-label="Default"
               disabled
               type="email"
-              placeholder="tomas@gueri.es"
+              placeholder={'userComplete.email'}
               aria-describedby="inputGroup-sizing-default"
             />
           </InputGroup>
@@ -50,7 +50,7 @@ export default function MisDatos() {
               aria-label="Default"
               disabled
               type="text"
-              placeholder="Tomás Guerineau"
+              placeholder={'userComplete.nombre'}
               aria-describedby="inputGroup-sizing-default"
             />
           </InputGroup>

@@ -1,4 +1,4 @@
-import { React, Component, useState } from "react";
+import { React, Component, useState, useEffect } from "react";
 import {
   Button,
   Card,
@@ -11,12 +11,36 @@ import imageProfile from "../assets/img/profile-1.jpeg";
 import MisDatos from "../components/MisDatos";
 import MisCompras from "../components/MisCompras";
 import MisMensajes from "../components/MisMensajes";
+import axios from "axios";
 
-export default function Profile() {
+export default function Profile({ user, token }) {
     const [subNav, setSubNav] = useState('1');
+    const [usuarioCompleto, setUsuarioCompleto] = useState({});
+
     const handleSelect = (eventKey) => {
         setSubNav(eventKey)
     }
+    // const getUsuario = async () => {
+    //   const { data } = await axios.get(`/auth/complete`, user._id);
+    //   // console.log('usuario', data)
+    //   setUsuarioCompleto(data);
+    // };
+    // useEffect(() => {
+      //     getUsuario();
+    //   }, []);
+
+    // useEffect(() => {
+    //   if (token) {
+    //     const getUsuario = async () => {
+    //       const { data } = await axios.get(`/auth/complete`, user._id);
+    //       // console.log('usuario', data)
+    //       setUsuarioCompleto(data);
+    //     };
+    //     getUsuario();
+    //   }
+    // }, [token]);
+    
+
 
     return (
       <>
@@ -26,7 +50,7 @@ export default function Profile() {
             <div className="card border-0 shadow">
               <img src={imageProfile} className="card-img-top" />
               <div className="card-body text-center">
-                <h5 className="card-title mb-0">Tomás Guerineau</h5>
+                <h5 className="card-title mb-0">{'usuarioCompleto.nombre'}</h5>
                 <div className="card-text text-black-50">Web Developer</div>
               </div>
             </div>
@@ -46,7 +70,7 @@ export default function Profile() {
                   </Nav.Item>
                 </Nav>
               </Card.Header>              
-              { subNav === '1' && <MisDatos />}
+              { subNav === '1' && <MisDatos userComplete={usuarioCompleto} />}
               { subNav === '2' && <MisCompras />}
               { subNav === '3' && <MisMensajes />}
             </Card>

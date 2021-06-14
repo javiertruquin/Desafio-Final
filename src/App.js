@@ -128,7 +128,7 @@ g        </Route>
           <Mensajes />
         </Route>
         <Route path="/profile">
-          <Profile user={user} />
+          <Profile token={token} user={user} />
         </Route>
       </Switch>
       <Footer />
