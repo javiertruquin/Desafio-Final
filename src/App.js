@@ -1,3 +1,5 @@
+import "./App.css";
+import "./Admin.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-credit-cards/es/styles-compiled.css";
 import NavReactB from "./components/NavReactB";
@@ -22,9 +24,7 @@ import Mensaje from "./pages/Mensaje";
 import styles from "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
-import "./Admin.css";
+import { BrowserRouter as Router, Route, Switch, useHistory  } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -34,6 +34,7 @@ axios.defaults.headers = { "x-auth-token": localToken };
 function App() {
   const [user, setUser] = useState({});
   const [token, setToken] = useState(localToken);
+  const history = useHistory();
   useEffect(() => {
     if (token) {
       const request = async () => {
@@ -52,7 +53,7 @@ function App() {
     axios.defaults.headers = { "x-auth-token": "" };
     setUser({});
     setToken("");
-
+    // history.push("/");
   };
 
   return (

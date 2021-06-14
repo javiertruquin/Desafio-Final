@@ -7,7 +7,7 @@ import SeccionEnvio from "../components/SeccionEnvio";
 export default function Envio() {
     return (
         <div>
-            <NavReactB />
+            {/* <NavReactB /> */}
             <div className="row mx-auto ">
                 <div className="col-12 col-md-6">
                     <SeccionEnvio />
