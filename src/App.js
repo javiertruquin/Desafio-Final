@@ -20,10 +20,6 @@ import SobreNosotros from "./pages/SobreNosotros";
 import Carrito from "./pages/Carrito";
 import Envio from "./pages/Envio";
 import Pago from "./pages/Pago";
-import Tucuman from "./pages/Tucuman";
-import Capital from "./pages/Capital";
-import Rosario from "./pages/Rosario";
-import Sannicolas from "./pages/Sannicolas";
 import Mensaje from "./pages/Mensaje";
 import styles from "./styles.css";
 import { useEffect, useState } from "react";
@@ -112,18 +108,6 @@ function App() {
         </Route>
         <Route path="/usuarios">
           <UsuariosAdmin />
-        </Route>
-        <Route path="/tucuman">
-          <Tucuman />
-        </Route>
-        <Route path="/capital">
-          <Capital />
-        </Route>
-        <Route path="/rosario">
-          <Rosario />
-        </Route>
-        <Route path="/sannicolas">
-          <Sannicolas />
         </Route>
         <Route path="/estadisticas">
           <EstadisticasAdmin />
