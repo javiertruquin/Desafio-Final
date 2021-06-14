@@ -1,7 +1,26 @@
 import { MDBCol, MDBContainer, MDBInput, MDBRow } from "mdbreact";
 import { Form } from "react-bootstrap";
+import React, { useState } from "react";
 
 export default function CajaDeMensajes() {
+  const [datos, setDatos] = useState({
+    nombre: "",
+    email: "",
+    mensaje: "",
+  });
+
+  const handleInputChange = (event) => {
+    setDatos({
+      ...datos,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const enviarDatos = (event) => {
+    event.preventDefault();
+    console.log(datos);
+  };
+
   return (
     <div>
       <div className="row">
@@ -23,19 +42,35 @@ export default function CajaDeMensajes() {
         <Form
           style={{ maxWidth: "777px" }}
           className="container card mx-auto pt-2 pr-4 pl-4 mt-5 fuente"
+          onSubmit={enviarDatos}
         >
           <MDBContainer className="mb-4">
             <MDBRow>
               <MDBCol>
-                <MDBInput type="text" label="Tu Nombre" />
+                <MDBInput
+                  type="text"
+                  label="Tu Nombre"
+                  onChange={handleInputChange}
+                  name="nombre"
+                />
               </MDBCol>
               <MDBCol>
-                <MDBInput type="email" label="Tu Email" />
+                <MDBInput
+                  type="email"
+                  label="Tu Email"
+                  onChange={handleInputChange}
+                  name="email"
+                />
               </MDBCol>
             </MDBRow>
             <MDBRow>
               <MDBCol>
-                <MDBInput type="text" label="Título Consulta" />
+                <MDBInput
+                  type="text"
+                  label="Título Consulta"
+                  onChange={handleInputChange}
+                  name="titulo"
+                />
               </MDBCol>
             </MDBRow>
             <MDBRow>
@@ -45,6 +80,8 @@ export default function CajaDeMensajes() {
                   type="textarea"
                   label="Dejános Tu Consulta"
                   rows="6"
+                  onChange={handleInputChange}
+                  name="mensaje"
                 />
               </MDBCol>
             </MDBRow>
