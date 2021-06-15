@@ -72,7 +72,7 @@ function App() {
       )}
       <Switch>
         <Route path="/" exact>
-          <Inicio />
+          <Inicio setUser={setUser}/>
         </Route>
         <Route path="/computadoras">
           <Computadoras setUser={setUser} carrito={user.carrito} />

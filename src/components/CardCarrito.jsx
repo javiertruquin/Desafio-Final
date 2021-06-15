@@ -53,11 +53,11 @@ export default function CardCarrito({ carrito }) {
                                 defaultValue={carrito.cantidad}
                                 className="w-100 text-center text-lg-left"
                             >
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option value="1" >1</option>
+                                <option value="2" >2</option>
+                                <option value="3" >3</option>
+                                <option value="4" >4</option>
+                                <option value="5" >5</option>
                             </select>
                         </div>
                         <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
@@ -67,7 +67,7 @@ export default function CardCarrito({ carrito }) {
                             >
                                 Subtotal:
                             </div>
-                            <div>$55.999</div>
+                            <div>${carrito.producto?.precio * carrito.cantidad}</div>
                         </div>
                     </div>
                 </div>
