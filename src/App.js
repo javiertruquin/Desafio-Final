@@ -97,7 +97,7 @@ function App() {
           <Envio setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/pago">
-          <Pago />
+          <Pago setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/login">
           <Login setUser={setUser} setToken={setToken} />

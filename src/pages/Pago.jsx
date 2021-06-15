@@ -1,10 +1,10 @@
 import React from 'react'
 import Footer from '../components/Footer';
 import NavReactB from '../components/NavReactB';
-import SeccionCarrito2 from '../components/SeccionCarrito2';
+import SeccionCarrito from '../components/SeccionCarrito';
 import SeccionTarjetas from "../components/SeccionTarjetas";
 
-export default function Pago() {
+export default function Pago({setUser, carrito}) {
     return (
         <div>
             <NavReactB />
@@ -13,7 +13,7 @@ export default function Pago() {
                     <SeccionTarjetas />
                 </div>
                 <div className="col-12 col-md-6">
-                    <SeccionCarrito2 />
+                    <SeccionCarrito setUser={setUser} carrito={carrito} />
                 </div>
             </div>
             <Footer />

@@ -6,7 +6,7 @@ import SeccionCarrito from '../components/SeccionCarrito';
 export default function Carrito({setUser, carrito}) {
     return (
         <div>
-            <SeccionCarrito setUser={setUser} carrito={carrito} />
+            <SeccionCarrito view="carrito" setUser={setUser} carrito={carrito} />
             <Footer />
         </div>
     )
