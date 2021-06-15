@@ -12,6 +12,12 @@
   transition: 0.8s;
 }
 
+.form-profile {
+  margin: 0 0;
+  padding: 0 0;
+  max-width: 100%;
+}
+
 .card-favoritos img {
   max-height: 160px;
 }
