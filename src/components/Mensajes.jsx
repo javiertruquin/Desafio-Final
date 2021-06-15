@@ -1,7 +1,7 @@
 import Mensaje from "./Mensaje";
 import { Table } from "react-bootstrap";
 
-export default function Mensajes({ articles }) {
+export default function Mensajes({ articles, getMensajes }) {
   return (
     <div>
       <div className="">
@@ -25,7 +25,11 @@ export default function Mensajes({ articles }) {
         </thead>
         <tbody>
           {articles.map((mensaje) => (
-            <Mensaje mensajesolo={mensaje} key={mensaje._id} />
+            <Mensaje
+              mensajesolo={mensaje}
+              getMensajes={getMensajes}
+              key={mensaje._id}
+            />
           ))}
         </tbody>
       </Table>

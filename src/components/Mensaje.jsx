@@ -1,8 +1,22 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-export default function Mensaje({ mensajesolo }) {
-  const { nombre, email, mensaje, estado, fecha } = mensajesolo;
+export default function Mensaje({ mensajesolo, getMensajes }) {
+  const { _id, nombre, email, mensaje, estado, fecha } = mensajesolo;
+
+  const eliminar = async () => {
+    // event.preventDefault();
+    try {
+      const params = { _id };
+      await axios.delete("/mensaje", { params });
+
+      alert("Mensaje eliminado con éxito!😁");
+      getMensajes();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -16,7 +30,7 @@ export default function Mensaje({ mensajesolo }) {
           <Button variant="primary">
             <i class="fab fa-readme"></i>
           </Button>{" "}
-          <Button variant="danger">
+          <Button variant="danger" onClick={eliminar}>
             <i class="far fa-trash-alt"></i>
           </Button>{" "}
         </td>
