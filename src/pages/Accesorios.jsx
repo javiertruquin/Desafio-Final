@@ -11,7 +11,7 @@ import CardProductoView from "../components/CardProductoView"
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
-export default function Computadoras() {
+export default function Accesorios() {
     return (
         <div className="container ">
             <Carousel fade>
