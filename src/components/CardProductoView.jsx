@@ -1,7 +1,8 @@
 import axios from "axios";
 
-export default function CardProductoView({ computadora, setUser ,carrito }) {
+export default function CardProductoView({ computadora, setUser , carrito }) {
     const { titulo, descripcion, precio, image1, _id } = computadora;
+    
     const addToCart = async () => {
         try {
             await axios.put("/usuarios/carrito", {
