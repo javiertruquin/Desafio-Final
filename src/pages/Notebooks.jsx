@@ -1,6 +1,6 @@
-import slideNote1 from "../assets/img/slidenote1.png"
-import slideNote2 from "../assets/img/slidenote2.png"
-import slideNote3 from "../assets/img/slidenote3.png"
+import slideNote1 from "../assets/img/slidenote1.png";
+import slideNote2 from "../assets/img/slidenote2.png";
+import slideNote3 from "../assets/img/slidenote3.png";
 
 // import compu2 from "../assets/img/compu2.jpeg"
 import { Carousel } from "react-bootstrap";
@@ -9,11 +9,12 @@ import BuscadorCategorias from "../components/BuscadorCategorias";
 import CardProductoView from "../components/CardProductoView";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SlideNotebooks from "../components/SlideNotebooks";
 
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
-export default function Notebooks({setUser , carrito}) {
+export default function Notebooks({ setUser, carrito }) {
     const [computadoras, setComputadoras] = useState([]);
 
     useEffect(() => {
@@ -27,22 +28,7 @@ export default function Notebooks({setUser , carrito}) {
 
     return (
         <div className="container ">
-            <Carousel fade>
-                <Carousel.Item interval={2500}>
-                    <img
-                        src={slideNote1}
-                        alt=""
-                        className="img-fluid"
-                        style={{}}
-                    />
-                </Carousel.Item>
-                <Carousel.Item interval={2500}>
-                    <img src={slideNote2} alt="" className="img-fluid" />
-                </Carousel.Item>
-                <Carousel.Item interval={2500}>
-                    <img src={slideNote3} alt="" className="img-fluid" />
-                </Carousel.Item>
-            </Carousel>
+            <SlideNotebooks />
             <div className="ps-4 mt-5 position-relative">
                 <span className="titulo2 position-absolute">NOTEBOOK'S</span>
             </div>
@@ -55,10 +41,13 @@ export default function Notebooks({setUser , carrito}) {
                     <BuscadorCategorias />
                     <div className="row">
                         {computadoras.map((computadora) => (
-                            <CardProductoView setUser={setUser}
-                                computadora={computadora}
-                                carrito={carrito}
-                            />
+                            <div className="col-sm-12 col-lg-6 col-xl-4">
+                                <CardProductoView
+                                    setUser={setUser}
+                                    computadora={computadora}
+                                    carrito={carrito}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>

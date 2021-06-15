@@ -72,7 +72,7 @@ function App() {
       )}
       <Switch>
         <Route path="/" exact>
-          <Inicio setUser={setUser}/>
+          <Inicio setUser={setUser} carrito={user.carrito}/>
         </Route>
         <Route path="/computadoras">
           <Computadoras setUser={setUser} carrito={user.carrito} />
@@ -94,7 +94,7 @@ function App() {
           <Carrito setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/envio">
-          <Envio />
+          <Envio setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/pago">
           <Pago />

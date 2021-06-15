@@ -16,7 +16,7 @@ export default function SeccionCarrito2() {
 
             <div className="row">
                 {/* PRODUCTOS */}
-                <div className="col-12">
+                <div className="col-12 ">
                     <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
                         <div className="row m-auto mx-0 ">
                             <div className="col-1 m-auto px-0">

@@ -13,7 +13,7 @@ import axios from "axios";
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
-export default function Computadoras({setUser , carrito}) {
+export default function Computadoras({ setUser, carrito }) {
     const [computadoras, setComputadoras] = useState([]);
 
     useEffect(() => {
@@ -55,10 +55,13 @@ export default function Computadoras({setUser , carrito}) {
                     <BuscadorCategorias />
                     <div className="row">
                         {computadoras.map((computadora) => (
-                            <CardProductoView setUser={setUser}
-                                computadora={computadora}
-                                carrito={carrito}
-                            />
+                            <div className="col-sm-12 col-lg-6 col-xl-4">
+                                <CardProductoView
+                                    setUser={setUser}
+                                    computadora={computadora}
+                                    carrito={carrito}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>

@@ -17,7 +17,7 @@ export default function CardProductoView({ computadora, setUser, carrito }) {
         }
     };
     return (
-        <div className="col-sm-12 col-lg-6 col-xl-4">
+        <div className="">
             <div className="my-1 p-4">
                 <button className="btn-serie">Serie Advance</button>
                 <img src={image1} alt="" className="img-fluid" />

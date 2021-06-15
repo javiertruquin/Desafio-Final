@@ -1,6 +1,6 @@
-import slideNote1 from "../assets/img/slideaccesorio1.png";
-import slideNote2 from "../assets/img/slideaccesorio2.png";
-import slideNote3 from "../assets/img/slideaccesorio3.png";
+import slideNote1 from "../assets/img/slidenote1.png"
+import slideNote2 from "../assets/img/slidenote2.png"
+import slideNote3 from "../assets/img/slidenote3.png"
 
 import { Carousel } from "react-bootstrap";
 

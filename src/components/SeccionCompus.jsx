@@ -17,7 +17,7 @@ import axios from "axios";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-function SeccionCompus({ setUser }) {
+function SeccionCompus({ setUser, carrito }) {
     const [computadoras, setComputadoras] = useState([]);
 
     useEffect(() => {
@@ -73,6 +73,16 @@ function SeccionCompus({ setUser }) {
                         className="mySwiper"
                         navigation={true}
                     >
+                        {computadoras.map((computadora) => (
+                            <SwiperSlide>
+                                <CardProductoView
+                                    setUser={setUser}
+                                    computadora={computadora}
+                                    carrito={carrito}
+                                />
+                            </SwiperSlide>
+                        ))}
+                        {/* 
                         <SwiperSlide>
                             <CardProductoSlide />
                         </SwiperSlide>
@@ -84,7 +94,7 @@ function SeccionCompus({ setUser }) {
                         </SwiperSlide>
                         <SwiperSlide>
                             <CardProductoSlide />
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                     </Swiper>
                 </div>
             </div>
