@@ -57,11 +57,13 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
                         <Nav.Link to="/" as={NavLink} className="p-0 my-auto">
                             <a>Compra más productos</a>
                         </Nav.Link>
+                        { view === 'carrito' &&
                         <Nav.Link to="/envio" as={NavLink} className="p-0">
                             <button type="button" className="btn-comprar ">
                                 Continuar compra
                             </button>
                         </Nav.Link>
+                        }
                     </div>
                 </div>
             </div>
