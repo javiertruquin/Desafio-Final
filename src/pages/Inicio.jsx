@@ -4,11 +4,11 @@ import SeccionCompus from '../components/SeccionCompus';
 import SeccionEnviosPagos from '../components/SeccionEnviosPagos';
 import SlideAccesorios from "../components/SlideAccesorios"
 
-export default function Inicio() {
+export default function Inicio({setUser}) {
     return (
         <div className="container">
             <SlideOfertas />
-            <SeccionCompus />
+            <SeccionCompus setUser={setUser} />
             <SeccionEnviosPagos />
             <SeccionCompus />
             <br />
