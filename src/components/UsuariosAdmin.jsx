@@ -15,7 +15,6 @@ export default function UsuariosAdmin() {
 
   const handleSelect = (eventKey) => {
     // setRol(eventKey)
-
     if (eventKey === '1') {
       setRol('admin')
     } if (eventKey === '2') {
@@ -28,7 +27,6 @@ export default function UsuariosAdmin() {
     // } if (eventKey === '3') {
     //   setRol({ rol: 'admin', rol2: 'vendedor' })
     // }
-
   }
   
   const getUsuarios = async () => {

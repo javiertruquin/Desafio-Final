@@ -15,10 +15,12 @@ import axios from "axios";
 
 export default function Computadoras({ setUser, carrito }) {
     const [computadoras, setComputadoras] = useState([]);
+    const categoria = 'Computadora de escritorio';
 
     useEffect(() => {
         const getComputadoras = async () => {
-            const response = await axios.get(`/producto`);
+            const params = { categoria };
+            const response = await axios.get(`/producto/categoria`, { params });
             console.log("getComputadoras ~ response", response);
             setComputadoras(response.data);
         };

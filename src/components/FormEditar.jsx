@@ -149,11 +149,9 @@ export default function FormEditar({ getProductos , accion, producto }) {
             defaultValue={ accion === 'editar' && producto.categoria }
           >
             <option>Elige una opción</option>
-            <option>Computadora de escritorio</option>
-            <option>Notebook</option>
-            <option>Accesorios</option>
-            <option>Componentes</option>
-            <option>Repuestos</option>
+            <option value="computadora">Computadora de escritorio</option>
+            <option value="notebook">Notebook</option>
+            <option value="accesorio">Accesorios</option>
           </Form.Control>
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>

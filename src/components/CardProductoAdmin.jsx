@@ -15,8 +15,7 @@ export default function CardProductoAdmin({ producto,  getProductos }) {
   
   const eliminar = async (event) => {
     // event.preventDefault();
-    try {
-      
+    try {      
       await axios.delete('/producto', {codigo});
       getProductos()
       alert("Producto eliminado con éxito!😁");
