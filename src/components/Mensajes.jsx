@@ -20,6 +20,7 @@ export default function Mensajes({ articles }) {
             <th>Email</th>
             <th>Mensaje</th>
             <th>Estado</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -31,15 +32,3 @@ export default function Mensajes({ articles }) {
     </div>
   );
 }
-
-// export default function Mensajes({ articles }) {
-//   return (
-//     <div>
-
-//       {/* <div className="d-flex flex-wrap"> */}
-//       {articles.map((mensaje) => (
-//         <Mensaje mensajesolo={mensaje} key={mensaje._id} />
-//       ))}
-//     </div>
-//   );
-// }

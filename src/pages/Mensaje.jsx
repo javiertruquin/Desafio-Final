@@ -2,6 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Mensajes from "../components/Mensajes";
+import { Container } from "react-bootstrap";
 
 export default function Main() {
   const [articles, setArticles] = useState([]);
@@ -17,7 +18,9 @@ export default function Main() {
 
   return (
     <div>
-      <Mensajes articles={articles} />
+      <Container className="">
+        <Mensajes articles={articles} />
+      </Container>
     </div>
   );
 }
