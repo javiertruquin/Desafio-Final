@@ -7,7 +7,6 @@ import SeccionTarjetas from "../components/SeccionTarjetas";
 export default function Pago() {
     return (
         <div>
-            <NavReactB />
             <div className="row mx-auto ">
                 <div className="col-12 col-md-6">
                     <SeccionTarjetas />
@@ -16,7 +15,6 @@ export default function Pago() {
                     <SeccionCarrito2 />
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }

@@ -7,7 +7,6 @@ export default function Carrito({setUser, carrito}) {
     return (
         <div>
             <SeccionCarrito setUser={setUser} carrito={carrito} />
-            <Footer />
         </div>
     )
 }
