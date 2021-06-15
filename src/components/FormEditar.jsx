@@ -61,7 +61,7 @@ export default function FormEditar({ getProductos , accion, producto }) {
               onChange={(e) => handleChange(e)}
               type="txt"
               required
-              placeholder="Código"              
+              placeholder="Código"
             />
             <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -74,9 +74,9 @@ export default function FormEditar({ getProductos , accion, producto }) {
             onChange={(e) => handleChange(e)}
             type="txt"
             required
-            // placeholder="Título del producto"
-            placeholder={ accion === 'editar' && producto.titulo || "Título del producto" }
-            // value={ accion === 'editar' && producto.titulo }
+            placeholder="Título del producto"
+            // placeholder={ accion === 'editar' && producto.titulo || "Título del producto" }
+            defaultValue={ accion === 'editar' && producto.titulo }
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -87,8 +87,8 @@ export default function FormEditar({ getProductos , accion, producto }) {
             name="serie"
             onChange={(e) => handleChange(e)}
             type="txt"
-            placeholder={ accion === 'editar' && producto.serie || "Serie" }
-            // value={ accion === 'editar' && producto.serie }
+            placeholder="Serie"
+            defaultValue={ accion === 'editar' && producto.serie }
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -99,8 +99,8 @@ export default function FormEditar({ getProductos , accion, producto }) {
             as="textarea"
             required
             rows={3}
-            placeholder={ accion === 'editar' && producto.descripcion || "Descripción" }
-            // value={ accion === 'editar' && producto.descripcion }
+            placeholder="Descripción"
+            defaultValue={ accion === 'editar' && producto.descripcion }
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -118,8 +118,8 @@ export default function FormEditar({ getProductos , accion, producto }) {
               name="precio"
               onChange={(e) => handleChange(e)}
               id="inlineFormInputGroupUsername"
-              placeholder={ accion === 'editar' && producto.precio || "Precio" }
-              // value={ accion === 'editar' && producto.precio }
+              placeholder="Precio"
+              defaultValue={ accion === 'editar' && producto.precio }
             />
             <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -133,8 +133,8 @@ export default function FormEditar({ getProductos , accion, producto }) {
             onChange={(e) => handleChange(e)}
             type="number"
             placeholder="Stock"
-            // value={ accion === 'editar' && producto.stock }
-            placeholder={ accion === 'editar' && producto.stock || "Stock" }
+            defaultValue={ accion === 'editar' && producto.stock }
+            placeholder="Stock"
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">Campo requerido!</Form.Control.Feedback>
@@ -146,7 +146,7 @@ export default function FormEditar({ getProductos , accion, producto }) {
             required
             onChange={(e) => handleChange(e)}
             as="select"
-              placeholder={ accion === 'editar' && producto.categoria || "Elige una opción" }
+            defaultValue={ accion === 'editar' && producto.categoria }
           >
             <option>Elige una opción</option>
             <option>Computadora de escritorio</option>
@@ -165,8 +165,8 @@ export default function FormEditar({ getProductos , accion, producto }) {
             onChange={(e) => handleChange(e)}
             type="url"
             // placeholder="URL Imagen 1"
-            // value={ accion === 'editar' && producto.image1 }
-            placeholder={ accion === 'editar' && producto.image1 || "URL Imagen 1" }
+            defaultValue={ accion === 'editar' && producto.image1 }
+            placeholder="URL Imagen 1"
 
           />
           <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
@@ -176,15 +176,15 @@ export default function FormEditar({ getProductos , accion, producto }) {
             onChange={(e) => handleChange(e)}
             type="url"
             // placeholder="URL Imagen 1"
-            // value={ accion === 'editar' && producto.image2 }
-            placeholder={ accion === 'editar' && producto.image2 || "URL Imagen 2" }
+            defaultValue={ accion === 'editar' && producto.image2 }
+            placeholder="URL Imagen 2"
           />
           <Form.Control
             name="image3"
             onChange={(e) => handleChange(e)}
             type="url"
-            placeholder={ accion === 'editar' && producto.image3 || "URL Imagen 3" }
-            // value={ accion === 'editar' && producto.image3 }
+            placeholder="URL Imagen 3"
+            defaultValue={ accion === 'editar' && producto.image3 }
             // placeholder="URL Imagen 1"
           />
           {/* <Form.Control type="url" placeholder="URL Imagen 3" /> */}

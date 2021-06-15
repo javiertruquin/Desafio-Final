@@ -57,7 +57,7 @@ export default function Profile({ user, token }) {
           </div>
           <div className="col-12 col-md-9 mb-4">
             <Card>
-              <Card.Header>
+              <Card.Header> 
                 <Nav variant="tabs" activeKey="1" onSelect={handleSelect}>
                   <Nav.Item>
                     <Nav.Link eventKey="1">Mis datos</Nav.Link>
@@ -70,7 +70,7 @@ export default function Profile({ user, token }) {
                   </Nav.Item>
                 </Nav>
               </Card.Header>              
-              { subNav === '1' && <MisDatos userComplete={usuarioCompleto} />}
+              { subNav === '1' && <MisDatos getUsuario="getUsuario" userComplete={usuarioCompleto} />}
               { subNav === '2' && <MisCompras />}
               { subNav === '3' && <MisMensajes />}
             </Card>
