@@ -17,7 +17,6 @@ export default function Main() {
 
   return (
     <div>
-      <h3>Mensajes</h3>
       <Mensajes articles={articles} />
     </div>
   );
