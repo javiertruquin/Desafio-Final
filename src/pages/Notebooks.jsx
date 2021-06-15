@@ -13,7 +13,7 @@ import axios from "axios";
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
-export default function Computadoras({setUser , carrito}) {
+export default function Notebooks({setUser , carrito}) {
     const [computadoras, setComputadoras] = useState([]);
 
     useEffect(() => {
