@@ -7,7 +7,11 @@ import compu3 from "../assets/img/compu2/compu2-3.jpeg";
 import CardCarrito from "../components/CardCarrito";
 import axios from "axios";
 
-export default function SeccionCarrito({ setUser, carrito }) {
+export default function SeccionCarrito({ setUser, carrito, view }) {
+
+    const estiloCards = (view === 'carrito') ? 'col-12 col-lg-8 px-lg-3' : 'col-12 px-lg-3';
+    const estiloTotal = (view === 'carrito') ? 'col-12 col-sm-6 col-lg-4 ms-auto' : 'col-6 ms-auto';
+
     useEffect(() => {
         const getCarrito = async () => {
             const response = await axios.get(`/auth`);
@@ -27,13 +31,16 @@ export default function SeccionCarrito({ setUser, carrito }) {
 
             <div className="row">
                 {/* PRODUCTOS */}
-                <div className="col-12 col-lg-8 px-lg-3 ">
+                <div className={estiloCards}>
                     {carrito?.map((carrito) => (
                         <CardCarrito carrito={carrito} />
                     ))}
                 </div>
                 {/* Resumen */}
-                <div className="col-12 col-sm-6 col-lg-4 ms-auto">
+                {/* {(view === 'envio') && '<div className="col-12 col-sm-6 col-lg-4 ms-auto">'} */}
+                {/* {(view === 'carrito') && '<div className="col-12 col-sm-6 col-lg-4 ms-auto">'} */}
+                {/* <div className="col-12 col-sm-6 col-lg-4 ms-auto"> */}
+                <div className={estiloTotal}>
                     <div
                         className="container card border-1 mb-3"
                         style={{ height: "90px" }}
@@ -50,11 +57,13 @@ export default function SeccionCarrito({ setUser, carrito }) {
                         <Nav.Link to="/" as={NavLink} className="p-0 my-auto">
                             <a>Compra más productos</a>
                         </Nav.Link>
+                        { view === 'carrito' &&
                         <Nav.Link to="/envio" as={NavLink} className="p-0">
                             <button type="button" className="btn-comprar ">
                                 Continuar compra
                             </button>
                         </Nav.Link>
+                        }
                     </div>
                 </div>
             </div>

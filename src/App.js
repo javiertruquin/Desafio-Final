@@ -76,7 +76,6 @@ function App() {
         </Route>
         <Route path="/computadoras">
           <Computadoras setUser={setUser} carrito={user.carrito} />
-          <Footer />g{" "}
         </Route>
         <Route path="/notebooks">
           <Notebooks />
@@ -97,7 +96,7 @@ function App() {
           <Envio setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/pago">
-          <Pago />
+          <Pago setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/login">
           <Login setUser={setUser} setToken={setToken} />

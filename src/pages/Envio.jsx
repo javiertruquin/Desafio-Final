@@ -13,10 +13,9 @@ export default function Envio({setUser, carrito}) {
                     <SeccionEnvio />
                 </div>
                 <div className="col-12 col-md-6">
-                    <SeccionCarrito setUser={setUser} carrito={carrito}/>
+                    <SeccionCarrito view="envio" setUser={setUser} carrito={carrito}/>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }

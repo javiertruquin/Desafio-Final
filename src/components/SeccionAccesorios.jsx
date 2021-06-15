@@ -65,7 +65,7 @@ export default function SeccionAccesorios({ setUser, carrito }) {
                     >
                         {computadoras.map((computadora) => (
                             <SwiperSlide>
-                                <CardProductoView
+                                <CardProductoView 
                                     setUser={setUser}
                                     computadora={computadora}
                                     carrito={carrito}
