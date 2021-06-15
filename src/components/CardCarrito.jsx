@@ -7,6 +7,17 @@ export default function CardCarrito({ carrito }) {
     // const [cantidad, setCantidad] = useState(carrito.cantidad)
     // console.log("CardCarrito ~ user", user)
 
+    // const eliminar = async (event) => {
+    //     // event.preventDefault();
+    //     try {
+    //       await axios.delete('/producto', {codigo});
+    //       getProductos()
+    //       alert("Producto eliminado con éxito!😁");
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   }
+
     return (
         <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
             <div className="row m-auto mx-0 ">

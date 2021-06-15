@@ -13,9 +13,6 @@ import axios from "axios";
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
-<<<<<<< HEAD
-export default function Notebooks() {
-=======
 export default function Computadoras({setUser , carrito}) {
     const [computadoras, setComputadoras] = useState([]);
 
@@ -28,7 +25,6 @@ export default function Computadoras({setUser , carrito}) {
         getComputadoras();
     }, []);
 
->>>>>>> a63faf4c5a3f6af4d4cc2ec643e621734a51316d
     return (
         <div className="container ">
             <Carousel fade>
