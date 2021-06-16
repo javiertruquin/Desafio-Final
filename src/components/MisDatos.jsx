@@ -6,12 +6,13 @@ import FormEditar from "./FormEditar";
 export default function MisDatos({ userComplete, getUsuario }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
-  const [inputPassword, setInputPassword] = useState('');
+  const [inputPassword, setInputPassword] = useState("");
   const [disabledCuenta, setDisabledCuenta] = useState(true);
   const [disabledSensible, setDisabledSensible] = useState(true);
 
   const { nombre, apellido, documento, domicilio, email, telefono } =
     userComplete;
+    console.log('domicilio', domicilio);
 
   // const [datosCuenta, setDatosCuenta] = useState(false);
   // const [datosPersonales, setDatosPersonales] = useState();
@@ -36,9 +37,9 @@ export default function MisDatos({ userComplete, getUsuario }) {
       if (!inputPassword) {
         await axios.put("/auth", usuarioModificado);
       } else {
-      await axios.put("/auth/password", passwordModificada);
-      setInputPassword('')
-      setDisabledSensible(true);
+        await axios.put("/auth/password", passwordModificada);
+        setInputPassword("");
+        setDisabledSensible(true);
       }
       getUsuario();
       // alert("Usuario editado con éxito!😁");
@@ -56,7 +57,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const handleChangePassword = (e) => {
     const { name, value } = e.target;
     let changedInputPassword = { ...inputPassword, [name]: value };
-    console.log('input', changedInputPassword)
+    console.log("input", changedInputPassword);
     setInputPassword(changedInputPassword);
   };
 
@@ -162,16 +163,16 @@ export default function MisDatos({ userComplete, getUsuario }) {
             >
               Editar
             </Button>{" "}
-              <Button
-                size="md"
-                // onClick={setDatosCuenta(true)}
-                type="submit"
-                className="mt-4"
-                variant="outline-dark"
-                onClick={() => setDisabledCuenta(true)}
-              >
-                Guardar
-              </Button>{" "}
+            <Button
+              size="md"
+              // onClick={setDatosCuenta(true)}
+              type="submit"
+              className="mt-4"
+              variant="outline-dark"
+              onClick={() => setDisabledCuenta(true)}
+            >
+              Guardar
+            </Button>{" "}
           </div>
           <hr />
           <div className="my-5">
@@ -192,49 +193,67 @@ export default function MisDatos({ userComplete, getUsuario }) {
             </InputGroup>
             <Button
               size="md"
-              onClick={() => 
-                setDisabledSensible(false)
-              }
+              onClick={() => setDisabledSensible(false)}
               className="mt-4"
               variant="outline-dark"
             >
               Editar
             </Button>{" "}
             <Button
-                size="md"
-                // onClick={setDatosCuenta(true)}
-                type="submit"
-                className="mt-4"
-                variant="outline-dark"
-                // onClick={() => cambiarContraseña }
-              >
-                Guardar
-              </Button>{" "}
+              size="md"
+              // onClick={setDatosCuenta(true)}
+              type="submit"
+              className="mt-4"
+              variant="outline-dark"
+              // onClick={() => cambiarContraseña }
+            >
+              Guardar
+            </Button>{" "}
           </div>
           <hr />
           <div className="my-5">
-            <Card.Title>Domicilios</Card.Title>
+            <Card.Title></Card.Title>
             <Card bg="light" className="mt-4">
-              <Card.Header>Casa</Card.Header>
+              <Card.Header>
+                <Form.Group controlId="formPlaintextEmail">
+                  <Form.Control
+                    plaintext
+                    readOnly={true}
+                    placeholder="Título."
+                    defaultValue={domicilio || ""}
+                  />
+                </Form.Group>
+              </Card.Header>
               <Card.Body>
-                <Card.Text>24 de septiembre 444</Card.Text>
                 <Card.Text>
-                  San Miguel de Tucumán - Tucumán - Argentina
+                <Form.Group controlId="formPlaintextEmail">
+                  <Form.Control
+                    plaintext
+                    readOnly={true}
+                    placeholder="Dirección exacta."
+                    defaultValue={domicilio || ""}
+                  />
+                </Form.Group>
                 </Card.Text>
                 <Card.Text>
-                  <strong>Código postal:</strong> 4000
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card bg="light" className="mt-3">
-              <Card.Header>Oficina</Card.Header>
-              <Card.Body>
-                <Card.Text>Santiago 444 - 5B</Card.Text>
-                <Card.Text>
-                  San Miguel de Tucumán - Tucumán - Argentina
+                <Form.Group controlId="formPlaintextEmail">
+                  <Form.Control
+                    plaintext
+                    readOnly={true}
+                    placeholder="Ciudad."
+                    defaultValue={domicilio || ""}
+                  />
+                </Form.Group>
                 </Card.Text>
                 <Card.Text>
-                  <strong>Código postal:</strong> 4000
+                <Form.Group controlId="formPlaintextEmail">
+                  <Form.Control
+                    plaintext
+                    readOnly={true}
+                    placeholder="Codigo Postal"
+                    defaultValue={domicilio || ""}
+                  />
+                </Form.Group>
                 </Card.Text>
               </Card.Body>
             </Card>

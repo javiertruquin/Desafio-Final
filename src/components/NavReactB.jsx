@@ -52,6 +52,7 @@ export default function NavReactB({ logout, userName, carrito }) {
               Admin
             </Nav.Link> */}
             <div className="ps-2 d-flex align-items-center">
+            {userName && (
               <Nav.Link to="/carrito" as={NavLink}>
                 <i
                   style={{ color: "#00598a" }}
@@ -59,9 +60,12 @@ export default function NavReactB({ logout, userName, carrito }) {
                 ></i>
                 {carrito?.length}
               </Nav.Link>
-              <Nav.Link href="#link" onClick={handleCrear} className="p-3">
-                <i style={{ color: "#00598a" }} class="fas fa-heart "></i>
-              </Nav.Link>
+            )}
+              {userName && (
+                <Nav.Link href="#link" onClick={handleCrear} className="p-3">
+                  <i style={{ color: "#00598a" }} class="fas fa-heart "></i>
+                </Nav.Link>
+              )}
               {/* <Button onClick={logout}>
                 <i style={{ color: "#00598a" }} class="fas fa-dor"></i>
               </Button> */}
