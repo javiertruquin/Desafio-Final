@@ -39,14 +39,12 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
         {/* PRODUCTOS */}
         <div className={estiloCards}>
           {carrito?.map((carrito, index) => (
-            <CardCarrito carrito={carrito} index={index} precioFinal={precioFinal} setPrecioFinal={setPrecioFinal} />
+            <CardCarrito carrito={carrito} index={index} setUser={setUser} precioFinal={precioFinal} setPrecioFinal={setPrecioFinal} />
             // setPrecioFinal(precioFinal = precioFinal + carrito.precio)
           ))}
         </div>
         {/* Resumen */}
-        {/* {(view === 'envio') && '<div className="col-12 col-sm-6 col-lg-4 ms-auto">'} */}
-        {/* {(view === 'carrito') && '<div className="col-12 col-sm-6 col-lg-4 ms-auto">'} */}
-        {/* <div className="col-12 col-sm-6 col-lg-4 ms-auto"> */}
+
         <div className={estiloTotal}>
           <div
             className="container card border-1 mb-3"
