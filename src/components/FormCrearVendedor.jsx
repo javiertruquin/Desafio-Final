@@ -37,7 +37,7 @@ export default function FormCrearVendedor({
       // Consulta post a /productos
       const usuarioModificado = {...input, id: usuario._id};
       console.log('produto modificado' , usuarioModificado)
-      await axios.put("/auth", usuarioModificado);
+      await axios.put("/auth/admin", usuarioModificado);
       getUsuarios()
       alert("Usuario editado con éxito!😁");
     } catch (error) {

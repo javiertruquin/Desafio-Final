@@ -8,7 +8,7 @@ import CardCarrito from "../components/CardCarrito";
 import axios from "axios";
 
 export default function SeccionCarrito({ setUser, carrito, view }) {
-  const [precioFinal, setPrecioFinal] = useState({});
+  const [precioFinal, setPrecioFinal] = useState(0);
 
   const estiloCards =
     view === "carrito" ? "col-12 col-lg-8 px-lg-3" : "col-12 px-lg-3";
@@ -38,8 +38,8 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
       <div className="row">
         {/* PRODUCTOS */}
         <div className={estiloCards}>
-          {carrito?.map((carrito) => (
-            <CardCarrito carrito={carrito} precioFinal={precioFinal} setPrecioFinal={setPrecioFinal} />
+          {carrito?.map((carrito, index) => (
+            <CardCarrito carrito={carrito} index={index} precioFinal={precioFinal} setPrecioFinal={setPrecioFinal} />
             // setPrecioFinal(precioFinal = precioFinal + carrito.precio)
           ))}
         </div>

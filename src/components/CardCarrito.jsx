@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import Carrito from "../pages/Carrito";
 
-export default function CardCarrito({ carrito, setPrecioFinal, precioFinal }) {
+export default function CardCarrito({ carrito, setPrecioFinal, precioFinal, index }) {
   const [subTotal, setSubTotal] = useState(carrito.producto?.precio);
   const [input, setInput] = useState({ cantidad: 1 });
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+//   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   // console.log("CardCarrito ~ carrito", carrito)
 //   console.log("CardCarrito ~ carrito", carrito.producto?.image1);
   // const [cantidad, setCantidad] = useState(carrito.cantidad)
@@ -17,9 +17,12 @@ export default function CardCarrito({ carrito, setPrecioFinal, precioFinal }) {
     setInput(changedInput);
   };
 //   let calculo = precioFinal + carrito.producto?.precio;
-    let calculo = carrito.producto?.precio;
 
-    // setPrecioFinal(...precioFinal, calculo);
+// useEffect(() => {
+    let suma = precioFinal + carrito.producto?.precio;
+    setPrecioFinal(subTotal);
+    // }, [])
+    
     console.log('precio final', precioFinal)
 
 //   setPrecioFinal()

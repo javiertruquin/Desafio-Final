@@ -6,8 +6,11 @@ import FormEditar from "./FormEditar";
 export default function MisDatos({ userComplete, getUsuario }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
+  const [inputPassword, setInputPassword] = useState('');
+  const [disabledCuenta, setDisabledCuenta] = useState(true);
+  const [disabledSensible, setDisabledSensible] = useState(true);
 
-  const { nombre, apellido, documento, domicilio, codPostal, email } =
+  const { nombre, apellido, documento, domicilio, email, telefono } =
     userComplete;
 
   // const [datosCuenta, setDatosCuenta] = useState(false);
@@ -24,18 +27,21 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
-    setValidated(true);
-    if (form.checkValidity() === false) {
-      return event.stopPropagation();
-    }
-
     try {
       // Consulta post a /productos
       const usuarioModificado = { ...input, id: userComplete._id };
+      const passwordModificada = { ...inputPassword, id: userComplete._id };
       console.log("produto modificado", usuarioModificado);
-      await axios.put("/auth", usuarioModificado);
+
+      if (!inputPassword) {
+        await axios.put("/auth", usuarioModificado);
+      } else {
+      await axios.put("/auth/password", passwordModificada);
+      setInputPassword('')
+      setDisabledSensible(true);
+      }
       getUsuario();
-      alert("Usuario editado con éxito!😁");
+      // alert("Usuario editado con éxito!😁");
     } catch (error) {
       console.log(error);
     }
@@ -45,6 +51,13 @@ export default function MisDatos({ userComplete, getUsuario }) {
     const { name, value } = e.target;
     let changedInput = { ...input, [name]: value };
     setInput(changedInput);
+    // console.log('input', changedInput)
+  };
+  const handleChangePassword = (e) => {
+    const { name, value } = e.target;
+    let changedInputPassword = { ...inputPassword, [name]: value };
+    console.log('input', changedInputPassword)
+    setInputPassword(changedInputPassword);
   };
 
   return (
@@ -66,50 +79,16 @@ export default function MisDatos({ userComplete, getUsuario }) {
               </InputGroup.Prepend>
               {/* { !datosCuenta && disable } */}
               <FormControl
-                onChange={(e) => handleChange(e)}
                 aria-label="Default"
                 type="email"
                 name="email"
-                placeholder={"userComplete.email"}
+                onChange={(e) => handleChange(e)}
+                placeholder={"No email"}
+                defaultValue={email || ""}
                 aria-describedby="inputGroup-sizing-default"
-                // disabled={true}
+                disabled={disabledCuenta}
               />
             </InputGroup>
-            <InputGroup controlId="formBasicPassword">
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-default">
-                  Contraseña
-                </InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-              onChange={(e) => handleChange(e)}
-                type="password"
-                name="password"
-                disabled
-                placeholder="****************"
-              />
-            </InputGroup>
-            <Button
-              size="md"
-              // onClick={setDatosCuenta(true)}
-              className="mt-4"
-              variant="outline-dark"
-            >
-              Editar
-            </Button>{" "}
-            <Button
-              size="md"
-              // onClick={setDatosCuenta(true)}
-              type="submit"
-              className="mt-4"
-              variant="outline-dark"
-            >
-              Guardar
-            </Button>{" "}
-          </div>
-          <hr />
-          <div className="my-5">
-            <Card.Title>Datos personales</Card.Title>
             <InputGroup className="mt-4 mb-3">
               <InputGroup.Prepend>
                 <InputGroup.Text id="inputGroup-sizing-default">
@@ -118,12 +97,13 @@ export default function MisDatos({ userComplete, getUsuario }) {
               </InputGroup.Prepend>
               <FormControl
                 aria-label="Default"
-                disabled
-                onChange={(e) => handleChange(e)}
+                disabled={disabledCuenta}
                 type="text"
+                onChange={(e) => handleChange(e)}
                 name="nombre"
-                placeholder={"userComplete.nombre"}
                 aria-describedby="inputGroup-sizing-default"
+                placeholder={"No name"}
+                defaultValue={nombre || ""}
               />
             </InputGroup>
             <InputGroup className="my-3">
@@ -134,27 +114,12 @@ export default function MisDatos({ userComplete, getUsuario }) {
               </InputGroup.Prepend>
               <FormControl
                 aria-label="Default"
-                disabled
+                disabled={disabledCuenta}
                 name="apellido"
-                onChange={(e) => handleChange(e)}
                 type="text"
-                placeholder={"userComplete.apellido"}
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </InputGroup>
-            <InputGroup className="my-3">
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroup-sizing-default">
-                  Título
-                </InputGroup.Text>
-              </InputGroup.Prepend>
-              <FormControl
-                aria-label="Default"
-                disabled
-                name="titulo"
                 onChange={(e) => handleChange(e)}
-                type="text"
-                placeholder="Web Developer"
+                placeholder={"No apellido"}
+                defaultValue={apellido || ""}
                 aria-describedby="inputGroup-sizing-default"
               />
             </InputGroup>
@@ -165,11 +130,12 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 </InputGroup.Text>
               </InputGroup.Prepend>
               <Form.Control
-                type="number"
-                name="documento"
+                type="text"
                 onChange={(e) => handleChange(e)}
-                disabled
-                placeholder="55.567.890"
+                name="documento"
+                disabled={disabledCuenta}
+                placeholder="Todavía no cargaste tu documento"
+                defaultValue={documento || ""}
               />
             </InputGroup>
             <InputGroup className="my-3" controlId="formBasicPassword">
@@ -182,13 +148,68 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 type="tel"
                 onChange={(e) => handleChange(e)}
                 name="telefono"
-                disabled
-                placeholder="381-6518701"
+                disabled={disabledCuenta}
+                placeholder="Todavía no cargaste tu número de celular o teléfono"
+                defaultValue={telefono || ""}
               />
             </InputGroup>
-            <Button size="md" className="mt-4" variant="outline-dark">
+            <Button
+              size="md"
+              // onClick={setDatosCuenta(true)}
+              className="mt-4"
+              variant="outline-dark"
+              onClick={() => setDisabledCuenta(false)}
+            >
               Editar
             </Button>{" "}
+              <Button
+                size="md"
+                // onClick={setDatosCuenta(true)}
+                type="submit"
+                className="mt-4"
+                variant="outline-dark"
+                onClick={() => setDisabledCuenta(true)}
+              >
+                Guardar
+              </Button>{" "}
+          </div>
+          <hr />
+          <div className="my-5">
+            <Card.Title>Datos sensibles</Card.Title>
+            <InputGroup controlId="formBasicPassword">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroup-sizing-default">
+                  Contraseña
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <Form.Control
+                onChange={(e) => handleChangePassword(e)}
+                type="password"
+                name="password"
+                disabled={disabledSensible}
+                placeholder="****************"
+              />
+            </InputGroup>
+            <Button
+              size="md"
+              onClick={() => 
+                setDisabledSensible(false)
+              }
+              className="mt-4"
+              variant="outline-dark"
+            >
+              Editar
+            </Button>{" "}
+            <Button
+                size="md"
+                // onClick={setDatosCuenta(true)}
+                type="submit"
+                className="mt-4"
+                variant="outline-dark"
+                // onClick={() => cambiarContraseña }
+              >
+                Guardar
+              </Button>{" "}
           </div>
           <hr />
           <div className="my-5">
