@@ -7,13 +7,15 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
   const [inputPassword, setInputPassword] = useState("");
+  const [inputDomicilio, setInputDomicilio] = useState("");
+  const [domicilioCambiado, setDomicilioCambiado] = useState([]);
   const [disabledCuenta, setDisabledCuenta] = useState(true);
   const [disabledSensible, setDisabledSensible] = useState(true);
   const [disabledDomicilio, setDisabledDomicilio] = useState(true);
 
   const { nombre, apellido, documento, domicilio, email, telefono } =
     userComplete;
-    console.log('domicilio', domicilio);
+  console.log("domicilio", domicilio);
 
   // const [datosCuenta, setDatosCuenta] = useState(false);
   // const [datosPersonales, setDatosPersonales] = useState();
@@ -33,10 +35,16 @@ export default function MisDatos({ userComplete, getUsuario }) {
       // Consulta post a /productos
       const usuarioModificado = { ...input, id: userComplete._id };
       const passwordModificada = { ...inputPassword, id: userComplete._id };
-      console.log("produto modificado", usuarioModificado);
+      const usuarioDomicilio = { ...inputDomicilio, id: userComplete._id };
+
+      console.log("dominio modificado", usuarioDomicilio);
 
       if (!inputPassword) {
-        await axios.put("/auth", usuarioModificado);
+        if (!usuarioDomicilio) {
+          await axios.put("/auth", usuarioModificado);
+        } else {
+          await axios.put("/auth/domicilio", usuarioDomicilio);
+        }
       } else {
         await axios.put("/auth/password", passwordModificada);
         setInputPassword("");
@@ -60,6 +68,12 @@ export default function MisDatos({ userComplete, getUsuario }) {
     let changedInputPassword = { ...inputPassword, [name]: value };
     console.log("input", changedInputPassword);
     setInputPassword(changedInputPassword);
+  };
+  const handleChangeDominio = (e) => {
+    const { name, value } = e.target;
+    let changedInputDomicilio = { ...inputDomicilio, [name]: value };
+    console.log("domicilio", changedInputDomicilio);
+    setInputDomicilio(changedInputDomicilio);
   };
 
   return (
@@ -166,7 +180,6 @@ export default function MisDatos({ userComplete, getUsuario }) {
             </Button>{" "}
             <Button
               size="md"
-              // onClick={setDatosCuenta(true)}
               type="submit"
               className="mt-4"
               variant="outline-dark"
@@ -202,11 +215,10 @@ export default function MisDatos({ userComplete, getUsuario }) {
             </Button>{" "}
             <Button
               size="md"
-              // onClick={setDatosCuenta(true)}
               type="submit"
               className="mt-4"
               variant="outline-dark"
-              // onClick={() => cambiarContraseña }
+              onClick={() => setDisabledSensible(true)}
             >
               Guardar
             </Button>{" "}
@@ -221,40 +233,48 @@ export default function MisDatos({ userComplete, getUsuario }) {
                     plaintext={disabledDomicilio}
                     readOnly={disabledDomicilio}
                     placeholder="Título"
+                    name="titulo"
+                    onChange={(e) => handleChangeDominio(e)}
                     defaultValue={domicilio || ""}
                   />
                 </Form.Group>
               </Card.Header>
               <Card.Body>
                 <Card.Text>
-                <Form.Group controlId="formPlaintextEmail">
-                  <Form.Control
-                    plaintext={disabledDomicilio}
-                    readOnly={disabledDomicilio}
-                    placeholder="Dirección exacta"
-                    defaultValue={domicilio || ""}
-                  />
-                </Form.Group>
+                  <Form.Group controlId="formPlaintextEmail">
+                    <Form.Control
+                      plaintext={disabledDomicilio}
+                      readOnly={disabledDomicilio}
+                      onChange={(e) => handleChangeDominio(e)}
+                      placeholder="Dirección exacta"
+                      name="direccion"
+                      defaultValue={domicilio || ""}
+                    />
+                  </Form.Group>
                 </Card.Text>
                 <Card.Text>
-                <Form.Group controlId="formPlaintextEmail">
-                  <Form.Control
-                    plaintext={disabledDomicilio}
-                    readOnly={disabledDomicilio}
-                    placeholder="Ciudad"
-                    defaultValue={domicilio || ""}
-                  />
-                </Form.Group>
+                  <Form.Group controlId="formPlaintextEmail">
+                    <Form.Control
+                      plaintext={disabledDomicilio}
+                      readOnly={disabledDomicilio}
+                      placeholder="Ciudad"
+                      name="ciudad"
+                      defaultValue={domicilio || ""}
+                      onChange={(e) => handleChangeDominio(e)}
+                    />
+                  </Form.Group>
                 </Card.Text>
                 <Card.Text>
-                <Form.Group controlId="formPlaintextEmail">
-                  <Form.Control
-                    plaintext={disabledDomicilio}
-                    readOnly={disabledDomicilio}
-                    placeholder="Codigo Postal"
-                    defaultValue={domicilio || ""}
-                  />
-                </Form.Group>
+                  <Form.Group controlId="formPlaintextEmail">
+                    <Form.Control
+                      plaintext={disabledDomicilio}
+                      readOnly={disabledDomicilio}
+                      placeholder="Codigo Postal"
+                      defaultValue={domicilio || ""}
+                      name="codPostal"
+                      onChange={(e) => handleChangeDominio(e)}
+                    />
+                  </Form.Group>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -268,11 +288,9 @@ export default function MisDatos({ userComplete, getUsuario }) {
             </Button>{" "}
             <Button
               size="md"
-              // onClick={setDatosCuenta(true)}
               type="submit"
               className="mt-4"
               variant="outline-dark"
-              // onClick={() => cambiarContraseña }
             >
               Guardar
             </Button>{" "}
