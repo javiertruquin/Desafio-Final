@@ -17,20 +17,30 @@ import axios from "axios";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-function SeccionCompus({ setUser, carrito }) {
+function SeccionCompus({ setUser, carrito, filtro }) {
     const [computadoras, setComputadoras] = useState([]);
+    const [categoria, setCategoria] = useState(filtro);
 
+    const getComputadoras = async () => {
+        const params = { categoria };
+        const response = await axios.get(`/producto/categoria`, { params });
+        setComputadoras(response.data);
+    };
     useEffect(() => {
-        const getComputadoras = async () => {
-            const response = await axios.get(`/producto`);
-            console.log("getComputadoras ~ response", response);
-            setComputadoras(response.data);
-        };
         getComputadoras();
-    }, []);
+    }, [categoria]);
+
+    // useEffect(() => {
+    //     const getComputadoras = async () => {
+    //         const response = await axios.get(`/producto`);
+    //         console.log("getComputadoras ~ response", response);
+    //         setComputadoras(response.data);
+    //     };
+    //     getComputadoras();
+    // }, []);
     return (
         <div className="container position-relative mt-5">
-            <span className="titulo1 ps-4">COMPUTADORAS</span>
+            <span className="titulo1 ps-4 text-uppercase">{filtro}s</span>
             <div className="row contenedor-seccion-compus">
                 <div className="col-lg-4 col-md-12">
                     <p className=" subtitulo-seccion">

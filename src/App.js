@@ -34,7 +34,8 @@ axios.defaults.headers = { "x-auth-token": localToken };
 function App() {
   const [user, setUser] = useState({});
   const [token, setToken] = useState(localToken);
-  const history = useHistory();
+  let history = useHistory();
+
   useEffect(() => {
     if (token) {
       const request = async () => {

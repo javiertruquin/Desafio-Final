@@ -1,19 +1,33 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory  } from "react-router-dom";
+
 
 export default function CardProductoView({ computadora, setUser, carrito }) {
+    const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const { titulo, descripcion, precio, image1, _id, serie } = computadora;
+    const [token, setToken] = useState(localToken);
+    let history = useHistory();
 
+    useEffect(() => {
+        setToken(localToken);
+    }, [localToken])
+    
     const addToCart = async () => {
-        try {
-            await axios.put("/usuarios/carrito", {
-                itemCarrito: { producto: _id, cantidad: 1 },
-            });
-            const { data } = await axios.get("/auth");
-            setUser(data);
-        } catch (error) {
-            console.log(error.response.data);
+        if (!token) {
+            alert('No estas logueado');
+            history.push("/login");
+        } else  {
+            try {
+                await axios.put("/usuarios/carrito", {
+                    itemCarrito: { producto: _id, cantidad: 1 },
+                });
+                const { data } = await axios.get("/auth");
+                setUser(data);
+            } catch (error) {
+                console.log(error.response.data);
+            }
         }
     };
     return (
