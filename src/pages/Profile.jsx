@@ -29,15 +29,15 @@ export default function Profile({ user, token }) {
     //       getUsuario();
     //   }, []);
 
+    // if (token) {
+      const getUsuario = async () => {
+        const { data } = await axios.get(`/auth/complete`);
+        // console.log('usuario', data)
+        setUsuarioCompleto(data);
+      };
+    // }
     useEffect(() => {
-      if (token) {
-        const getUsuario = async () => {
-          const { data } = await axios.get(`/auth/complete`);
-          // console.log('usuario', data)
-          setUsuarioCompleto(data);
-        };
-        getUsuario();
-      }
+      getUsuario();
     }, [token]);
     
 
@@ -50,8 +50,8 @@ export default function Profile({ user, token }) {
             <div className="card border-0 shadow">
               <img src={imageProfile} className="card-img-top" />
               <div className="card-body text-center">
-                <h5 className="card-title mb-0">{usuarioCompleto.nombre}</h5>
-                <div className="card-text text-black-50">Web Developer</div>
+                <h5 className="card-title mb-0">{usuarioCompleto.nombre} {usuarioCompleto.apellido}</h5>
+                {/* <div className="card-text text-black-50">Web Developer</div> */}
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function Profile({ user, token }) {
                   </Nav.Item>
                 </Nav>
               </Card.Header>              
-              { subNav === '1' && <MisDatos getUsuario="getUsuario" userComplete={usuarioCompleto} />}
+              { subNav === '1' && <MisDatos getUsuario={getUsuario} userComplete={usuarioCompleto} />}
               { subNav === '2' && <MisCompras />}
               { subNav === '3' && <MisMensajes />}
             </Card>

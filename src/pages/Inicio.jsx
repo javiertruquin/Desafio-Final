@@ -11,13 +11,13 @@ export default function Inicio({setUser, carrito}) {
     return (
         <div className="container">
             <SlideOfertas />
-            <SeccionCompus setUser={setUser} carrito={carrito} />
+            <SeccionCompus filtro={'computadora'} setUser={setUser} carrito={carrito} />
             <SeccionEnviosPagos />
             <SlideNotebooks className="mt-4"/>
-            <SeccionCompus setUser={setUser} carrito={carrito} />
+            <SeccionCompus filtro={'notebook'} setUser={setUser} carrito={carrito} />
             <br />
             <SlideAccesorios className="mt-4"/>
-            <SeccionAccesorios setUser={setUser} carrito={carrito} />
+            <SeccionAccesorios filtro={'accesorio'} setUser={setUser} carrito={carrito} />
         </div>
     );
 }

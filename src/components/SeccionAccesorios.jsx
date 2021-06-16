@@ -21,22 +21,25 @@ import axios from "axios";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-export default function SeccionAccesorios({ setUser, carrito }) {
+export default function SeccionAccesorios({ setUser, carrito, filtro }) {
     const [computadoras, setComputadoras] = useState([]);
+    const [categoria, setCategoria] = useState(filtro);
+
+    const getComputadoras = async () => {
+        const params = { categoria };
+        const response = await axios.get(`/producto/categoria`, { params });
+        setComputadoras(response.data);
+    };
     useEffect(() => {
-        const getComputadoras = async () => {
-            const response = await axios.get(`/producto`);
-            // console.log("getComputadoras ~ response", response);
-            setComputadoras(response.data);
-        };
         getComputadoras();
-    }, []);
+    }, [categoria]);
+
     return (
         <div className="container position-relative mt-5">
             <span className="titulo1 ps-4">ACCESORIOS</span>
             <div className="row contenedor-seccion-compus">
                 <p className=" subtitulo-seccion2">
-                    Equipos de escritorio para todos los bolsillos
+                    Complementos ideales para tu SetUp
                 </p>
 
                 <div className="col-12 contenedor-items pb-4">
