@@ -26,7 +26,7 @@ export default function SeccionAccesorios({ setUser, carrito }) {
     useEffect(() => {
         const getComputadoras = async () => {
             const response = await axios.get(`/producto`);
-            console.log("getComputadoras ~ response", response);
+            // console.log("getComputadoras ~ response", response);
             setComputadoras(response.data);
         };
         getComputadoras();

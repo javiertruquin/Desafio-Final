@@ -18,17 +18,11 @@ import SwiperCore, {
 
 SwiperCore.use([Navigation, Thumbs]);
 
-
-
-
-
-
-
 export default function SeccionProducto() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
         <>
-            <NavReactB />
+            {/* <NavReactB /> */}
             <div className="container my-3 ">
                 <div className="p-3 m-auto row flex-row">
                 <a href="/">Volver atras</a>
@@ -145,6 +139,7 @@ export default function SeccionProducto() {
                                 </p>
                                 <h5 className="grey-text">
                                     <del>$55000.00</del>
+                                    {/* <del>{ precio + 15000 }</del> */}
                                 </h5>
                                 <div className="d-flex ">
                                     <h3 className="my-auto">
@@ -248,7 +243,6 @@ export default function SeccionProducto() {
                     
                 </div>
             </div>
-            <Footer />
         </>
     );
 }
