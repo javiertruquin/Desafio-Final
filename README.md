@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+<div align="center">
+  <img alt="Rolling Tech" src="https://i.ibb.co/B6kQ8gS/logo.png" style="max-height:163px; width:100; height: auto; max-width:100%" />
+</div>
+<div align="center">
+  <strong>Rolling Tech Empresa Tecnológica</strong>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+# Descripción del proyecto.
+Desde un principio el proyecto fue la creación de un sistema que permita a Rolling Tech la relación con los clientes desarrollando una aplicación construida utilizando la librería de React con una interface moderna e intuitiva. 
 
-## Available Scripts
+## La empresa
+Rolling Tech es una compañía especializada en la venta de computadoras y accesorios para suplir las necesidades de Argentina y América Latina. Contamos con el apoyo de grandes marcas que respaldan el servicio que brindamos con la máxima garantía en la calidad de nuestros productos.
+---
+## Funcionalidades de la aplicación
 
-In the project directory, you can run:
+### Registro / Login / Perfil de usuario
+La aplicación permite a los usuarios registrarse validando los datos ingresados, también permite el ingreso como usuario, con la creación de un perfil de usuario en el que se cargan los datos básicos más las posibles direcciones para la entrega de los productos. 
 
-### `npm start`
+### Tienda / Producto favorito / Carrito de compras
+La app cuenta con una tienda de ventas de productos, en el que el usuario puede agregar productos a favoritos, armar un carrito de compras. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+###  Información de envío / método de pago / Sección Contacto
+---
+##  Rutas y métodos
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Pasos para correr el proyecto en local. 
+> Frontend:
+Paso 1 Clone: GitHub https://github.com/javiertruquin/Desafio-Final
+Paso 2: npm i 
+Paso 3: npm start
+> Backend: 
+- Paso 1 Clone: GitHub https://github.com/javiertruquin/desfaio-final-backend
+- Paso 2: npm i 
+- Paso 3: npm run dev
 
-### `npm test`
+# Integrantes del equipo. Comisión.
+### Javier Truquin
+### Tomás Guerineau
+### Andrés Donadio
+### Federico Álvarez
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Librerías y frameworks utilizados
+-   @fortawesome
+-   Google Fonts
+-   Axios (https://axios-http.com/docs/intro)
+-   React-bootstrap (https://react-bootstrap.github.io/)
+-   React-dom (https://es.reactjs.org/docs/react-dom.html)
+-   React-router-dom (https://reactrouter.com/web/guides/quick-start)
+-   Swiper (https://swiperjs.com/react)
+-   MDBReact (https://react.mdbootstrap.com/)
