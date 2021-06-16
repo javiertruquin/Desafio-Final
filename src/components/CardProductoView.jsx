@@ -3,7 +3,7 @@ import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 export default function CardProductoView({ computadora, setUser, carrito }) {
-    const { titulo, descripcion, precio, image1, _id } = computadora;
+    const { titulo, descripcion, precio, image1, _id, serie } = computadora;
 
     const addToCart = async () => {
         try {
@@ -19,7 +19,7 @@ export default function CardProductoView({ computadora, setUser, carrito }) {
     return (
         <div className="">
             <div className="my-1 p-4">
-                <button className="btn-serie">Serie Advance</button>
+                <button className="btn-serie">{serie}</button>
                 <img src={image1} alt="" className="img-fluid" />
                 <p className="titulo-producto">{titulo}</p>
                 <ul className="detalle-producto">

@@ -9,7 +9,7 @@ import EstadisticasAdmin from "./components/EstadisticasAdmin";
 import ProductosAdmin from "./components/ProductosAdmin";
 import Footer from "./components/Footer";
 import Inicio from "./pages/Inicio.jsx";
-import Computadoras from "./pages/Computadoras";
+import Productos from "./pages/Productos";
 import Notebooks from "./pages/Notebooks";
 import Accesorios from "./pages/Accesorios";
 import Producto from "./pages/Producto";
@@ -75,13 +75,13 @@ function App() {
           <Inicio setUser={setUser} carrito={user.carrito}/>
         </Route>
         <Route path="/computadoras">
-          <Computadoras setUser={setUser} carrito={user.carrito} />
+          <Productos categoriaFiltrada="computadora" setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/notebooks">
-          <Notebooks />
+          <Productos categoriaFiltrada="notebook" setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/accesorios">
-          <Accesorios />
+          <Productos categoriaFiltrada="accesorio" setUser={setUser} carrito={user.carrito} />
         </Route>
         <Route path="/nosotros">
           <SobreNosotros />
@@ -121,6 +121,12 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      {/* { localToken === '' && <Footer /> }
+      { user.rol === 'usuario' && <Footer /> } */}
+      {/* {console.log('users', user)} */}
+      {/* { !user.rol === 'admin' && <Footer /> } */}
+      {/* { !user.rol === 'vendedor' && <Footer /> } */}
+      {/* { (!user.rol === 'admin' || !user.rol === 'vendedor' ) && <Footer /> } */}
     </Router>
   );
 }
