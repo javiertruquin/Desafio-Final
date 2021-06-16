@@ -9,6 +9,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const [inputPassword, setInputPassword] = useState("");
   const [disabledCuenta, setDisabledCuenta] = useState(true);
   const [disabledSensible, setDisabledSensible] = useState(true);
+  const [disabledDomicilio, setDisabledDomicilio] = useState(true);
 
   const { nombre, apellido, documento, domicilio, email, telefono } =
     userComplete;
@@ -217,9 +218,9 @@ export default function MisDatos({ userComplete, getUsuario }) {
               <Card.Header>
                 <Form.Group controlId="formPlaintextEmail">
                   <Form.Control
-                    plaintext
-                    readOnly={true}
-                    placeholder="Título."
+                    plaintext={disabledDomicilio}
+                    readOnly={disabledDomicilio}
+                    placeholder="Título"
                     defaultValue={domicilio || ""}
                   />
                 </Form.Group>
@@ -228,9 +229,9 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 <Card.Text>
                 <Form.Group controlId="formPlaintextEmail">
                   <Form.Control
-                    plaintext
-                    readOnly={true}
-                    placeholder="Dirección exacta."
+                    plaintext={disabledDomicilio}
+                    readOnly={disabledDomicilio}
+                    placeholder="Dirección exacta"
                     defaultValue={domicilio || ""}
                   />
                 </Form.Group>
@@ -238,9 +239,9 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 <Card.Text>
                 <Form.Group controlId="formPlaintextEmail">
                   <Form.Control
-                    plaintext
-                    readOnly={true}
-                    placeholder="Ciudad."
+                    plaintext={disabledDomicilio}
+                    readOnly={disabledDomicilio}
+                    placeholder="Ciudad"
                     defaultValue={domicilio || ""}
                   />
                 </Form.Group>
@@ -248,8 +249,8 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 <Card.Text>
                 <Form.Group controlId="formPlaintextEmail">
                   <Form.Control
-                    plaintext
-                    readOnly={true}
+                    plaintext={disabledDomicilio}
+                    readOnly={disabledDomicilio}
                     placeholder="Codigo Postal"
                     defaultValue={domicilio || ""}
                   />
@@ -257,8 +258,23 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 </Card.Text>
               </Card.Body>
             </Card>
-            <Button size="md" className="mt-4" variant="outline-dark">
+            <Button
+              size="md"
+              onClick={() => setDisabledDomicilio(false)}
+              className="mt-4"
+              variant="outline-dark"
+            >
               Editar
+            </Button>{" "}
+            <Button
+              size="md"
+              // onClick={setDatosCuenta(true)}
+              type="submit"
+              className="mt-4"
+              variant="outline-dark"
+              // onClick={() => cambiarContraseña }
+            >
+              Guardar
             </Button>{" "}
           </div>
         </Form>
