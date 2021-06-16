@@ -1,6 +1,3 @@
-import slideCompu1 from "../assets/img/slidecompus1.png";
-import slideCompu2 from "../assets/img/slidecompus2.png";
-import slideCompu3 from "../assets/img/slidecompus3.png";
 
 // import compu2 from "../assets/img/compu2.jpeg"
 import { Carousel } from "react-bootstrap";
@@ -10,6 +7,11 @@ import CardProductoView from "../components/CardProductoView";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
+import SlideAccesorios from "../components/SlideAccesorios";
+import SlideComputadoras from "../components/SlideComputadoras";
+import SlideNotebooks from "../components/SlideNotebooks";
+
+
 
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
@@ -37,22 +39,11 @@ export default function Productos({ setUser, carrito, categoriaFiltrada }) {
 
     return (
         <div className="container ">
-            <Carousel fade>
-                <Carousel.Item interval={2500}>
-                    <img
-                        src={slideCompu1}
-                        alt=""
-                        className="img-fluid"
-                        style={{}}
-                    />
-                </Carousel.Item>
-                <Carousel.Item interval={2500}>
-                    <img src={slideCompu2} alt="" className="img-fluid" />
-                </Carousel.Item>
-                <Carousel.Item interval={2500}>
-                    <img src={slideCompu3} alt="" className="img-fluid" />
-                </Carousel.Item>
-            </Carousel>
+            {categoriaFiltrada === 'computadora' && <SlideComputadoras className="mt-4" />}
+            {categoriaFiltrada === 'notebook' && <SlideNotebooks className="mt-4" />}
+            {categoriaFiltrada === 'accesorio' && <SlideAccesorios className="mt-4" />}
+
+
             <div className="ps-4 mt-5 position-relative">
                 <span className="titulo2 position-absolute text-uppercase">{categoriaFiltrada}s</span>
             </div>
