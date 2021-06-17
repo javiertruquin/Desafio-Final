@@ -38,7 +38,7 @@ export default function CardCarrito({
     };
 
     // useEffect(() => {
-    let suma = precioFinal + carrito.producto?.precio;
+    // let suma = precioFinal + carrito.producto?.precio;
     setPrecioFinal(subTotal);
     // }, [])
 
@@ -126,8 +126,8 @@ export default function CardCarrito({
                             >
                                 Subtotal:
                             </div>
-                            {console.log("input", input)}
-                            <div>${subTotal * input.cantidad}</div>
+                            {/* {console.log("input", input)} */}
+                            <div>${carrito.producto?.precio * input.cantidad}</div>
                             {/* <div>${carrito.producto?.precio * carrito.cantidad}</div> */}
                         </div>
                     </div>

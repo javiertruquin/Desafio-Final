@@ -56,18 +56,18 @@ export default function NavReactB({ logout, userName, carrito }) {
               <Nav.Link to="/carrito" as={NavLink}>
                 <i
                   style={{ color: "#00598a" }}
-                  class="fas fa-shopping-cart"
+                  className="fas fa-shopping-cart"
                 ></i>
                 {carrito?.length}
               </Nav.Link>
             )}
               {userName && (
                 <Nav.Link href="#link" onClick={handleCrear} className="p-3">
-                  <i style={{ color: "#00598a" }} class="fas fa-heart "></i>
+                  <i style={{ color: "#00598a" }} className="fas fa-heart "></i>
                 </Nav.Link>
               )}
               {/* <Button onClick={logout}>
-                <i style={{ color: "#00598a" }} class="fas fa-dor"></i>
+                <i style={{ color: "#00598a" }} className="fas fa-dor"></i>
               </Button> */}
 
               {/* <DropdownButton
@@ -100,8 +100,8 @@ export default function NavReactB({ logout, userName, carrito }) {
               </DropdownButton> */}
 
               <Dropdown>
-                <Dropdown.Toggle variant="info" id="dropdown-menu-align-responsive-1" menuAlign={{ lg: 'right' }}>
-                <i style={{ color: "#FFFFFF" }} class="fas fa-user pe-2"></i>
+                <Dropdown.Toggle variant="info" id="dropdown-menu-align-responsive-1">
+                <i style={{ color: "#FFFFFF" }} className="fas fa-user pe-2"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>

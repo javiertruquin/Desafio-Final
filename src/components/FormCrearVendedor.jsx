@@ -62,7 +62,7 @@ export default function FormCrearVendedor({
             name="nombre"
             placeholder="Nombre"
             // placeholder={ accion === 'editar' && usuario.nombre || "Nombre" }
-            defaultValue={ accion === 'editar' && usuario.nombre || ''}
+            defaultValue={ accion === 'editar' ? usuario.nombre : ''}
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlInput2">
@@ -72,7 +72,7 @@ export default function FormCrearVendedor({
             required
             name="apellido"
             placeholder="Apellido"
-            defaultValue={ accion === 'editar' && usuario.apellido || ''}
+            defaultValue={ accion === 'editar' ? usuario.apellido : ''}
           />
         </Form.Group>
         <Form.Group className="my-4" controlId="exampleForm.ControlInput3">
@@ -82,14 +82,14 @@ export default function FormCrearVendedor({
             required
             name="email"
             placeholder="email"
-            defaultValue={ accion === 'editar' && usuario.email || ''}
+            defaultValue={ accion === 'editar' ? usuario.email : ''}
           />
         </Form.Group>
         <Form.Group className="my-4" controlId="exampleForm.ControlInput4">
           <Form.Control
           type="password"
           // placeholder="Contraseña"
-          placeholder={ accion === 'editar' && '************' || "Contraseña" }
+          placeholder={ accion === 'editar' ? '************' : "Contraseña" }
           />
           <Form.Control
             className="mt-2"
@@ -97,7 +97,7 @@ export default function FormCrearVendedor({
             name="password"
             type="password"
             // placeholder="Repetir contraseña"
-            placeholder={ accion === 'editar' && '************' || "Repetir contraseña" }
+            placeholder={ accion === 'editar' ? '************' : "Repetir contraseña" }
           />
         </Form.Group>
         <Form.Group className="my-4" controlId="exampleForm.ControlSelect1">

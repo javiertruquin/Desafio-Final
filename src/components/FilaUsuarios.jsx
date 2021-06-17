@@ -19,13 +19,15 @@ export default function FilaUsuarios({ usuario, index, getUsuarios }) {
 
     const eliminar = async (event) => {
       // event.preventDefault();
-      try {
-        
-        await axios.delete('/auth', {email});
-        alert("Usuario eliminado con éxito!😁");
-        getUsuarios()
-      } catch (error) {
-        console.log(error);
+      const confirma = window.confirm('Estas seguro que desea eliminar este usuario?');
+      if (confirma) {
+        try {
+          await axios.delete('/auth/' + _id);
+          alert("Usuario eliminado con éxito!😁");
+          getUsuarios()
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
 
@@ -38,17 +40,17 @@ export default function FilaUsuarios({ usuario, index, getUsuarios }) {
         <td>{email}</td>
         <td className="col-4">
           <Button onClick={handleCrear2} variant="primary">
-            <i class="fas fa-info-circle"></i>
+            <i className="fas fa-info-circle"></i>
           </Button>{" "}
           {/* <Button className="my-1" variant="secondary">
-            <i class="far fa-edit"></i>
+            <i className="far fa-edit"></i>
           </Button>{" "} */}
           <Button onClick={handleCrear} className="my-1" variant="secondary">
-            <i class="far fa-edit"></i>
+            <i className="far fa-edit"></i>
           </Button>{" "}
           {/* <Button variant="danger" onClick={eliminar}> */}
-          <Button variant="danger">
-            <i class="far fa-trash-alt"></i>
+          <Button variant="danger" onClick={eliminar}>
+            <i className="far fa-trash-alt"></i>
           </Button>{" "}
         </td>
       </tr>

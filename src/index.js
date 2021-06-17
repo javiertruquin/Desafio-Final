@@ -7,14 +7,18 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // axios.defaults.baseURL = 'https://desafio-final-rolling.herokuapp.com/api';
 axios.defaults.baseURL = 'http://localhost:4000/api';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+  // </React.StrictMode>,
+  ,
   document.getElementById("root")
 );
 

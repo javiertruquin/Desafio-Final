@@ -8,7 +8,7 @@ function SeccionEnviosPagos() {
                     <div className="row">
                         <div className="col-3  ps-4" style={{  borderLeft: "6px solid #005889" }}>
                             <div className="rounded-circle circulo-envpag text-center">
-                                <i class="far fa-credit-card pt-3"></i>
+                                <i className="far fa-credit-card pt-3"></i>
                             </div>
                         </div>
                         <div className="col-9">
@@ -23,7 +23,7 @@ function SeccionEnviosPagos() {
                 <div className="row">
                         <div className="col-3  ps-4" style={{  borderLeft: "6px solid #005889" }}>
                             <div className="rounded-circle circulo-envpag text-center">
-                                <i class="fas fa-money-bill-wave pt-3"></i>
+                                <i className="fas fa-money-bill-wave pt-3"></i>
                             </div>
                         </div>
                         <div className="col-9">
@@ -36,7 +36,7 @@ function SeccionEnviosPagos() {
                 <div className="row">
                         <div className="col-3  ps-4" style={{  borderLeft: "6px solid #005889" }}>
                             <div className="rounded-circle circulo-envpag text-center">
-                                <i class="fas fa-shipping-fast pt-3"></i>
+                                <i className="fas fa-shipping-fast pt-3"></i>
                             </div>
                         </div>
                         <div className="col-9">

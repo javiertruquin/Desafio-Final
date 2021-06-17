@@ -28,10 +28,10 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
         <td>{estado}</td>
         <td className="col-4">
           <Button variant="primary">
-            <i class="fab fa-readme"></i>
+            <i className="fab fa-readme"></i>
           </Button>{" "}
           <Button variant="danger" onClick={eliminar}>
-            <i class="far fa-trash-alt"></i>
+            <i className="far fa-trash-alt"></i>
           </Button>{" "}
         </td>
       </tr>

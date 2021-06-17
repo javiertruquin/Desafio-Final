@@ -18,14 +18,14 @@ export default function CardProductoSlide() {
                 {" "}
                 <button className="btn-heart">
                     {" "}
-                    <i class="fas fa-heart"></i>
+                    <i className="fas fa-heart"></i>
                 </button>
             </span>
             <span>
                 {" "}
                 <button className="btn-cart">
                     {" "}
-                    <i class="fas fa-shopping-cart"></i>
+                    <i className="fas fa-shopping-cart"></i>
                 </button>
             </span>
             <button className="btn-comprar mt-2">Comprar</button>
