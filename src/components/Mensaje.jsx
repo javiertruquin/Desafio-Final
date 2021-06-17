@@ -32,11 +32,19 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
           {estado} <InputGroup.Checkbox hasValidation="true" />{" "}
         </td>
         <td className="col-4">
+<<<<<<< HEAD
           <Button variant="primary" onClick={handleAbrir} size="sm">
             <i class="fab fa-readme"></i>
           </Button>{" "}
           <Button variant="danger" onClick={eliminar} size="sm">
             <i class="far fa-trash-alt"></i>
+=======
+          <Button variant="primary">
+            <i className="fab fa-readme"></i>
+          </Button>{" "}
+          <Button variant="danger" onClick={eliminar}>
+            <i className="far fa-trash-alt"></i>
+>>>>>>> main
           </Button>{" "}
         </td>
       </tr>

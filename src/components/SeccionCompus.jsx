@@ -84,7 +84,7 @@ function SeccionCompus({ setUser, carrito, filtro }) {
                         navigation={true}
                     >
                         {computadoras.map((computadora) => (
-                            <SwiperSlide>
+                            <SwiperSlide key={computadora._id} >
                                 <CardProductoView
                                     setUser={setUser}
                                     computadora={computadora}

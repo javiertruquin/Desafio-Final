@@ -77,7 +77,7 @@ export default function SeccionEnvio() {
                 </div>
                 <div className="text-center mt-2">
                     <Nav.Link to="/pago" as={NavLink} className="">
-                        <button type="button" class="btn-comprar">
+                        <button type="button" className="btn-comprar">
                             Continuar compra
                         </button>
                     </Nav.Link>

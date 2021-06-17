@@ -15,13 +15,16 @@ export default function CardProductoAdmin({ producto,  getProductos }) {
   
   const eliminar = async (event) => {
     // event.preventDefault();
-    try {      
-      await axios.delete('/producto', {codigo});
-      getProductos()
-      alert("Producto eliminado con éxito!😁");
-    } catch (error) {
-      console.log(error);
-    }
+    const confirma = window.confirm('Estas seguro que desea eliminar este producto?');
+      if (confirma) {
+        try {      
+          await axios.delete('/producto', {codigo});
+          getProductos()
+          alert("Producto eliminado con éxito!😁");
+        } catch (error) {
+          console.log(error);
+        }
+      }
   }
 
   return (
@@ -55,16 +58,16 @@ export default function CardProductoAdmin({ producto,  getProductos }) {
           <div className="col-lg-2" style={{ backgroundColor: "#666666" }}>
             <div className="botones-productos d-block">
               {/* <Button variant="primary" onClick={handleShow}>
-              <i class="fas fa-info-circle pe-2"></i> Ver
+              <i className="fas fa-info-circle pe-2"></i> Ver
               </Button> */}
               <button className="btn-ver mb-2 mx-1" onClick={handleShow}>
-                <i class="fas fa-info-circle pe-2"></i> Ver
+                <i className="fas fa-info-circle pe-2"></i> Ver
               </button>
               <button className="btn-editar mb-2 mx-1" onClick={handleShow2}>
-                <i class="far fa-edit pe-2"></i> Editar
+                <i className="far fa-edit pe-2"></i> Editar
               </button>
               <button className="btn-eliminar mb-2 mx-1" onClick={eliminar}>
-                <i class="far fa-trash-alt pe-2"></i> Eliminar
+                <i className="far fa-trash-alt pe-2"></i> Eliminar
               </button>
             </div>
           </div>

@@ -1,10 +1,6 @@
-import { React, Component, useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import {
-  Button,
   Card,
-  Form,
-  FormControl,
-  InputGroup,
   Nav,
 } from "react-bootstrap";
 import imageProfile from "../assets/img/profile-1.jpeg";
@@ -58,7 +54,7 @@ export default function Profile({ user, token }) {
           <div className="col-12 col-md-9 mb-4">
             <Card>
               <Card.Header> 
-                <Nav variant="tabs" activeKey="1" onSelect={handleSelect}>
+                <Nav variant="tabs" defaultActiveKey="1" onSelect={handleSelect}>
                   <Nav.Item>
                     <Nav.Link eventKey="1">Mis datos</Nav.Link>
                   </Nav.Item>

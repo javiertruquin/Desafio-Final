@@ -54,11 +54,11 @@ function App() {
     axios.defaults.headers = { "x-auth-token": "" };
     setUser({});
     setToken("");
-    // history.push("/");
+    history.push("/");
   };
 
   return (
-    <Router>
+    <>
       <Route>
         <ScrollToTop></ScrollToTop>
       </Route>
@@ -87,7 +87,7 @@ function App() {
         <Route path="/nosotros">
           <SobreNosotros />
         </Route>
-        <Route path="/producto">
+        <Route path="/producto/:id">
           <Producto />
         </Route>
         <Route path="/carrito">
@@ -121,14 +121,18 @@ function App() {
           <Profile token={token} user={user} />
         </Route>
       </Switch>
-      <Footer />
+      {user.rol === "admin" || user.rol === "vendedor" ? (
+         null
+      ) : (
+        <Footer />
+      )}
       {/* { localToken === '' && <Footer /> }
       { user.rol === 'usuario' && <Footer /> } */}
       {/* {console.log('users', user)} */}
       {/* { !user.rol === 'admin' && <Footer /> } */}
       {/* { !user.rol === 'vendedor' && <Footer /> } */}
       {/* { (!user.rol === 'admin' || !user.rol === 'vendedor' ) && <Footer /> } */}
-    </Router>
+    </>
   );
 }
 

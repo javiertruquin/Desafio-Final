@@ -14,7 +14,7 @@ export default function BuscadorCategorias() {
                 <div>
                     <label htmlFor="" className="texto-categoria me-2">Buscar</label>
                     <input type="text" name="buscar" id="" style={{width:'60%'}} className="input-buscar"/>
-                    <button className="btn-categoria my-2 mx-2"><i class="fas fa-search"></i></button>
+                    <button className="btn-categoria my-2 mx-2"><i className="fas fa-search"></i></button>
                 </div>
             </div>
         </div>

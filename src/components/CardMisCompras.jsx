@@ -37,16 +37,16 @@ export default function CardMisCompras(producto) {
           <div className="col-lg-2" style={{ backgroundColor: "#666666" }}>
             <div className="botones-productos d-block">
               {/* <Button variant="primary" onClick={handleShow}>
-              <i class="fas fa-info-circle pe-2"></i> Ver
+              <i className="fas fa-info-circle pe-2"></i> Ver
               </Button> */}
               <button className="btn-sm btn-ver mb-2 mx-1">
-                <i class="fas fa-info-circle pe-2"></i> Ver detalles
+                <i className="fas fa-info-circle pe-2"></i> Ver detalles
               </button>
               <button className="btn-sm btn-editar mb-2 mx-1">
-                <i class="far fa-edit pe-2"></i> Repetir pedido
+                <i className="far fa-edit pe-2"></i> Repetir pedido
               </button>
               {/* <button className="btn-eliminar mb-2 mx-1" onClick={eliminar}>
-                <i class="far fa-trash-alt pe-2"></i> Eliminar
+                <i className="far fa-trash-alt pe-2"></i> Eliminar
               </button> */}
             </div>
           </div>
