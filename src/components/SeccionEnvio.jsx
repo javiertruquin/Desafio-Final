@@ -33,12 +33,19 @@ export default function SeccionEnvio() {
   };
 
   return (
-    <div className="container p-4 mt-4">
-      <div className=" border-bottom mb-4">
-        <h2 className="mx-auto mb-3 text-center titulo-azul">
-          Ingrese su dirección
-        </h2>
+    <div className="container mt-4">
+      <div className="row">
+        <div className="col-7">
+          <span className="titulo-azul">Dirección</span>
+          <p className="ps-lg-3 pt-3 pt-lg-0 texto-favoritos fuente">Ingresá la dirección donde queres el envío</p>
+        </div>
+        <div className="col-2"></div>
+        <div className="col-2 text-center pt-3">
+          <i style={{ color: "#00598a", fontSize: "22pt" }} className="fas fa-home text-center "></i>
+          <p className="sub-mision pt-1" style={{ "font-size": "70%" }}>DIRECCIÓN</p>
+        </div>
       </div>
+      <hr className=" mt-3" style={{ border: '0.3px solid #ababab' }} />
       <Form className="col-12 col-md-10 mt-2" onSubmit={enviarDatos}>
         <div className="container mb-4">
           <div className="row">

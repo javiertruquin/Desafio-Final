@@ -64,12 +64,19 @@ export default class App extends React.Component {
             this.state;
 
         return (
-            <div className="container p-4 mt-4" key="Payment ">
-                <div className=" border-bottom">
-                    <h2 className="mx-auto mb-3 text-center titulo-azul">
-                        Ingrese su Tarjeta
-                    </h2>
+            <div className="container mt-4" key="Payment ">
+                <div className="row">
+                    <div className="col-7">
+                        <span className="titulo-azul">Tarjeta de crédito</span>
+                        <p className="ps-lg-3 pt-3 pt-lg-0 texto-favoritos fuente">Ingresá los datos de su tarjeta</p>
+                    </div>
+                    <div className="col-2"></div>
+                    <div className="col-2 text-center pt-3">
+                        <i style={{ color: "#00598a", fontSize: "22pt" }} className="fas fa-credit-card "></i>
+                        <p className="sub-mision pt-1" style={{ "font-size": "70%" }}>TARJETA</p>
+                    </div>
                 </div>
+                <hr className=" mt-3" style={{ border: '0.3px solid #ababab' }} />
                 <div className="App-payment">
                     <Card
                         number={number}
