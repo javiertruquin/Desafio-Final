@@ -1,4 +1,3 @@
-
 // import compu2 from "../assets/img/compu2.jpeg"
 import { Carousel } from "react-bootstrap";
 import SeccionEnviosPagos from "../components/SeccionEnviosPagos";
@@ -10,13 +9,14 @@ import { useHistory, useLocation } from "react-router-dom";
 import SlideAccesorios from "../components/SlideAccesorios";
 import SlideComputadoras from "../components/SlideComputadoras";
 import SlideNotebooks from "../components/SlideNotebooks";
-
-
+import { Redirect } from "react-router-dom";
 
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
 export default function Productos({ setUser, carrito, categoriaFiltrada }) {
+
+
     const [computadoras, setComputadoras] = useState([]);
     const [categoria, setCategoria] = useState(categoriaFiltrada);
     let location = useLocation();
@@ -29,23 +29,31 @@ export default function Productos({ setUser, carrito, categoriaFiltrada }) {
     useEffect(() => {
         getComputadoras();
     }, [categoria]);
-    
+
     useEffect(() => {
-        (location.pathname === '/computadoras') && setCategoria(categoriaFiltrada);
-        (location.pathname === '/notebooks') && setCategoria(categoriaFiltrada);
-        (location.pathname === '/accesorios') && setCategoria(categoriaFiltrada);        
+        location.pathname === "/computadoras" &&
+            setCategoria(categoriaFiltrada);
+        location.pathname === "/notebooks" && setCategoria(categoriaFiltrada);
+        location.pathname === "/accesorios" && setCategoria(categoriaFiltrada);
     }, [location]);
-    
+
 
     return (
         <div className="container ">
-            {categoriaFiltrada === 'computadora' && <SlideComputadoras className="mt-4" />}
-            {categoriaFiltrada === 'notebook' && <SlideNotebooks className="mt-4" />}
-            {categoriaFiltrada === 'accesorio' && <SlideAccesorios className="mt-4" />}
-
+            {categoriaFiltrada === "computadora" && (
+                <SlideComputadoras className="mt-4" />
+            )}
+            {categoriaFiltrada === "notebook" && (
+                <SlideNotebooks className="mt-4" />
+            )}
+            {categoriaFiltrada === "accesorio" && (
+                <SlideAccesorios className="mt-4" />
+            )}
 
             <div className="ps-4 mt-5 position-relative">
-                <span className="titulo2 position-absolute text-uppercase">{categoriaFiltrada}s</span>
+                <span className="titulo2 position-absolute text-uppercase">
+                    {categoriaFiltrada}s
+                </span>
             </div>
             <div className="row contenedor-seccion-compus">
                 <p className=" subtitulo-seccion2">

@@ -3,6 +3,8 @@ import { React, useEffect, useState } from "react";
 import { Button, Container, Dropdown, DropdownButton, Modal, Table } from "react-bootstrap";
 import FormCrearVendedor from "./FormCrearVendedor";
 import FilaUsuarios from "./FilaUsuarios";
+import { Redirect } from "react-router-dom";
+
 
 export default function UsuariosAdmin() {
   const [crear, setCrear] = useState(false);
@@ -11,7 +13,24 @@ export default function UsuariosAdmin() {
   const handleCrear = () => setCrear(true);
   const [rol, setRol] = useState("vendedor");
   const [subNav, setSubNav] = useState('vendedor');
+  const localToken = JSON.parse(localStorage.getItem("token")) || "";
+  const [token, setToken] = useState(localToken);
+  
+  useEffect(() => {
+    getUsuarios();
+  }, [rol]);
 
+  const getUsuarios = async () => {
+    const params = { rol };
+    if (rol === 'todos') {
+    const response = await axios.get(`/auth/usuariosAdmin`);
+    setUsuarios(response.data);
+    } else {
+      const response = await axios.get(`/auth/usuariosFilter`, { params });
+      setUsuarios(response.data);
+    }  
+  };
+  
 
   const handleSelect = (eventKey) => {
     // setRol(eventKey)
@@ -25,24 +44,14 @@ export default function UsuariosAdmin() {
       setRol('todos');
     }
     // } if (eventKey === '3') {
-    //   setRol({ rol: 'admin', rol2: 'vendedor' })
-    // }
-  }
+      //   setRol({ rol: 'admin', rol2: 'vendedor' })
+      // }
+    }
   
-  const getUsuarios = async () => {
-    const params = { rol };
-    if (rol === 'todos') {
-    const response = await axios.get(`/auth/usuariosAdmin`);
-    setUsuarios(response.data);
-    } else {
-      const response = await axios.get(`/auth/usuariosFilter`, { params });
-      setUsuarios(response.data);
-    }  
-  };
-  useEffect(() => {
-    getUsuarios();
-  }, [rol]);
-
+    if (!token) {
+      alert("No estas logueado");
+      return <Redirect to="/" />;
+  }
   return (
     <>
       <Container className="">
