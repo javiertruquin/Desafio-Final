@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import compu1 from "../assets/img/compu2/compu2-1.jpeg";
-import compu2 from "../assets/img/compu2/compu2-2.jpeg";
-import compu3 from "../assets/img/compu2/compu2-3.jpeg";
 import CardCarrito from "../components/CardCarrito";
-import axios from "axios";
+
 
 export default function SeccionCarrito({ setUser, carrito, view }) {
   const [precioFinal, setPrecioFinal] = useState(0);

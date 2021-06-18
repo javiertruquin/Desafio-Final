@@ -1,15 +1,13 @@
 // import compu2 from "../assets/img/compu2.jpeg"
-import { Carousel } from "react-bootstrap";
 import SeccionEnviosPagos from "../components/SeccionEnviosPagos";
-import BuscadorCategorias from "../components/BuscadorCategorias";
 import CardProductoView from "../components/CardProductoView";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import SlideAccesorios from "../components/SlideAccesorios";
 import SlideComputadoras from "../components/SlideComputadoras";
 import SlideNotebooks from "../components/SlideNotebooks";
-import { Redirect } from "react-router-dom";
+
 
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";

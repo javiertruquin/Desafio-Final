@@ -7,8 +7,8 @@ import miembro2 from "../assets/img/javier.png";
 import miembro3 from "../assets/img/tomas.png";
 import miembro4 from "../assets/img/andres.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { NavLink } from "react-router-dom";
-import { Form } from "react-bootstrap";
+
+
 import {
   faFacebookF,
   faLinkedinIn,

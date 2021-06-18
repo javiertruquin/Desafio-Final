@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import Footer from '../components/Footer';
-import NavReactB from '../components/NavReactB';
 import SeccionCarrito from '../components/SeccionCarrito';
 import { Redirect } from "react-router-dom";
 
