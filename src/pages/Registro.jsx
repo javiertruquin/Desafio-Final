@@ -10,6 +10,9 @@ export default function Registro({ setToken }) {
     const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
     const history = useHistory();
+    const [passCheck1, setPasCheck1] = useState("")
+    const [passCheck2, setPasCheck2] = useState("")
+
 
     const handleSubmit = async (event) => {        
         const form = event.currentTarget;
@@ -17,6 +20,10 @@ export default function Registro({ setToken }) {
         setValidated(true);
         if (form.checkValidity() === false) {
             return event.stopPropagation();
+        }
+        if (passCheck1!=passCheck2) {
+            alert("Las contraseñas no coinciden")
+            return
         }
         try {
             const { data } = await axios.post("/auth/register", input);
@@ -32,6 +39,9 @@ export default function Registro({ setToken }) {
         const { name, value } = e.target;
         let changedInput = { ...input, [name]: value };
         setInput({ ...changedInput, rol: "usuario" });
+        console.log("handleChange ~ changedInput", changedInput)
+        setPasCheck1(changedInput.password1);
+        setPasCheck2(changedInput.password);
     };
 
     return (
@@ -102,13 +112,12 @@ export default function Registro({ setToken }) {
                         <MDBInput
                             minLength="6"
                             maxlength="30"
-                            name="password"
-                            // onChange={(e) => handleChange(e)}
+                            name="password1"
+                            onChange={(e) => handleChange(e)}
                             type="password"
                             aria-describedby="inputGroupPrepend"
                             required
                             label="Contraseña"
-                            id="pass1"
                         >
                             <div className="invalid-feedback">
                                 Ingrese una contraseña de entre 6 y 30 caracteres
@@ -125,7 +134,6 @@ export default function Registro({ setToken }) {
                             aria-describedby="inputGroupPrepend"
                             required
                             label="Confirmar Contraseña"
-                            id="pass2"
                             >
                             <div className="invalid-feedback">
                                 Ingrese nuevamente la contraseña aquí
