@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Carrito from "../pages/Carrito";
 
 export default function CardCarrito({
@@ -60,7 +61,7 @@ export default function CardCarrito({
                     <div className="row">
                         <div className="col-12 col-lg-5 m-auto">
                             <h5 className="d-flex my-auto ms-3">
-                                <a href="">
+                                <Link to={'/producto/' + carrito.producto?._id} >
                                     <div
                                         style={{
                                             "font-size": "80%",
@@ -69,7 +70,7 @@ export default function CardCarrito({
                                     >
                                         {carrito.producto?.titulo}
                                     </div>
-                                </a>
+                                </Link>
                             </h5>
                         </div>
                         <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
