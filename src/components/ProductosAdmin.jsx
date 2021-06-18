@@ -5,8 +5,7 @@ import FormEditar from "./FormEditar";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
-
-export default function ProductosAdmin({ token }) {
+export default function ProductosAdmin({ token, user }) {
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const [token2, setToken2] = useState(localToken);
     const [crear, setCrear] = useState(false);
@@ -25,6 +24,10 @@ export default function ProductosAdmin({ token }) {
     }, []);
     if (!token2) {
         alert("No estas logueado");
+        return <Redirect to="/" />;
+    }
+    if (user.rol === "usuario") {
+        alert("Error 404");
         return <Redirect to="/" />;
     }
     return (

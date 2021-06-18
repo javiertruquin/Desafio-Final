@@ -39,7 +39,6 @@ export default function Registro({ setToken }) {
         const { name, value } = e.target;
         let changedInput = { ...input, [name]: value };
         setInput({ ...changedInput, rol: "usuario" });
-        console.log("handleChange ~ changedInput", changedInput)
         setPasCheck1(changedInput.password1);
         setPasCheck2(changedInput.password);
     };
@@ -50,7 +49,8 @@ export default function Registro({ setToken }) {
             validated={validated}
             onSubmit={handleSubmit}
             style={{ width: "777px" }}
-            className="container card mx-auto pt-2 pr-4 pl-4 mt-4"
+            className="container card mx-auto pt-2 pr-4 pl-4 mt-4 "
+            
         >
             <h2
                 style={{ width: "421px" }}
