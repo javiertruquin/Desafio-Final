@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Nav } from "react-bootstrap";
-import { Link, NavLink, useHistory } from "react-router-dom";
+
+import { Link, useHistory } from "react-router-dom";
 
 export default function CardProductoView({ computadora, setUser, carrito }) {
     const localToken = JSON.parse(localStorage.getItem("token")) || "";

@@ -90,7 +90,7 @@ export default function CardCarrito({
                                 className="my-4"
                                 controlId="exampleForm.ControlSelect1"
                             >
-                                <Form.Label>Cantidad</Form.Label>
+                                <Form.Label style={{ "font-size": "80%" }}>Cantidad</Form.Label>
                                 <Form.Control
                                     as="select"
                                     onChange={(e) => handleChange(e)}

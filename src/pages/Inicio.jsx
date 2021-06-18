@@ -5,7 +5,7 @@ import SeccionEnviosPagos from '../components/SeccionEnviosPagos';
 import SlideAccesorios from "../components/SlideAccesorios"
 import SlideNotebooks from "../components/SlideNotebooks"
 
-import { useState } from 'react';
+
 
 export default function Inicio({setUser, carrito}) {
     return (
