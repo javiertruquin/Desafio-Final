@@ -467,9 +467,6 @@
   margin-bottom: 15px;
 }
 
-.mu-title p {
-}
-
 .mu-about-left {
   display: inline;
   float: left;
@@ -482,9 +479,6 @@
   float: left;
   padding-left: 15px;
   width: 100%;
-}
-
-.mu-about-right ul {
 }
 
 .mu-about-right ul li {
@@ -697,9 +691,6 @@
   width: 25%;
 }
 
-.mu-single-team-img img {
-}
-
 .mu-single-team-content {
   display: inline;
   float: left;
@@ -889,4 +880,10 @@
   font-size: .9rem;
   color: #4c4c4c;
   
+}
+
+.texto-favoritos {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #94C11E;
 }

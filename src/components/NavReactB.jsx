@@ -4,15 +4,12 @@ import {
   Nav,
   Modal,
   Dropdown,
-  ButtonGroup,
-  DropdownButton,
 } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
 import "../Favoritos.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function NavReactB({ logout, userName, carrito }) {
   const [crear, setCrear] = useState(false);
@@ -52,15 +49,15 @@ export default function NavReactB({ logout, userName, carrito }) {
               Admin
             </Nav.Link> */}
             <div className="ps-2 d-flex align-items-center">
-            {userName && (
-              <Nav.Link to="/carrito" as={NavLink}>
-                <i
-                  style={{ color: "#00598a" }}
-                  className="fas fa-shopping-cart"
-                ></i>
-                {carrito?.length}
-              </Nav.Link>
-            )}
+              {userName && (
+                <Nav.Link to="/carrito" as={NavLink}>
+                  <i
+                    style={{ color: "#00598a" }}
+                    className="fas fa-shopping-cart"
+                  ></i>
+                  {carrito?.length}
+                </Nav.Link>
+              )}
               {userName && (
                 <Nav.Link href="#link" onClick={handleCrear} className="p-3">
                   <i style={{ color: "#00598a" }} className="fas fa-heart "></i>
@@ -101,7 +98,7 @@ export default function NavReactB({ logout, userName, carrito }) {
 
               <Dropdown>
                 <Dropdown.Toggle variant="info" id="dropdown-menu-align-responsive-1">
-                <i style={{ color: "#FFFFFF" }} className="fas fa-user pe-2"></i>
+                  <i style={{ color: "#FFFFFF" }} className="fas fa-user pe-2"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -140,8 +137,19 @@ export default function NavReactB({ logout, userName, carrito }) {
         onHide={handleClose}
       >
         <Modal.Body scrollable>
-          <span>No te quedés con las ganas</span>
-          <p>Los favoritos pueden ser tuyos ya!</p>
+          <div className="row">
+            <div className="col-7">
+              <span className="titulo-azul">No te quedés con las ganas</span>
+              <p className="ps-lg-3 pt-3 pt-lg-0 texto-favoritos fuente">Los favoritos pueden ser tuyos ya!</p>
+            </div>
+            <div className="col-2"></div>
+            <div className="col-2 text-center pt-3">
+            <i style={{ color: "#00598a", fontSize: "22pt" }} className="fas fa-heart text-center "></i>
+            <p className="sub-mision pt-1" style={{ "font-size": "70%" }}>FAVORITOS</p>
+            </div>
+          </div>
+
+          <hr className=" mt-4" style={{ border: '0.3px solid #ababab' }} />
           <CardFavoritos />
           <CardFavoritos />
           <CardFavoritos />
