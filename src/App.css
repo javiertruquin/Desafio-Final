@@ -6,6 +6,17 @@
   border-radius: 5px;
 }
 
+.porcentaje-form {
+  text-align: center;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+.porcentaje-form strong {
+  border: 1px solid #0083ad;
+  border-radius: 5px;
+  padding: 0.4rem 1.5rem;
+}
+
 .card-favoritos:hover {
   transform: scale(1.1);
   cursor: pointer;
