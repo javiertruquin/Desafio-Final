@@ -1,10 +1,10 @@
 import React from "react";
 import SeccionProducto from "../components/SeccionProducto";
 
-export default function producto() {
+export default function producto({ setUser}) {
     return (
         <>
-            <SeccionProducto />
+            <SeccionProducto setUser={setUser}/>
         </>
     );
 }
