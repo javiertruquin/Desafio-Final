@@ -14,7 +14,6 @@ import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Pagination } from "swiper/core";
 import CardProductoView from "./CardProductoView";
 
-import CardProductoSlide from "./CardProductoSlide";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -75,18 +74,6 @@ export default function SeccionAccesorios({ setUser, carrito, filtro }) {
                                 />
                             </SwiperSlide>
                         ))}
-                        {/* <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide> */}
                     </Swiper>
                 </div>
             </div>

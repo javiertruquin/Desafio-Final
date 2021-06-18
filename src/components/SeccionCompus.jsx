@@ -2,7 +2,6 @@ import metodoPago from "../assets/img/metodospago.png";
 
 import CardProductoView from "../components/CardProductoView";
 
-import CardProductoSlide from "../components/CardProductoSlide";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -92,19 +91,6 @@ function SeccionCompus({ setUser, carrito, filtro }) {
                                 />
                             </SwiperSlide>
                         ))}
-                        {/* 
-                        <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CardProductoSlide />
-                        </SwiperSlide> */}
                     </Swiper>
                 </div>
             </div>
