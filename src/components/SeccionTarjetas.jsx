@@ -5,7 +5,7 @@ import {
     formatCreditCardNumber,
     formatCVC,
     formatExpirationDate,
-    formatFormData,
+    // formatFormData,
 } from "../utils";
 
 import "react-credit-cards/es/styles-compiled.css";

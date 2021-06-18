@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Row } from "react-bootstrap";
-import { useHistory } from "react-router";
 
 export default function FormCrearVendedor({
   getUsuarios,

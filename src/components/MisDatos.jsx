@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
-import FormEditar from "./FormEditar";
 
 export default function MisDatos({ userComplete, getUsuario }) {
   const [validated, setValidated] = useState(false);

@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import { MDBInput } from "mdbreact";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Registro({ setToken }) {
     const [validated, setValidated] = useState(false);

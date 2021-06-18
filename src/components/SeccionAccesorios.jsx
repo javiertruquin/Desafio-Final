@@ -1,23 +1,13 @@
-// import { Carousel } from "react-bootstrap";
-// import compu1 from "../assets/img/compu1.jpeg"
-// import compu2 from "../assets/img/compu2.jpeg"
-// import compu3 from "../assets/img/compu3.jpeg"
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-
-// import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper/core";
 import CardProductoView from "./CardProductoView";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// install Swiper modules
+
 SwiperCore.use([Pagination]);
 
 export default function SeccionAccesorios({ setUser, carrito, filtro }) {

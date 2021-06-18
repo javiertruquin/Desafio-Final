@@ -2,7 +2,6 @@ import { React, useEffect, useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import CardProductoAdmin from "./CardProductoAdmin";
 import FormEditar from "./FormEditar";
-import Footer from "../components/Footer";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 
