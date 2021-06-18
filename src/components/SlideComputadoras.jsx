@@ -11,15 +11,15 @@ export default function SlideComputadoras() {
                 <img
                     src={slideCompu1}
                     alt=""
-                    className="img-fluid"
+                    className=""
                     style={{}}
                 />
             </Carousel.Item>
             <Carousel.Item interval={2500}>
-                <img src={slideCompu2} alt="" className="img-fluid" />
+                <img src={slideCompu2} alt="" className="" />
             </Carousel.Item>
             <Carousel.Item interval={2500}>
-                <img src={slideCompu3} alt="" className="img-fluid" />
+                <img src={slideCompu3} alt="" className="" />
             </Carousel.Item>
         </Carousel>
     );
