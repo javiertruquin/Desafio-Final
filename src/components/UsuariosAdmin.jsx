@@ -76,7 +76,7 @@ export default function UsuariosAdmin() {
           </p>
 
           <hr className=" mt-4" style={{ border: "1px solid #ababab" }} />
-          <DropdownButton activeKey="1" onSelect={handleSelect} id="dropdown-basic-button" title="Filtro por rol">
+          <DropdownButton onSelect={handleSelect} id="dropdown-basic-button" title="Filtro por rol">
             <Dropdown.Item eventKey="1">Admin</Dropdown.Item>
             <Dropdown.Item eventKey="2">Vendedor</Dropdown.Item>
             <Dropdown.Item eventKey="3">Usuarios</Dropdown.Item>

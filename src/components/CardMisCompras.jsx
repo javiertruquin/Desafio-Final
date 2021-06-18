@@ -21,7 +21,7 @@ export default function CardMisCompras(producto) {
             </div>
           </div>
           <div
-            className="col-lg-8"
+            className="col-lg-7"
             style={{ backgroundColor: "rgb(137, 137, 137)", color: "white" }}
           >
             <div className="datos-productos">
@@ -34,7 +34,7 @@ export default function CardMisCompras(producto) {
               </div>
             </div>
           </div>
-          <div className="col-lg-2" style={{ backgroundColor: "#666666" }}>
+          <div className="col-lg-3" style={{ backgroundColor: "#666666" }}>
             <div className="botones-productos d-block">
               {/* <Button variant="primary" onClick={handleShow}>
               <i className="fas fa-info-circle pe-2"></i> Ver
