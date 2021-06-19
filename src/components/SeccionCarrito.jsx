@@ -7,6 +7,14 @@ import CardCarrito from "../components/CardCarrito";
 export default function SeccionCarrito({ setUser, carrito, view }) {
   const [precioFinal, setPrecioFinal] = useState(0);
 
+  let total = 0;
+  for (let i = 0; i < carrito?.length; i++) {
+    const element = carrito[i];
+    total = total +(element?.cantidad * element.producto?.precio)
+  }
+  
+
+  console.log("SeccionCarrito ~ total", total)
   const estiloCards =
     view === "carrito" ? "col-12 col-lg-8 px-lg-3" : "col-12 px-lg-3";
   const estiloTotal =
@@ -68,7 +76,7 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
                 setPrecioFinal(precioFinal = precioFinal + carrito.precio)
               )} */}
               {/* <div>${precioFinal}</div> */}
-              <div>$164.997</div>
+              <div>${total}</div>
             </div>
           </div>
           <div className="text-end p-0 d-flex justify-content-between">
