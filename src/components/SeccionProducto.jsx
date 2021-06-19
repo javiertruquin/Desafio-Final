@@ -28,7 +28,6 @@ export default function SeccionProducto({ setUser }) {
     }, [localToken]);
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    console.log("AQUI", producto);
     const addToCart = async () => {
         if (!token) {
             alert("No estas logueado");
@@ -50,7 +49,6 @@ export default function SeccionProducto({ setUser }) {
         const getProducto = async () => {
             const response = await axios.get("/producto/" + params.id);
             setProducto(response.data);
-            console.log("data", response.data);
             let opcion = [];
             let cantidad;
             if (response.data.stock > 10) {
@@ -241,9 +239,10 @@ export default function SeccionProducto({ setUser }) {
                                     >
                                         {opciones?.map((index) => (
                                             <option>{index}</option>
-                                        ))}
+                                            ))}
                                     </Form.Control>
                                 </div>
+                                            console.log("SeccionProducto ~ index", index)
                                 <div onClick={addToCart}>
                                     <Link to="/envio" className="my-auto">
                                         <Button

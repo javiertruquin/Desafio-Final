@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import { useParams } from "react-router";
 
 export default function CardCarrito({
     carrito,
@@ -12,7 +12,10 @@ export default function CardCarrito({
     setUser,
 }) {
     const [subTotal, setSubTotal] = useState(carrito.producto?.precio);
-    const [input, setInput] = useState({ cantidad: 1 });
+    const [input, setInput] = useState({ cantidad: carrito.cantidad });
+    const [producto, setProducto] = useState({});
+    const [opciones, setOpciones] = useState([]);
+    const [cantidad, setCantidad] = useState(carrito.cantidad)
     //   const reducer = (accumulator, currentValue) => accumulator + currentValue;
     // console.log("CardCarrito ~ carrito", carrito)
     //   console.log("CardCarrito ~ carrito", carrito.producto?.image1);
@@ -23,6 +26,7 @@ export default function CardCarrito({
         const { name, value } = e.target;
         let changedInput = { [name]: value };
         setInput(changedInput);
+        setCantidad(changedInput);
     };
     //   let calculo = precioFinal + carrito.producto?.precio;
 
@@ -38,14 +42,27 @@ export default function CardCarrito({
         }
     };
 
-    // useEffect(() => {
-    // let suma = precioFinal + carrito.producto?.precio;
-    setPrecioFinal(subTotal);
-    // }, [])
+    useEffect(() => {
+        const getProducto = async () => {
+            const response = await axios.get(
+                "/producto/" + carrito.producto?._id
+            );
+            setProducto(response.data);
+            let opcion = [];
+            let cantidad;
+            if (response.data.stock > 10) {
+                cantidad = 10;
+            } else {
+                cantidad = response.data.stock;
+            }
+            for (let i = 0; i < cantidad; i++) {
+                opcion.push(i + 1);
+            }
+            setOpciones(opcion);
+        };
 
-    console.log("precio final", precioFinal);
-
-    //   setPrecioFinal()
+        getProducto();
+    }, []);
 
     return (
         <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
@@ -61,7 +78,7 @@ export default function CardCarrito({
                     <div className="row">
                         <div className="col-12 col-lg-5 m-auto">
                             <h5 className="d-flex my-auto ms-3">
-                                <Link to={'/producto/' + carrito.producto?._id} >
+                                <Link to={"/producto/" + carrito.producto?._id}>
                                     <div
                                         style={{
                                             "font-size": "80%",
@@ -90,22 +107,19 @@ export default function CardCarrito({
                                 className="my-4"
                                 controlId="exampleForm.ControlSelect1"
                             >
-                                <Form.Label style={{ "font-size": "80%" }}>Cantidad</Form.Label>
+                                <Form.Label style={{ "font-size": "80%" }}>
+                                    Cantidad
+                                </Form.Label>
+
                                 <Form.Control
                                     as="select"
                                     onChange={(e) => handleChange(e)}
                                     name="cantidad"
-                                    //   required
-                                    //   defaultValue={accion === "editar" && usuario.rol}
+                                    defaultValue={toString(cantidad)}
                                 >
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    {/* { accion === 'editar' &&
-             <option value="usuario">usuario</option>
-            } */}
+                                    {opciones?.map((i) => (
+                                        <option value={i}>{i}</option>
+                                    ))}
                                 </Form.Control>
                             </Form.Group>
                             {/* <select onChange={(e) => handleChange(e)}
@@ -128,7 +142,9 @@ export default function CardCarrito({
                                 Subtotal:
                             </div>
                             {/* {console.log("input", input)} */}
-                            <div>${carrito.producto?.precio * input.cantidad}</div>
+                            <div>
+                                ${carrito.producto?.precio * input.cantidad}
+                            </div>
                             {/* <div>${carrito.producto?.precio * carrito.cantidad}</div> */}
                         </div>
                     </div>
