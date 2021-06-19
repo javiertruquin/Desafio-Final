@@ -1,20 +1,26 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
+import CardDomicilios from "./CardDomicilios";
 
 export default function MisDatos({ userComplete, getUsuario }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
   const [inputPassword, setInputPassword] = useState("");
-  const [inputDomicilio, setInputDomicilio] = useState("");
   const [disabledCuenta, setDisabledCuenta] = useState(true);
   const [disabledSensible, setDisabledSensible] = useState(true);
-  const [disabledDomicilio, setDisabledDomicilio] = useState(true);
+  const [agregarForm, setAgregarForm] = useState(false);
+  const [domicilioVacio, setDomicilioVacio] = useState();
+  console.log('vacio', domicilioVacio)
 
-  const { nombre, apellido, documento, domicilio, email, telefono } =
+  const { nombre, apellido, documento, email, telefono } =
     userComplete;
-        console.log('domicilio', domicilio)
-
+    
+    // useEffect(() => {
+    //   setDomicilio(userComplete.domicilio)
+    //   console.log('domicilio', domicilio)
+    // }, [])
+    
   // const [datosCuenta, setDatosCuenta] = useState(false);
   // const [datosPersonales, setDatosPersonales] = useState();
   // const [datosDomicilio, setDDomicilio] = useState();
@@ -33,7 +39,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
       // Consulta post a /productos
       const usuarioModificado = { ...input, id: userComplete._id };
       const passwordModificada = { ...inputPassword, id: userComplete._id };
-      console.log("produto modificado", usuarioModificado);
+      // console.log("produto modificado", usuarioModificado);
 
       if (!inputPassword) {
         await axios.put("/auth", usuarioModificado);
@@ -48,21 +54,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
       console.log(error);
     }
   };
-  const handleSubmitDomicilio = async (event) => {
-    const form = event.currentTarget;
-    event.preventDefault();
-    try {
-      const domicilio = [];
-      domicilio.push(inputDomicilio)
-      const usuarioModificado = { domicilio, id: userComplete._id };
-      console.log("Domicilio modificado", usuarioModificado);
-      await axios.put("/auth", usuarioModificado);
-      getUsuario();
-      alert("Domicilio editado con éxito!😁");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,11 +68,8 @@ export default function MisDatos({ userComplete, getUsuario }) {
     // console.log("input", changedInputPassword);
     setInputPassword(changedInputPassword);
   };
-  const handleChangeDomicilio = (e) => {
-    const { name, value } = e.target;
-    let changedInputDomicilio = { ...inputDomicilio, [name]: value };
-    setInputDomicilio(changedInputDomicilio);
-  };
+
+
 
   return (
     <>
@@ -231,84 +220,22 @@ export default function MisDatos({ userComplete, getUsuario }) {
           </div>
         </Form>
         <hr />
-        <Form
-        className="form-profile"
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmitDomicilio}
-        >
-          <div className="my-5">
-            <Card.Title></Card.Title>
-            <Card bg="light" className="mt-4">
-              <Card.Header>
-                <Form.Group controlId="formPlaintextEmail">
-                  <Form.Control
-                    plaintext={disabledDomicilio}
-                    readOnly={disabledDomicilio}
-                    placeholder="Título"
-                    name="titulo"
-                    onChange={(e) => handleChangeDomicilio(e)}
-                    // defaultValue={domicilio[0].titulo || ""}
-                  />
-                </Form.Group>
-              </Card.Header>
-              <Card.Body>
-                <Card.Text>
-                  <Form.Group controlId="formPlaintextEmail">
-                    <Form.Control
-                      plaintext={disabledDomicilio}
-                      readOnly={disabledDomicilio}
-                      onChange={(e) => handleChangeDomicilio(e)}
-                      placeholder="Dirección exacta"
-                      name="direccion"
-                      // defaultValue={domicilio[0].direccion || ""}
-                    />
-                  </Form.Group>
-                </Card.Text>
-                <Card.Text>
-                  <Form.Group controlId="formPlaintextEmail">
-                    <Form.Control
-                      plaintext={disabledDomicilio}
-                      readOnly={disabledDomicilio}
-                      placeholder="Ciudad"
-                      name="ciudad"
-                      // defaultValue={domicilio[0].ciudad || ""}
-                      onChange={(e) => handleChangeDomicilio(e)}
-                    />
-                  </Form.Group>
-                </Card.Text>
-                <Card.Text>
-                  <Form.Group controlId="formPlaintextEmail">
-                    <Form.Control
-                      plaintext={disabledDomicilio}
-                      readOnly={disabledDomicilio}
-                      placeholder="Codigo Postal"
-                      // defaultValue={domicilio[0].codPostal || ""}
-                      name="codPostal"
-                      onChange={(e) => handleChangeDomicilio(e)}
-                    />
-                  </Form.Group>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Button
-              size="md"
-              onClick={() => setDisabledDomicilio(false)}
-              className="mt-4"
-              variant="outline-dark"
-            >
-              Editar
-            </Button>{" "}
-            <Button
-              size="md"
-              type="submit"
-              className="mt-4"
-              variant="outline-dark"
-            >
-              Guardar
-            </Button>{" "}
-          </div>
-        </Form>
+        <Card.Title className="mt-5">Tus domicilios</Card.Title>
+        <Button
+            size="md"
+            onClick={() => setAgregarForm(true) }
+            className=""
+            variant="outline-dark"
+          >
+            Agregar Domicilio
+          </Button>{" "}
+        { agregarForm && 
+          <CardDomicilios accion="agregar" vacio={domicilioVacio} userComplete={userComplete} getUsuario={getUsuario} />
+        }
+
+        { userComplete.domicilio?.map((domicilio, index) => (
+          <CardDomicilios domicilio={domicilio} index={index} userComplete={userComplete} getUsuario={getUsuario} />
+        )) }
       </Card.Body>
     </>
   );
