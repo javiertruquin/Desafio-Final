@@ -1,33 +1,15 @@
 import { MDBInput } from "mdbreact";
 import React, { useState } from "react";
 import { Form, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 
 export default function SeccionEnvio() {
     const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
+    console.log("SeccionEnvio ~ input", input);
+    let history = useHistory();
 
-    const [datos, setDatos] = useState({
-        usuario: "",
-        domicilio: [
-            {
-                provincia: "",
-                localidad: "",
-                calle: "",
-                numero: "",
-                piso: "",
-                telefono: "",
-                observaciones: "",
-            },
-        ],
-    });
-    // const handleInputChange = (event) => {
-    //     setDatos({
-    //         ...datos,
-    //         [event.target.name]: event.target.value,
-    //     });
-    // };
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         let changedInput = { ...input, [name]: value };
@@ -41,8 +23,13 @@ export default function SeccionEnvio() {
         if (form.checkValidity() === false) {
             return event.stopPropagation();
         }
-        // axios.post("/venta", datos);
-        // alert("Datos de venta recibidos satisfactoriamente");
+        try {
+            axios.post("/venta", { domicilio: input });
+            alert("Datos de venta recibidos satisfactoriamente");
+            history.push("/pago");
+        } catch (error) {
+            console.log("enviarDatos ~ error", error);
+        }
     };
 
     return (
@@ -101,7 +88,7 @@ export default function SeccionEnvio() {
                                 name="localidad"
                             >
                                 <div className="invalid-feedback">
-                                    Ingrese su provincia aquí
+                                    Ingrese su localidad aquí
                                 </div>
                             </MDBInput>
                         </div>
@@ -117,7 +104,7 @@ export default function SeccionEnvio() {
                                 name="calle"
                             >
                                 <div className="invalid-feedback">
-                                    Ingrese su provincia aquí
+                                    Ingrese su Calle aquí
                                 </div>
                             </MDBInput>
                         </div>
@@ -131,7 +118,7 @@ export default function SeccionEnvio() {
                                 name="numero"
                             >
                                 <div className="invalid-feedback">
-                                    Ingrese su provincia aquí
+                                    Ingrese su Numero aquí
                                 </div>
                             </MDBInput>
                         </div>
@@ -143,12 +130,7 @@ export default function SeccionEnvio() {
                                 label="Piso / Departamento"
                                 onChange={(event) => handleInputChange(event)}
                                 name="piso"
-                                required
-                            >
-                                <div className="invalid-feedback">
-                                    Ingrese su provincia aquí
-                                </div>
-                            </MDBInput>
+                            ></MDBInput>
                         </div>
                         <div className="col-6">
                             <MDBInput
@@ -161,7 +143,7 @@ export default function SeccionEnvio() {
                                 name="telefono"
                             >
                                 <div className="invalid-feedback">
-                                    Ingrese su provincia aquí
+                                    Ingrese su numero de teléfono aquí
                                 </div>
                             </MDBInput>
                         </div>
@@ -172,15 +154,10 @@ export default function SeccionEnvio() {
                                 type="textarea"
                                 label="Indicaciones adicionales"
                                 rows="4"
-                                required
                                 maxlength="250"
                                 onChange={(event) => handleInputChange(event)}
                                 name="observaciones"
-                            >
-                                <div className="invalid-feedback">
-                                    Ingrese su provincia aquí
-                                </div>
-                            </MDBInput>
+                            ></MDBInput>
                         </div>
                     </div>
                 </div>

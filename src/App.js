@@ -7,6 +7,7 @@ import NavAdmin from "./components/NavAdmin";
 import UsuariosAdmin from "./components/UsuariosAdmin";
 import EstadisticasAdmin from "./components/EstadisticasAdmin";
 import ProductosAdmin from "./components/ProductosAdmin";
+import VentaExitosa from "./pages/VentaExitosa";
 import Footer from "./components/Footer";
 import Inicio from "./pages/Inicio.jsx";
 import Productos from "./pages/Productos";
@@ -134,6 +135,9 @@ function App() {
                 </Route>
                 <Route path="/profile">
                     <Profile token={token} user={user} />
+                </Route>
+                <Route path="/exito">
+                    <VentaExitosa />
                 </Route>
             </Switch>
             {user.rol === "admin" || user.rol === "vendedor" ? null : (

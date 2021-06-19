@@ -4,31 +4,11 @@ import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
-export default function CardCarrito({
-    carrito,
-    setPrecioFinal,
-    precioFinal,
-    index,
-    setUser,
-}) {
-    const [subTotal, setSubTotal] = useState(carrito.producto?.precio);
+export default function CardCarrito({ carrito, setUser }) {
     const [input, setInput] = useState({ cantidad: carrito.cantidad });
     const [producto, setProducto] = useState({});
     const [opciones, setOpciones] = useState([]);
-    const [cantidad, setCantidad] = useState(carrito.cantidad)
-    //   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    // console.log("CardCarrito ~ carrito", carrito)
-    //   console.log("CardCarrito ~ carrito", carrito.producto?.image1);
-    // const [cantidad, setCantidad] = useState(carrito.cantidad)
-    // console.log("CardCarrito ~ user", user)
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        let changedInput = { [name]: value };
-        setInput(changedInput);
-        setCantidad(changedInput);
-    };
-    //   let calculo = precioFinal + carrito.producto?.precio;
+    const [cantidad, setCantidad] = useState(carrito.cantidad);
 
     const deleteToCart = async () => {
         try {
@@ -64,6 +44,23 @@ export default function CardCarrito({
         getProducto();
     }, []);
 
+    const handleChange = async (e) => {
+        const { name, value } = e.target;
+        let changedInput = { [name]: value };
+        setInput(changedInput);
+        setCantidad(changedInput);
+        try {
+            const productoModificado = {
+                productoBuscado: carrito.producto._id,
+                cantidadNueva: value,
+            };
+            await axios.put("/usuarios/carrito/cantidad", productoModificado);
+            const { data } = await axios.get("/auth");
+            setUser(data);
+        } catch (error) {
+            console.log("handleChange ~ error", error);
+        }
+    };
     return (
         <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
             <div className="row m-auto mx-0 ">
