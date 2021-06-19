@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Modal, InputGroup } from "react-bootstrap";
+import { Button, Modal, InputGroup, Nav } from "react-bootstrap";
 
 export default function Mensaje({ mensajesolo, getMensajes }) {
   const { _id, nombre, email, mensaje, estado, fecha } = mensajesolo;
@@ -32,6 +32,11 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
           {estado} <InputGroup.Checkbox hasValidation="true" />{" "}
         </td>
         <td className="col-4">
+          <Nav.Link href={"mailto:" + email + "?Subject=Respuesta%20de%20Rolling%20tech%20a%20tu%20consulta"} >
+            <Button variant="primary" size="sm">
+              <i class="fab fa-readme"></i>
+            </Button>{" "}
+          </Nav.Link>
           <Button variant="primary" onClick={handleAbrir} size="sm">
             <i class="fab fa-readme"></i>
           </Button>{" "}

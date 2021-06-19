@@ -7,14 +7,13 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const [input, setInput] = useState({});
   const [inputPassword, setInputPassword] = useState("");
   const [inputDomicilio, setInputDomicilio] = useState("");
-  const [domicilioCambiado, setDomicilioCambiado] = useState([]);
   const [disabledCuenta, setDisabledCuenta] = useState(true);
   const [disabledSensible, setDisabledSensible] = useState(true);
   const [disabledDomicilio, setDisabledDomicilio] = useState(true);
 
   const { nombre, apellido, documento, domicilio, email, telefono } =
     userComplete;
-  console.log("domicilio", domicilio);
+        console.log('domicilio', domicilio)
 
   // const [datosCuenta, setDatosCuenta] = useState(false);
   // const [datosPersonales, setDatosPersonales] = useState();
@@ -49,6 +48,21 @@ export default function MisDatos({ userComplete, getUsuario }) {
       console.log(error);
     }
   };
+  const handleSubmitDomicilio = async (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    try {
+      const domicilio = [];
+      domicilio.push(inputDomicilio)
+      const usuarioModificado = { domicilio, id: userComplete._id };
+      console.log("Domicilio modificado", usuarioModificado);
+      await axios.put("/auth", usuarioModificado);
+      getUsuario();
+      alert("Domicilio editado con éxito!😁");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,13 +73,12 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const handleChangePassword = (e) => {
     const { name, value } = e.target;
     let changedInputPassword = { ...inputPassword, [name]: value };
-    console.log("input", changedInputPassword);
+    // console.log("input", changedInputPassword);
     setInputPassword(changedInputPassword);
   };
-  const handleChangeDominio = (e) => {
+  const handleChangeDomicilio = (e) => {
     const { name, value } = e.target;
     let changedInputDomicilio = { ...inputDomicilio, [name]: value };
-    console.log("domicilio", changedInputDomicilio);
     setInputDomicilio(changedInputDomicilio);
   };
 
@@ -216,7 +229,14 @@ export default function MisDatos({ userComplete, getUsuario }) {
               Guardar
             </Button>{" "}
           </div>
-          <hr />
+        </Form>
+        <hr />
+        <Form
+        className="form-profile"
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmitDomicilio}
+        >
           <div className="my-5">
             <Card.Title></Card.Title>
             <Card bg="light" className="mt-4">
@@ -227,8 +247,8 @@ export default function MisDatos({ userComplete, getUsuario }) {
                     readOnly={disabledDomicilio}
                     placeholder="Título"
                     name="titulo"
-                    onChange={(e) => handleChangeDominio(e)}
-                    defaultValue={domicilio || ""}
+                    onChange={(e) => handleChangeDomicilio(e)}
+                    // defaultValue={domicilio[0].titulo || ""}
                   />
                 </Form.Group>
               </Card.Header>
@@ -238,10 +258,10 @@ export default function MisDatos({ userComplete, getUsuario }) {
                     <Form.Control
                       plaintext={disabledDomicilio}
                       readOnly={disabledDomicilio}
-                      onChange={(e) => handleChangeDominio(e)}
+                      onChange={(e) => handleChangeDomicilio(e)}
                       placeholder="Dirección exacta"
                       name="direccion"
-                      defaultValue={domicilio || ""}
+                      // defaultValue={domicilio[0].direccion || ""}
                     />
                   </Form.Group>
                 </Card.Text>
@@ -252,8 +272,8 @@ export default function MisDatos({ userComplete, getUsuario }) {
                       readOnly={disabledDomicilio}
                       placeholder="Ciudad"
                       name="ciudad"
-                      defaultValue={domicilio || ""}
-                      onChange={(e) => handleChangeDominio(e)}
+                      // defaultValue={domicilio[0].ciudad || ""}
+                      onChange={(e) => handleChangeDomicilio(e)}
                     />
                   </Form.Group>
                 </Card.Text>
@@ -263,9 +283,9 @@ export default function MisDatos({ userComplete, getUsuario }) {
                       plaintext={disabledDomicilio}
                       readOnly={disabledDomicilio}
                       placeholder="Codigo Postal"
-                      defaultValue={domicilio || ""}
+                      // defaultValue={domicilio[0].codPostal || ""}
                       name="codPostal"
-                      onChange={(e) => handleChangeDominio(e)}
+                      onChange={(e) => handleChangeDomicilio(e)}
                     />
                   </Form.Group>
                 </Card.Text>
