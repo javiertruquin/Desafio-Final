@@ -9,7 +9,7 @@ export default function SlideOfertas() {
     <Carousel fade>
   <Carousel.Item interval={2500}>
     <img
-      className="d-block img-fluid"
+      className="d-block"
       src={slide1}
       alt="First slide"
     />
@@ -19,7 +19,7 @@ export default function SlideOfertas() {
   </Carousel.Item>
   <Carousel.Item interval={2500}>
     <img
-      className="d-block img-fluid"
+      className="d-block"
       src={slide2}
       alt="First slide"
     />

@@ -1,10 +1,8 @@
 import axios from "axios";
-import { Form, Button, FormGroup } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { MDBInput } from "mdbreact";
 import { NavLink, useHistory } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import NavReactB from "../components/NavReactB";
-import Footer from "../components/Footer";
 import { useState } from "react";
 
 export default function Login({ setUser, setToken }) {

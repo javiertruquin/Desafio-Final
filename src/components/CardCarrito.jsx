@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Carrito from "../pages/Carrito";
+
 
 export default function CardCarrito({
     carrito,
@@ -90,7 +90,7 @@ export default function CardCarrito({
                                 className="my-4"
                                 controlId="exampleForm.ControlSelect1"
                             >
-                                <Form.Label>Cantidad</Form.Label>
+                                <Form.Label style={{ "font-size": "80%" }}>Cantidad</Form.Label>
                                 <Form.Control
                                     as="select"
                                     onChange={(e) => handleChange(e)}

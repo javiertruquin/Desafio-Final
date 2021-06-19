@@ -45,16 +45,23 @@ function SeccionCompus({ setUser, carrito, filtro }) {
                     <p className=" subtitulo-seccion">
                         Equipos de escritorio para todos los bolsillos
                     </p>
-                    <p className="text-end texto-pagos mt-auto">
-                        Todos los días <br /> 12 cuotas sin interés <br /> con
-                        estas tarjetas:
-                    </p>
-                    <div
-                        className="text-end"
-                        style={{ paddingRight: "50px", paddingBottom: "30px" }}
-                    >
-                        <img src={metodoPago} alt="" />
+                    <div className="row">
+                        <div className="col-lg-12 col-md-6 col-12">
+                            <p className="text-end texto-pagos mt-lg-5 mt-md-2">
+                                Todos los días 12 cuotas sin interés con
+                                estas tarjetas:
+                            </p>
+                        </div>
+                        <div className="col-lg-12 col-md-6 col-12">
+                            <div
+                                className="text-end"
+                                style={{ paddingRight: "50px", paddingBottom: "30px" }}
+                            >
+                                <img src={metodoPago} alt="" />
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
                 <div className="col-lg-8 col-md-12 contenedor-items pb-4">

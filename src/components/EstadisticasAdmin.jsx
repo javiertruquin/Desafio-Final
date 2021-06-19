@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
-export default function EstadisticasAdmin() {
+
+export default function EstadisticasAdmin({user}) {
+  const localToken = JSON.parse(localStorage.getItem("token")) || "";
+    const [token, setToken] = useState(localToken);
+    if (!token) {
+        alert("No estas logueado");
+        return <Redirect to="/" />;
+    }
+    if (user.rol === "usuario") {
+      alert("Error 404");
+      return <Redirect to="/" />;
+  }
   return (
     <>
       <Container className="mt-5 py-5">

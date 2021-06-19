@@ -121,16 +121,16 @@ function App() {
                     <Registro setToken={setToken} />
                 </Route>
                 <Route path="/productos">
-                    <ProductosAdmin />
+                    <ProductosAdmin user={user}/>
                 </Route>
                 <Route path="/usuarios">
-                    <UsuariosAdmin />
+                    <UsuariosAdmin user={user}/>
                 </Route>
                 <Route path="/estadisticas">
-                    <EstadisticasAdmin />
+                    <EstadisticasAdmin user={user}/>
                 </Route>
                 <Route path="/mensaje">
-                    <Mensaje />
+                    <Mensaje user={user}/>
                 </Route>
                 <Route path="/profile">
                     <Profile token={token} user={user} />

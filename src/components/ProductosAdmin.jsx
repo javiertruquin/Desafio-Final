@@ -2,8 +2,8 @@ import { React, useEffect, useState } from "react";
 import { Button, Container, Modal, DropdownButton, Dropdown } from "react-bootstrap";
 import CardProductoAdmin from "./CardProductoAdmin";
 import FormEditar from "./FormEditar";
-import Footer from "../components/Footer"
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 export default function ProductosAdmin({ token }) {
   const [crear, setCrear] = useState(false);
@@ -12,8 +12,8 @@ export default function ProductosAdmin({ token }) {
   const [habilitado, setHabilitado] = useState('');
   const [params, setParams] = useState('todos')
 
-  const handleClose = () => setCrear(false);
-  const handleCrear = () => setCrear(true);
+    const handleClose = () => setCrear(false);
+    const handleCrear = () => setCrear(true);
 
   // useEffect(() => {
   //   setParams(categoria);
@@ -93,12 +93,32 @@ export default function ProductosAdmin({ token }) {
             >
               Agregar Producto
           </Button>{" "} */}
-          </div>
+                    </div>
+                </div>
+                <div className="">
+                    <p className="titulo-view-dash mt-4">
+                        Listado de productos
+                    </p>
+                    <p className="subtitulo-view-dash">
+                        Aqui podés ver el listado completo de productos y podes
+                        visualizarlo, editar o eliminarlo.
+                    </p>
 
-        </div>
-        <div className="">
-          <p className="titulo-view-dash mt-4">Listado de productos</p>
-          <p className="subtitulo-view-dash">Aqui podés ver el listado completo de productos y podes visualizarlo, editar o eliminarlo.</p>
+                    <hr
+                        className=" mt-4"
+                        style={{ border: "1px solid #ababab" }}
+                    />
+                </div>
+                <div className=" mt-4">
+                    {productos.map((producto) => (
+                        <CardProductoAdmin
+                            getProductos={getProductos}
+                            key={producto._id}
+                            producto={producto}
+                        />
+                    ))}
+                </div>
+            </Container>
 
           <hr className=" mt-4" style={{ border: '1px solid #ababab' }} />
           <DropdownButton onSelect={handleSelect} id="dropdown-basic-button" title="Filtro">
@@ -111,30 +131,5 @@ export default function ProductosAdmin({ token }) {
             {/* <Dropdown.Item eventKey="3">Admin y vendedor</Dropdown.Item> */}
           </DropdownButton>
         </div>
-        <div className=" mt-4">
-        {productos.map((producto) => (
-          <CardProductoAdmin getProductos={getProductos} key={producto._id} producto={producto} />
-        ))}
-        </div>
-
-      </Container>
-
-          {/* <Footer /> */}
-
-      {/* Modal's */}
-      <Modal show={crear} onHide={handleClose}>
-        <Modal.Header>
-          <Modal.Title>Producto</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <FormEditar getProductos={getProductos} accion={'crear'} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
+    );
 }

@@ -1,19 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Button, Card, Carousel, Form } from "react-bootstrap";
-import compu1 from "../assets/img/compu1/compu1.jpeg";
-import compu2 from "../assets/img/compu2/compu2-1.jpeg";
-import compu3 from "../assets/img/compu3/compu3.jpeg";
+import { Button, Card, Form } from "react-bootstrap";
 import metodoPago from "../assets/img/metodospago.png";
-import NavReactB from "../components/NavReactB";
-import Footer from "../components/Footer";
+
 
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/thumbs/thumbs.min.css";
 import { useHistory, Link} from "react-router-dom";
 
-import SwiperCore, { History, Navigation, Thumbs } from "swiper/core";
+import SwiperCore, { Navigation, Thumbs } from "swiper/core";
 import { useParams } from "react-router";
 import axios from "axios";
 

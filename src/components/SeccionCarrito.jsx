@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import compu1 from "../assets/img/compu2/compu2-1.jpeg";
-import compu2 from "../assets/img/compu2/compu2-2.jpeg";
-import compu3 from "../assets/img/compu2/compu2-3.jpeg";
 import CardCarrito from "../components/CardCarrito";
-import axios from "axios";
+
 
 export default function SeccionCarrito({ setUser, carrito, view }) {
   const [precioFinal, setPrecioFinal] = useState(0);
@@ -31,9 +28,20 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
 
   return (
     <div className="container my-4 fuente">
-      <div className=" border-bottom mb-4">
-        <h2 className="mx-auto mb-3 text-center titulo-azul">Mi Carrito</h2>
-      </div>
+      <div className="row">
+            <div className="col-7">
+              <span className="titulo-azul">Mi carrito</span>
+              <p className="ps-lg-2 pt-3 pt-lg-0 texto-favoritos">Elegí los productos que quieras y comprá!</p>
+            </div>
+            <div className="col-2"></div>
+            <div className="col-2 text-center pt-3">
+            <i style={{ color: "#00598a", fontSize: "22pt" }} className="fas fa-shopping-cart text-center"></i>
+            <p className="sub-mision pt-1" style={{ "font-size": "70%" }}>CARRITO</p>
+            </div>
+          </div>
+          <hr className="mb-5" style={{ border: '0.3px solid #ababab' }} />
+
+      
 
       <div className="row">
         {/* PRODUCTOS */}
@@ -65,7 +73,7 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
           </div>
           <div className="text-end p-0 d-flex justify-content-between">
             <Nav.Link to="/" as={NavLink} className="p-0 my-auto">
-              <a>Compra más productos</a>
+              Compra más productos
             </Nav.Link>
             {view === "carrito" && (
               <Nav.Link to="/envio" as={NavLink} className="p-0">

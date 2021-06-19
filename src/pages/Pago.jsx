@@ -1,10 +1,15 @@
-import React from 'react'
-import Footer from '../components/Footer';
-import NavReactB from '../components/NavReactB';
-import SeccionCarrito from '../components/SeccionCarrito';
+import React, { useState } from "react";
+import SeccionCarrito from "../components/SeccionCarrito";
 import SeccionTarjetas from "../components/SeccionTarjetas";
+import { Redirect } from "react-router-dom";
 
-export default function Pago({setUser, carrito}) {
+export default function Pago({ setUser, carrito }) {
+    const localToken = JSON.parse(localStorage.getItem("token")) || "";
+    const [token, setToken] = useState(localToken);
+    if (!token) {
+        alert("No estas logueado");
+        return <Redirect to="/" />;
+    }
     return (
         <div>
             <div className="row mx-auto ">
