@@ -20,14 +20,15 @@ import Carrito from "./pages/Carrito";
 import Envio from "./pages/Envio";
 import Pago from "./pages/Pago";
 import Mensaje from "./pages/Mensaje";
+import Ventas from "./pages/Ventas";
 import styles from "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    useHistory,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useHistory,
 } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -36,30 +37,30 @@ const localToken = JSON.parse(localStorage.getItem("token")) || "";
 axios.defaults.headers = { "x-auth-token": localToken };
 
 function App() {
-    const [user, setUser] = useState({});
-    const [token, setToken] = useState(localToken);
-    let history = useHistory();
+  const [user, setUser] = useState({});
+  const [token, setToken] = useState(localToken);
+  let history = useHistory();
 
-    useEffect(() => {
-        if (token) {
-            const request = async () => {
-                axios.defaults.headers = { "x-auth-token": token };
-                const { data } = await axios.get("/auth");
-                setUser(data);
-            };
-            request();
-        }
-    }, [token]);
+  useEffect(() => {
+    if (token) {
+      const request = async () => {
+        axios.defaults.headers = { "x-auth-token": token };
+        const { data } = await axios.get("/auth");
+        setUser(data);
+      };
+      request();
+    }
+  }, [token]);
 
-    // Para hacer el logout
+  // Para hacer el logout
 
-    const logout = () => {
-        localStorage.removeItem("token");
-        axios.defaults.headers = { "x-auth-token": "" };
-        setUser({});
-        setToken("");
-        history.push("/");
-    };
+  const logout = () => {
+    localStorage.removeItem("token");
+    axios.defaults.headers = { "x-auth-token": "" };
+    setUser({});
+    setToken("");
+    history.push("/");
+  };
 
     return (
         <>
@@ -144,18 +145,19 @@ function App() {
                 <Route path="/exito">
                     <VentaExitosa />
                 </Route>
-            </Switch>
-            {user.rol === "admin" || user.rol === "vendedor" ? null : (
-                <Footer />
-            )}
-            {/* { localToken === '' && <Footer /> }
+        <Route path="/ventas">
+          <Ventas />
+        </Route>
+      </Switch>
+      {user.rol === "admin" || user.rol === "vendedor" ? null : <Footer />}
+      {/* { localToken === '' && <Footer /> }
       { user.rol === 'usuario' && <Footer /> } */}
-            {/* {console.log('users', user)} */}
-            {/* { !user.rol === 'admin' && <Footer /> } */}
-            {/* { !user.rol === 'vendedor' && <Footer /> } */}
-            {/* { (!user.rol === 'admin' || !user.rol === 'vendedor' ) && <Footer /> } */}
-        </>
-    );
+      {/* {console.log('users', user)} */}
+      {/* { !user.rol === 'admin' && <Footer /> } */}
+      {/* { !user.rol === 'vendedor' && <Footer /> } */}
+      {/* { (!user.rol === 'admin' || !user.rol === 'vendedor' ) && <Footer /> } */}
+    </>
+  );
 }
 
 export default App;
