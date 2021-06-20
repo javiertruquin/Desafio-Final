@@ -8,6 +8,9 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
   const handleClose = () => setAbrir(false);
   const handleAbrir = () => setAbrir(true);
 
+  const res = mensaje.substring(0, 50);
+  const final = res + "...";
+
   const eliminar = async () => {
     // event.preventDefault();
     try {
@@ -27,22 +30,28 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
         <td>{fecha}</td>
         <td>{nombre}</td>
         <td>{email}</td>
-        <td>{mensaje}</td>
-        <td>
+        <td>{final}</td>
+        {/* <td>
           {estado} <InputGroup.Checkbox hasValidation="true" />{" "}
-        </td>
-        <td className="col-4">
-          <Nav.Link href={"mailto:" + email + "?Subject=Respuesta%20de%20Rolling%20tech%20a%20tu%20consulta"} >
-            <Button variant="primary" size="sm">
-              <i class="fab fa-readme"></i>
-            </Button>{" "}
-          </Nav.Link>
+        </td> */}
+        <td className="col-3">
           <Button variant="primary" onClick={handleAbrir} size="sm">
             <i class="fab fa-readme"></i>
-          </Button>{" "}
+          </Button>
           <Button variant="danger" onClick={eliminar} size="sm">
             <i class="far fa-trash-alt"></i>
-          </Button>{" "}
+          </Button>
+          <Nav.Link
+            href={
+              "mailto:" +
+              email +
+              "?Subject=Respuesta%20de%20Rolling%20tech%20a%20tu%20consulta"
+            }
+          >
+            <Button variant="success" size="sm">
+              <i class="far fa-envelope"></i>
+            </Button>
+          </Nav.Link>
         </td>
       </tr>
 
