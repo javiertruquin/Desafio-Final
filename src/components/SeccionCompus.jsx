@@ -16,7 +16,7 @@ import axios from "axios";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-function SeccionCompus({ setUser, carrito, filtro }) {
+function SeccionCompus({ setUser, carrito, filtro, user }) {
     const [computadoras, setComputadoras] = useState([]);
     const [categoria, setCategoria] = useState(filtro);
 
@@ -93,6 +93,7 @@ function SeccionCompus({ setUser, carrito, filtro }) {
                             <SwiperSlide key={computadora._id} >
                                 <CardProductoView
                                     setUser={setUser}
+                                    user={user}
                                     computadora={computadora}
                                     carrito={carrito}
                                 />

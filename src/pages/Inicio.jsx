@@ -7,17 +7,17 @@ import SlideNotebooks from "../components/SlideNotebooks"
 
 
 
-export default function Inicio({setUser, carrito}) {
+export default function Inicio({setUser, carrito, user}) {
     return (
         <div className="container">
             <SlideOfertas />
-            <SeccionCompus filtro={'computadora'} setUser={setUser} carrito={carrito} />
+            <SeccionCompus user={user} filtro={'computadora'} setUser={setUser} carrito={carrito} />
             <SeccionEnviosPagos />
             <SlideNotebooks className="mt-4"/>
-            <SeccionCompus filtro={'notebook'} setUser={setUser} carrito={carrito} />
+            <SeccionCompus user={user} filtro={'notebook'} setUser={setUser} carrito={carrito} />
             <br />
             <SlideAccesorios className="mt-4"/>
-            <SeccionAccesorios filtro={'accesorio'} setUser={setUser} carrito={carrito} />
+            <SeccionAccesorios user={user} filtro={'accesorio'} setUser={setUser} carrito={carrito} />
         </div>
     );
 }

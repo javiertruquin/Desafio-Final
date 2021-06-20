@@ -12,7 +12,7 @@ import SlideNotebooks from "../components/SlideNotebooks";
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
-export default function Productos({ setUser, carrito, categoriaFiltrada }) {
+export default function Productos({ user, setUser, carrito, categoriaFiltrada }) {
 
 
     const [computadoras, setComputadoras] = useState([]);
@@ -65,6 +65,7 @@ export default function Productos({ setUser, carrito, categoriaFiltrada }) {
                             <div className="col-sm-12 col-lg-6 col-xl-4">
                                 <CardProductoView
                                     setUser={setUser}
+                                    user={user}
                                     computadora={computadora}
                                     carrito={carrito}
                                 />

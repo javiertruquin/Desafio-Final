@@ -50,7 +50,7 @@ export default function NavAdmin({ logout, userRol }) {
             </Nav.Item>
 
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="success" size="sm" id="dropdown-basic">
                 <i style={{ color: "#00598a" }} className="fas fa-user"></i>
               </Dropdown.Toggle>
 

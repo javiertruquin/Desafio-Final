@@ -72,15 +72,18 @@ function App() {
                 <NavReactB
                     logout={logout}
                     userName={user.nombre}
+                    user={user}
+                    setUser={setUser}
                     carrito={user.carrito}
                 />
             )}
             <Switch>
                 <Route path="/" exact>
-                    <Inicio setUser={setUser} carrito={user.carrito} />
+                    <Inicio user={user} setUser={setUser} carrito={user.carrito} />
                 </Route>
                 <Route path="/computadoras">
                     <Productos
+                        user={user}
                         categoriaFiltrada="computadora"
                         setUser={setUser}
                         carrito={user.carrito}
@@ -88,6 +91,7 @@ function App() {
                 </Route>
                 <Route path="/notebooks">
                     <Productos
+                        user={user}
                         categoriaFiltrada="notebook"
                         setUser={setUser}
                         carrito={user.carrito}
@@ -95,6 +99,7 @@ function App() {
                 </Route>
                 <Route path="/accesorios">
                     <Productos
+                        user={user}
                         categoriaFiltrada="accesorio"
                         setUser={setUser}
                         carrito={user.carrito}

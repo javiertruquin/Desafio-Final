@@ -1,16 +1,36 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Navbar, Nav, Modal, Dropdown } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
 import "../Favoritos.css";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
-export default function NavReactB({ logout, userName, carrito }) {
+export default function NavReactB({ logout, userName, carrito, user, setUser }) {
     const [crear, setCrear] = useState(false);
     const handleClose = () => setCrear(false);
-    const handleCrear = () => setCrear(true);
+    const handleCrear = () => {
+        setCrear(true)
+        getFavoritos()
+    };
+    const [productosFavoritos, setProductosFavoritos] = useState([])
     let history = useHistory();
+
+    const getFavoritos = async () => {
+        try {
+            const _id = user._id;
+            const response = await axios.get('/usuarios/favorito/' + _id)
+            setProductosFavoritos(response.data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // console.log('sssss', productosFavoritos)
+    // useEffect(() => {
+    //     getFavoritos();
+    // }, [user])
+    
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" className="sticky-top">
@@ -101,6 +121,7 @@ export default function NavReactB({ logout, userName, carrito }) {
                                 <Dropdown.Toggle
                                     variant="info"
                                     id="dropdown-menu-align-responsive-1"
+                                    size="sm"
                                 >
                                     <i
                                         style={{ color: "#FFFFFF" }}
@@ -172,10 +193,9 @@ export default function NavReactB({ logout, userName, carrito }) {
                         className=" mt-4"
                         style={{ border: "0.3px solid #ababab" }}
                     />
-                    <CardFavoritos />
-                    <CardFavoritos />
-                    <CardFavoritos />
-                    <CardFavoritos />
+                    { productosFavoritos?.map((favorito) => (
+                        <CardFavoritos getFavoritos={getFavoritos} setUser={setUser} favorito={favorito} />
+                    )) }
                 </Modal.Body>
                 {/* <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
