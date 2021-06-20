@@ -4,7 +4,7 @@ import empresa from "../assets/img/empresa.jpg";
 import empresa2 from "../assets/img/empresa2.jpg";
 import miembro1 from "../assets/img/fede.png";
 import miembro2 from "../assets/img/javier.png";
-import miembro3 from "../assets/img/tomas.png";
+import miembro3 from "../assets/img/tomas-nosotros.jpeg";
 import miembro4 from "../assets/img/andres.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -181,7 +181,7 @@ export default function SobreNosotros() {
                           <div className="col-md-6">
                             <div className="mu-single-team">
                               <div className="mu-single-team-img">
-                                <img src={miembro3} alt="img" />
+                                <img src={miembro3} style={{ 'max-width': '7.5rem' }} alt="img" />
                               </div>
                               <div className="mu-single-team-content">
                                 <h3>Tomás Guerineau</h3>
