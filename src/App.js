@@ -20,14 +20,15 @@ import Carrito from "./pages/Carrito";
 import Envio from "./pages/Envio";
 import Pago from "./pages/Pago";
 import Mensaje from "./pages/Mensaje";
+import Ventas from "./pages/Ventas";
 import styles from "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    useHistory,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useHistory,
 } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -36,121 +37,122 @@ const localToken = JSON.parse(localStorage.getItem("token")) || "";
 axios.defaults.headers = { "x-auth-token": localToken };
 
 function App() {
-    const [user, setUser] = useState({});
-    const [token, setToken] = useState(localToken);
-    let history = useHistory();
+  const [user, setUser] = useState({});
+  const [token, setToken] = useState(localToken);
+  let history = useHistory();
 
-    useEffect(() => {
-        if (token) {
-            const request = async () => {
-                axios.defaults.headers = { "x-auth-token": token };
-                const { data } = await axios.get("/auth");
-                setUser(data);
-            };
-            request();
-        }
-    }, [token]);
+  useEffect(() => {
+    if (token) {
+      const request = async () => {
+        axios.defaults.headers = { "x-auth-token": token };
+        const { data } = await axios.get("/auth");
+        setUser(data);
+      };
+      request();
+    }
+  }, [token]);
 
-    // Para hacer el logout
+  // Para hacer el logout
 
-    const logout = () => {
-        localStorage.removeItem("token");
-        axios.defaults.headers = { "x-auth-token": "" };
-        setUser({});
-        setToken("");
-        history.push("/");
-    };
+  const logout = () => {
+    localStorage.removeItem("token");
+    axios.defaults.headers = { "x-auth-token": "" };
+    setUser({});
+    setToken("");
+    history.push("/");
+  };
 
-    return (
-        <>
-            <Route>
-                <ScrollToTop></ScrollToTop>
-            </Route>
-            {user.rol === "admin" || user.rol === "vendedor" ? (
-                <NavAdmin logout={logout} userRol={user.rol} />
-            ) : (
-                <NavReactB
-                    logout={logout}
-                    userName={user.nombre}
-                    carrito={user.carrito}
-                />
-            )}
-            <Switch>
-                <Route path="/" exact>
-                    <Inicio setUser={setUser} carrito={user.carrito} />
-                </Route>
-                <Route path="/computadoras">
-                    <Productos
-                        categoriaFiltrada="computadora"
-                        setUser={setUser}
-                        carrito={user.carrito}
-                    />
-                </Route>
-                <Route path="/notebooks">
-                    <Productos
-                        categoriaFiltrada="notebook"
-                        setUser={setUser}
-                        carrito={user.carrito}
-                    />
-                </Route>
-                <Route path="/accesorios">
-                    <Productos
-                        categoriaFiltrada="accesorio"
-                        setUser={setUser}
-                        carrito={user.carrito}
-                    />
-                </Route>
-                <Route path="/nosotros">
-                    <SobreNosotros />
-                </Route>
-                <Route path="/producto/:id">
-                    <Producto setUser={setUser} />
-                </Route>
-                <Route path="/carrito">
-                    <Carrito setUser={setUser} carrito={user.carrito} />
-                </Route>
-                <Route path="/envio">
-                    <Envio setUser={setUser} carrito={user.carrito} />
-                </Route>
-                <Route path="/pago">
-                    <Pago setUser={setUser} carrito={user.carrito} />
-                </Route>
-                <Route path="/login">
-                    <Login setUser={setUser} setToken={setToken} />
-                </Route>
-                <Route path="/registro">
-                    <Registro setToken={setToken} />
-                </Route>
-                <Route path="/productos">
-                    <ProductosAdmin user={user}/>
-                </Route>
-                <Route path="/usuarios">
-                    <UsuariosAdmin user={user}/>
-                </Route>
-                <Route path="/estadisticas">
-                    <EstadisticasAdmin user={user}/>
-                </Route>
-                <Route path="/mensaje">
-                    <Mensaje user={user}/>
-                </Route>
-                <Route path="/profile">
-                    <Profile token={token} user={user} />
-                </Route>
-                <Route path="/exito">
-                    <VentaExitosa />
-                </Route>
-            </Switch>
-            {user.rol === "admin" || user.rol === "vendedor" ? null : (
-                <Footer />
-            )}
-            {/* { localToken === '' && <Footer /> }
+  return (
+    <>
+      <Route>
+        <ScrollToTop></ScrollToTop>
+      </Route>
+      {user.rol === "admin" || user.rol === "vendedor" ? (
+        <NavAdmin logout={logout} userRol={user.rol} />
+      ) : (
+        <NavReactB
+          logout={logout}
+          userName={user.nombre}
+          carrito={user.carrito}
+        />
+      )}
+      <Switch>
+        <Route path="/" exact>
+          <Inicio setUser={setUser} carrito={user.carrito} />
+        </Route>
+        <Route path="/computadoras">
+          <Productos
+            categoriaFiltrada="computadora"
+            setUser={setUser}
+            carrito={user.carrito}
+          />
+        </Route>
+        <Route path="/notebooks">
+          <Productos
+            categoriaFiltrada="notebook"
+            setUser={setUser}
+            carrito={user.carrito}
+          />
+        </Route>
+        <Route path="/accesorios">
+          <Productos
+            categoriaFiltrada="accesorio"
+            setUser={setUser}
+            carrito={user.carrito}
+          />
+        </Route>
+        <Route path="/nosotros">
+          <SobreNosotros />
+        </Route>
+        <Route path="/producto/:id">
+          <Producto setUser={setUser} />
+        </Route>
+        <Route path="/carrito">
+          <Carrito setUser={setUser} carrito={user.carrito} />
+        </Route>
+        <Route path="/envio">
+          <Envio setUser={setUser} carrito={user.carrito} />
+        </Route>
+        <Route path="/pago">
+          <Pago setUser={setUser} carrito={user.carrito} />
+        </Route>
+        <Route path="/login">
+          <Login setUser={setUser} setToken={setToken} />
+        </Route>
+        <Route path="/registro">
+          <Registro setToken={setToken} />
+        </Route>
+        <Route path="/productos">
+          <ProductosAdmin user={user} />
+        </Route>
+        <Route path="/usuarios">
+          <UsuariosAdmin user={user} />
+        </Route>
+        <Route path="/estadisticas">
+          <EstadisticasAdmin user={user} />
+        </Route>
+        <Route path="/mensaje">
+          <Mensaje user={user} />
+        </Route>
+        <Route path="/profile">
+          <Profile token={token} user={user} />
+        </Route>
+        <Route path="/exito">
+          <VentaExitosa />
+        </Route>
+        <Route path="/ventas">
+          <Ventas />
+        </Route>
+      </Switch>
+      {user.rol === "admin" || user.rol === "vendedor" ? null : <Footer />}
+      {/* { localToken === '' && <Footer /> }
       { user.rol === 'usuario' && <Footer /> } */}
-            {/* {console.log('users', user)} */}
-            {/* { !user.rol === 'admin' && <Footer /> } */}
-            {/* { !user.rol === 'vendedor' && <Footer /> } */}
-            {/* { (!user.rol === 'admin' || !user.rol === 'vendedor' ) && <Footer /> } */}
-        </>
-    );
+      {/* {console.log('users', user)} */}
+      {/* { !user.rol === 'admin' && <Footer /> } */}
+      {/* { !user.rol === 'vendedor' && <Footer /> } */}
+      {/* { (!user.rol === 'admin' || !user.rol === 'vendedor' ) && <Footer /> } */}
+    </>
+  );
 }
 
 export default App;

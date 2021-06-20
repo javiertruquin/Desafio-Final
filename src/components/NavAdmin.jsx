@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 import logoW from "../assets/img/logoW.png";
 
 export default function NavAdmin({ logout, userRol }) {
-  const esAdmin = userRol === 'admin';
+  const esAdmin = userRol === "admin";
 
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="dark" 
+      bg="dark"
       variant="dark"
       className="sticky-top"
     >
@@ -27,24 +27,29 @@ export default function NavAdmin({ logout, userRol }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto condensed">
             <Nav.Item className="col">
-              <Nav.Link to="/productos"  as={NavLink}>
+              <Nav.Link to="/productos" as={NavLink}>
                 Productos
               </Nav.Link>
             </Nav.Item>
-            { esAdmin &&             
+            {esAdmin && (
+              <Nav.Item className="col">
+                <Nav.Link to="/usuarios" as={NavLink}>
+                  Usuarios
+                </Nav.Link>
+              </Nav.Item>
+            )}
             <Nav.Item className="col">
-              <Nav.Link to="/usuarios"  as={NavLink}>
-                Usuarios
-              </Nav.Link>
-            </Nav.Item>            
-            }
-            <Nav.Item className="col">
-              <Nav.Link to="/mensaje"  as={NavLink}>
+              <Nav.Link to="/mensaje" as={NavLink}>
                 Mensajes
               </Nav.Link>
             </Nav.Item>
             <Nav.Item className="col">
-              <Nav.Link to="/estadisticas"  as={NavLink}>
+              <Nav.Link to="/ventas" as={NavLink}>
+                Ventas
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="col">
+              <Nav.Link to="/estadisticas" as={NavLink}>
                 Estadísticas
               </Nav.Link>
             </Nav.Item>
