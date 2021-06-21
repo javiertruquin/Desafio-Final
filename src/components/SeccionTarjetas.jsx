@@ -25,6 +25,7 @@ export default class App extends React.Component {
     formData: null,
   };
 
+
   handleCallback = ({ issuer }, isValid) => {
     if (isValid) {
       this.setState({ issuer });
@@ -38,15 +39,19 @@ export default class App extends React.Component {
   };
 
   handleInputChange = ({ target }) => {
-    if (target.name === "number") {
-      target.value = formatCreditCardNumber(target.value);
-    } else if (target.name === "expiry") {
-      target.value = formatExpirationDate(target.value);
-    } else if (target.name === "cvc") {
-      target.value = formatCVC(target.value);
+    const { value, name} = target
+    if (name === "number") {
+      target.value = formatCreditCardNumber(value);
+    } else if (name === "expiry") {
+      target.value = formatExpirationDate(value);
+    } else if (name === "cvc") {
+      target.value = formatCVC(value);
     }
 
-    this.setState({ [target.name]: target.value });
+    this.setState({ [name]: value });
+    let changedInput = { ...this.props.datosTarjeta, [name]: value };
+    this.props.setDatosTarjeta(changedInput);
+
   };
 
   handleSubmit = (e) => {
@@ -64,8 +69,6 @@ export default class App extends React.Component {
   };
 
   render() {
-    // console.log('tarjeta', this.state)
-    localStorage.setItem("state", JSON.stringify(this.state));
     const { name, number, expiry, cvc, focused, issuer, formData } = this.state;
 
     return (

@@ -27,33 +27,28 @@ export default function Envio({ setUser, user }) {
     const element = user.carrito[i];
     total = total + element?.cantidad * element.producto?.precio;
   }
-  // setDatosTarjeta(JSON.parse(localStorage.getItem("state")));
-
+  
   
   const enviarDatos = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
-    // setValidated(true);
-    // if (form.checkValidity() === false) {
-      //   return event.stopPropagation();
-      // }
-      
+    setValidated(true);
+    if (form.checkValidity() === false) {
+        return event.stopPropagation();
+      }
+            
       const params = {
       total,
       domicilio,
       usuario: user._id,
       carrito: user.carrito,
     };
-    if(datosTarjeta?.number === undefined){
-      // enviarDatos();
-      console.log("entro");
-    }
     
-    if (datosTarjeta?.number === undefined || datosTarjeta?.number === "") {
-      alert("pone la tarjeta rata");
+    if (!datosTarjeta?.number) {
+      alert("pone la tarjeta");
     } else {
       try {
-        // axios.post("/venta", params);
+        axios.post("/venta", params);
         handleCrear();
         alert("Datos de venta recibidos satisfactoriamente");
       } catch (error) {
