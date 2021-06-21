@@ -102,11 +102,11 @@ export default function CardCarrito({ carrito, setUser }) {
                                 controlId="exampleForm.ControlSelect1"
                             >
                                 <div
-                                style={{ "font-size": "80%" }}
-                                className="h-50 text-center"
-                            >
-                                Cantidad:
-                            </div>
+                                    style={{ "font-size": "80%" }}
+                                    className="h-50 text-center"
+                                >
+                                    Cantidad:
+                                </div>
 
                                 <Form.Control
                                     className="mx-auto"
@@ -114,8 +114,8 @@ export default function CardCarrito({ carrito, setUser }) {
                                     size="sm"
                                     onChange={(e) => handleChange(e)}
                                     name="cantidad"
-                                    style={{ "width": "40px" }}
-                                    defaultValue={cantidad}
+                                    style={{ width: "40px" }}
+                                    value={carrito.cantidad}
                                 >
                                     {opciones?.map((i) => (
                                         <option value={i}>{i}</option>
