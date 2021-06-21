@@ -47,26 +47,28 @@ export default class App extends React.Component {
         }
 
         this.setState({ [target.name]: target.value });
+        
     };
-
+    
     handleSubmit = (e) => {
         e.preventDefault();
         const { issuer } = this.state;
         const formData = [...e.target.elements]
-            .filter((d) => d.name)
+        .filter((d) => d.name)
             .reduce((acc, d) => {
                 acc[d.name] = d.value;
                 return acc;
             }, {});
 
-        this.setState({ formData });
-        this.form.reset();
-    };
-
-    render() {
-        const { name, number, expiry, cvc, focused, issuer, formData } =
+            this.setState({ formData });
+            this.form.reset();
+        };
+        
+        render() {
+            localStorage.setItem("state", JSON.stringify(this.state));
+            const { name, number, expiry, cvc, focused, issuer, formData } =
             this.state;
-
+            
         return (
             <div className="container mt-4" key="Payment ">
                 <div className="row">
@@ -158,11 +160,11 @@ export default class App extends React.Component {
                             <div></div>
                         </div>
                         <input type="hidden" name="issuer" value={issuer} />
-                        <div className="form-actions">
+                        {/* <div className="form-actions">
                             <button className="btn-comprar w-100">
                                 Comprar
                             </button>
-                        </div>
+                        </div> */}
                     </form>
                 </div>
             </div>

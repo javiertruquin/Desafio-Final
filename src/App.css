@@ -6,6 +6,10 @@
   border-radius: 5px;
 }
 
+.form-compra {
+  max-width: 100%;
+}
+
 .boton-categorias {
   display: flex;
   justify-content: center;

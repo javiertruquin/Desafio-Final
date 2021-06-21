@@ -4,7 +4,7 @@ import { Form, Nav } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 
-export default function SeccionEnvio() {
+export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
     const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
     let history = useHistory();
@@ -12,26 +12,24 @@ export default function SeccionEnvio() {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         let changedInput = { ...input, [name]: value };
-        setInput({ ...changedInput });
+        setDatosDomicilio({ ...changedInput });
     };
 
-    const enviarDatos = async (event) => {
-        const form = event.currentTarget;
-        event.preventDefault();
-        setValidated(true);
-        if (form.checkValidity() === false) {
-            return event.stopPropagation();
-        }
-
-
-        // try {
-        //         axios.post("/venta", { domicilio: input });
-        //         alert("Datos de venta recibidos satisfactoriamente");
-        //     history.push("/pago/");
-        // } catch (error) {
-        //     console.log("enviarDatos ~ error", error);
-        // }
-    };
+    // const enviarDatos = async (event) => {
+    //     const form = event.currentTarget;
+    //     event.preventDefault();
+    //     setValidated(true);
+    //     if (form.checkValidity() === false) {
+    //         return event.stopPropagation();
+    //     }
+    //     try {
+    //             axios.post("/venta", { domicilio: input });
+    //             alert("Datos de venta recibidos satisfactoriamente");
+    //         history.push("/pago/");
+    //     } catch (error) {
+    //         console.log("enviarDatos ~ error", error);
+    //     }
+    // };
 
     return (
         <div className="container mt-4">
@@ -57,12 +55,12 @@ export default function SeccionEnvio() {
                 </div>
             </div>
             <hr className=" mt-3" style={{ border: "0.3px solid #ababab" }} />
-            <Form
+            {/* <Form
                 noValidate
                 validated={validated}
                 onSubmit={enviarDatos}
                 className="col-12 col-md-10 mt-2 needs-validation"
-            >
+            > */}
                 <div className="container mb-4">
                     <div className="row">
                         <div className="col-6">
@@ -164,12 +162,12 @@ export default function SeccionEnvio() {
                 </div>
                 <div className="text-center mt-2">
                     {/* <Nav.Link to="/pago" as={NavLink} className=""> */}
-                    <button className="btn-comprar" type="submit">
+                    {/* <button className="btn-comprar" type="submit">
                         Continuar compra
-                    </button>
+                    </button> */}
                     {/* </Nav.Link> */}
                 </div>
-            </Form>
+            {/* </Form> */}
         </div>
     );
 }
