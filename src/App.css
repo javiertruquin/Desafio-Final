@@ -6,6 +6,25 @@
   border-radius: 5px;
 }
 
+.boton-categorias {
+  display: flex;
+  justify-content: center;
+}
+/* .boton-categorias button {
+  b
+} */
+.drop-menu {
+  margin-left: -70px !important;
+}
+.nombre-usuario-nav {
+  margin: 0px 0px;
+}
+.email-usuario-nav {
+  font-size: 0.8rem;
+  color: #6e6e6e;
+  max-width: 100%;
+}
+
 .porcentaje-form {
   text-align: center;
   width: 100%;

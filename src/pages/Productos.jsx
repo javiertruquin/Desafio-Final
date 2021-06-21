@@ -55,7 +55,15 @@ export default function Productos({ user, setUser, carrito, categoriaFiltrada })
             </div>
             <div className="row contenedor-seccion-compus">
                 <p className=" subtitulo-seccion2">
-                    Equipos de escritorio para todos los bolsillos
+                    { categoria === 'computadora' &&
+                        'Equipos de escritorio para todos los bolsillos'
+                     }
+                    { categoria === 'notebook' &&
+                        'Notebooks de alto rendimiento y gran potencia'
+                     }
+                    { categoria === 'accesorio' &&
+                        'Complementos ideales para tu SetUp'
+                     }
                 </p>
 
                 <div className="col-12 contenedor-items pb-4">

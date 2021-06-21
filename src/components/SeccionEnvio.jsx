@@ -1,5 +1,5 @@
 import { MDBInput } from "mdbreact";
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { Form, Nav } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
@@ -7,7 +7,6 @@ import axios from "axios";
 export default function SeccionEnvio() {
     const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
-    console.log("SeccionEnvio ~ input", input);
     let history = useHistory();
 
     const handleInputChange = (e) => {
@@ -23,13 +22,15 @@ export default function SeccionEnvio() {
         if (form.checkValidity() === false) {
             return event.stopPropagation();
         }
-        try {
-            axios.post("/venta", { domicilio: input });
-            alert("Datos de venta recibidos satisfactoriamente");
-            history.push("/pago");
-        } catch (error) {
-            console.log("enviarDatos ~ error", error);
-        }
+
+
+        // try {
+        //         axios.post("/venta", { domicilio: input });
+        //         alert("Datos de venta recibidos satisfactoriamente");
+        //     history.push("/pago/");
+        // } catch (error) {
+        //     console.log("enviarDatos ~ error", error);
+        // }
     };
 
     return (

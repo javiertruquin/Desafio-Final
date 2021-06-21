@@ -68,7 +68,7 @@ function App() {
                 <ScrollToTop></ScrollToTop>
             </Route>
             {user.rol === "admin" || user.rol === "vendedor" ? (
-                <NavAdmin logout={logout} userRol={user.rol} />
+                <NavAdmin token={token}  user={user} logout={logout} userRol={user.rol} />
             ) : (
                 <NavReactB
                     logout={logout}
@@ -76,7 +76,7 @@ function App() {
                     user={user}
                     setUser={setUser}
                     carrito={user.carrito}
-                />
+                    token={token}                />
             )}
             <Switch>
                 <Route path="/" exact>

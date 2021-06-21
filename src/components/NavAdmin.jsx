@@ -1,10 +1,18 @@
-import { Navbar, Nav, Dropdown } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Navbar, Nav, Dropdown, Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import logoW from "../assets/img/logoW.png";
 
-export default function NavAdmin({ logout, userRol }) {
+export default function NavAdmin({ logout, userRol, user, token }) {
+  const [usuario, setNombre] = useState(user);
   const esAdmin = userRol === "admin";
+
+  // useEffect(() => {
+  //   setNombre(userName)
+  // }, [])
+
+  // console.log('nombre', nombre)
 
   return (
     <Navbar
@@ -15,7 +23,7 @@ export default function NavAdmin({ logout, userRol }) {
       className="sticky-top"
     >
       <div className="container">
-        <Navbar.Brand to="/" as={NavLink} className="px-4">
+        <Navbar.Brand className="px-4">
           <img
             src={logoW}
             height="50px"
@@ -55,39 +63,23 @@ export default function NavAdmin({ logout, userRol }) {
             </Nav.Item>
 
             <Dropdown>
-              <Dropdown.Toggle variant="success" size="sm" id="dropdown-basic">
-                <i style={{ color: "#00598a" }} className="fas fa-user"></i>
+              <Dropdown.Toggle
+                variant="info"
+                size="sm"
+                id="dropdown-basic"
+              >
+                <i
+                  style={{ color: "#00598a" }}
+                  className="fas fa-user pr-2"
+                ></i>
               </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                {!userRol && (
-                  <Nav.Link style={{ color: "#000" }} to="/login" as={NavLink}>
-                    Entrar
-                  </Nav.Link>
-                )}
-                {!userRol && (
-                  <Nav.Link
-                    style={{ color: "#000" }}
-                    to="/registro"
-                    as={NavLink}
-                  >
-                    Registrarte
-                  </Nav.Link>
-                )}
-                {userRol && (
-                  <Nav.Link
-                    style={{ color: "#000" }}
-                    to="/profile"
-                    as={NavLink}
-                  >
-                    Perfil
-                  </Nav.Link>
-                )}
-                {userRol && (
-                  <Nav.Link style={{ color: "#000" }} onClick={logout}>
-                    Cerrar Sesión
-                  </Nav.Link>
-                )}
+              <Dropdown.Menu className="drop-menu">
+              { token && <p className="pl-2 nombre-usuario-nav">Hola {usuario.nombre}</p>}
+              { token && <p className="pl-2 email-usuario-nav">Hola {usuario.nombre}</p>}
+                <Nav.Link style={{ color: "#000" }} onClick={logout}>
+                  Cerrar Sesión
+                </Nav.Link>
               </Dropdown.Menu>
             </Dropdown>
           </Nav>

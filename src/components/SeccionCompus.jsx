@@ -1,5 +1,5 @@
 import metodoPago from "../assets/img/metodospago.png";
-import { Nav } from "react-bootstrap";
+import { Nav, Button } from "react-bootstrap";
 import CardProductoView from "../components/CardProductoView";
 import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,13 +36,15 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
   // }, []);
   return (
     <div className="container position-relative mt-5">
-      <Nav.Link className="p-0" exact to={'/' + filtro + 's'} as={NavLink}>
+      <Nav.Link className="p-0" exact to={"/" + filtro + "s"} as={NavLink}>
         <span className="titulo1 ps-4 text-uppercase">{filtro}s</span>
       </Nav.Link>
       <div className="row contenedor-seccion-compus">
         <div className="col-lg-4 col-md-12">
           <p className=" subtitulo-seccion">
-            Equipos de escritorio para todos los bolsillos
+            {categoria === "computadora" &&
+              "Equipos de escritorio para todos los bolsillos"}
+            {categoria === "notebook" && "Notebooks de alto rendimiento y gran potencia"}
           </p>
           <div className="row">
             <div className="col-lg-12 col-md-6 col-12">
@@ -97,6 +99,11 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="boton-categorias">
+            <Nav.Link to={"/" + categoria + "s"} as={NavLink}>
+              <Button variant="info">Ver todas las {categoria}s</Button>
+            </Nav.Link>
+          </div>
         </div>
       </div>
     </div>

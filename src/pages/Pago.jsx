@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import SeccionCarrito from "../components/SeccionCarrito";
 import SeccionTarjetas from "../components/SeccionTarjetas";
-import { Redirect } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 
 export default function Pago({ setUser, carrito }) {
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const [token, setToken] = useState(localToken);
+
     if (!token) {
         alert("No estas logueado");
         return <Redirect to="/" />;
