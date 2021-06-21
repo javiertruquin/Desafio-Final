@@ -73,7 +73,7 @@ export default function CardCarrito({ carrito, setUser }) {
                 </div>
                 <div className="col-10 m-auto px-0">
                     <div className="row">
-                        <div className="col-12 col-lg-5 m-auto">
+                        <div className="col-12 col-lg-5 m-auto pt-3 pt-lg-0">
                             <h5 className="d-flex my-auto ms-3">
                                 <Link to={"/producto/" + carrito.producto?._id}>
                                     <div
@@ -97,22 +97,25 @@ export default function CardCarrito({ carrito, setUser }) {
                             <div>${carrito.producto?.precio}</div>
                         </div>
                         <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
-                            {/* <div style={{ "font-size": "80%" }} className="h-50">
-                Cantidad:
-              </div> */}
                             <Form.Group
                                 className="my-4"
                                 controlId="exampleForm.ControlSelect1"
                             >
-                                <Form.Label style={{ "font-size": "80%" }}>
-                                    Cantidad
-                                </Form.Label>
+                                <div
+                                style={{ "font-size": "80%" }}
+                                className="h-50 text-center"
+                            >
+                                Cantidad:
+                            </div>
 
                                 <Form.Control
+                                    className="mx-auto"
                                     as="select"
+                                    size="sm"
                                     onChange={(e) => handleChange(e)}
                                     name="cantidad"
-                                    defaultValue={toString(cantidad)}
+                                    style={{ "width": "40px" }}
+                                    defaultValue={cantidad}
                                 >
                                     {opciones?.map((i) => (
                                         <option value={i}>{i}</option>
