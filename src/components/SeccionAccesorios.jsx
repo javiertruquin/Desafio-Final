@@ -40,7 +40,7 @@ export default function SeccionAccesorios({ setUser, carrito, filtro }) {
               clickable: true,
             }}
             breakpoints={{
-              640: {
+              540: {
                 slidesPerView: 1,
                 spaceBetween: 5,
               },
@@ -49,6 +49,10 @@ export default function SeccionAccesorios({ setUser, carrito, filtro }) {
                 spaceBetween: 5,
               },
               1024: {
+                slidesPerView: 3,
+                spaceBetween: 5,
+              },
+              1025: {
                 slidesPerView: 4,
                 spaceBetween: 5,
               },

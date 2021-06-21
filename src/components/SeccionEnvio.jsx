@@ -6,12 +6,11 @@ import axios from "axios";
 
 export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
     const [validated, setValidated] = useState(false);
-    const [input, setInput] = useState({});
     let history = useHistory();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        let changedInput = { ...input, [name]: value };
+        let changedInput = { ...datosDomicilio, [name]: value};
         setDatosDomicilio({ ...changedInput });
     };
 

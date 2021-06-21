@@ -13,17 +13,17 @@ export default function Mensajes({ articles, getVentas }) {
       <Table responsive striped bordered hover variant="dark">
         <thead>
           <tr>
+            <th>#</th>
             <th>Fecha</th>
             <th>Cliente</th>
-            <th>Numero Venta</th>
             <th>Artículos vendidos</th>
-            <th>Datos de envío</th>
-            <th>Acciones</th>
+            <th>Total</th>
+            <th className="col-2">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          {articles.map((venta) => (
-            <Venta venta={venta} getVentas={getVentas} key={venta._id} />
+          {articles.map((venta, index) => (
+            <Venta venta={venta} index={index + 1} getVentas={getVentas} key={venta._id} />
           ))}
         </tbody>
       </Table>

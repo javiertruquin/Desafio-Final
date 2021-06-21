@@ -1,27 +1,35 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Modal, InputGroup, Nav } from "react-bootstrap";
+import VentaIndividual from "./VentaIndividual";
 
-export default function Venta({ venta, getVentas }) {
-  const { _id, usuario, numeroventa, fecha } = venta;
-  const { localidad, provincia, calle, numero, piso, telefono, observaciones } =
-    venta.domicilio[0];
+export default function Venta({ venta, getVentas, index }) {
+  // const { _id, usuario, numeroventa, fecha } = venta;
+  // const { localidad, provincia, calle, numero, piso, telefono, observaciones } =
+  //   venta.domicilio[0];
   const [abrir, setAbrir] = useState(false);
   const handleClose = () => setAbrir(false);
   const handleAbrir = () => setAbrir(true);
+  const date = new Date();
 
+  
+  let cantidad = 0;
+  for (let i = 0; i < venta.carrito?.length; i++) {
+    const element = venta.carrito[i];
+    cantidad = cantidad + element.cantidad;
+  }
+  
+  console.log('venta', venta)
   return (
     <>
       <tr>
-        <td>{fecha}</td>
-        <td>{usuario}</td>
-        <td># {numeroventa}</td>
-        <td> ? </td>
-        <td>
-          {localidad} - {provincia}
-        </td>
+        <td>{index}</td>
+        <td className="col-2">{venta.fecha}</td>
+        <td>{venta.usuario.email}</td>
+        <td className="col-1">{cantidad}</td>
+        <td>${venta.total}</td>
 
-        <td className="col-4">
+        <td className="col-2">
           <Button variant="primary" onClick={handleAbrir} size="sm">
             <i class="fab fa-readme"></i>
           </Button>{" "}
@@ -32,11 +40,11 @@ export default function Venta({ venta, getVentas }) {
       <Modal show={abrir} onHide={handleAbrir}>
         <Modal.Header>
           <Modal.Title>
-            Venta #{numeroventa}
+            Venta #{index}
             <br />
-            Cliente: {usuario}
+            Cliente: {venta.usuario.email}
             <br />
-            Fecha venta: {fecha}
+            Fecha venta: {venta.fecha}
             <br />
           </Modal.Title>
         </Modal.Header>
@@ -44,21 +52,30 @@ export default function Venta({ venta, getVentas }) {
           <p>
             <strong>ARTICULOS COMPRADOS</strong>
             <br />
-            <br />
-            {/* {articulos} */}
+            
+            {venta.carrito.map((carrito) => (
+              <VentaIndividual carrito={carrito} />
+              // console.log('carrito', carrito)
+            ))}
+            
+            
+            
+            <br />  
+            <strong className="pr-2">Total:</strong> {venta.total}
+            <hr />
           </p>
           <p>
             <strong>DATOS ENVIO</strong>
             <br />
-            Calle: {calle} {numero} {piso}
+            <strong className="pr-2">Calle:</strong> {venta.domicilio[0]?.calle} {venta.domicilio[0]?.numero} {venta.piso}
             <br />
-            Ciudad: {localidad}
+            <strong className="pr-2">Ciudad:</strong> {venta.domicilio[0]?.localidad}
             <br />
-            Provincia: {provincia}
+            <strong className="pr-2">Provincia:</strong> {venta.domicilio[0]?.provincia}
             <br />
-            Telefono: {telefono}
+            <strong className="pr-2">Telefono:</strong> {venta.domicilio[0]?.telefono}
             <br />
-            Observaciones: {observaciones}
+            <strong className="pr-2">Observaciones:</strong> {venta.domicilio[0]?.observaciones}
           </p>
         </Modal.Body>
         <Modal.Footer>

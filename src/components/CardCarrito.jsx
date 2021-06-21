@@ -112,7 +112,7 @@ export default function CardCarrito({ carrito, setUser }) {
                                     as="select"
                                     onChange={(e) => handleChange(e)}
                                     name="cantidad"
-                                    defaultValue={toString(cantidad)}
+                                    value={carrito.cantidad}
                                 >
                                     {opciones?.map((i) => (
                                         <option value={i}>{i}</option>
