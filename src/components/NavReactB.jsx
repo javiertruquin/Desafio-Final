@@ -79,9 +79,9 @@ export default function NavReactB({
                 <Nav.Link to="/carrito" as={NavLink}>
                   <i
                     style={{ color: "#00598a" }}
-                    className="fas fa-shopping-cart"
+                    className="fas fa-shopping-cart pr-2"
                   ></i>
-                  {carrito?.length}
+                  ({ carrito?.length > 0 && carrito?.length })
                 </Nav.Link>
               )}
               {userName && (

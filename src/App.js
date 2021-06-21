@@ -116,7 +116,7 @@ function App() {
                     <Carrito setUser={setUser} carrito={user.carrito} />
                 </Route>
                 <Route path="/envio">
-                    <Envio setUser={setUser} carrito={user.carrito} />
+                    <Envio user={user} setUser={setUser} carrito={user.carrito} />
                 </Route>
                 <Route path="/pago">
                     <Pago setUser={setUser} carrito={user.carrito} />
