@@ -35,13 +35,9 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
           {estado} <InputGroup.Checkbox hasValidation="true" />{" "}
         </td> */}
         <td className="col-3">
-          <Button variant="primary" onClick={handleAbrir} size="sm">
-            <i class="fab fa-readme"></i>
-          </Button>
-          <Button variant="danger" onClick={eliminar} size="sm">
-            <i class="far fa-trash-alt"></i>
-          </Button>
-          <Nav.Link
+          <div className="row">
+            <div className="col-lg-4">
+            <Nav.Link className="mt-1"
             href={
               "mailto:" +
               email +
@@ -52,6 +48,23 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
               <i class="far fa-envelope"></i>
             </Button>
           </Nav.Link>
+            </div>
+            <div className="col-lg-4">
+            <Button variant="primary" onClick={handleAbrir} size="sm" className="mt-3">
+            <i class="fab fa-readme"></i>
+          </Button>
+            </div>
+            <div className="col-lg-4">
+            <Button variant="danger" onClick={eliminar} size="sm" className="mt-3">
+            <i class="far fa-trash-alt"></i>
+          </Button>
+            </div>
+          </div>
+        
+          
+          
+          
+         
         </td>
       </tr>
 
