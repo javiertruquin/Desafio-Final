@@ -19,7 +19,7 @@ export default function Venta({ venta, getVentas, index }) {
     cantidad = cantidad + element.cantidad;
   }
   
-  console.log('venta', venta)
+
   return (
     <>
       <tr>

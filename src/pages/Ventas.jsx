@@ -4,7 +4,7 @@ import VentasConcretadas from "../components/VentasConcretadas";
 import { Container } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 
-export default function Main({ user }) {
+export default function Main({ user}) {
   const [articles, setArticles] = useState([]);
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
   const [token, setToken] = useState(localToken);
@@ -21,10 +21,10 @@ export default function Main({ user }) {
     alert("No estas logueado");
     return <Redirect to="/" />;
   }
-  // if (user.rol === "usuario") {
-  //   alert("Error 404");
-  //   return <Redirect to="/" />;
-  // }
+  if (user.rol === "usuario") {
+    alert("Error 404");
+    return <Redirect to="/" />;
+  }
   console.log(articles);
   return (
     <div>
