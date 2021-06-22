@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -15,22 +16,22 @@ export default function CardProductoView({
   const [esFavorito, setEsFavorito] = useState();
   let history = useHistory();
 
-    // useEffect(() => {
-    //     user.favoritos?.map((favorito) => {
-    //         const productoFavorito = favorito;
-    //         if (productoFavorito.producto === _id) {
-    //           setEsFavorito(true);
-    //         } else {
-    //           setEsFavorito(false);
-    //         }
-    //     })
-      
-    // }, [user])
+  // useEffect(() => {
+  //     user.favoritos?.map((favorito) => {
+  //         const productoFavorito = favorito;
+  //         if (productoFavorito.producto === _id) {
+  //           setEsFavorito(true);
+  //         } else {
+  //           setEsFavorito(false);
+  //         }
+  //     })
 
-//   for (let i = 0; i < user.favoritos.length; i++) {
-//   }
+  // }, [user])
 
-//   console.log("esFavorito", user);
+  //   for (let i = 0; i < user.favoritos.length; i++) {
+  //   }
+
+  //   console.log("esFavorito", user);
 
   useEffect(() => {
     setToken(localToken);
@@ -38,7 +39,13 @@ export default function CardProductoView({
 
   const addToCart = async () => {
     if (!token) {
-      alert("No estas logueado");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No estás logueado",
+        timer: 1800,
+        showConfirmButton: false,
+      });
       history.push("/login");
       return;
     } else {
@@ -55,7 +62,13 @@ export default function CardProductoView({
   };
   const addToFav = async () => {
     if (!token) {
-      alert("No estas logueado");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No estás logueado",
+        timer: 1800,
+        showConfirmButton: false,
+      });
       history.push("/login");
       return;
     } else {

@@ -1,13 +1,14 @@
 import axios from "axios";
 import { React, useState } from "react";
-import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 export default function CardDomicilios({
   userComplete,
   domicilio,
   getUsuario,
   accion,
-  index
+  index,
 }) {
   const [validated, setValidated] = useState(false);
   const [disabledDomicilio, setDisabledDomicilio] = useState(true);
@@ -24,11 +25,18 @@ export default function CardDomicilios({
     try {
       const domicilio = [];
       domicilio.push(inputDomicilio);
-      const usuarioModificado = { domicilio, id: userComplete._id, index: index };
+      const usuarioModificado = {
+        domicilio,
+        id: userComplete._id,
+        index: index,
+      };
       // console.log("Domicilio modificado", usuarioModificado);
       await axios.put("/auth/domicilio", usuarioModificado);
       getUsuario();
-      alert("Domicilio editado con éxito!😁");
+      Swal.fire({
+        icon: "success",
+        title: "Domicilio editado con éxito",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +63,7 @@ export default function CardDomicilios({
             <Card.Header>
               <Form.Group controlId="formPlaintextEmail">
                 <Form.Control
-                  defaultValue={accion === 'agregar' ? "" : domicilio.titulo}
+                  defaultValue={accion === "agregar" ? "" : domicilio.titulo}
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   placeholder="Título"
@@ -67,7 +75,7 @@ export default function CardDomicilios({
             <Card.Body>
               <Form.Group className="d-flex" controlId="formPlaintextEmail">
                 <Form.Control
-                  defaultValue={accion === 'agregar' ? "" : domicilio.provincia}
+                  defaultValue={accion === "agregar" ? "" : domicilio.provincia}
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   onChange={(e) => handleChangeDomicilio(e)}
@@ -75,7 +83,7 @@ export default function CardDomicilios({
                   name="provincia"
                 />
                 <Form.Control
-                  defaultValue={accion === 'agregar' ? "" : domicilio.localidad}
+                  defaultValue={accion === "agregar" ? "" : domicilio.localidad}
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   onChange={(e) => handleChangeDomicilio(e)}
@@ -85,7 +93,7 @@ export default function CardDomicilios({
               </Form.Group>
               <Form.Group className="d-flex" controlId="formPlaintextEmail">
                 <Form.Control
-                  defaultValue={accion === 'agregar' ? "" : domicilio.calle}
+                  defaultValue={accion === "agregar" ? "" : domicilio.calle}
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   placeholder="Calle"
@@ -93,7 +101,7 @@ export default function CardDomicilios({
                   onChange={(e) => handleChangeDomicilio(e)}
                 />
                 <Form.Control
-                  defaultValue={accion === 'agregar' ? "" : domicilio.numero}
+                  defaultValue={accion === "agregar" ? "" : domicilio.numero}
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   placeholder="Número"
@@ -104,7 +112,8 @@ export default function CardDomicilios({
               <Form.Group className="d-flex" controlId="formPlaintextEmail">
                 <Form.Control
                   defaultValue={
-                    accion === 'agregar' ? "" : domicilio.departamento}
+                    accion === "agregar" ? "" : domicilio.departamento
+                  }
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   placeholder="Piso / Depto"
@@ -112,7 +121,7 @@ export default function CardDomicilios({
                   onChange={(e) => handleChangeDomicilio(e)}
                 />
                 <Form.Control
-                  defaultValue={accion === 'agregar' ? "" : domicilio.codPostal}
+                  defaultValue={accion === "agregar" ? "" : domicilio.codPostal}
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   placeholder="Código Postal"
@@ -123,13 +132,15 @@ export default function CardDomicilios({
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Indicaciones extras aquí (opcional)</Form.Label>
                 <Form.Control
-                as="textarea"
+                  as="textarea"
                   onChange={(e) => handleChangeDomicilio(e)}
                   plaintext={disabledDomicilio}
                   readOnly={disabledDomicilio}
                   name="indicaciones"
                   placeholder="..."
-                  defaultValue={accion === 'agregar' ? "" : domicilio.indicaciones}
+                  defaultValue={
+                    accion === "agregar" ? "" : domicilio.indicaciones
+                  }
                   rows={3}
                 />
               </Form.Group>

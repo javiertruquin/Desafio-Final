@@ -2,8 +2,12 @@ import { MDBCol, MDBContainer, MDBInput, MDBRow } from "mdbreact";
 import { Form } from "react-bootstrap";
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+
+import Swal from "sweetalert2";
 
 export default function CajaDeMensajes() {
+  let history = useHistory();
   const [datos, setDatos] = useState({
     nombre: "",
     email: "",
@@ -20,7 +24,12 @@ export default function CajaDeMensajes() {
   const enviarDatos = (event) => {
     event.preventDefault();
     axios.post("/mensaje", datos);
-    alert("Gracias por su consulta. Le responderemos a la brevedad");
+
+    Swal.fire({
+      icon: "success",
+      title: "Gracias por su consulta. Le responderemos a la brevedad",
+    });
+    history.push("/");
   };
 
   return (
@@ -50,6 +59,7 @@ export default function CajaDeMensajes() {
             <MDBRow>
               <MDBCol>
                 <MDBInput
+                  required
                   type="text"
                   label="Tu Nombre"
                   onChange={handleInputChange}
@@ -58,6 +68,7 @@ export default function CajaDeMensajes() {
               </MDBCol>
               <MDBCol>
                 <MDBInput
+                  required
                   type="email"
                   label="Tu Email"
                   onChange={handleInputChange}
@@ -68,6 +79,7 @@ export default function CajaDeMensajes() {
             <MDBRow>
               <MDBCol>
                 <MDBInput
+                  required
                   type="text"
                   label="Título Consulta"
                   onChange={handleInputChange}
@@ -78,6 +90,7 @@ export default function CajaDeMensajes() {
             <MDBRow>
               <MDBCol>
                 <MDBInput
+                  required
                   className="mt-3"
                   type="textarea"
                   label="Dejános Tu Consulta"

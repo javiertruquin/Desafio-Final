@@ -2,6 +2,7 @@ import axios from "axios";
 import { React, useState } from "react";
 import { Button, Card, Modal, Form } from "react-bootstrap";
 import FormEditar from "./FormEditar";
+import Swal from "sweetalert2";
 
 export default function CardProductoAdmin({ producto, getProductos }) {
   const [show, setShow] = useState(false);
@@ -27,27 +28,39 @@ export default function CardProductoAdmin({ producto, getProductos }) {
 
   const eliminar = async (event) => {
     // event.preventDefault();
-    const confirma = window.confirm(
-      "Estas seguro que desea eliminar este producto?"
-    );
-    if (confirma) {
-      try {
-        await axios.delete("/producto/" + _id);
-        getProductos();
-        alert("Producto eliminado con éxito!😁");
-      } catch (error) {
-        console.log(error);
+    Swal.fire({
+      title: "Estás seguro?",
+      text: "Si lo borrás no hay vuelta atrás!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, borrar!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete("/producto/" + _id);
+          getProductos();
+          Swal.fire("Borrado!", "El producto fue borrado.", "success");
+        } catch (error) {
+          console.log(error);
+        }
       }
-    }
+    });
   };
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
     try {
-      const productoModificado = { [name]: value , id: producto._id };
+      const productoModificado = { [name]: value, id: producto._id };
       await axios.put("/producto", productoModificado);
       getProductos();
-      alert("Producto editado con éxito!😁");
+      Swal.fire({
+        icon: "success",
+        title: "Producto editado con éxito",
+        showConfirmButton: false,
+        timer: 1800,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -99,12 +112,12 @@ export default function CardProductoAdmin({ producto, getProductos }) {
                 <Form.Group controlId="exampleForm.SelectCustomSizeSm">
                   {/* <Form.Label></Form.Label> */}
                   <Form.Control
-                  as="select"
-                  name="habilitado"
-                  size="sm"
-                  custom
-                  onChange={(e) => handleChange(e)}
-                  defaultValue={producto.habilitado}
+                    as="select"
+                    name="habilitado"
+                    size="sm"
+                    custom
+                    onChange={(e) => handleChange(e)}
+                    defaultValue={producto.habilitado}
                   >
                     <option value={true}>Habilitado</option>
                     <option value={false}>Deshabilitado</option>

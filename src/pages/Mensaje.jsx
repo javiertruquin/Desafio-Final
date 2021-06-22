@@ -7,9 +7,6 @@ import { Redirect } from "react-router-dom";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 
-// CommonJS
-// const Swal = require("sweetalert2");
-
 export default function Main({ user }) {
   const [articles, setArticles] = useState([]);
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
@@ -24,11 +21,23 @@ export default function Main({ user }) {
   }, []);
 
   if (!token) {
-    Swal.fire("No estás logueado");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No estás logueado",
+      timer: 1800,
+      showConfirmButton: false,
+    });
     return <Redirect to="/" />;
   }
   if (user.rol === "usuario") {
-    alert("Error 404");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No podés estar por aquí",
+      timer: 1800,
+      showConfirmButton: false,
+    });
     return <Redirect to="/" />;
   }
   return (
