@@ -2,7 +2,8 @@ import { React, useState } from "react";
 import SeccionCarrito from "../components/SeccionCarrito";
 import SeccionEnvio from "../components/SeccionEnvio";
 import SeccionTarjetas from "../components/SeccionTarjetas";
-import { Redirect } from "react-router-dom";
+import "../Favoritos.css";
+import { Redirect, useHistory } from "react-router-dom";
 import { Form, Modal } from "react-bootstrap";
 import axios from "axios";
 const localToken = JSON.parse(localStorage.getItem("token")) || "";
@@ -16,6 +17,7 @@ export default function Envio({ setUser, user }) {
   const [crear, setCrear] = useState(false);
   const handleClose = () => setCrear(false);
   const handleCrear = () => setCrear(true);
+  let history = useHistory();
 
   if (!token) {
     alert("No estas logueado");
@@ -48,9 +50,12 @@ export default function Envio({ setUser, user }) {
       alert("pone la tarjeta");
     } else {
       try {
-        axios.post("/venta", params);
+        await axios.post("/venta", params);
         handleCrear();
-        alert("Datos de venta recibidos satisfactoriamente");
+        const response = await axios.put("/usuarios/carrito/resetear", { id: user._id } )
+        setUser(response.data)
+        // console.log('response', response)
+        // alert("Datos de venta recibidos satisfactoriamente");
       } catch (error) {
         console.log("enviarDatos ~ error", error);
       }
@@ -89,14 +94,39 @@ export default function Envio({ setUser, user }) {
         </div>
       </Form>
       <Modal
-        className="modal-favoritos"
+        // className="modal-exitoso"
         bsPrefix="modal"
-        size="lg"
+        size="md"
         show={crear}
         onHide={handleClose}
       >
-        <Modal.Body scrollable>
-          Venta Concretada
+        <Modal.Body scrollable
+        style={{ backgroundColor: '#ababab', boxShadow: 'none' }}
+        >
+        <div className="modal-dialog modal-confirm">
+                <div className="modal-content fuente">
+                    <div className="modal-header">
+                        <div className="icon-box">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h4 className="modal-title w-100">Venta exitosa!</h4>
+                    </div>
+                    <div className="modal-body">
+                        <p className="text-center">
+                            Revisa tu email, te enviaremos por ahí la información de tu compra.
+                        </p>
+                    </div>
+                    <div className="modal-footer">
+                        <button
+                            className="btn btn-success btn-block"
+                            data-dismiss="modal"
+                            onClick={() => history.push("/")}
+                        >
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </div>
         </Modal.Body>
         {/* <Modal.Footer>
       <Button variant="primary" onClick={handleClose}>

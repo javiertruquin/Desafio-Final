@@ -8,43 +8,22 @@ export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
   const [productoFavorito, setProductoFavorito] = useState({})
   const [token, setToken] = useState(localToken);
   let history = useHistory();
-  // const { _id } = favorito;
 
   // const { _id } = favorito;
   
-  const getProducto = async () => {
-    try {
-      const _id = favorito.producto;
-      const response = await axios.get('/producto/' + _id)
-      setProductoFavorito(response.data)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  // console.log('response', productoFavorito)
-  
-  useEffect(() => {
-    getProducto();
-  }, [])
-
-  // const addToCart = async () => {
-  //   if (!token) {
-  //     alert("No estas logueado");
-  //     history.push("/login");
-  //     return;
-  //   } else {
-  //     try {
-  //       await axios.put("/usuarios/carrito", {
-  //         itemCarrito: { producto: _id, cantidad: 1 },
-  //       });
-  //       const { data } = await axios.get("/auth");
-  //       setUser(data);
-  //     getProducto();
-  //     } catch (error) {
-  //       console.log(error.response.data);
-  //     }
+  // const getProducto = async () => {
+  //   try {
+  //     const _id = favorito.producto;
+  //     const response = await axios.get('/producto/' + _id)
+  //     setProductoFavorito(response.data)
+  //   } catch (error) {
+  //     console.log(error);
   //   }
-  // };
+  // }
+  
+  // useEffect(() => {
+  //   getProducto();
+  // }, [])
 
   const addToFav = async () => {
     if (!token) {
@@ -53,7 +32,7 @@ export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
       return;
     } else {
       try {
-        const _id = favorito.producto
+        const _id = favorito.producto._id
         console.log("entro");
         await axios.put("/usuarios/favorito", {
           itemFavorito: { producto: _id },
@@ -72,12 +51,12 @@ export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
     <>
       <div className="d-flex card-favoritos">
         <div className="col-4">
-          <img src={productoFavorito.image1} alt="" className="img-fluid" />
+          <img src={favorito.producto?.image1} alt="" className="img-fluid" />
         </div>
         <div className="col-7">
-          <button className="btn-serie">{productoFavorito.serie}</button>
-          <p className="titulo-producto">{productoFavorito.titulo}</p>
-          <span className="precio-producto">${productoFavorito.precio}</span> <br />
+          <button className="btn-serie">{favorito.producto?.serie}</button>
+          <p className="titulo-producto">{favorito.producto?.titulo}</p>
+          <span className="precio-producto">${favorito.producto?.precio}</span> <br />
           <span>
             {" "}
             <button className="btn-heart" onClick={addToFav}>

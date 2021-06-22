@@ -33,16 +33,15 @@ export default function NavReactB({
   const getFavoritos = async () => {
     try {
       const _id = user._id;
-      const response = await axios.get("/usuarios/favorito/" + _id);
-      setProductosFavoritos(response.data);
+      const response = await axios.get("/auth/favoritos/", { id: _id });
+      setProductosFavoritos(response.data.favoritos);
     } catch (error) {
       console.log(error);
     }
   };
-  // console.log('sssss', productosFavoritos)
-  // useEffect(() => {
-  //     getFavoritos();
-  // }, [user])
+  useEffect(() => {
+      getFavoritos();
+  }, [])
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" className="sticky-top">
@@ -81,7 +80,7 @@ export default function NavReactB({
                     style={{ color: "#00598a" }}
                     className="fas fa-shopping-cart pr-2"
                   ></i>
-                  ({ carrito?.length > 0 && carrito?.length })
+                  { carrito?.length > 0 && "(" + carrito?.length + ")" }
                 </Nav.Link>
               )}
               {userName && (
