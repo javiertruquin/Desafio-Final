@@ -12,9 +12,8 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const localToken = JSON.parse(localStorage.getItem("token")) || "";
-
 export default function ProductosAdmin({ user }) {
+    const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const [token, setToken] = useState(localToken);
     const [crear, setCrear] = useState(false);
     const [productos, setProductos] = useState([]);

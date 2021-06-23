@@ -16,6 +16,10 @@ export default function CardProductoView({
   const [esFavorito, setEsFavorito] = useState();
   let history = useHistory();
 
+  const final = titulo.substring(0, 40);
+
+
+
   // useEffect(() => {
   //     user.favoritos?.map((favorito) => {
   //         const productoFavorito = favorito;
@@ -87,18 +91,18 @@ export default function CardProductoView({
   };
   return (
     <div className="">
-      <div className="my-1 p-4">
+      <div className="my-1 p-4" >
         <button className="btn-serie">{serie}</button>
         <Link to={"/producto/" + _id}>
           <img src={image1} alt="" className="img-fluid" />
         </Link>
         <Link to={"/producto/" + _id}>
-          <p className="titulo-producto">{titulo}</p>
+          <p className="titulo-producto" style={{minHeight: '60px'}}>{final}</p>
         </Link>
-        <ul className="detalle-producto">
+        <ul className="detalle-producto" style={{minHeight: '110px'}}>
           <li>{descripcion}</li>
         </ul>
-        <div className="d-flex ">
+        <div className="d-flex justify-content-between px-3">
           <span className="precio-producto my-auto">${precio}</span>
           <span className="my-auto">
             <button className="btn-heart" onClick={addToFav}>
