@@ -3,15 +3,17 @@ import {
   Card,
   Nav,
 } from "react-bootstrap";
-import imageProfile from "../assets/img/profile-1.jpeg";
+import imageProfile from "../assets/img/profile-default.jpg";
 import MisDatos from "../components/MisDatos";
 import MisCompras from "../components/MisCompras";
 import MisMensajes from "../components/MisMensajes";
 import axios from "axios";
+import { getBase64 } from '../utils';
 
 export default function Profile({ user, token }) {
     const [subNav, setSubNav] = useState('1');
     const [usuarioCompleto, setUsuarioCompleto] = useState({});
+    const [image, setImage] = useState('');
 
     const handleSelect = (eventKey) => {
         setSubNav(eventKey)
@@ -35,18 +37,41 @@ export default function Profile({ user, token }) {
     useEffect(() => {
       getUsuario();
     }, [token]);
-    
+
+    const onChangeImg = async (e) => {
+        const file = e.target.files[0];
+        const image = await getBase64(file);
+        setImage(image);
+        await axios.put('/auth', {image, id: user._id });
+    };
 
 
     return (
       <>
-      <div className="container mt-5">
+      <div className="container mt-5 fuente">
         <div className="row">
           <div className="col-12 col-md-3 mb-4">
             <div className="card border-0 shadow">
-              <img src={imageProfile} className="card-img-top" />
-              <div className="card-body text-center">
-                <h5 className="card-title mb-0">{usuarioCompleto.nombre} {usuarioCompleto.apellido}</h5>
+              <img src={image || user.image || imageProfile} className="card-img-top" />
+              <div className="card-body text-center d-flex">
+                <div>
+                <label htmlFor="file-input" style={{ cursor: 'pointer' }}>
+                    <img
+                        src="https://icongr.am/feather/camera.svg?size=128&color=293f8e"
+                        alt="camera edit"
+                        width="20"
+                    />
+                </label>
+                <input
+                    id="file-input"
+                    className="d-none"
+                    accept="image/png, image/jpeg"
+                    type="file"
+                    onChange={onChangeImg}
+                />
+                </div>
+                <h5 className="card-title mb-0 col-12">{usuarioCompleto.nombre} {usuarioCompleto.apellido}</h5>
+                
                 {/* <div className="card-text text-black-50">Web Developer</div> */}
               </div>
             </div>

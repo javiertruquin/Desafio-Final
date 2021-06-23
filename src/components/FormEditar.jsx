@@ -10,8 +10,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
   const [porcentajeDescuento, setPorcentajeDescuento] = useState();
   const history = useHistory();
   let porcentajeDescuentoInt = 0;
-  // const action = accion;
-  // console.log('_id', producto._id)
+  
   if (producto?.descuento) {
     porcentajeDescuentoInt = 100 - (producto.descuento * 100) / producto.precio;
   }

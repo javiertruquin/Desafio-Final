@@ -20,17 +20,21 @@ export default function CardProductoView({
 
 
 
-  // useEffect(() => {
-  //     user.favoritos?.map((favorito) => {
-  //         const productoFavorito = favorito;
-  //         if (productoFavorito.producto === _id) {
-  //           setEsFavorito(true);
-  //         } else {
-  //           setEsFavorito(false);
-  //         }
-  //     })
+  const checkFavoritos = (() => {
+    productosFavoritos?.map((favorito) => {
+      
 
-  // }, [user])
+          if (favorito.producto === _id) {
+            console.log('entrooooooo')
+            setEsFavorito(true);
+          } else {
+            setEsFavorito(false);
+          }
+      })
+  })
+  useEffect(() => {
+    checkFavoritos()
+  }, [])
 
   //   for (let i = 0; i < user.favoritos.length; i++) {
   //   }
@@ -77,13 +81,11 @@ export default function CardProductoView({
       return;
     } else {
       try {
-        console.log("entro");
         await axios.put("/usuarios/favorito", {
           itemFavorito: { producto: computadora._id },
         });
         const { data } = await axios.get("/auth");
         setUser(data);
-        // alert("producto agregado a favorito" + data);
       } catch (error) {
         console.log(error.response.data);
       }
@@ -91,19 +93,23 @@ export default function CardProductoView({
   };
   return (
     <div className="">
-      <div className="my-1 p-4" >
-        <button className="btn-serie">{serie}</button>
+      <div className="mb-3 p-4"  style={{minHeight: '550px', display: 'flex', flexDirection: 'column'}}>
+        <button className="btn-serie mb-3">{serie}</button>
         <Link to={"/producto/" + computadora._id}>
           <img src={image1} alt="" className="img-fluid" />
         </Link>
         <Link to={"/producto/" + _id}>
           <p className="titulo-producto" style={{minHeight: '60px'}}>{final}</p>
         </Link>
-        <ul className="detalle-producto" style={{minHeight: '110px'}}>
+        <ul className="detalle-producto">
           <li>{descripcion}</li>
         </ul>
-        <div className="d-flex justify-content-between px-3">
-          <span className="precio-producto my-auto">${precio}</span>
+        <div className="justify-content-between mt-auto">
+        { computadora.descuento && <del className="ml-3">${precio}</del>}
+          <div className="d-flex justify-content-between px-2">
+          <span className="precio-producto my-auto">
+            ${ computadora.descuento ? computadora.descuento : precio }
+            </span>
           <span className="my-auto">
             <button className="btn-heart" onClick={addToFav}>
               <i className="fas fa-heart"></i>
@@ -118,6 +124,7 @@ export default function CardProductoView({
             <Link to="/envio" className="my-auto">
               <button className="btn-comprar">Comprar</button>
             </Link>
+          </div>
           </div>
         </div>
       </div>

@@ -1,18 +1,43 @@
-import { MDBInput } from "mdbreact";
-import { React, useState } from "react";
-import { Form, Nav } from "react-bootstrap";
-import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
+import { MDBInput } from "mdbreact";
+import { React, useEffect, useState } from "react";
+import { Dropdown, DropdownButton, Button } from "react-bootstrap";
+import { useHistory, Link } from "react-router-dom";
 
-export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
+export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }) {
     const [validated, setValidated] = useState(false);
     let history = useHistory();
+    const [DomicilioCompleto, setDomicilioCompleto] = useState()
+    const [domicilio, setDomicilio] = useState(user.domicilio)
+    const [telefono, setTelefono] = useState()
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         let changedInput = { ...datosDomicilio, [name]: value};
         setDatosDomicilio({ ...changedInput });
     };
+    
+    const getUsuario = async () => {
+        const response = await axios.get('/auth');
+        setTelefono(response.data.telefono)
+        setDomicilio(response.data.domicilio)
+    }
+    useEffect(() => {
+      getUsuario();
+    }, [])
+    // console.log('usuario', domicilio)
+
+    const llenarDireccion = (dom) => {
+        let domicilioInd = {};
+        domicilioInd.provincia = dom.provincia;
+        domicilioInd.localidad = dom.localidad;
+        domicilioInd.calle = dom.calle;
+        domicilioInd.numero = dom.numero;
+        domicilioInd.departamento = dom.departamento;
+        domicilioInd.codPostal = dom.codPostal;
+        domicilioInd.indicaciones = dom.indicaciones;
+        setDomicilioCompleto(domicilioInd);
+    }
 
     // const enviarDatos = async (event) => {
     //     const form = event.currentTarget;
@@ -60,6 +85,21 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                 onSubmit={enviarDatos}
                 className="col-12 col-md-10 mt-2 needs-validation"
             > */}
+            <div className="d-flex">
+            <DropdownButton size="sm" id="dropdown-basic-button" title="Mis direcciones">
+                { domicilio?.map((dom, index) => (
+                    <Dropdown.Item value={index + 1} onClick={() => llenarDireccion(dom)}>{dom.titulo}</Dropdown.Item>
+                    )) }
+              {/* <Dropdown.Item href="#/action-2">Another action</Dropdown.Item> */}
+              {/* <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
+            </DropdownButton>
+            <Button to="/profile" size="sm" as={Link} variant="info">
+            <i className="far fa-edit"></i> Editar Direcciones
+          </Button>{" "}
+            {/* <Button size="sm" variant="info">
+            <i className="far fa-edit"></i> Limpiar formulario
+          </Button>{" "} */}
+            </div>
                 <div className="container mb-4">
                     <div className="row">
                         <div className="col-6">
@@ -67,9 +107,11 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                                 required
                                 type="text"
                                 maxlength="30"
+                                placeholder="Provincia"
                                 label="Provincia"
                                 onChange={(event) => handleInputChange(event)}
                                 name="provincia"
+                                value={ DomicilioCompleto?.provincia }
                             >
                                 <div className="invalid-feedback">
                                     Ingrese su provincia aquí
@@ -81,8 +123,10 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                                 required
                                 type="text"
                                 maxlength="30"
+                                placeholder="Localidad"
                                 label="Localidad"
                                 onChange={(event) => handleInputChange(event)}
+                                value={ DomicilioCompleto?.localidad }
                                 name="localidad"
                             >
                                 <div className="invalid-feedback">
@@ -96,7 +140,9 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                             <MDBInput
                                 required
                                 type="text"
+                                placeholder="Calle"
                                 maxlength="30"
+                                value={ DomicilioCompleto?.calle || "" }
                                 label="Calle"
                                 onChange={(event) => handleInputChange(event)}
                                 name="calle"
@@ -109,7 +155,9 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                         <div className="col-6">
                             <MDBInput
                                 required
+                                placeholder="Número"
                                 type="number"
+                                value={ DomicilioCompleto?.numero || "" }
                                 maxlength="30"
                                 label="Número"
                                 onChange={(event) => handleInputChange(event)}
@@ -124,6 +172,8 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                     <div className="row">
                         <div className="col-6">
                             <MDBInput
+                                placeholder="Depto / Piso"
+                                value={ DomicilioCompleto?.departamento || "" }
                                 type="text"
                                 label="Piso / Departamento"
                                 onChange={(event) => handleInputChange(event)}
@@ -133,7 +183,9 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                         <div className="col-6">
                             <MDBInput
                                 required
+                                placeholder="Teléfono"
                                 type="number"
+                                valueDefault={ user.telefono || "" }
                                 label="Teléfono de contacto"
                                 maxlength="30"
                                 minlength="7"
@@ -150,6 +202,9 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio }) {
                         <div className="">
                             <MDBInput
                                 type="textarea"
+                                value={ DomicilioCompleto?.indicaciones || "" }
+                                // value={ DomicilioCompleto?.indicaciones || "" }
+                                placeholder="Indicaciones adicionales"
                                 label="Indicaciones adicionales"
                                 rows="4"
                                 maxlength="250"

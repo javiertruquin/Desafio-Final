@@ -1,10 +1,10 @@
 import axios from "axios";
 import { React, useState } from "react";
 import { useHistory } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
+export default function CardFavoritos({ favorito, handleClose }) {
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
   const [productoFavorito, setProductoFavorito] = useState({});
   const [token, setToken] = useState(localToken);
@@ -54,15 +54,20 @@ export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
     <>
       <div className="d-flex card-favoritos">
         <div className="col-4">
+        <Link to={"/producto/" + favorito.producto._id} onClick={() => handleClose()}>
           <img src={favorito.producto?.image1} alt="" className="img-fluid" />
+          </Link>
         </div>
         <div className="col-7">
-          <button className="btn-serie">{favorito.producto?.serie}</button>
+          <button className="btn-serie mb-3">{favorito.producto?.serie}</button>
+          <Link to={"/producto/" + favorito.producto._id} onClick={() => handleClose()}>
           <p className="titulo-producto">{favorito.producto?.titulo}</p>
+          </Link>
+        { favorito.producto.descuento && <del>${favorito.producto?.precio}</del>}
+          <div>
           <span className="precio-producto">
-            ${favorito.producto?.precio}
+          ${ favorito.producto.descuento ? favorito.producto.descuento : favorito.producto?.precio }
           </span>{" "}
-          <br />
           <span>
             {" "}
             <button className="btn-heart" onClick={addToFav}>
@@ -78,6 +83,7 @@ export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
             </button>
           </span>
           <button className="btn-comprar mt-2">Comprar</button>
+          </div>
         </div>
       </div>
     </>

@@ -21,11 +21,10 @@ import Envio from "./pages/Envio";
 import Pago from "./pages/Pago";
 import Mensaje from "./pages/Mensaje";
 import Ventas from "./pages/Ventas";
-import styles from "./styles.css";
+import "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {
-    BrowserRouter as Router,
     Route,
     Switch,
     useHistory,

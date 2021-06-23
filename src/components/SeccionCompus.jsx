@@ -5,12 +5,10 @@ import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-// import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper/core";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// install Swiper modules
 SwiperCore.use([Pagination]);
 
 function SeccionCompus({ setUser, carrito, filtro, user, limite }) {

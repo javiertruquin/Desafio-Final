@@ -127,7 +127,7 @@ export default function NavReactB({
         show={crear}
         onHide={handleClose}
       >
-        <Modal.Body scrollable>
+        <Modal.Body scrollable="true">
           <div className="row">
             <div className="col-7">
               <span className="titulo-azul">No te quedés con las ganas</span>
@@ -138,18 +138,20 @@ export default function NavReactB({
             <div className="col-2"></div>
             <div className="col-2 text-center pt-3">
               <i
-                style={{ color: "#00598a", fontSize: "22pt" }}
+                style={{ color: "#00598a", fontSize: '22pt' }}
                 className="fas fa-heart text-center "
               ></i>
-              <p className="sub-mision pt-1" style={{ "font-size": "70%" }}>
+              <p className="sub-mision pt-1" style={{ fontSize: '70%' }}>
                 FAVORITOS
               </p>
             </div>
           </div>
 
-          <hr className=" mt-4" style={{ border: "0.3px solid #ababab" }} />
+          <hr className=" mt-4" style={{ border: '0.3px solid #ababab' }} />
           {productosFavoritos?.map((favorito) => (
             <CardFavoritos
+              handleClose={handleClose}
+              key={favorito._id}
               getFavoritos={getFavoritos}
               setUser={setUser}
               favorito={favorito}

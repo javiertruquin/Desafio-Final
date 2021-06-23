@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Button, Card, Form } from "react-bootstrap";
 import metodoPago from "../assets/img/metodospago.png";
-
-
+import { useLocation } from "react-router-dom";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/thumbs/thumbs.min.css";
@@ -19,6 +18,7 @@ SwiperCore.use([Navigation, Thumbs]);
 export default function SeccionProducto({ setUser }) {
     const params = useParams();
     const [producto, setProducto] = useState({});
+    let location = useLocation();
     const [opciones, setOpciones] = useState([]);
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const [token, setToken] = useState(localToken);
@@ -52,26 +52,29 @@ export default function SeccionProducto({ setUser }) {
         }
     };
 
+    const getProducto = async () => {
+        const response = await axios.get("/producto/" + params.id);
+        setProducto(response.data);
+        let opcion = [];
+        let cantidad;
+        if (response.data.stock > 10) {
+            cantidad = 10;
+        } else {
+            cantidad = response.data.stock;
+        }
+        for (let i = 0; i < cantidad; i++) {
+            opcion.push(i + 1);
+        }
+        setOpciones(opcion);
+    };
     useEffect(() => {
-        const getProducto = async () => {
-            const response = await axios.get("/producto/" + params.id);
-            setProducto(response.data);
-            let opcion = [];
-            let cantidad;
-            if (response.data.stock > 10) {
-                cantidad = 10;
-            } else {
-                cantidad = response.data.stock;
-            }
-            for (let i = 0; i < cantidad; i++) {
-                opcion.push(i + 1);
-            }
-            setOpciones(opcion);
-        };
-
         getProducto();
     }, []);
-    console.log("opciones", opciones);
+    
+    useEffect(() => {
+        getProducto();
+    }, [location])
+
     return (
         <>
             {/* <NavReactB /> */}
@@ -180,25 +183,23 @@ export default function SeccionProducto({ setUser }) {
                                 <p className="titulo-producto-view">
                                     {producto.titulo}
                                 </p>
-                                <h5 className="grey-text">
-                                    <del>${producto.precio}</del>
-                                    {/* <del>{ precio + 15000 }</del> */}
-                                </h5>
+                                    { producto.descuento && <h5 className="grey-text"><del>${producto.precio}</del></h5>}
                                 <div className="d-flex ">
                                     <h3 className="my-auto">
                                         <strong>
-                                            ${producto.precio * 0.9}
+                                            ${ producto.descuento ? producto.descuento : producto.precio }
                                         </strong>
                                     </h3>
                                     <p className="my-auto ms-1 text-success">
-                                        10% OFF
+                                    { producto.descuento && 100 - (producto.descuento * 100) / producto.precio + '% OFF' }
                                     </p>
                                 </div>
                                 <p className="d-flex mb-0">
                                     en
                                     <p className="ms-1 text-success mb-0">
-                                        12 x ${(producto.precio * 0.9) / 12} sin
-                                        interés
+                                        12 x $
+                                        { producto.descuento ? Number.parseInt(producto.descuento) / 12 : Number.parseInt(producto.precio) / 12 }
+                                        &nbsp; sin interés
                                     </p>
                                 </p>
                                 <Card.Text>

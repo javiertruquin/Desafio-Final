@@ -28,7 +28,7 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
             <div className="col-2"></div>
             <div className="col-2 text-center pt-3">
             <i style={{ color: "#00598a", fontSize: "22pt" }} className="fas fa-shopping-cart text-center"></i>
-            <p className="sub-mision pt-1" style={{ "font-size": "70%" }}>CARRITO</p>
+            <p className="sub-mision pt-1" style={{ fontSize: "70%" }}>CARRITO</p>
             </div>
           </div>
           <hr className="mb-5" style={{ border: '0.3px solid #ababab' }} />
@@ -39,7 +39,7 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
         {/* PRODUCTOS */}
         <div className={estiloCards}>
           {carrito?.map((carrito, index) => (
-            <CardCarrito carrito={carrito} index={index} setUser={setUser} precioFinal={precioFinal} setPrecioFinal={setPrecioFinal} />
+            <CardCarrito key={carrito._id} carrito={carrito} index={index} setUser={setUser} precioFinal={precioFinal} setPrecioFinal={setPrecioFinal} />
           ))}
         </div>
 

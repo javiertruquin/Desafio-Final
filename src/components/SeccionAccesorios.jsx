@@ -26,7 +26,9 @@ export default function SeccionAccesorios({ setUser, carrito, filtro }) {
 
   return (
     <div className="container position-relative mt-5">
+      <Nav.Link className="p-0" exact to={"/" + filtro + "s"} as={NavLink}>
       <span className="titulo1 ps-4">ACCESORIOS</span>
+      </Nav.Link>
       <div className="row contenedor-seccion-compus">
         <p className=" subtitulo-seccion2">
           Complementos ideales para tu SetUp

@@ -80,7 +80,7 @@ export default function Envio({ setUser, user }) {
   // }, [])
   
   return (
-    <div>
+    <div className="fuente">
       {/* <NavReactB /> */}
       <Form
         noValidate
@@ -94,6 +94,7 @@ export default function Envio({ setUser, user }) {
             <SeccionEnvio
               datosDomicilio={domicilio}
               setDatosDomicilio={setDatosDomicilio}
+              user={user}
             />
           </div>
           <div className="col-12 col-md-6">

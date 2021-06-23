@@ -39,7 +39,6 @@ export default function CardCarrito({ carrito, setUser }) {
             }
             setOpciones(opcion);
         };
-
         getProducto();
     }, []);
 
@@ -61,7 +60,7 @@ export default function CardCarrito({ carrito, setUser }) {
         }
     };
     return (
-        <div className="card border-1 mb-3" style={{ "min-height": "90px" }}>
+        <div className="card border-1 mb-3" style={{ minHeight: "90px" }}>
             <div className="row m-auto mx-0 ">
                 <div className="col-1 m-auto px-0">
                     <img
@@ -77,7 +76,7 @@ export default function CardCarrito({ carrito, setUser }) {
                                 <Link to={"/producto/" + carrito.producto?._id}>
                                     <div
                                         style={{
-                                            "font-size": "80%",
+                                            fontSize: "80%",
                                         }}
                                         className="text-fluid"
                                     >
@@ -88,7 +87,7 @@ export default function CardCarrito({ carrito, setUser }) {
                         </div>
                         <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
                             <div
-                                style={{ "font-size": "80%" }}
+                                style={{ fontSize: "80%" }}
                                 className="h-50"
                             >
                                 Precio:
@@ -101,7 +100,7 @@ export default function CardCarrito({ carrito, setUser }) {
                                 controlId="exampleForm.ControlSelect1"
                             >
                                 <div
-                                    style={{ "font-size": "80%" }}
+                                    style={{ fontSize: "80%" }}
                                     className="h-50 text-center"
                                 >
                                     Cantidad:
@@ -117,7 +116,7 @@ export default function CardCarrito({ carrito, setUser }) {
                                     value={carrito.cantidad}
                                 >
                                     {opciones?.map((i) => (
-                                        <option value={i}>{i}</option>
+                                        <option key={i+1} value={i}>{i}</option>
                                     ))}
                                 </Form.Control>
                             </Form.Group>
@@ -135,7 +134,7 @@ export default function CardCarrito({ carrito, setUser }) {
                         </div>
                         <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
                             <div
-                                style={{ "font-size": "80%" }}
+                                style={{ fontSize: "80%" }}
                                 className="h-50 m-0"
                             >
                                 Subtotal:
@@ -149,12 +148,10 @@ export default function CardCarrito({ carrito, setUser }) {
                     </div>
                 </div>
                 <div className="col-1 text-center m-auto px-0">
-                    <a>
                         <i
                             className=" text-danger fas fa-trash-alt"
                             onClick={deleteToCart}
                         ></i>
-                    </a>
                 </div>
             </div>
         </div>

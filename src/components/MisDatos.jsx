@@ -11,26 +11,9 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const [disabledSensible, setDisabledSensible] = useState(true);
   const [agregarForm, setAgregarForm] = useState(false);
   const [domicilioVacio, setDomicilioVacio] = useState();
-  console.log('vacio', domicilioVacio)
 
   const { nombre, apellido, documento, email, telefono } =
     userComplete;
-    
-    // useEffect(() => {
-    //   setDomicilio(userComplete.domicilio)
-    //   console.log('domicilio', domicilio)
-    // }, [])
-    
-  // const [datosCuenta, setDatosCuenta] = useState(false);
-  // const [datosPersonales, setDatosPersonales] = useState();
-  // const [datosDomicilio, setDDomicilio] = useState();
-
-  // const editar = (usestate) => {
-  //   if (usestate === 'datosCuenta'){
-  //     setDatosCuenta(true);
-  //     console.log('datos', datosCuenta)
-  //   }
-  // }
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
