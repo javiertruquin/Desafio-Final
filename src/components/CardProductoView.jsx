@@ -11,7 +11,7 @@ export default function CardProductoView({
   productosFavoritos,
 }) {
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
-  const { titulo, descripcion, precio, image1, serie } = computadora;
+  const { titulo, descripcion, precio, image1, serie, _id } = computadora;
   const [token, setToken] = useState(localToken);
   const [esFavorito, setEsFavorito] = useState();
   let history = useHistory();
