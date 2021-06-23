@@ -142,7 +142,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 type="text"
                                 placeholder="Calle"
                                 maxlength="30"
-                                value={ DomicilioCompleto?.calle || "" }
+                                value={ DomicilioCompleto?.calle }
                                 label="Calle"
                                 onChange={(event) => handleInputChange(event)}
                                 name="calle"
@@ -157,7 +157,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 required
                                 placeholder="Número"
                                 type="number"
-                                value={ DomicilioCompleto?.numero || "" }
+                                value={ DomicilioCompleto?.numero }
                                 maxlength="30"
                                 label="Número"
                                 onChange={(event) => handleInputChange(event)}
@@ -173,7 +173,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                         <div className="col-6">
                             <MDBInput
                                 placeholder="Depto / Piso"
-                                value={ DomicilioCompleto?.departamento || "" }
+                                value={ DomicilioCompleto?.departamento }
                                 type="text"
                                 label="Piso / Departamento"
                                 onChange={(event) => handleInputChange(event)}
@@ -185,7 +185,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 required
                                 placeholder="Teléfono"
                                 type="number"
-                                valueDefault={ user.telefono || "" }
+                                valueDefault={ user.telefono }
                                 label="Teléfono de contacto"
                                 maxlength="30"
                                 minlength="7"
@@ -202,7 +202,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                         <div className="">
                             <MDBInput
                                 type="textarea"
-                                value={ DomicilioCompleto?.indicaciones || "" }
+                                value={ DomicilioCompleto?.indicaciones }
                                 // value={ DomicilioCompleto?.indicaciones || "" }
                                 placeholder="Indicaciones adicionales"
                                 label="Indicaciones adicionales"
