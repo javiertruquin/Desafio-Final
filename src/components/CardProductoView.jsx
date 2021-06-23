@@ -21,8 +21,7 @@ export default function CardProductoView({
     const checkFavoritos = () => {
         productosFavoritos?.map((favorito) => {
             if (favorito.producto._id === _id) {
-                console.log("entro");
-                setEsFavorito("btn-heart-true");
+                setEsFavorito("btn-heart");
             } else {
                 setEsFavorito("btn-heart");
             }
