@@ -11,6 +11,7 @@ import {
 import FormCrearVendedor from "./FormCrearVendedor";
 import FilaUsuarios from "./FilaUsuarios";
 import { Redirect } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function UsuariosAdmin({user}) {
     const [crear, setCrear] = useState(false);
@@ -59,11 +60,23 @@ export default function UsuariosAdmin({user}) {
     };
 
     if (!token) {
-        alert("No estas logueado");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No estás logueado",
+            timer: 1800,
+            showConfirmButton: false,
+        });
         return <Redirect to="/" />;
     }
     if (user.rol === "usuario") {
-        alert("Error 404");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No podés estar por aquí",
+            timer: 1800,
+            showConfirmButton: false,
+        });
         return <Redirect to="/" />;
     }
     return (

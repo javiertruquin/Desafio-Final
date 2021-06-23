@@ -13,7 +13,9 @@ export default function Venta({ venta, index }) {
     const element = venta.carrito[i];
     cantidad = cantidad + element.cantidad;
   }
-    return (
+  
+
+  return (
     <>
       <tr>
         <td>{index}</td>

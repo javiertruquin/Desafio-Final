@@ -2,6 +2,7 @@ import axios from "axios";
 import { React, useEffect, useState } from "react";
 import { Button, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
+import Swal from "sweetalert2";
 
 export default function FormEditar({ getProductos, accion, producto }) {
   const [validated, setValidated] = useState(false);
@@ -11,12 +12,12 @@ export default function FormEditar({ getProductos, accion, producto }) {
   let porcentajeDescuentoInt = 0;
   // const action = accion;
   // console.log('_id', producto._id)
-  if ( producto?.descuento ) {
-    porcentajeDescuentoInt = 100 - (producto.descuento * 100 / producto.precio);
+  if (producto?.descuento) {
+    porcentajeDescuentoInt = 100 - (producto.descuento * 100) / producto.precio;
   }
   useEffect(() => {
-    setPorcentajeDescuento(porcentajeDescuentoInt)
-  }, [porcentajeDescuentoInt])
+    setPorcentajeDescuento(porcentajeDescuentoInt);
+  }, [porcentajeDescuentoInt]);
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -31,7 +32,10 @@ export default function FormEditar({ getProductos, accion, producto }) {
         // Consulta post a /productos
         await axios.post("/producto", input);
         getProductos();
-        alert("Producto creado con éxito!😁");
+        Swal.fire({
+          icon: "success",
+          title: "Producto creado con éxito",
+        });
       } catch (error) {
         console.log(error);
       }
@@ -43,7 +47,12 @@ export default function FormEditar({ getProductos, accion, producto }) {
         await axios.put("/producto", productoModificado);
         getProductos();
         // porcentajeDescuento = 0;
-        alert("Producto editado con éxito!😁");
+        Swal.fire({
+          icon: "success",
+          title: "Producto editado con éxito",
+          showConfirmButton: false,
+          timer: 1800,
+        });
       } catch (error) {
         console.log(error);
       }
@@ -52,10 +61,10 @@ export default function FormEditar({ getProductos, accion, producto }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     let changedInput = { ...input, [name]: value };
-    console.log('change Input', changedInput)
-    if ( changedInput.descuento ) {
+    console.log("change Input", changedInput);
+    if (changedInput.descuento) {
       setPorcentajeDescuento(changedInput.descuento);
-      console.log('porcentaje', porcentajeDescuento)
+      console.log("porcentaje", porcentajeDescuento);
     }
     setInput(changedInput);
   };
@@ -146,12 +155,16 @@ export default function FormEditar({ getProductos, accion, producto }) {
         <Form.Group controlId="formBasicRange">
           <Form.Label>Descuento</Form.Label>
           <Form.Control
-          type="range"
-          onChange={(e) => handleChange(e)}
-          name="descuento"
-          defaultValue={ producto?.descuento === undefined ? '0' : porcentajeDescuentoInt }
+            type="range"
+            onChange={(e) => handleChange(e)}
+            name="descuento"
+            defaultValue={
+              producto?.descuento === undefined ? "0" : porcentajeDescuentoInt
+            }
           />
-          <div className="porcentaje-form"><strong>{porcentajeDescuento}%</strong></div>
+          <div className="porcentaje-form">
+            <strong>{porcentajeDescuento}%</strong>
+          </div>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlInput3">
           <Form.Label>Stock</Form.Label>

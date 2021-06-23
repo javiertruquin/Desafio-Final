@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -15,19 +16,26 @@ export default function CardProductoView({
   const [esFavorito, setEsFavorito] = useState();
   let history = useHistory();
 
-  // console.log("computadora", computadora);
-  // console.log("producto", productosFavoritos);
-    // useEffect(() => {
-    //   productosFavoritos?.map((favorito) => {
-    //       if (favorito?.producto === computadora._id) {
-    //           console.log("id");
-    //           setEsFavorito(true);
-    //         } else {
-    //           setEsFavorito(false);
-    //         }
-    //     })
-    // }, [])
+  const final = titulo.substring(0, 40);
 
+
+
+  // useEffect(() => {
+  //     user.favoritos?.map((favorito) => {
+  //         const productoFavorito = favorito;
+  //         if (productoFavorito.producto === _id) {
+  //           setEsFavorito(true);
+  //         } else {
+  //           setEsFavorito(false);
+  //         }
+  //     })
+
+  // }, [user])
+
+  //   for (let i = 0; i < user.favoritos.length; i++) {
+  //   }
+
+  //   console.log("esFavorito", user);
 
   useEffect(() => {
     setToken(localToken);
@@ -35,7 +43,13 @@ export default function CardProductoView({
 
   const addToCart = async () => {
     if (!token) {
-      alert("No estas logueado");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No estás logueado",
+        timer: 1800,
+        showConfirmButton: false,
+      });
       history.push("/login");
       return;
     } else {
@@ -52,7 +66,13 @@ export default function CardProductoView({
   };
   const addToFav = async () => {
     if (!token) {
-      alert("No estas logueado");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No estás logueado",
+        timer: 1800,
+        showConfirmButton: false,
+      });
       history.push("/login");
       return;
     } else {
@@ -71,18 +91,18 @@ export default function CardProductoView({
   };
   return (
     <div className="">
-      <div className="my-1 p-4">
+      <div className="my-1 p-4" >
         <button className="btn-serie">{serie}</button>
         <Link to={"/producto/" + computadora._id}>
           <img src={image1} alt="" className="img-fluid" />
         </Link>
-        <Link to={"/producto/" + computadora._id}>
-          <p className="titulo-producto">{titulo}</p>
+        <Link to={"/producto/" + _id}>
+          <p className="titulo-producto" style={{minHeight: '60px'}}>{final}</p>
         </Link>
-        <ul className="detalle-producto">
+        <ul className="detalle-producto" style={{minHeight: '110px'}}>
           <li>{descripcion}</li>
         </ul>
-        <div className="d-flex ">
+        <div className="d-flex justify-content-between px-3">
           <span className="precio-producto my-auto">${precio}</span>
           <span className="my-auto">
             <button className="btn-heart" onClick={addToFav}>

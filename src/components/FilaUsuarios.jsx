@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import FormCrearVendedor from "./FormCrearVendedor";
-
+import Swal from "sweetalert2";
 
 export default function FilaUsuarios({ usuario, index, getUsuarios }) {
   const [crear, setCrear] = useState(false);
@@ -13,27 +13,37 @@ export default function FilaUsuarios({ usuario, index, getUsuarios }) {
   const handleCrear2 = () => setCrear2(true);
 
   const { nombre, rol, email, apellido, _id } = usuario;
-    // const [contadorState, setContadorState] = useState(0)
-    // setContadorState(contadorState++);
-    // console.log('usuario', usuario);
+  // const [contadorState, setContadorState] = useState(0)
+  // setContadorState(contadorState++);
+  // console.log('usuario', usuario);
 
-    const eliminar = async (event) => {
-      // event.preventDefault();
-      const confirma = window.confirm('Estas seguro que desea eliminar este usuario?');
-      if (confirma) {
+  const eliminar = async (event) => {
+    // event.preventDefault();
+
+    Swal.fire({
+      title: "Estás seguro?",
+      text: "Si lo borrás no hay vuelta atrás!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, borrar!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
         try {
-          await axios.delete('/auth/' + _id);
-          alert("Usuario eliminado con éxito!😁");
-          getUsuarios()
+          await axios.delete("/auth/" + _id);
+          getUsuarios();
+          Swal.fire("Borrado!", "Usuario eliminado con éxito.", "success");
         } catch (error) {
           console.log(error);
         }
       }
-    }
+    });
+  };
 
   return (
     <>
-      <tr> 
+      <tr>
         <td>{index}</td>
         <td>{nombre}</td>
         <td>{rol}</td>
@@ -77,13 +87,23 @@ export default function FilaUsuarios({ usuario, index, getUsuarios }) {
 
       <Modal show={crear2} onHide={handleClose2}>
         <Modal.Header closeButton>
-          <Modal.Title>{nombre} {apellido}</Modal.Title>
+          <Modal.Title>
+            {nombre} {apellido}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-              <p><strong>Nombre:</strong> {nombre}</p>
-              <p><strong>Apellido:</strong> {apellido}</p>
-              <p><strong>Email:</strong> {email}</p>
-              <p><strong>Rol:</strong> {rol}</p>
+          <p>
+            <strong>Nombre:</strong> {nombre}
+          </p>
+          <p>
+            <strong>Apellido:</strong> {apellido}
+          </p>
+          <p>
+            <strong>Email:</strong> {email}
+          </p>
+          <p>
+            <strong>Rol:</strong> {rol}
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose2}>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Modal, InputGroup, Nav } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 export default function Mensaje({ mensajesolo, getMensajes }) {
   const { _id, nombre, email, mensaje, estado, fecha } = mensajesolo;
@@ -12,16 +13,26 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
   const final = res + "...";
 
   const eliminar = async () => {
-    // event.preventDefault();
-    try {
-      const params = { _id };
-      await axios.delete("/mensaje", { params });
-
-      alert("Mensaje eliminado con éxito!😁");
-      getMensajes();
-    } catch (error) {
-      console.log(error);
-    }
+    Swal.fire({
+      title: "Estás seguro?",
+      text: "Si lo borrás no hay vuelta atrás!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, borrar!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const params = { _id };
+          await axios.delete("/mensaje", { params });
+          getMensajes();
+          Swal.fire("Borrado!", "El mensaje fue borrado.", "success");
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    });
   };
 
   return (
@@ -37,34 +48,40 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
         <td className="col-3">
           <div className="row">
             <div className="col-lg-4">
-            <Nav.Link className="mt-1"
-            href={
-              "mailto:" +
-              email +
-              "?Subject=Respuesta%20de%20Rolling%20tech%20a%20tu%20consulta"
-            }
-          >
-            <Button variant="success" size="sm">
-              <i class="far fa-envelope"></i>
-            </Button>
-          </Nav.Link>
+              <Nav.Link
+                className="mt-1"
+                href={
+                  "mailto:" +
+                  email +
+                  "?Subject=Respuesta%20de%20Rolling%20tech%20a%20tu%20consulta"
+                }
+              >
+                <Button variant="success" size="sm">
+                  <i class="far fa-envelope"></i>
+                </Button>
+              </Nav.Link>
             </div>
             <div className="col-lg-4">
-            <Button variant="primary" onClick={handleAbrir} size="sm" className="mt-3">
-            <i class="fab fa-readme"></i>
-          </Button>
+              <Button
+                variant="primary"
+                onClick={handleAbrir}
+                size="sm"
+                className="mt-3"
+              >
+                <i class="fab fa-readme"></i>
+              </Button>
             </div>
             <div className="col-lg-4">
-            <Button variant="danger" onClick={eliminar} size="sm" className="mt-3">
-            <i class="far fa-trash-alt"></i>
-          </Button>
+              <Button
+                variant="danger"
+                onClick={eliminar}
+                size="sm"
+                className="mt-3"
+              >
+                <i class="far fa-trash-alt"></i>
+              </Button>
             </div>
           </div>
-        
-          
-          
-          
-         
         </td>
       </tr>
 

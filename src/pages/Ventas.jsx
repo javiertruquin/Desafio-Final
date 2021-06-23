@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import VentasConcretadas from "../components/VentasConcretadas";
 import { Container } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
+import Swal from "sweetalert2";
 
-export default function Main() {
+export default function Main({ user}) {
   const [articles, setArticles] = useState([]);
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
   const [token, setToken] = useState(localToken);
@@ -18,9 +19,26 @@ export default function Main() {
   }, []);
 
   if (!token) {
-    alert("No estas logueado");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No estás logueado",
+      timer: 1800,
+      showConfirmButton: false,
+  });
     return <Redirect to="/" />;
   }
+  if (user.rol === "usuario") {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No podés estar por aquí",
+      timer: 1800,
+      showConfirmButton: false,
+  });
+    return <Redirect to="/" />;
+  }
+  console.log(articles);
   return (
     <div>
       <Container>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 export default function FormCrearVendedor({
   getUsuarios,
@@ -19,30 +20,32 @@ export default function FormCrearVendedor({
     if (form.checkValidity() === false) {
       return event.stopPropagation();
     }
-    if (accion === 'crear') {
+    if (accion === "crear") {
       try {
         await axios.post("/auth/register", input);
-        // localStorage.setItem("token", JSON.stringify(data));
-        // setToken(data.token);
-        // history.push("/");
-        // window.location.replace('/');
-        alert("Usuario creado correctamente.");
+        Swal.fire({
+          icon: "success",
+          title: "Usuario creado correctamente",
+        });
         handleClose();
       } catch (error) {
         console.log(error.response.data);
       }
-  } else {
-    try {
-      // Consulta post a /productos
-      const usuarioModificado = {...input, id: usuario._id};
-      console.log('produto modificado' , usuarioModificado)
-      await axios.put("/auth/admin", usuarioModificado);
-      getUsuarios()
-      alert("Usuario editado con éxito!😁");
-    } catch (error) {
-      console.log(error);
+    } else {
+      try {
+        // Consulta post a /productos
+        const usuarioModificado = { ...input, id: usuario._id };
+        console.log("produto modificado", usuarioModificado);
+        await axios.put("/auth/admin", usuarioModificado);
+        getUsuarios();
+        Swal.fire({
+          icon: "success",
+          title: "Usuario editado con éxito",
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,7 +64,7 @@ export default function FormCrearVendedor({
             name="nombre"
             placeholder="Nombre"
             // placeholder={ accion === 'editar' && usuario.nombre || "Nombre" }
-            defaultValue={ accion === 'editar' ? usuario.nombre : ''}
+            defaultValue={accion === "editar" ? usuario.nombre : ""}
           />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlInput2">
@@ -71,7 +74,7 @@ export default function FormCrearVendedor({
             required
             name="apellido"
             placeholder="Apellido"
-            defaultValue={ accion === 'editar' ? usuario.apellido : ''}
+            defaultValue={accion === "editar" ? usuario.apellido : ""}
           />
         </Form.Group>
         <Form.Group className="my-4" controlId="exampleForm.ControlInput3">
@@ -81,14 +84,14 @@ export default function FormCrearVendedor({
             required
             name="email"
             placeholder="email"
-            defaultValue={ accion === 'editar' ? usuario.email : ''}
+            defaultValue={accion === "editar" ? usuario.email : ""}
           />
         </Form.Group>
         <Form.Group className="my-4" controlId="exampleForm.ControlInput4">
           <Form.Control
-          type="password"
-          // placeholder="Contraseña"
-          placeholder={ accion === 'editar' ? '************' : "Contraseña" }
+            type="password"
+            // placeholder="Contraseña"
+            placeholder={accion === "editar" ? "************" : "Contraseña"}
           />
           <Form.Control
             className="mt-2"
@@ -96,7 +99,9 @@ export default function FormCrearVendedor({
             name="password"
             type="password"
             // placeholder="Repetir contraseña"
-            placeholder={ accion === 'editar' ? '************' : "Repetir contraseña" }
+            placeholder={
+              accion === "editar" ? "************" : "Repetir contraseña"
+            }
           />
         </Form.Group>
         <Form.Group className="my-4" controlId="exampleForm.ControlSelect1">
@@ -106,7 +111,7 @@ export default function FormCrearVendedor({
             onChange={(e) => handleChange(e)}
             name="rol"
             required
-            defaultValue={ accion === 'editar' && usuario.rol}
+            defaultValue={accion === "editar" && usuario.rol}
           >
             <option>Elige una opcion</option>
             <option value="vendedor">vendedor</option>
