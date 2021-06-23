@@ -212,11 +212,8 @@ export default function SeccionProducto({ setUser }) {
                                     <p className="ms-1 text-success mb-0">
                                         12 x $
                                         {producto.descuento
-                                            ? Number.parseInt(
-                                                  producto.descuento
-                                              ) / 12
-                                            : Number.parseInt(producto.precio) /
-                                              12}
+                                            ? parseFloat(parseInt(producto.descuento) / 12).toFixed(2)
+                                            : parseFloat(parseInt(producto.precio) /12).toFixed(2)}
                                         &nbsp; sin interés
                                     </p>
                                 </p>
