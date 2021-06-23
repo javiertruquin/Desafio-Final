@@ -19,7 +19,6 @@ export default function UsuariosAdmin({user}) {
     const handleClose = () => setCrear(false);
     const handleCrear = () => setCrear(true);
     const [rol, setRol] = useState("vendedor");
-    const [subNav, setSubNav] = useState("vendedor");
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const [token, setToken] = useState(localToken);
 
@@ -54,9 +53,6 @@ export default function UsuariosAdmin({user}) {
         if (eventKey === "4") {
             setRol("todos");
         }
-        // } if (eventKey === '3') {
-        //   setRol({ rol: 'admin', rol2: 'vendedor' })
-        // }
     };
 
     if (!token) {
@@ -100,14 +96,6 @@ export default function UsuariosAdmin({user}) {
                                 Agregar vendedor
                             </button>
                         </div>
-
-                        {/* <Button
-              className="py-3 px-5"
-              variant="secondary"
-              onClick={handleCrear}
-            >
-              Agregar Producto
-          </Button>{" "} */}
                     </div>
                 </div>
                 <div className="">

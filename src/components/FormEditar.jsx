@@ -1,14 +1,12 @@
 import axios from "axios";
 import { React, useEffect, useState } from "react";
 import { Button, Form, FormControl, InputGroup, Row } from "react-bootstrap";
-import { useHistory } from "react-router";
 import Swal from "sweetalert2";
 
 export default function FormEditar({ getProductos, accion, producto }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
   const [porcentajeDescuento, setPorcentajeDescuento] = useState();
-  const history = useHistory();
   let porcentajeDescuentoInt = 0;
   
   if (producto?.descuento) {
@@ -28,7 +26,6 @@ export default function FormEditar({ getProductos, accion, producto }) {
 
     if (accion === "crear") {
       try {
-        // Consulta post a /productos
         await axios.post("/producto", input);
         getProductos();
         Swal.fire({
@@ -40,11 +37,9 @@ export default function FormEditar({ getProductos, accion, producto }) {
       }
     } else {
       try {
-        // Consulta post a /productos
         const productoModificado = { ...input, id: producto._id };
         await axios.put("/producto", productoModificado);
         getProductos();
-        // porcentajeDescuento = 0;
         Swal.fire({
           icon: "success",
           title: "Producto editado con éxito",

@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "react-credit-cards";
-import { Link } from "react-router-dom";
-import { Navbar, Nav, Dropdown } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import { Button } from "react-bootstrap";
 
 import {
   formatCreditCardNumber,
   formatCVC,
   formatExpirationDate,
-  // formatFormData,
 } from "../utils";
 
 import "react-credit-cards/es/styles-compiled.css";

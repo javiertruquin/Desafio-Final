@@ -76,7 +76,7 @@ export default function NavAdmin({ logout, userRol, user, token }) {
 
               <Dropdown.Menu className="drop-menu">
               { token && <p className="pl-2 nombre-usuario-nav">Hola {usuario.nombre}</p>}
-              { token && <p className="pl-2 email-usuario-nav">Hola {usuario.nombre}</p>}
+              { token && <p className="pl-2 email-usuario-nav">{usuario.email}</p>}
                 <Nav.Link style={{ color: "#000" }} onClick={logout}>
                   Cerrar Sesión
                 </Nav.Link>

@@ -32,8 +32,8 @@ export default function NavReactB({
     }
   };
   useEffect(() => {
-      getFavoritos();
-  }, [])
+    getFavoritos();
+    }, [])
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" className="sticky-top">

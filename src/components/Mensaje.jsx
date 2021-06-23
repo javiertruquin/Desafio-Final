@@ -57,7 +57,7 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
                 }
               >
                 <Button variant="success" size="sm">
-                  <i class="far fa-envelope"></i>
+                  <i className="far fa-envelope"></i>
                 </Button>
               </Nav.Link>
             </div>
@@ -68,7 +68,7 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
                 size="sm"
                 className="mt-3"
               >
-                <i class="fab fa-readme"></i>
+                <i className="fab fa-readme"></i>
               </Button>
             </div>
             <div className="col-lg-4">
@@ -78,7 +78,7 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
                 size="sm"
                 className="mt-3"
               >
-                <i class="far fa-trash-alt"></i>
+                <i className="far fa-trash-alt"></i>
               </Button>
             </div>
           </div>

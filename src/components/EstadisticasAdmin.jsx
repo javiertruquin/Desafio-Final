@@ -35,9 +35,7 @@ export default function EstadisticasAdmin({ user }) {
               <Card.Header>Cantidad de Productos</Card.Header>
               <Card.Body>
                 {/* <Card.Title>Special title treatment</Card.Title> */}
-                <Card.Text>
                   <div className="numeros-estadisticas text-dark">50</div>
-                </Card.Text>
                 <Button href="/productos" variant="primary">
                   Ver productos
                 </Button>
@@ -50,9 +48,7 @@ export default function EstadisticasAdmin({ user }) {
               <Card.Header>Productos Vendidos</Card.Header>
               <Card.Body>
                 {/* <Card.Title>Special title treatment</Card.Title> */}
-                <Card.Text>
                   <div className="numeros-estadisticas text-success">23</div>
-                </Card.Text>
                 <Button href="/productos" variant="primary">
                   Ver listado
                 </Button>
@@ -65,9 +61,7 @@ export default function EstadisticasAdmin({ user }) {
               <Card.Header>Vendedores</Card.Header>
               <Card.Body>
                 {/* <Card.Title>Special title treatment</Card.Title> */}
-                <Card.Text>
                   <div className="numeros-estadisticas text-dark">8</div>
-                </Card.Text>
                 <Button href="/usuarios" variant="primary">
                   Ver vendedores
                 </Button>
@@ -80,9 +74,7 @@ export default function EstadisticasAdmin({ user }) {
               <Card.Header>Visitas</Card.Header>
               <Card.Body>
                 {/* <Card.Title>Special title treatment</Card.Title> */}
-                <Card.Text>
                   <div className="numeros-estadisticas text-danger">256</div>
-                </Card.Text>
                 {/* <Button href="/productos" variant="primary">Ver productos</Button> */}
               </Card.Body>
               <Card.Footer className="text-muted">17/05/21 - 16:54</Card.Footer>
@@ -93,9 +85,7 @@ export default function EstadisticasAdmin({ user }) {
               <Card.Header>Usuarios</Card.Header>
               <Card.Body>
                 {/* <Card.Title>Special title treatment</Card.Title> */}
-                <Card.Text>
                   <div className="numeros-estadisticas text-success">765</div>
-                </Card.Text>
               </Card.Body>
               <Card.Footer className="text-muted">17/05/21 - 16:54</Card.Footer>
             </Card>

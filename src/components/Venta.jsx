@@ -26,7 +26,7 @@ export default function Venta({ venta, index }) {
 
         <td className="col-2">
           <Button variant="primary" onClick={handleAbrir} size="sm">
-            <i class="fab fa-readme"></i>
+            <i className="fab fa-readme"></i>
           </Button>{" "}
         </td>
       </tr>
@@ -48,8 +48,8 @@ export default function Venta({ venta, index }) {
             <strong>ARTICULOS COMPRADOS</strong>
             <br />
             
-            {venta.carrito.map((carrito) => (
-              <VentaIndividual carrito={carrito} />
+            {venta.carrito.map((carrito, index) => (
+              <VentaIndividual key={index} carrito={carrito} />
             ))}
             <br />  
             <strong className="pr-2">Total:</strong> {venta.total}

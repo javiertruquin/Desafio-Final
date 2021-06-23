@@ -23,7 +23,7 @@ export default function Mensajes({ articles, getVentas }) {
         </thead>
         <tbody>
           {articles.map((venta, index) => (
-            <Venta venta={venta} index={index + 1} getVentas={getVentas} key={venta._id} />
+            <Venta key={index} venta={venta} index={index + 1} getVentas={getVentas} key={venta._id} />
           ))}
         </tbody>
       </Table>

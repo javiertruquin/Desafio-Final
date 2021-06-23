@@ -69,10 +69,11 @@ export default function Productos({ user, setUser, carrito, categoriaFiltrada })
                 <div className="col-12 contenedor-items pb-4">
                     {/* <BuscadorCategorias /> */}
                     <div className="row">
-                        {computadoras.map((computadora) => (
+                        {computadoras.map((computadora, index) => (
                             <div className="col-sm-12 col-lg-6 col-xl-4">
                                 <CardProductoView
                                     setUser={setUser}
+                                    key={index}
                                     user={user}
                                     computadora={computadora}
                                     carrito={carrito}
