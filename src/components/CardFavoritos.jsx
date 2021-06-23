@@ -1,29 +1,11 @@
 import axios from "axios";
 import { React, useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import compu1 from "../assets/img/compu1/compu1.jpeg";
+import { useHistory } from "react-router-dom";
 
-export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
+export default function CardFavoritos({ favorito }) {
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
-  const [productoFavorito, setProductoFavorito] = useState({})
   const [token, setToken] = useState(localToken);
   let history = useHistory();
-
-  // const { _id } = favorito;
-  
-  // const getProducto = async () => {
-  //   try {
-  //     const _id = favorito.producto;
-  //     const response = await axios.get('/producto/' + _id)
-  //     setProductoFavorito(response.data)
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-  
-  // useEffect(() => {
-  //   getProducto();
-  // }, [])
 
   const addToFav = async () => {
     if (!token) {
@@ -37,10 +19,6 @@ export default function CardFavoritos({ favorito, setUser, getFavoritos }) {
         await axios.put("/usuarios/favorito", {
           itemFavorito: { producto: _id },
         });
-        // const { data } = await axios.get("/auth");
-        // setUser(data);
-        // getFavoritos();
-        // alert("producto agregado a favorito" + data);
       } catch (error) {
         console.log(error.response.data);
       }

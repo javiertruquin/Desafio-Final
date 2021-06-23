@@ -14,25 +14,7 @@ export default function ProductosAdmin({ token }) {
 
   const handleClose = () => setCrear(false);
   const handleCrear = () => setCrear(true);
-
-  // useEffect(() => {
-  //   setParams(categoria);
-  // }, [categoria])
-  // useEffect(() => {
-  //   setParams(habilitado);
-  // }, [habilitado])
-
   const getProductos = async () => {
-    // if (parametros === 'habilitado' || parametros === 'desahabilitado') {
-    //   if ()
-
-
-    //   const params = { habilitado };
-    // } if (habilitado === false) {
-    //   const params = { habilitado };
-    // }
-    
-      // const params = { habilitado };
     if (params === 'todos') {
       const response = await axios.get(`/producto`);
       setProductos(response.data);

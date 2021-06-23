@@ -1,16 +1,11 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { Button, Modal, InputGroup, Nav } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import VentaIndividual from "./VentaIndividual";
 
-export default function Venta({ venta, getVentas, index }) {
-  // const { _id, usuario, numeroventa, fecha } = venta;
-  // const { localidad, provincia, calle, numero, piso, telefono, observaciones } =
-  //   venta.domicilio[0];
+export default function Venta({ venta, index }) {
   const [abrir, setAbrir] = useState(false);
   const handleClose = () => setAbrir(false);
   const handleAbrir = () => setAbrir(true);
-  const date = new Date();
 
   
   let cantidad = 0;
@@ -18,9 +13,7 @@ export default function Venta({ venta, getVentas, index }) {
     const element = venta.carrito[i];
     cantidad = cantidad + element.cantidad;
   }
-  
-  console.log('venta', venta)
-  return (
+    return (
     <>
       <tr>
         <td>{index}</td>
@@ -55,11 +48,7 @@ export default function Venta({ venta, getVentas, index }) {
             
             {venta.carrito.map((carrito) => (
               <VentaIndividual carrito={carrito} />
-              // console.log('carrito', carrito)
             ))}
-            
-            
-            
             <br />  
             <strong className="pr-2">Total:</strong> {venta.total}
             <hr />

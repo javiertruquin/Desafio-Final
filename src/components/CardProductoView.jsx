@@ -7,30 +7,27 @@ export default function CardProductoView({
   computadora,
   user,
   setUser,
-  carrito,
+  productosFavoritos,
 }) {
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
-  const { titulo, descripcion, precio, image1, _id, serie } = computadora;
+  const { titulo, descripcion, precio, image1, serie } = computadora;
   const [token, setToken] = useState(localToken);
   const [esFavorito, setEsFavorito] = useState();
   let history = useHistory();
 
+  // console.log("computadora", computadora);
+  // console.log("producto", productosFavoritos);
     // useEffect(() => {
-    //     user.favoritos?.map((favorito) => {
-    //         const productoFavorito = favorito;
-    //         if (productoFavorito.producto === _id) {
+    //   productosFavoritos?.map((favorito) => {
+    //       if (favorito?.producto === computadora._id) {
+    //           console.log("id");
     //           setEsFavorito(true);
     //         } else {
     //           setEsFavorito(false);
     //         }
     //     })
-      
-    // }, [user])
+    // }, [])
 
-//   for (let i = 0; i < user.favoritos.length; i++) {
-//   }
-
-//   console.log("esFavorito", user);
 
   useEffect(() => {
     setToken(localToken);
@@ -44,7 +41,7 @@ export default function CardProductoView({
     } else {
       try {
         await axios.put("/usuarios/carrito", {
-          itemCarrito: { producto: _id, cantidad: 1 },
+          itemCarrito: { producto: computadora._id, cantidad: 1 },
         });
         const { data } = await axios.get("/auth");
         setUser(data);
@@ -62,7 +59,7 @@ export default function CardProductoView({
       try {
         console.log("entro");
         await axios.put("/usuarios/favorito", {
-          itemFavorito: { producto: _id },
+          itemFavorito: { producto: computadora._id },
         });
         const { data } = await axios.get("/auth");
         setUser(data);
@@ -76,10 +73,10 @@ export default function CardProductoView({
     <div className="">
       <div className="my-1 p-4">
         <button className="btn-serie">{serie}</button>
-        <Link to={"/producto/" + _id}>
+        <Link to={"/producto/" + computadora._id}>
           <img src={image1} alt="" className="img-fluid" />
         </Link>
-        <Link to={"/producto/" + _id}>
+        <Link to={"/producto/" + computadora._id}>
           <p className="titulo-producto">{titulo}</p>
         </Link>
         <ul className="detalle-producto">

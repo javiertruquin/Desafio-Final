@@ -242,7 +242,6 @@ export default function SeccionProducto({ setUser }) {
                                             ))}
                                     </Form.Control>
                                 </div>
-                                            console.log("SeccionProducto ~ index", index)
                                 <div onClick={addToCart}>
                                     <Link to="/envio" className="my-auto">
                                         <Button

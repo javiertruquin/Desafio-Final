@@ -15,6 +15,8 @@ SwiperCore.use([Pagination]);
 
 function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
   const [computadoras, setComputadoras] = useState([]);
+  const [esFavorito, setEsFavorito] = useState();
+  const [productosFavoritos, setProductosFavoritos] = useState([]);
   const [categoria, setCategoria] = useState(filtro);
 
   const getComputadoras = async () => {
@@ -26,14 +28,33 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
     getComputadoras();
   }, [categoria]);
 
-  // useEffect(() => {
-  //     const getComputadoras = async () => {
-  //         const response = await axios.get(`/producto`);
-  //         console.log("getComputadoras ~ response", response);
-  //         setComputadoras(response.data);
-  //     };
-  //     getComputadoras();
-  // }, []);
+  const getFavoritos = async () => {
+    try {
+      const _id = user._id;
+      const response = await axios.get("/auth/favoritos/", { id: _id });
+      setProductosFavoritos(response.data.favoritos);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+      getFavoritos();
+  }, [])
+
+//   useEffect(() => {
+//     computadoras?.map((producto) => {
+//       user?.favoritos?.map((favorito) => {
+//         if (favorito?.producto === producto._id) {
+//           console.log("entro");
+//             setEsFavorito(true);
+//           } else {
+//             setEsFavorito(false);
+//           }
+//       })
+//     })
+
+// }, [])
+
   return (
     <div className="container position-relative mt-5">
       <Nav.Link className="p-0" exact to={"/" + filtro + "s"} as={NavLink}>
@@ -93,6 +114,7 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
                 <CardProductoView
                   setUser={setUser}
                   user={user}
+                  productosFavoritos={productosFavoritos}
                   computadora={computadora}
                   carrito={carrito}
                 />

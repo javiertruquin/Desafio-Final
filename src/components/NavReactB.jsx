@@ -4,9 +4,7 @@ import logo from "../assets/img/logo.png";
 import { NavLink } from "react-router-dom";
 import CardFavoritos from "./CardFavoritos";
 import "../Favoritos.css";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
-// const localToken = JSON.parse(localStorage.getItem("token")) || "";
 
 export default function NavReactB({
   logout,
@@ -18,17 +16,11 @@ export default function NavReactB({
 }) {
   const [crear, setCrear] = useState(false);
   const handleClose = () => setCrear(false);
-//   const [token, setToken] = useState(localToken)
   const handleCrear = () => {
     setCrear(true);
     getFavoritos();
   };
   const [productosFavoritos, setProductosFavoritos] = useState([]);
-  let history = useHistory();
-
-//   useEffect(() => {
-//       setToken
-//   }, [input])
 
   const getFavoritos = async () => {
     try {

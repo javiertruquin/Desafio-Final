@@ -14,26 +14,10 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
   }
   
 
-  console.log("SeccionCarrito ~ total", total)
   const estiloCards =
     view === "carrito" ? "col-12 col-lg-8 px-lg-3" : "col-12 px-lg-3";
   const estiloTotal =
     view === "carrito" ? "col-12 col-sm-6 col-lg-4 ms-auto" : "col-6 ms-auto";
-
-  // useEffect(() => {
-  //     const getCarrito = async () => {
-  //         const response = await axios.get(`/auth`);
-  //         console.log("getCarrito ~ response", response);
-  //         setUser(response.data);
-  //     };
-  //     getCarrito();
-  // }, []);
-
-//   {carrito?.map((carrito) => (
-
-    // setPrecioFinal(precioFinal = precioFinal + carrito.precio)
-//   ))}
-
   return (
     <div className="container my-4 fuente">
       <div className="row">
@@ -56,10 +40,8 @@ export default function SeccionCarrito({ setUser, carrito, view }) {
         <div className={estiloCards}>
           {carrito?.map((carrito, index) => (
             <CardCarrito carrito={carrito} index={index} setUser={setUser} precioFinal={precioFinal} setPrecioFinal={setPrecioFinal} />
-            // setPrecioFinal(precioFinal = precioFinal + carrito.precio)
           ))}
         </div>
-        {/* Resumen */}
 
         <div className={estiloTotal}>
           <div

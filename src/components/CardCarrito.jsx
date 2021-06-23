@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router";
 
 export default function CardCarrito({ carrito, setUser }) {
     const [input, setInput] = useState({ cantidad: carrito.cantidad });

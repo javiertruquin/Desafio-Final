@@ -1,6 +1,6 @@
 import axios from "axios";
 import { React, useState } from "react";
-import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 
 export default function CardDomicilios({
   userComplete,
@@ -12,12 +12,6 @@ export default function CardDomicilios({
   const [validated, setValidated] = useState(false);
   const [disabledDomicilio, setDisabledDomicilio] = useState(true);
   const [inputDomicilio, setInputDomicilio] = useState(domicilio);
-  //   const [domicilio, setDomicilio] = useState(usuario.domicilio);
-  //   const { domicilio } = usuario;
-
-  // console.log("usuario", inputDomicilio);
-  //   const { titulo, direccion, ciudad, codPostal } = domicilio;
-
   const handleSubmitDomicilio = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
@@ -25,7 +19,6 @@ export default function CardDomicilios({
       const domicilio = [];
       domicilio.push(inputDomicilio);
       const usuarioModificado = { domicilio, id: userComplete._id, index: index };
-      // console.log("Domicilio modificado", usuarioModificado);
       await axios.put("/auth/domicilio", usuarioModificado);
       getUsuario();
       alert("Domicilio editado con éxito!😁");
@@ -39,7 +32,6 @@ export default function CardDomicilios({
     let changedInputDomicilio = { ...inputDomicilio, [name]: value };
     setInputDomicilio(changedInputDomicilio);
   };
-  // console.log("input", inputDomicilio);
 
   return (
     <>
