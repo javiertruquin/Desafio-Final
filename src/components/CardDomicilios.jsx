@@ -66,7 +66,7 @@ export default function CardDomicilios({
               </Form.Group>
             </Card.Header>
             <Card.Body>
-              <Form.Group className="d-flex" controlId="formPlaintextEmail">
+              <Form.Group className="d-flex" controlId="formPlaintextEmail2">
                 <Form.Control
                   defaultValue={accion === "agregar" ? "" : domicilio.provincia}
                   plaintext={disabledDomicilio}
@@ -84,7 +84,7 @@ export default function CardDomicilios({
                   name="localidad"
                 />
               </Form.Group>
-              <Form.Group className="d-flex" controlId="formPlaintextEmail">
+              <Form.Group className="d-flex" controlId="formPlaintextEmail3">
                 <Form.Control
                   defaultValue={accion === "agregar" ? "" : domicilio.calle}
                   plaintext={disabledDomicilio}
@@ -102,7 +102,7 @@ export default function CardDomicilios({
                   onChange={(e) => handleChangeDomicilio(e)}
                 />
               </Form.Group>
-              <Form.Group className="d-flex" controlId="formPlaintextEmail">
+              <Form.Group className="d-flex" controlId="formPlaintextEmail4">
                 <Form.Control
                   defaultValue={
                     accion === "agregar" ? "" : domicilio.departamento

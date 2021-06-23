@@ -181,7 +181,7 @@ export default function SobreNosotros() {
                           <div className="col-md-6">
                             <div className="mu-single-team">
                               <div className="mu-single-team-img">
-                                <img src={miembro3} style={{ 'max-width': '7.5rem' }} alt="img" />
+                                <img src={miembro3} style={{ maxWidth: '7.5rem' }} alt="img" />
                               </div>
                               <div className="mu-single-team-content">
                                 <h3>Tomás Guerineau</h3>

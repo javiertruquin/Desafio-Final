@@ -117,7 +117,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 aria-describedby="inputGroup-sizing-default"
               />
             </InputGroup>
-            <InputGroup controlId="formBasicPassword">
+            <InputGroup controlid="formBasicPassword">
               <InputGroup.Prepend>
                 <InputGroup.Text id="inputGroup-sizing-default">
                   Documento
@@ -132,7 +132,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 defaultValue={documento || ""}
               />
             </InputGroup>
-            <InputGroup className="my-3" controlId="formBasicPassword">
+            <InputGroup className="my-3" controlid="formBasicPassword2">
               <InputGroup.Prepend>
                 <InputGroup.Text id="inputGroup-sizing-default">
                   Teléfono
@@ -169,7 +169,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
           <hr />
           <div className="my-5">
             <Card.Title>Datos sensibles</Card.Title>
-            <InputGroup controlId="formBasicPassword">
+            <InputGroup controlid="formBasicPassword3">
               <InputGroup.Prepend>
                 <InputGroup.Text id="inputGroup-sizing-default">
                   Contraseña
@@ -217,7 +217,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
         }
 
         { userComplete.domicilio?.map((domicilio, index) => (
-          <CardDomicilios domicilio={domicilio} index={index} userComplete={userComplete} getUsuario={getUsuario} />
+          <CardDomicilios key={index + 1} domicilio={domicilio} index={index} userComplete={userComplete} getUsuario={getUsuario} />
         )) }
       </Card.Body>
     </>
