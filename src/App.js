@@ -40,6 +40,17 @@ function App() {
     const [token, setToken] = useState(localToken);
     let history = useHistory();
 
+    const getFavoritos = async () => {
+        try {
+            const _id = user._id;
+            const response = await axios.get("/auth/favoritos/", { id: _id });
+            setProductosFavoritos(response.data.favoritos);
+            localStorage.setItem("favoritos", JSON.stringify(response.data.favoritos));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     useEffect(() => {
         if (token) {
             const request = async () => {
@@ -48,8 +59,12 @@ function App() {
                 setUser(data);
             };
             request();
+            getFavoritos();
         }
     }, [token]);
+
+
+    const [productosFavoritos, setProductosFavoritos] = useState([]);
 
     // Para hacer el logout
 
@@ -89,6 +104,8 @@ function App() {
                         user={user}
                         setUser={setUser}
                         carrito={user.carrito}
+                        productosFavoritos={productosFavoritos}
+                        getFavoritos={getFavoritos}
                     />
                 </Route>
                 <Route path="/computadoras">
