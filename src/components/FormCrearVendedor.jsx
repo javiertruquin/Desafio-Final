@@ -35,7 +35,6 @@ export default function FormCrearVendedor({
       try {
         // Consulta post a /productos
         const usuarioModificado = { ...input, id: usuario._id };
-        console.log("produto modificado", usuarioModificado);
         await axios.put("/auth/admin", usuarioModificado);
         getUsuarios();
         Swal.fire({

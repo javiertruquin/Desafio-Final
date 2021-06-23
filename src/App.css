@@ -171,6 +171,20 @@
   background-color: white;
   padding: 5px 10px;
 }
+.btn-heart-true {
+  font-size: 1.2rem;
+  border: 0;
+  color: #ac0000;
+  background-color: white;
+  padding: 5px 10px;
+}
+.btn-heart-true:hover {
+  font-size: 1.2rem;
+  border: 0;
+  color: #ce3737;
+  background-color: white;
+  padding: 5px 10px;
+}
 
 .btn-cart {
   font-size: 1.2rem;
