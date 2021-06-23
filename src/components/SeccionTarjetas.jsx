@@ -86,7 +86,7 @@ export default class App extends React.Component {
               style={{ color: "#00598a", fontSize: "22pt" }}
               className="fas fa-credit-card "
             ></i>
-            <p className="sub-mision pt-1" style={{ "font-size": "70%" }}>
+            <p className="sub-mision pt-1" style={{ fontSize: "70%" }}>
               TARJETA
             </p>
           </div>
@@ -101,7 +101,7 @@ export default class App extends React.Component {
             focused={focused}
             callback={this.handleCallback}
           />
-          <form ref={(c) => (this.form = c)} onSubmit={this.handleSubmit}>
+          {/* <form ref={(c) => (this.form = c)} onSubmit={this.handleSubmit}> */}
             <div className="form-group">
               <input
                 type="tel"
@@ -158,7 +158,7 @@ export default class App extends React.Component {
                                 Comprar
                             </button>
                         </div> */}
-          </form>
+          {/* </form> */}
         </div>
       </div>
     );

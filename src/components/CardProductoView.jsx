@@ -8,36 +8,29 @@ export default function CardProductoView({
     computadora,
     user,
     setUser,
+    setvolverCarga,
     productosFavoritos,
 }) {
-    const localFavoritos = JSON.parse(localStorage.getItem("favoritos")) || "";
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const { titulo, descripcion, precio, image1, serie, _id } = computadora;
     const [token, setToken] = useState(localToken);
-    const [esFavorito, setEsFavorito] = useState(false);
+    const [esFavorito, setEsFavorito] = useState("btn-heart");
     let history = useHistory();
 
     const final = titulo.substring(0, 40);
-
     const checkFavoritos = () => {
-        localFavoritos?.map((favorito) => {
-            if (favorito.producto._id == _id) {
-                console.log("entro",favorito.producto._id);
-                setEsFavorito(true);
+        productosFavoritos?.map((favorito) => {
+            if (favorito.producto._id === _id) {
+                console.log("entro");
+                setEsFavorito("btn-heart-true");
             } else {
-                console.log("no entro");
-                setEsFavorito(false);
+                setEsFavorito("btn-heart");
             }
         });
     };
     useEffect(() => {
         checkFavoritos();
-    }, [esFavorito]);
-
-    //   for (let i = 0; i < user.favoritos.length; i++) {
-    //   }
-
-    //   console.log("esFavorito", user);
+    }, []);
 
     useEffect(() => {
         setToken(localToken);
@@ -94,7 +87,7 @@ export default function CardProductoView({
             <div
                 className="mb-3 p-4"
                 style={{
-                    minHeight: "550px",
+                    minHeight: "580px",
                     display: "flex",
                     flexDirection: "column",
                 }}
@@ -126,7 +119,7 @@ export default function CardProductoView({
                                 : precio}
                         </span>
                         <span className="my-auto">
-                            <button className={esFavorito?"btn-heart-true":"btn-heart"} onClick={addToFav}>
+                            <button className={esFavorito} onClick={addToFav}>
                                 <i className="fas fa-heart"></i>
                             </button>
                         </span>

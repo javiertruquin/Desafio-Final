@@ -72,7 +72,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                     ></i>
                     <p
                         className="sub-mision pt-1"
-                        style={{ "font-size": "70%" }}
+                        style={{ fontSize: "70%" }}
                     >
                         DIRECCIÓN
                     </p>
@@ -88,7 +88,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
             <div className="d-flex">
             <DropdownButton size="sm" id="dropdown-basic-button" title="Mis direcciones">
                 { domicilio?.map((dom, index) => (
-                    <Dropdown.Item value={index + 1} onClick={() => llenarDireccion(dom)}>{dom.titulo}</Dropdown.Item>
+                    <Dropdown.Item key={index} value={index + 1} onClick={() => llenarDireccion(dom)}>{dom.titulo}</Dropdown.Item>
                     )) }
               {/* <Dropdown.Item href="#/action-2">Another action</Dropdown.Item> */}
               {/* <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
@@ -106,7 +106,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                             <MDBInput
                                 required
                                 type="text"
-                                maxlength="30"
+                                maxLength="30"
                                 placeholder="Provincia"
                                 label="Provincia"
                                 onChange={(event) => handleInputChange(event)}
@@ -122,7 +122,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                             <MDBInput
                                 required
                                 type="text"
-                                maxlength="30"
+                                maxLength="30"
                                 placeholder="Localidad"
                                 label="Localidad"
                                 onChange={(event) => handleInputChange(event)}
@@ -141,7 +141,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 required
                                 type="text"
                                 placeholder="Calle"
-                                maxlength="30"
+                                maxLength="30"
                                 value={ DomicilioCompleto?.calle }
                                 label="Calle"
                                 onChange={(event) => handleInputChange(event)}
@@ -158,7 +158,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 placeholder="Número"
                                 type="number"
                                 value={ DomicilioCompleto?.numero }
-                                maxlength="30"
+                                maxLength="30"
                                 label="Número"
                                 onChange={(event) => handleInputChange(event)}
                                 name="numero"
@@ -187,8 +187,8 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 type="number"
                                 valueDefault={ user.telefono }
                                 label="Teléfono de contacto"
-                                maxlength="30"
-                                minlength="7"
+                                maxLength="30"
+                                minLength="7"
                                 onChange={(event) => handleInputChange(event)}
                                 name="telefono"
                             >
@@ -207,7 +207,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 placeholder="Indicaciones adicionales"
                                 label="Indicaciones adicionales"
                                 rows="4"
-                                maxlength="250"
+                                maxLength="250"
                                 onChange={(event) => handleInputChange(event)}
                                 name="observaciones"
                             ></MDBInput>

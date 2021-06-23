@@ -65,7 +65,7 @@ export default function Login({ setUser, setToken }) {
                                 >
                                     <Form.Group controlId="formBasicEmail">
                                         <MDBInput
-                                            maxlength="50"
+                                            maxLength="50"
                                             name="email"
                                             onChange={handleChange}
                                             className="input2"
@@ -90,7 +90,7 @@ export default function Login({ setUser, setToken }) {
                                             rows="2"
                                             icon="key"
                                             required
-                                            maxlength="30"
+                                            maxLength="30"
                                             minlength="6"
                                         >
                                             <div className="invalid-feedback">
