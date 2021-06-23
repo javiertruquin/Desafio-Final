@@ -78,7 +78,7 @@ export default function SeccionProducto({ setUser }) {
     return (
         <>
             {/* <NavReactB /> */}
-            <div className="container my-3 ">
+            <div className="container my-3 fuente">
                 <div className="p-3 m-auto row flex-row">
                     <a href="/">Volver atras</a>
                     <div className="col-lg-7 ">
@@ -253,7 +253,7 @@ export default function SeccionProducto({ setUser }) {
                                 <div onClick={addToCart}>
                                     <Link to="/envio" className="my-auto">
                                         <Button
-                                            className="w-100 my-1 mx-0 btn-serie"
+                                            className="w-100 my-1 mx-0"
                                             size="lg"
                                         >
                                             Comprar Ahora
