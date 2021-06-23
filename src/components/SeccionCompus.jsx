@@ -11,10 +11,8 @@ import axios from "axios";
 
 SwiperCore.use([Pagination]);
 
-function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
+function SeccionCompus({ setUser, carrito, filtro, user, limite,productosFavoritos,getFavoritos }) {
   const [computadoras, setComputadoras] = useState([]);
-  const [esFavorito, setEsFavorito] = useState();
-  const [productosFavoritos, setProductosFavoritos] = useState([]);
   const [categoria, setCategoria] = useState(filtro);
   const [volverCarga, setvolverCarga] = useState(false)
 
@@ -30,18 +28,6 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
     getComputadoras();
   }, []);
 
-  const getFavoritos = async () => {
-    try {
-      const _id = user._id;
-      const response = await axios.get("/auth/favoritos/", { id: _id });
-      setProductosFavoritos(response.data.favoritos);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-      getFavoritos();
-  }, [])
 
 //   useEffect(() => {
 //     computadoras?.map((producto) => {
@@ -121,6 +107,7 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
                   productosFavoritos={productosFavoritos}
                   computadora={computadora}
                   carrito={carrito}
+                  getFavoritos={getFavoritos}
                 />
               </SwiperSlide>
             ))}

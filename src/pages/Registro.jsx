@@ -70,7 +70,7 @@ export default function Registro({ setToken }) {
                 <MDBRow>
                     <MDBCol>
                         <MDBInput
-                            maxlength="30"
+                            maxLength="30"
                             name="nombre"
                             onChange={(e) => handleChange(e)}
                             required
@@ -84,7 +84,7 @@ export default function Registro({ setToken }) {
                     </MDBCol>
                     <MDBCol>
                         <MDBInput
-                            maxlength="30"
+                            maxLength="30"
                             name="apellido"
                             onChange={(e) => handleChange(e)}
                             required
@@ -101,7 +101,7 @@ export default function Registro({ setToken }) {
                 <MDBRow>
                     <MDBCol>
                         <MDBInput
-                            maxlength="50"
+                            maxLength="50"
                             name="email"
                             onChange={(e) => handleChange(e)}
                             required
@@ -119,7 +119,7 @@ export default function Registro({ setToken }) {
                     <MDBCol>
                         <MDBInput
                             minLength="6"
-                            maxlength="30"
+                            maxLength="30"
                             name="password1"
                             onChange={(e) => handleChange(e)}
                             type="password"
@@ -135,7 +135,7 @@ export default function Registro({ setToken }) {
                     <MDBCol>
                         <MDBInput
                             minLength="6"
-                            maxlength="30"
+                            maxLength="30"
                             name="password"
                             onChange={(e) => handleChange(e)}
                             type="password"

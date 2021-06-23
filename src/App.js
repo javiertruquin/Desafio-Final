@@ -39,7 +39,19 @@ function App() {
     const [user, setUser] = useState({});
     const [token, setToken] = useState(localToken);
     const [image, setImage] = useState('');
+    const [productosFavoritos, setProductosFavoritos] = useState([]);
     let history = useHistory();
+
+    const getFavoritos = async () => {
+        try {
+            const _id = user._id;
+            const response = await axios.get("/auth/favoritos/", { id: _id });
+            setProductosFavoritos(response.data.favoritos);
+            localStorage.setItem("favoritos", JSON.stringify(response.data.favoritos));
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         if (token) {
@@ -49,6 +61,7 @@ function App() {
                 setUser(data);
             };
             request();
+            getFavoritos();
         }
     }, [token]);
 
@@ -90,6 +103,8 @@ function App() {
                         user={user}
                         setUser={setUser}
                         carrito={user.carrito}
+                        productosFavoritos={productosFavoritos}
+                        getFavoritos={getFavoritos}
                     />
                 </Route>
                 <Route path="/computadoras">
