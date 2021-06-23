@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/thumbs/thumbs.min.css";
-import { useHistory, Link} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import SwiperCore, { Navigation, Thumbs } from "swiper/core";
 import { useParams } from "react-router";
@@ -70,17 +70,19 @@ export default function SeccionProducto({ setUser }) {
     useEffect(() => {
         getProducto();
     }, []);
-    
+
     useEffect(() => {
         getProducto();
-    }, [location])
+    }, [location]);
 
     return (
         <>
             {/* <NavReactB /> */}
-            <div className="container my-3 ">
+            <div className="container my-3 fuente">
                 <div className="p-3 m-auto row flex-row">
-                    <a href="/">Volver atras</a>
+                    <Link to="/">
+                        <a href="/">Volver atras</a>
+                    </Link>
                     <div className="col-lg-7 ">
                         <Swiper
                             style={{
@@ -183,22 +185,38 @@ export default function SeccionProducto({ setUser }) {
                                 <p className="titulo-producto-view">
                                     {producto.titulo}
                                 </p>
-                                    { producto.descuento && <h5 className="grey-text"><del>${producto.precio}</del></h5>}
+                                {producto.descuento && (
+                                    <h5 className="grey-text">
+                                        <del>${producto.precio}</del>
+                                    </h5>
+                                )}
                                 <div className="d-flex ">
                                     <h3 className="my-auto">
                                         <strong>
-                                            ${ producto.descuento ? producto.descuento : producto.precio }
+                                            $
+                                            {producto.descuento
+                                                ? producto.descuento
+                                                : producto.precio}
                                         </strong>
                                     </h3>
                                     <p className="my-auto ms-1 text-success">
-                                    { producto.descuento && 100 - (producto.descuento * 100) / producto.precio + '% OFF' }
+                                        {producto.descuento &&
+                                            100 -
+                                                (producto.descuento * 100) /
+                                                    producto.precio +
+                                                "% OFF"}
                                     </p>
                                 </div>
                                 <p className="d-flex mb-0">
                                     en
                                     <p className="ms-1 text-success mb-0">
                                         12 x $
-                                        { producto.descuento ? Number.parseInt(producto.descuento) / 12 : Number.parseInt(producto.precio) / 12 }
+                                        {producto.descuento
+                                            ? Number.parseInt(
+                                                  producto.descuento
+                                              ) / 12
+                                            : Number.parseInt(producto.precio) /
+                                              12}
                                         &nbsp; sin interés
                                     </p>
                                 </p>
@@ -247,13 +265,13 @@ export default function SeccionProducto({ setUser }) {
                                     >
                                         {opciones?.map((index) => (
                                             <option>{index}</option>
-                                            ))}
+                                        ))}
                                     </Form.Control>
                                 </div>
                                 <div onClick={addToCart}>
                                     <Link to="/envio" className="my-auto">
                                         <Button
-                                            className="w-100 my-1 mx-0 btn-serie"
+                                            className="w-100 my-1 mx-0"
                                             size="lg"
                                         >
                                             Comprar Ahora
