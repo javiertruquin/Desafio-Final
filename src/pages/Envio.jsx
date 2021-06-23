@@ -6,6 +6,8 @@ import "../Favoritos.css";
 import { Redirect, useHistory } from "react-router-dom";
 import { Form, Modal } from "react-bootstrap";
 import axios from "axios";
+import Swal from "sweetalert2";
+
 const localToken = JSON.parse(localStorage.getItem("token")) || "";
 
 export default function Envio({ setUser, user }) {
@@ -20,7 +22,13 @@ export default function Envio({ setUser, user }) {
   let history = useHistory();
 
   if (!token) {
-    alert("No estas logueado");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No estás logueado",
+      timer: 1800,
+      showConfirmButton: false,
+  });
     return <Redirect to="/" />;
   }
 
@@ -47,7 +55,13 @@ export default function Envio({ setUser, user }) {
     };
     
     if (!datosTarjeta?.number) {
-      alert("pone la tarjeta");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ingrese los datos de su tarjeta",
+        timer: 1800,
+        showConfirmButton: false,
+    });
     } else {
       try {
         await axios.post("/venta", params);

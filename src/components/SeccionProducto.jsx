@@ -12,6 +12,7 @@ import { useHistory, Link} from "react-router-dom";
 import SwiperCore, { Navigation, Thumbs } from "swiper/core";
 import { useParams } from "react-router";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 SwiperCore.use([Navigation, Thumbs]);
 
@@ -30,7 +31,13 @@ export default function SeccionProducto({ setUser }) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const addToCart = async () => {
         if (!token) {
-            alert("No estas logueado");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "No estás logueado",
+                timer: 1800,
+                showConfirmButton: false,
+            });
             history.push("/login");
         } else {
             try {

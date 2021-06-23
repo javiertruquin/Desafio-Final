@@ -4,6 +4,7 @@ import { MDBInput } from "mdbreact";
 import { NavLink, useHistory } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Login({ setUser, setToken }) {
     const [validated, setValidated] = useState(false);
@@ -35,7 +36,13 @@ export default function Login({ setUser, setToken }) {
                 : history.push("/");
         } catch (error) {
             // console.log(error.response.data);
-            alert("datos incorrectos.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Datos incorrectos",
+                timer: 1800,
+                showConfirmButton: false,
+            });
         }
     };
     return (

@@ -5,6 +5,8 @@ import { MDBInput } from "mdbreact";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 export default function Registro({ setToken }) {
     const [validated, setValidated] = useState(false);
@@ -22,7 +24,13 @@ export default function Registro({ setToken }) {
             return event.stopPropagation();
         }
         if (passCheck1!=passCheck2) {
-            alert("Las contraseñas no coinciden")
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Contraseñas no coinciden",
+                timer: 1800,
+                showConfirmButton: false,
+            });
             return
         }
         try {
