@@ -10,13 +10,15 @@ export default function CardProductoView({
   setUser,
   productosFavoritos,
 }) {
+  
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
   const { titulo, descripcion, precio, image1, serie, _id } = computadora;
   const [token, setToken] = useState(localToken);
-  const [esFavorito, setEsFavorito] = useState();
+  const [esFavorito, setEsFavorito] = useState("btn-heart");
   let history = useHistory();
 
   const final = titulo.substring(0, 40);
+
 
 
 
@@ -24,11 +26,10 @@ export default function CardProductoView({
     productosFavoritos?.map((favorito) => {
       
 
-          if (favorito.producto === _id) {
-            console.log('entrooooooo')
-            setEsFavorito(true);
+          if (favorito.producto._id === _id) {
+            setEsFavorito("btn-heart-true");
           } else {
-            setEsFavorito(false);
+            setEsFavorito("btn-heart");
           }
       })
   })
@@ -111,7 +112,7 @@ export default function CardProductoView({
             ${ computadora.descuento ? computadora.descuento : precio }
             </span>
           <span className="my-auto">
-            <button className="btn-heart" onClick={addToFav}>
+            <button className={esFavorito} onClick={addToFav}>
               <i className="fas fa-heart"></i>
             </button>
           </span>

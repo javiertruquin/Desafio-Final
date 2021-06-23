@@ -42,7 +42,6 @@ export default function FormEditar({ getProductos, accion, producto }) {
       try {
         // Consulta post a /productos
         const productoModificado = { ...input, id: producto._id };
-        console.log("produto modificado", productoModificado);
         await axios.put("/producto", productoModificado);
         getProductos();
         // porcentajeDescuento = 0;
@@ -60,10 +59,8 @@ export default function FormEditar({ getProductos, accion, producto }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     let changedInput = { ...input, [name]: value };
-    console.log("change Input", changedInput);
     if (changedInput.descuento) {
       setPorcentajeDescuento(changedInput.descuento);
-      console.log("porcentaje", porcentajeDescuento);
     }
     setInput(changedInput);
   };

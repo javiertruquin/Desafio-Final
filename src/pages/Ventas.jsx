@@ -38,7 +38,6 @@ export default function Main({ user}) {
   });
     return <Redirect to="/" />;
   }
-  console.log(articles);
   return (
     <div>
       <Container>
