@@ -35,7 +35,6 @@ export default function CajaDeMensajes() {
   return (
     <div>
       <div className="row">
-        <hr className=" mt-5" style={{ border: ".3px solid #e2e2e2" }} />
         <div className="col-lg-12 text-center mt-4">
           <span className="titulo-nosotros">Comunicate con nosotros</span>
         </div>

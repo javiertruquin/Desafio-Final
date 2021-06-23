@@ -266,9 +266,9 @@ export default function SobreNosotros() {
               </div>
             </div>
           </div>
+        <hr className=" mt-5" style={{ border: ".3px solid #e2e2e2" }} />
         </section>
         {/* <!-- TERMINA SECCION DE EQUIPO --> */}
-
         <div>
           <CajaDeMensajes />
         </div>
