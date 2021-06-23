@@ -142,7 +142,7 @@ export default function SeccionEnvio({ datosDomicilio, setDatosDomicilio, user }
                                 type="text"
                                 placeholder="Calle"
                                 maxlength="30"
-                                value={ DomicilioCompleto?.calle || "" }
+                                value={ DomicilioCompleto?.calle }
                                 label="Calle"
                                 onChange={(event) => handleInputChange(event)}
                                 name="calle"
