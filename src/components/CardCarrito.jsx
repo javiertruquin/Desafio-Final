@@ -71,7 +71,7 @@ export default function CardCarrito({ carrito, setUser }) {
                 </div>
                 <div className="col-10 m-auto px-0">
                     <div className="row">
-                        <div className="col-12 col-lg-5 m-auto pt-3 pt-lg-0">
+                        <div className="col-12 col-md-4 col-lg-4 m-auto pt-3 pt-lg-0">
                             <h5 className="d-flex my-auto ms-3">
                                 <Link to={"/producto/" + carrito.producto?._id}>
                                     <div
@@ -85,16 +85,16 @@ export default function CardCarrito({ carrito, setUser }) {
                                 </Link>
                             </h5>
                         </div>
-                        <div className="col-4 col-lg-2 m-auto text-center text-lg-left ">
+                        <div className="col-4 col-md-2 col-lg-3 m-auto text-center text-lg-left ">
                             <div
                                 style={{ fontSize: "80%" }}
-                                className="h-50"
+                                className="h-75"
                             >
                                 Precio:
                             </div>
-                            <div>${carrito.producto?.precio}</div>
+                            <div className="">${carrito.producto?.precio}</div>
                         </div>
-                        <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                        <div className="col-4 col-md-1 col-lg-2 m-auto text-center text-lg-left">
                             <Form.Group
                                 className="my-4"
                                 controlId="exampleForm.ControlSelect1"
@@ -132,7 +132,7 @@ export default function CardCarrito({ carrito, setUser }) {
                                 <option value="5" >5</option>
                             </select> */}
                         </div>
-                        <div className="col-4 col-lg-2 m-auto text-center text-lg-left">
+                        <div className="col-4 col-md-2 col-lg-3 m-auto text-center text-lg-left">
                             <div
                                 style={{ fontSize: "80%" }}
                                 className="h-50 m-0"
