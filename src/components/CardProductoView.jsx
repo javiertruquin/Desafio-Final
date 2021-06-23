@@ -8,6 +8,7 @@ export default function CardProductoView({
   computadora,
   user,
   setUser,
+  setvolverCarga,
   productosFavoritos,
 }) {
   
@@ -18,15 +19,10 @@ export default function CardProductoView({
   let history = useHistory();
 
   const final = titulo.substring(0, 40);
-
-
-
-
   const checkFavoritos = (() => {
     productosFavoritos?.map((favorito) => {
-      
-
-          if (favorito.producto._id === _id) {
+      if (favorito.producto._id === _id) {
+            console.log('entro')
             setEsFavorito("btn-heart-true");
           } else {
             setEsFavorito("btn-heart");
@@ -36,12 +32,7 @@ export default function CardProductoView({
   useEffect(() => {
     checkFavoritos()
   }, [])
-
-  //   for (let i = 0; i < user.favoritos.length; i++) {
-  //   }
-
-  //   console.log("esFavorito", user);
-
+  
   useEffect(() => {
     setToken(localToken);
   }, [localToken]);
@@ -94,7 +85,7 @@ export default function CardProductoView({
   };
   return (
     <div className="">
-      <div className="mb-3 p-4"  style={{minHeight: '550px', display: 'flex', flexDirection: 'column'}}>
+      <div className="mb-3 p-4"  style={{minHeight: '580px', display: 'flex', flexDirection: 'column'}}>
         <button className="btn-serie mb-3">{serie}</button>
         <Link to={"/producto/" + computadora._id}>
           <img src={image1} alt="" className="img-fluid" />

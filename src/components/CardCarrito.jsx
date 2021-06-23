@@ -94,7 +94,7 @@ export default function CardCarrito({ carrito, setUser }) {
                             </div>
                             <div className="">${carrito.producto?.precio}</div>
                         </div>
-                        <div className="col-4 col-md-1 col-lg-2 m-auto text-center text-lg-left">
+                        <div className="col-4 col-md-2 col-lg-2 m-auto text-center text-lg-left">
                             <Form.Group
                                 className="my-4"
                                 controlId="exampleForm.ControlSelect1"

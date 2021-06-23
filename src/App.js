@@ -38,6 +38,7 @@ axios.defaults.headers = { "x-auth-token": localToken };
 function App() {
     const [user, setUser] = useState({});
     const [token, setToken] = useState(localToken);
+    const [image, setImage] = useState('');
     let history = useHistory();
 
     useEffect(() => {
@@ -153,7 +154,7 @@ function App() {
                     <Mensaje user={user} />
                 </Route>
                 <Route path="/profile">
-                    <Profile token={token} user={user} />
+                    <Profile setImage={setImage} image={image} setUser={setUser} token={token} user={user} />
                 </Route>
                 <Route path="/exito">
                     <VentaExitosa user={user} />

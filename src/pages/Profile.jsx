@@ -10,30 +10,18 @@ import MisMensajes from "../components/MisMensajes";
 import axios from "axios";
 import { getBase64 } from '../utils';
 
-export default function Profile({ user, token }) {
+export default function Profile({ user, token, setImage, image }) {
     const [subNav, setSubNav] = useState('1');
     const [usuarioCompleto, setUsuarioCompleto] = useState({});
-    const [image, setImage] = useState('');
 
     const handleSelect = (eventKey) => {
         setSubNav(eventKey)
     }
-    // const getUsuario = async () => {
-    //   const { data } = await axios.get(`/auth/complete`);
-    //   // console.log('usuario', data)
-    //   setUsuarioCompleto(data);
-    // };
-    // useEffect(() => {
-    //       getUsuario();
-    //   }, []);
 
-    // if (token) {
       const getUsuario = async () => {
         const { data } = await axios.get(`/auth/complete`);
-        // console.log('usuario', data)
         setUsuarioCompleto(data);
       };
-    // }
     useEffect(() => {
       getUsuario();
     }, [token]);

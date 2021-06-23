@@ -16,6 +16,7 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
   const [esFavorito, setEsFavorito] = useState();
   const [productosFavoritos, setProductosFavoritos] = useState([]);
   const [categoria, setCategoria] = useState(filtro);
+  const [volverCarga, setvolverCarga] = useState(false)
 
   const getComputadoras = async () => {
     const params = { categoria, limite };
@@ -25,6 +26,9 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
   useEffect(() => {
     getComputadoras();
   }, [categoria]);
+  useEffect(() => {
+    getComputadoras();
+  }, []);
 
   const getFavoritos = async () => {
     try {
@@ -110,7 +114,9 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite }) {
             {computadoras.map((computadora) => (
               <SwiperSlide key={computadora._id}>
                 <CardProductoView
+                  getComputadoras={getComputadoras}
                   setUser={setUser}
+                  setvolverCarga={setvolverCarga}
                   user={user}
                   productosFavoritos={productosFavoritos}
                   computadora={computadora}

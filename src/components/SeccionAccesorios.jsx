@@ -55,7 +55,7 @@ export default function SeccionAccesorios({ setUser, carrito, filtro }) {
                 spaceBetween: 5,
               },
               1025: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 5,
               },
             }}
