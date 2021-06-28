@@ -48,6 +48,7 @@ function App() {
             const response = await axios.get("/auth/favoritos/", { id: _id });
             setProductosFavoritos(response.data.favoritos);
             localStorage.setItem("favoritos", JSON.stringify(response.data.favoritos));
+            console.log("getFavoritos ~ response.data.favoritos", response.data.favoritos)
         } catch (error) {
             console.log(error);
         }
@@ -95,6 +96,8 @@ function App() {
                     setUser={setUser}
                     carrito={user.carrito}
                     token={token}
+                    productosFavoritos={productosFavoritos}
+                    getFavoritos={getFavoritos}
                 />
             )}
             <Switch>

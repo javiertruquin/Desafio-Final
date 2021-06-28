@@ -936,3 +936,18 @@
   font-size: 1.2rem;
   color: #94C11E;
 }
+
+.carousel-inner .carousel-item {
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  position: absolute;
+  }
+  .carousel-inner .carousel-item:first-of-type {
+  position: relative;
+  }
+  .carousel-inner .active {
+  opacity: 1;
+  }

@@ -14,7 +14,7 @@ SwiperCore.use([Pagination]);
 function SeccionCompus({ setUser, carrito, filtro, user, limite,productosFavoritos,getFavoritos }) {
   const [computadoras, setComputadoras] = useState([]);
   const [categoria, setCategoria] = useState(filtro);
-  const [volverCarga, setvolverCarga] = useState(false)
+  const [volverCarga, setVolverCarga] = useState(false)
 
   const getComputadoras = async () => {
     const params = { categoria, limite };
@@ -27,21 +27,6 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite,productosFavorit
   useEffect(() => {
     getComputadoras();
   }, []);
-
-
-//   useEffect(() => {
-//     computadoras?.map((producto) => {
-//       user?.favoritos?.map((favorito) => {
-//         if (favorito?.producto === producto._id) {
-//           console.log("entro");
-//             setEsFavorito(true);
-//           } else {
-//             setEsFavorito(false);
-//           }
-//       })
-//     })
-
-// }, [])
 
   return (
     <div className="container position-relative mt-5">
@@ -102,7 +87,7 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite,productosFavorit
                 <CardProductoView
                   getComputadoras={getComputadoras}
                   setUser={setUser}
-                  setvolverCarga={setvolverCarga}
+                  setvolverCarga={setVolverCarga}
                   user={user}
                   productosFavoritos={productosFavoritos}
                   computadora={computadora}

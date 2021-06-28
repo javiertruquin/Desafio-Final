@@ -10,26 +10,28 @@ export default function CardProductoView({
     setUser,
     setvolverCarga,
     productosFavoritos,
+    getFavoritos,
 }) {
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const { titulo, descripcion, precio, image1, serie, _id } = computadora;
     const [token, setToken] = useState(localToken);
-    const [esFavorito, setEsFavorito] = useState("btn-heart");
+    const [esFavorito, setEsFavorito] = useState(false);
     let history = useHistory();
 
     const final = titulo.substring(0, 40);
     const checkFavoritos = () => {
-        productosFavoritos?.map((favorito) => {
-            if (favorito.producto._id === _id) {
-                setEsFavorito("btn-heart");
-            } else {
-                setEsFavorito("btn-heart");
-            }
-        });
+        const found = productosFavoritos?.find(
+            (favorito) => favorito.producto._id == _id
+        );
+        if (found) {
+            setEsFavorito(true);
+        } else {
+            setEsFavorito(false);
+        }
     };
     useEffect(() => {
         checkFavoritos();
-    }, []);
+    }, [productosFavoritos]);
 
     useEffect(() => {
         setToken(localToken);
@@ -75,6 +77,7 @@ export default function CardProductoView({
                     itemFavorito: { producto: computadora._id },
                 });
                 const { data } = await axios.get("/auth");
+                getFavoritos();
                 setUser(data);
             } catch (error) {
                 console.log(error.response.data);
@@ -117,10 +120,23 @@ export default function CardProductoView({
                                 ? computadora.descuento
                                 : precio}
                         </span>
+
                         <span className="my-auto">
-                            <button className={esFavorito} onClick={addToFav}>
-                                <i className="fas fa-heart"></i>
-                            </button>
+                            {esFavorito ? (
+                                <button
+                                    className="btn-heart-true"
+                                    onClick={addToFav}
+                                >
+                                    <i className="fas fa-heart"></i>
+                                </button>
+                            ) : (
+                                <button
+                                    className="btn-heart"
+                                    onClick={addToFav}
+                                >
+                                    <i className="fas fa-heart"></i>
+                                </button>
+                            )}
                         </span>
                         <span className="my-auto">
                             <button className="btn-cart" onClick={addToCart}>

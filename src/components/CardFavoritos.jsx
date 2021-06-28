@@ -4,29 +4,15 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-export default function CardFavoritos({ favorito, handleClose }) {
+export default function CardFavoritos({ favorito, handleClose,productosFavoritos,getFavoritos}) {
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
+  const [esFavorito, setEsFavorito] = useState(true)
   const [productoFavorito, setProductoFavorito] = useState({});
   const [token, setToken] = useState(localToken);
   let history = useHistory();
 
-  // const { _id } = favorito;
-
-  // const getProducto = async () => {
-  //   try {
-  //     const _id = favorito.producto;
-  //     const response = await axios.get('/producto/' + _id)
-  //     setProductoFavorito(response.data)
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getProducto();
-  // }, [])
-
   const addToFav = async () => {
+    setEsFavorito(!esFavorito);
     if (!token) {
       Swal.fire({
         icon: "error",
@@ -40,10 +26,11 @@ export default function CardFavoritos({ favorito, handleClose }) {
     } else {
       try {
         const _id = favorito.producto._id;
-        console.log("entro");
+        console.log("entroo")
         await axios.put("/usuarios/favorito", {
           itemFavorito: { producto: _id },
         });
+        getFavoritos();
       } catch (error) {
         console.log(error.response.data);
       }
@@ -67,18 +54,18 @@ export default function CardFavoritos({ favorito, handleClose }) {
           <div>
           <span className="precio-producto">
           ${ favorito.producto.descuento ? favorito.producto.descuento : favorito.producto?.precio }
-          </span>{" "}
+          </span>
           <span>
-            {" "}
-            <button className="btn-heart" onClick={addToFav}>
-              {" "}
+            
+            <button className={esFavorito ? "btn-heart-true" : "btn-heart"} onClick={addToFav}>
+  
               <i className="fas fa-heart"></i>
             </button>
           </span>
           <span>
-            {" "}
+
             <button className="btn-cart">
-              {" "}
+  
               <i className="fas fa-shopping-cart"></i>
             </button>
           </span>
