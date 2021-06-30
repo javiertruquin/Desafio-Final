@@ -8,7 +8,7 @@ export default function SlideAccesorios() {
     return (
         <Carousel fade>
             <Carousel.Item interval={2500}>
-                <img draggable="false" src={slideNote1} alt="" className="" style={{}} />
+                <img draggable="false" src={slideNote1} alt="" className="" />
             </Carousel.Item>
             <Carousel.Item interval={2500}>
                 <img draggable="false" src={slideNote2} alt="" className="" />

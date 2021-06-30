@@ -8,10 +8,6 @@ import SlideAccesorios from "../components/SlideAccesorios";
 import SlideComputadoras from "../components/SlideComputadoras";
 import SlideNotebooks from "../components/SlideNotebooks";
 
-
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-
 export default function Productos({ user, setUser, carrito, categoriaFiltrada }) {
 
 
