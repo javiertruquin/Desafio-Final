@@ -30,7 +30,6 @@ export default function CardFavoritos({ favorito, handleClose,productosFavoritos
         await axios.put("/usuarios/favorito", {
           itemFavorito: { producto: _id },
         });
-        getFavoritos();
       } catch (error) {
         console.log(error.response.data);
       }

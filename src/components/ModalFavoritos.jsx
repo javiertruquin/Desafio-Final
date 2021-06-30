@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import CardFavoritos from "../components/CardFavoritos";
 
+export default function ModalFavoritos({
+    crear,
+    handleClose,
+    productosFavoritos,
+    setUser,
+    getFavoritos,
+}) {
+    useEffect(() => {
+        // El useEffect se llama al abrir y cerrar el modal y actualiza los favoritos.
+        return getFavoritos;
+    }, [crear]);
 
-export default function ModalFavoritos({crear,handleClose,productosFavoritos,setUser,getFavoritos}) {
-    const [prodsFavoritos, setProdsFavoritos] = useState(productosFavoritos)
-    
     return (
         <Modal
             className="modal-favoritos"
@@ -43,7 +51,7 @@ export default function ModalFavoritos({crear,handleClose,productosFavoritos,set
                     className=" mt-4"
                     style={{ border: "0.3px solid #ababab" }}
                 />
-                {prodsFavoritos?.map((favorito) => (
+                {productosFavoritos?.map((favorito) => (
                     <CardFavoritos
                         handleClose={handleClose}
                         key={favorito._id}

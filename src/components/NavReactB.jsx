@@ -178,8 +178,6 @@ export default function NavReactB({
                     </Nav>
                 </Navbar.Collapse>
             </div>
-
-            {crear && (
                 <ModalFavoritos
                     crear={crear}
                     handleClose={handleClose}
@@ -187,7 +185,6 @@ export default function NavReactB({
                     setUser={setUser}
                     getFavoritos={getFavoritos}
                 />
-            )}
         </Navbar>
     );
 }
