@@ -8,9 +8,12 @@ import SlideAccesorios from "../components/SlideAccesorios";
 import SlideComputadoras from "../components/SlideComputadoras";
 import SlideNotebooks from "../components/SlideNotebooks";
 
-export default function Productos({ user, setUser, carrito, categoriaFiltrada }) {
-
-
+export default function Productos({
+    categoriaFiltrada,
+    setUser,
+    productosFavoritos,
+    getFavoritos,
+}) {
     const [computadoras, setComputadoras] = useState([]);
     const [categoria, setCategoria] = useState(categoriaFiltrada);
     let location = useLocation();
@@ -31,7 +34,6 @@ export default function Productos({ user, setUser, carrito, categoriaFiltrada })
         location.pathname === "/accesorios" && setCategoria(categoriaFiltrada);
     }, [location]);
 
-
     return (
         <div className="container ">
             {categoriaFiltrada === "computadora" && (
@@ -51,28 +53,27 @@ export default function Productos({ user, setUser, carrito, categoriaFiltrada })
             </div>
             <div className="row contenedor-seccion-compus">
                 <p className=" subtitulo-seccion2">
-                    { categoria === 'computadora' &&
-                        'Equipos de escritorio para todos los bolsillos'
-                     }
-                    { categoria === 'notebook' &&
-                        'Notebooks de alto rendimiento y gran potencia'
-                     }
-                    { categoria === 'accesorio' &&
-                        'Complementos ideales para tu SetUp'
-                     }
+                    {categoria === "computadora" &&
+                        "Equipos de escritorio para todos los bolsillos"}
+                    {categoria === "notebook" &&
+                        "Notebooks de alto rendimiento y gran potencia"}
+                    {categoria === "accesorio" &&
+                        "Complementos ideales para tu SetUp"}
                 </p>
 
                 <div className="col-12 contenedor-items pb-4">
                     {/* <BuscadorCategorias /> */}
                     <div className="row">
                         {computadoras.map((computadora, index) => (
-                            <div key={index} className="col-sm-12 col-lg-6 col-xl-4">
+                            <div
+                                key={index}
+                                className="col-sm-12 col-lg-6 col-xl-4"
+                            >
                                 <CardProductoView
                                     setUser={setUser}
-                                    // key={index}
-                                    user={user}
                                     computadora={computadora}
-                                    carrito={carrito}
+                                    productosFavoritos={productosFavoritos}
+                                    getFavoritos={getFavoritos}
                                 />
                             </div>
                         ))}

@@ -6,9 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 
 export default function CardProductoView({
     computadora,
-    user,
     setUser,
-    setvolverCarga,
     productosFavoritos,
     getFavoritos,
 }) {

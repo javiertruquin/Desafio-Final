@@ -24,11 +24,7 @@ import Ventas from "./pages/Ventas";
 import "./styles.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {
-    Route,
-    Switch,
-    useHistory,
-} from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -38,7 +34,7 @@ axios.defaults.headers = { "x-auth-token": localToken };
 function App() {
     const [user, setUser] = useState({});
     const [token, setToken] = useState(localToken);
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState("");
     const [productosFavoritos, setProductosFavoritos] = useState([]);
     let history = useHistory();
 
@@ -47,8 +43,14 @@ function App() {
             const _id = user._id;
             const response = await axios.get("/auth/favoritos/", { id: _id });
             setProductosFavoritos(response.data.favoritos);
-            localStorage.setItem("favoritos", JSON.stringify(response.data.favoritos));
-            console.log("getFavoritos ~ response.data.favoritos", response.data.favoritos)
+            localStorage.setItem(
+                "favoritos",
+                JSON.stringify(response.data.favoritos)
+            );
+            console.log(
+                "getFavoritos ~ response.data.favoritos",
+                response.data.favoritos
+            );
         } catch (error) {
             console.log(error);
         }
@@ -103,35 +105,33 @@ function App() {
             <Switch>
                 <Route path="/" exact>
                     <Inicio
-                        user={user}
                         setUser={setUser}
-                        carrito={user.carrito}
                         productosFavoritos={productosFavoritos}
                         getFavoritos={getFavoritos}
                     />
                 </Route>
                 <Route path="/computadoras">
                     <Productos
-                        user={user}
                         categoriaFiltrada="computadora"
                         setUser={setUser}
-                        carrito={user.carrito}
+                        productosFavoritos={productosFavoritos}
+                        getFavoritos={getFavoritos}
                     />
                 </Route>
                 <Route path="/notebooks">
                     <Productos
-                        user={user}
                         categoriaFiltrada="notebook"
                         setUser={setUser}
-                        carrito={user.carrito}
+                        productosFavoritos={productosFavoritos}
+                        getFavoritos={getFavoritos}
                     />
                 </Route>
                 <Route path="/accesorios">
                     <Productos
-                        user={user}
                         categoriaFiltrada="accesorio"
                         setUser={setUser}
-                        carrito={user.carrito}
+                        productosFavoritos={productosFavoritos}
+                        getFavoritos={getFavoritos}
                     />
                 </Route>
                 <Route path="/nosotros">
@@ -172,13 +172,19 @@ function App() {
                     <Mensaje user={user} />
                 </Route>
                 <Route path="/profile">
-                    <Profile setImage={setImage} image={image} setUser={setUser} token={token} user={user} />
+                    <Profile
+                        setImage={setImage}
+                        image={image}
+                        setUser={setUser}
+                        token={token}
+                        user={user}
+                    />
                 </Route>
                 <Route path="/exito">
                     <VentaExitosa user={user} />
                 </Route>
                 <Route path="/ventas">
-                    <Ventas token={token} user={user}/>
+                    <Ventas token={token} user={user} />
                 </Route>
             </Switch>
             {user.rol === "admin" || user.rol === "vendedor" ? null : (

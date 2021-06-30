@@ -11,10 +11,9 @@ import axios from "axios";
 
 SwiperCore.use([Pagination]);
 
-function SeccionCompus({ setUser, carrito, filtro, user, limite,productosFavoritos,getFavoritos }) {
+function SeccionCompus({ setUser, filtro, limite,productosFavoritos,getFavoritos }) {
   const [computadoras, setComputadoras] = useState([]);
   const [categoria, setCategoria] = useState(filtro);
-  const [volverCarga, setVolverCarga] = useState(false)
 
   const getComputadoras = async () => {
     const params = { categoria, limite };
@@ -85,13 +84,9 @@ function SeccionCompus({ setUser, carrito, filtro, user, limite,productosFavorit
             {computadoras.map((computadora) => (
               <SwiperSlide key={computadora._id}>
                 <CardProductoView
-                  getComputadoras={getComputadoras}
                   setUser={setUser}
-                  setvolverCarga={setVolverCarga}
-                  user={user}
-                  productosFavoritos={productosFavoritos}
                   computadora={computadora}
-                  carrito={carrito}
+                  productosFavoritos={productosFavoritos}
                   getFavoritos={getFavoritos}
                 />
               </SwiperSlide>
