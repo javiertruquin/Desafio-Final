@@ -7,6 +7,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
   const [validated, setValidated] = useState(false);
   const [input, setInput] = useState({});
   const [porcentajeDescuento, setPorcentajeDescuento] = useState();
+  const [numeroPositivo, setNumeroPositivo] = useState(false)
   let porcentajeDescuentoInt = 0;
   
   if (producto?.descuento) {
@@ -19,8 +20,51 @@ export default function FormEditar({ getProductos, accion, producto }) {
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
+    const inputCodigo = input.codigo;
+    if (inputCodigo > 99999999999999999999) {
+      Swal.fire({
+        icon: "error",
+        title: "Código demasiado largo, máximo 20 caracteres!",
+      });
+      // alert('Código demasiado largo, máximo 20 caracteres!')
+      return event.stopPropagation();
+    }
+    const inputPrecio = +input.precio;
+    if (inputPrecio < 0) {
+      Swal.fire({
+        icon: "error",
+        title: "El precio tiene que ser mayor a 0!",
+      });
+      // alert('el precio tiene que ser mayor a 0!')
+      return event.stopPropagation();
+    }
+    const inputStock = +input.stock;
+    if (inputStock < 0) {
+      Swal.fire({
+        icon: "error",
+        title: "El stock tiene que ser mayor a 0!",
+      });
+      // alert('el stock tiene que ser mayor a 0!')
+      return event.stopPropagation();
+    }
+    if (inputStock > 999) {
+      Swal.fire({
+        icon: "error",
+        title: "Stock demasiado grande, máximo 3 caracteres!",
+      });
+      // alert('Stock demasiado grande, máximo 3 caracteres!')
+      return event.stopPropagation();
+    }
     setValidated(true);
     if (form.checkValidity() === false) {
+      return event.stopPropagation();
+    }
+    if (input.categoria === undefined) {
+      Swal.fire({
+        icon: "error",
+        title: "Tienes que elegir una categoria!",
+      });
+      // alert('Tienes que elegir una categoria!')
       return event.stopPropagation();
     }
 
@@ -69,9 +113,11 @@ export default function FormEditar({ getProductos, accion, producto }) {
             <Form.Control
               name="codigo"
               onChange={(e) => handleChange(e)}
-              type="txt"
+              type="number"
               required
+              // maxLength="20"
               placeholder="Código"
+              
             />
             <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
@@ -85,6 +131,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
             name="titulo"
             onChange={(e) => handleChange(e)}
             type="txt"
+            maxLength="100"
             required
             placeholder="Título del producto"
             // placeholder={ accion === 'editar' && producto.titulo || "Título del producto" }
@@ -101,9 +148,13 @@ export default function FormEditar({ getProductos, accion, producto }) {
             name="serie"
             onChange={(e) => handleChange(e)}
             type="txt"
+            maxLength="25"
             placeholder="Serie"
             defaultValue={accion === "editar" ? producto.serie : ""}
           />
+        <Form.Control.Feedback type="invalid">
+            Campo requerido!
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           {/* <Form.Label>Descripción</Form.Label> */}
@@ -113,6 +164,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
             as="textarea"
             required
             rows={3}
+            maxLength="700"
             placeholder="Descripción"
             defaultValue={accion === "editar" ? producto.descripcion : ""}
           />
@@ -131,10 +183,13 @@ export default function FormEditar({ getProductos, accion, producto }) {
             </InputGroup.Prepend>
             <FormControl
               required
+              type="number"
               name="precio"
+              // maxLength="2"
               onChange={(e) => handleChange(e)}
               id="inlineFormInputGroupUsername"
               placeholder="Precio"
+              // isValid={numeroPositivo}
               defaultValue={accion === "editar" ? producto.precio : ""}
             />
             <Form.Control.Feedback>Todo marcha bien!</Form.Control.Feedback>
@@ -182,7 +237,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
             as="select"
             defaultValue={accion === "editar" ? producto.categoria : ""}
           >
-            <option>Elige una opción</option>
+            { accion === "crear" && <option>Elige una opción</option> }
             <option value="computadora">Computadora de escritorio</option>
             <option value="notebook">Notebook</option>
             <option value="accesorio">Accesorios</option>
@@ -196,6 +251,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
           <Form.Control
             name="image1"
             required
+            maxLength="400"
             onChange={(e) => handleChange(e)}
             type="url"
             // placeholder="URL Imagen 1"
@@ -210,6 +266,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
             name="image2"
             onChange={(e) => handleChange(e)}
             type="url"
+            maxLength="400"
             // placeholder="URL Imagen 1"
             defaultValue={accion === "editar" ? producto.image2 : ""}
             placeholder="URL Imagen 2"
@@ -218,6 +275,7 @@ export default function FormEditar({ getProductos, accion, producto }) {
             name="image3"
             onChange={(e) => handleChange(e)}
             type="url"
+            maxLength="400"
             placeholder="URL Imagen 3"
             defaultValue={accion === "editar" ? producto.image3 : ""}
             // placeholder="URL Imagen 1"
