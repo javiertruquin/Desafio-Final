@@ -13,7 +13,6 @@ SwiperCore.use([Pagination]);
 
 export default function SeccionAccesorios({
     setUser,
-    carrito,
     filtro,
     productosFavoritos,
     getFavoritos,
@@ -76,9 +75,8 @@ export default function SeccionAccesorios({
                         {computadoras.map((computadora) => (
                             <SwiperSlide key={computadora._id}>
                                 <CardProductoView
-                                    setUser={setUser}
                                     computadora={computadora}
-                                    carrito={carrito}
+                                    setUser={setUser}
                                     productosFavoritos={productosFavoritos}
                                     getFavoritos={getFavoritos}
                                 />
