@@ -16,7 +16,12 @@ export default function SlideOfertas() {
                     <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={2500}>
-                    <img className="d-block" draggable="false" src={slide2} alt="First slide" />
+                    <img
+                        className="d-block"
+                        draggable="false"
+                        src={slide2}
+                        alt="First slide"
+                    />
                     <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
