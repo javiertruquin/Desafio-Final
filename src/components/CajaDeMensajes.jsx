@@ -58,6 +58,8 @@ export default function CajaDeMensajes() {
             <MDBRow>
               <MDBCol>
                 <MDBInput
+                  minLength="6"
+                  maxLength="30"
                   required
                   type="text"
                   label="Tu Nombre"
@@ -67,6 +69,8 @@ export default function CajaDeMensajes() {
               </MDBCol>
               <MDBCol>
                 <MDBInput
+                  minLength="6"
+                  maxLength="40"
                   required
                   type="email"
                   label="Tu Email"
@@ -78,6 +82,8 @@ export default function CajaDeMensajes() {
             <MDBRow>
               <MDBCol>
                 <MDBInput
+                  minLength="6"
+                  maxLength="40"
                   required
                   type="text"
                   label="Título Consulta"
@@ -89,10 +95,12 @@ export default function CajaDeMensajes() {
             <MDBRow>
               <MDBCol>
                 <MDBInput
+                  minLength="6"
+                  maxLength="500"
                   required
                   className="mt-3"
                   type="textarea"
-                  label="Dejános Tu Consulta"
+                  label="Dejános Tu Consulta (Máx. 500 caracteres)"
                   rows="6"
                   onChange={handleInputChange}
                   name="mensaje"

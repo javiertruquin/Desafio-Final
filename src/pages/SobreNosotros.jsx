@@ -8,7 +8,6 @@ import miembro3 from "../assets/img/tomas-nosotros.jpeg";
 import miembro4 from "../assets/img/andres.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 import {
   faFacebookF,
   faLinkedinIn,
@@ -113,22 +112,34 @@ export default function SobreNosotros() {
                                 </p>
                                 <ul className="mu-team-social">
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://ar.linkedin.com/"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://twitter.com/home"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.facebook.com/uno.de.estos.dias"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.instagram.com/federicoalvarez3/?hl=es-la"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>
                                   </li>
@@ -153,22 +164,34 @@ export default function SobreNosotros() {
                                 </p>
                                 <ul className="mu-team-social">
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://ar.linkedin.com/in/javier-truquin"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://twitter.com/truquin"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.facebook.com/javiertruquin/"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.instagram.com/javier.truquin/?hl=es-la"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>
                                   </li>
@@ -181,7 +204,11 @@ export default function SobreNosotros() {
                           <div className="col-md-6">
                             <div className="mu-single-team">
                               <div className="mu-single-team-img">
-                                <img src={miembro3} style={{ maxWidth: '7.5rem' }} alt="img" />
+                                <img
+                                  src={miembro3}
+                                  style={{ maxWidth: "7.5rem" }}
+                                  alt="img"
+                                />
                               </div>
                               <div className="mu-single-team-content">
                                 <h3>Tomás Guerineau</h3>
@@ -193,22 +220,34 @@ export default function SobreNosotros() {
                                 </p>
                                 <ul className="mu-team-social">
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://ar.linkedin.com/in/tom%C3%A1s-guerineau-b5109a160"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://twitter.com/elonmusk"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.facebook.com/tomas.guerineau"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.instagram.com/tomas_guerineau/?hl=es-la"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>
                                   </li>
@@ -233,22 +272,34 @@ export default function SobreNosotros() {
                                 </p>
                                 <ul className="mu-team-social">
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.linkedin.com/in/andres-donadio-114415211/"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://twitter.com/andresdonadio1"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.facebook.com/andres.donadio.9"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="/">
+                                    <a
+                                      href="https://www.instagram.com/andresdonadio/?hl=es-la"
+                                      target="_blank"
+                                    >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>
                                   </li>
@@ -266,7 +317,7 @@ export default function SobreNosotros() {
               </div>
             </div>
           </div>
-        <hr className=" mt-5" style={{ border: ".3px solid #e2e2e2" }} />
+          <hr className=" mt-5" style={{ border: ".3px solid #e2e2e2" }} />
         </section>
         {/* <!-- TERMINA SECCION DE EQUIPO --> */}
         <div>

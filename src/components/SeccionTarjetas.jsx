@@ -20,7 +20,6 @@ export default class App extends React.Component {
     formData: null,
   };
 
-
   handleCallback = ({ issuer }, isValid) => {
     if (isValid) {
       this.setState({ issuer });
@@ -34,7 +33,7 @@ export default class App extends React.Component {
   };
 
   handleInputChange = ({ target }) => {
-    const { value, name} = target
+    const { value, name } = target;
     if (name === "number") {
       target.value = formatCreditCardNumber(value);
     } else if (name === "expiry") {
@@ -46,7 +45,6 @@ export default class App extends React.Component {
     this.setState({ [name]: value });
     let changedInput = { ...this.props.datosTarjeta, [name]: value };
     this.props.setDatosTarjeta(changedInput);
-
   };
 
   handleSubmit = (e) => {
@@ -97,58 +95,60 @@ export default class App extends React.Component {
             callback={this.handleCallback}
           />
           {/* <form ref={(c) => (this.form = c)} onSubmit={this.handleSubmit}> */}
-            <div className="form-group">
+          <br />
+
+          <div className="form-group">
+            <input
+              type="tel"
+              name="number"
+              className="form-control"
+              placeholder="Numero de Tarjeta"
+              pattern="[\d| ]{16,22}"
+              required
+              onChange={this.handleInputChange}
+              onFocus={this.handleInputFocus}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              className="form-control"
+              placeholder="Nombre y Apellido"
+              required
+              onChange={this.handleInputChange}
+              onFocus={this.handleInputFocus}
+            />
+          </div>
+          <div className="row">
+            <div className="col-6">
               <input
                 type="tel"
-                name="number"
+                name="expiry"
                 className="form-control"
-                placeholder="Numero de Tarjeta"
-                pattern="[\d| ]{16,22}"
+                placeholder="Fecha de expiracion"
+                pattern="\d\d/\d\d"
                 required
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />
             </div>
-            <div className="form-group">
+            <div className="col-6">
               <input
-                type="text"
-                name="name"
+                type="tel"
+                name="cvc"
                 className="form-control"
-                placeholder="Nombre y Apellido"
+                placeholder="Codigo de seguridad"
+                pattern="\d{3,4}"
                 required
                 onChange={this.handleInputChange}
                 onFocus={this.handleInputFocus}
               />
             </div>
-            <div className="row">
-              <div className="col-6">
-                <input
-                  type="tel"
-                  name="expiry"
-                  className="form-control"
-                  placeholder="Fecha de expiracion"
-                  pattern="\d\d/\d\d"
-                  required
-                  onChange={this.handleInputChange}
-                  onFocus={this.handleInputFocus}
-                />
-              </div>
-              <div className="col-6">
-                <input
-                  type="tel"
-                  name="cvc"
-                  className="form-control"
-                  placeholder="Codigo de seguridad"
-                  pattern="\d{3,4}"
-                  required
-                  onChange={this.handleInputChange}
-                  onFocus={this.handleInputFocus}
-                />
-              </div>
-              <div></div>
-            </div>
-            <input type="hidden" name="issuer" value={issuer} />
-            {/* <div className="form-actions">
+            <div></div>
+          </div>
+          <input type="hidden" name="issuer" value={issuer} />
+          {/* <div className="form-actions">
                             <button className="btn-comprar w-100">
                                 Comprar
                             </button>
