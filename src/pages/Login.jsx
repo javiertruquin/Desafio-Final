@@ -29,13 +29,10 @@ export default function Login({ setUser, setToken }) {
             const { data } = await axios.post("/auth/login", input);
             localStorage.setItem("token", JSON.stringify(data.token));
             setToken(data.token);
-            // console.log('data.rol', data.usuarioRol);
-            // alert("Logueo exitoso 😎 ");
             data.usuarioRol === "admin" || data.usuarioRol === "vendedor"
                 ? history.push("/productos")
                 : history.push("/");
         } catch (error) {
-            // console.log(error.response.data);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",

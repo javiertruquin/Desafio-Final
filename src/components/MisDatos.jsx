@@ -22,7 +22,6 @@ export default function MisDatos({ userComplete, getUsuario }) {
       // Consulta post a /productos
       const usuarioModificado = { ...input, id: userComplete._id };
       const passwordModificada = { ...inputPassword, id: userComplete._id };
-      // console.log("produto modificado", usuarioModificado);
 
       if (!inputPassword) {
         await axios.put("/auth", usuarioModificado);
@@ -43,12 +42,10 @@ export default function MisDatos({ userComplete, getUsuario }) {
     const { name, value } = e.target;
     let changedInput = { ...input, [name]: value };
     setInput(changedInput);
-    // console.log('input', changedInput)
   };
   const handleChangePassword = (e) => {
     const { name, value } = e.target;
     let changedInputPassword = { ...inputPassword, [name]: value };
-    // console.log("input", changedInputPassword);
     setInputPassword(changedInputPassword);
   };
 

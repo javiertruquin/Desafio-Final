@@ -8,12 +8,6 @@ export default function NavAdmin({ logout, userRol, user, token }) {
   const [usuario, setNombre] = useState(user);
   const esAdmin = userRol === "admin";
 
-  // useEffect(() => {
-  //   setNombre(userName)
-  // }, [])
-
-  // console.log('nombre', nombre)
-
   return (
     <Navbar
       collapseOnSelect

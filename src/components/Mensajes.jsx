@@ -19,7 +19,6 @@ export default function Mensajes({ articles, getMensajes }) {
             <th>Nombre</th>
             <th>Email</th>
             <th>Mensaje</th>
-            {/* <th>Estado</th> */}
             <th>Acciones</th>
           </tr>
         </thead>

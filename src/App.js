@@ -47,10 +47,6 @@ function App() {
                 "favoritos",
                 JSON.stringify(response.data.favoritos)
             );
-            console.log(
-                "getFavoritos ~ response.data.favoritos",
-                response.data.favoritos
-            );
         } catch (error) {
             console.log(error);
         }

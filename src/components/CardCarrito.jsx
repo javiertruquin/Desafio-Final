@@ -139,11 +139,9 @@ export default function CardCarrito({ carrito, setUser }) {
                             >
                                 Subtotal:
                             </div>
-                            {/* {console.log("input", input)} */}
                             <div>
                                 ${carrito.producto?.precio * input.cantidad}
                             </div>
-                            {/* <div>${carrito.producto?.precio * carrito.cantidad}</div> */}
                         </div>
                     </div>
                 </div>

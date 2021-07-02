@@ -68,8 +68,6 @@ export default function Envio({ setUser, user }) {
         handleCrear();
         const response = await axios.put("/usuarios/carrito/resetear", { id: user._id } )
         setUser(response.data)
-        // console.log('response', response)
-        // alert("Datos de venta recibidos satisfactoriamente");
       } catch (error) {
         console.log("enviarDatos ~ error", error);
       }

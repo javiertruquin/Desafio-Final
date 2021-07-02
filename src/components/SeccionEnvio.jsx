@@ -29,7 +29,6 @@ export default function SeccionEnvio({
   useEffect(() => {
     getUsuario();
   }, []);
-  // console.log('usuario', domicilio)
 
   const llenarDireccion = (dom) => {
     let domicilioInd = {};
@@ -42,22 +41,6 @@ export default function SeccionEnvio({
     domicilioInd.indicaciones = dom.indicaciones;
     setDomicilioCompleto(domicilioInd);
   };
-
-  // const enviarDatos = async (event) => {
-  //     const form = event.currentTarget;
-  //     event.preventDefault();
-  //     setValidated(true);
-  //     if (form.checkValidity() === false) {
-  //         return event.stopPropagation();
-  //     }
-  //     try {
-  //             axios.post("/venta", { domicilio: input });
-  //             alert("Datos de venta recibidos satisfactoriamente");
-  //         history.push("/pago/");
-  //     } catch (error) {
-  //         console.log("enviarDatos ~ error", error);
-  //     }
-  // };
 
   return (
     <div className="container mt-4">

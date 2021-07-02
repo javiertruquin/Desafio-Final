@@ -24,7 +24,6 @@ export default function CardDomicilios({
         id: userComplete._id,
         index: index,
       };
-      // console.log("Domicilio modificado", usuarioModificado);
       await axios.put("/auth/domicilio", usuarioModificado);
       getUsuario();
       Swal.fire({

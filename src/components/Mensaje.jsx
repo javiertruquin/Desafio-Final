@@ -4,7 +4,7 @@ import { Button, Modal, InputGroup, Nav } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 export default function Mensaje({ mensajesolo, getMensajes }) {
-  const { _id, nombre, email, mensaje, estado, fecha } = mensajesolo;
+  const { _id, nombre, email, mensaje, fecha } = mensajesolo;
   const [abrir, setAbrir] = useState(false);
   const handleClose = () => setAbrir(false);
   const handleAbrir = () => setAbrir(true);
@@ -42,9 +42,6 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
         <td>{nombre}</td>
         <td>{email}</td>
         <td>{final}</td>
-        {/* <td>
-          {estado} <InputGroup.Checkbox hasValidation="true" />{" "}
-        </td> */}
         <td className="col-3">
           <div className="row">
             <div className="col-lg-4">
@@ -103,9 +100,6 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
             <br />
             {mensaje}
           </p>
-          {/* <p>
-            <strong>Estado:</strong> {estado}
-          </p> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

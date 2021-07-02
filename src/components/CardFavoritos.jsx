@@ -26,7 +26,6 @@ export default function CardFavoritos({ favorito, handleClose,productosFavoritos
     } else {
       try {
         const _id = favorito.producto._id;
-        console.log("entroo")
         await axios.put("/usuarios/favorito", {
           itemFavorito: { producto: _id },
         });

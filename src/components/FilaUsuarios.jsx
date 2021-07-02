@@ -13,9 +13,7 @@ export default function FilaUsuarios({ usuario, index, getUsuarios }) {
   const handleCrear2 = () => setCrear2(true);
 
   const { nombre, rol, email, apellido, _id } = usuario;
-  // const [contadorState, setContadorState] = useState(0)
-  // setContadorState(contadorState++);
-  // console.log('usuario', usuario);
+
 
   const eliminar = async (event) => {
     // event.preventDefault();
