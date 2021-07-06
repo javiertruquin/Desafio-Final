@@ -13,13 +13,14 @@ export default function Venta({ venta, index }) {
     const element = venta.carrito[i];
     cantidad = cantidad + element.cantidad;
   }
-  
+  const fechaSinFormatear = new Date(venta.fecha)
+  const fechaFormateada = fechaSinFormatear.toLocaleString()
 
   return (
     <>
       <tr>
         <td>{index}</td>
-        <td className="col-2">{venta.fecha}</td>
+        <td className="col-2">{fechaFormateada}</td>
         <td>{venta.usuario.email}</td>
         <td className="col-1">{cantidad}</td>
         <td>${venta.total}</td>
@@ -39,7 +40,7 @@ export default function Venta({ venta, index }) {
             <br />
             Cliente: {venta.usuario.email}
             <br />
-            Fecha venta: {venta.fecha}
+            Fecha venta: {fechaFormateada}
             <br />
           </Modal.Title>
         </Modal.Header>

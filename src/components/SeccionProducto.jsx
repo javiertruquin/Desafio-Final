@@ -23,10 +23,18 @@ export default function SeccionProducto({ setUser }) {
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
     const [token, setToken] = useState(localToken);
     let history = useHistory();
-
+    const [inputCantidad, setInputCantidad] = useState({ cantidad: 1 });
+    
+    
     useEffect(() => {
         setToken(localToken);
     }, [localToken]);
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        let changedInput = { [name]: parseInt(value) };
+        setInputCantidad(changedInput);
+    };
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const addToCart = async () => {
@@ -42,7 +50,7 @@ export default function SeccionProducto({ setUser }) {
         } else {
             try {
                 await axios.put("/usuarios/carrito", {
-                    itemCarrito: { producto: producto._id, cantidad: 1 },
+                    itemCarrito: { producto: producto._id, cantidad: inputCantidad.cantidad },
                 });
                 const { data } = await axios.get("/auth");
                 setUser(data);
@@ -212,8 +220,13 @@ export default function SeccionProducto({ setUser }) {
                                     <p className="ms-1 text-success mb-0">
                                         12 x $
                                         {producto.descuento
-                                            ? parseFloat(parseInt(producto.descuento) / 12).toFixed(2)
-                                            : parseFloat(parseInt(producto.precio) /12).toFixed(2)}
+                                            ? parseFloat(
+                                                  parseInt(producto.descuento) /
+                                                      12
+                                              ).toFixed(2)
+                                            : parseFloat(
+                                                  parseInt(producto.precio) / 12
+                                              ).toFixed(2)}
                                         &nbsp; sin interés
                                     </p>
                                 </p>
@@ -259,9 +272,16 @@ export default function SeccionProducto({ setUser }) {
                                         as="select"
                                         size="sm"
                                         custom
+                                        name="cantidad"
+                                        onChange={(e) => handleChange(e)}
                                     >
                                         {opciones?.map((index) => (
-                                            <option>{index}</option>
+                                            <option
+                                                key={index + 1}
+                                                value={index}
+                                            >
+                                                {index}
+                                            </option>
                                         ))}
                                     </Form.Control>
                                 </div>

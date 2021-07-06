@@ -12,6 +12,8 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
   const res = mensaje.substring(0, 50);
   const final = res + "...";
 
+  const fechaSinFormatear = new Date(fecha)
+  const fechaFormateada = fechaSinFormatear.toLocaleString()
   const eliminar = async () => {
     Swal.fire({
       title: "Estás seguro?",
@@ -38,7 +40,7 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
   return (
     <>
       <tr>
-        <td>{fecha}</td>
+        <td>{fechaFormateada}</td>
         <td>{nombre}</td>
         <td>{email}</td>
         <td>{final}</td>
@@ -90,7 +92,7 @@ export default function Mensaje({ mensajesolo, getMensajes }) {
             <br />
             {email}
             <br />
-            {fecha}
+            {fechaFormateada}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
