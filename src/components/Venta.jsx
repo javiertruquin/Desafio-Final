@@ -28,7 +28,7 @@ export default function Venta({ venta, index }) {
         <td className="col-2">
           <Button variant="primary" onClick={handleAbrir} size="sm">
             <i className="fab fa-readme"></i>
-          </Button>{" "}
+          </Button>
         </td>
       </tr>
 

@@ -18,7 +18,6 @@ import Registro from "./pages/Registro";
 import SobreNosotros from "./pages/SobreNosotros";
 import Carrito from "./pages/Carrito";
 import Envio from "./pages/Envio";
-import Pago from "./pages/Pago";
 import Mensaje from "./pages/Mensaje";
 import Ventas from "./pages/Ventas";
 import "./styles.css";
@@ -145,9 +144,6 @@ function App() {
                         setUser={setUser}
                         carrito={user.carrito}
                     />
-                </Route>
-                <Route path="/pago">
-                    <Pago setUser={setUser} carrito={user.carrito} />
                 </Route>
                 <Route path="/login">
                     <Login setUser={setUser} setToken={setToken} />

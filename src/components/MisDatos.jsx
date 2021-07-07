@@ -152,7 +152,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
               onClick={() => setDisabledCuenta(false)}
             >
               Editar
-            </Button>{" "}
+            </Button>
             <Button
               size="md"
               type="submit"
@@ -161,7 +161,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
               onClick={() => setDisabledCuenta(true)}
             >
               Guardar
-            </Button>{" "}
+            </Button>
           </div>
           <hr />
           <div className="my-5">
@@ -187,7 +187,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
               variant="outline-dark"
             >
               Editar
-            </Button>{" "}
+            </Button>
             <Button
               size="md"
               type="submit"
@@ -196,7 +196,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
               onClick={() => setDisabledSensible(true)}
             >
               Guardar
-            </Button>{" "}
+            </Button>
           </div>
         </Form>
         <hr />
@@ -208,7 +208,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
             variant="outline-dark"
           >
             Agregar Domicilio
-          </Button>{" "}
+          </Button>
         { agregarForm && 
           <CardDomicilios accion="agregar" vacio={domicilioVacio} userComplete={userComplete} getUsuario={getUsuario} />
         }

@@ -15,7 +15,6 @@ export default function Envio({ setUser, user }) {
   const [token, setToken] = useState(localToken);
   const [domicilio, setDatosDomicilio] = useState({});
   const [datosTarjeta, setDatosTarjeta] = useState();
-  const [carrito, setCarrito] = useState(user.carrito);
   const [crear, setCrear] = useState(false);
   const handleClose = () => setCrear(false);
   const handleCrear = () => setCrear(true);
@@ -74,12 +73,8 @@ export default function Envio({ setUser, user }) {
     }
   };
   
-  // useEffect(() => {
-  // }, [])
-  
   return (
     <div className="fuente">
-      {/* <NavReactB /> */}
       <Form
         noValidate
         validated={validated}
@@ -88,14 +83,14 @@ export default function Envio({ setUser, user }) {
         className="form-compra"
       >
         <div className="row mx-auto ">
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-lg-6">
             <SeccionEnvio
               datosDomicilio={domicilio}
               setDatosDomicilio={setDatosDomicilio}
               user={user}
             />
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-lg-6">
             <SeccionTarjetas
               datosTarjeta={datosTarjeta}
               setDatosTarjeta={setDatosTarjeta}
@@ -107,7 +102,6 @@ export default function Envio({ setUser, user }) {
         </div>
       </Form>
       <Modal
-        // className="modal-exitoso"
         bsPrefix="modal"
         size="md"
         show={crear}
@@ -141,11 +135,6 @@ export default function Envio({ setUser, user }) {
                 </div>
             </div>
         </Modal.Body>
-        {/* <Modal.Footer>
-      <Button variant="primary" onClick={handleClose}>
-        Cerrar
-      </Button>
-    </Modal.Footer> */}
       </Modal>
     </div>
   );

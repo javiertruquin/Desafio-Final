@@ -115,7 +115,7 @@ export default function ProductosAdmin({ user }) {
               onClick={handleCrear}
             >
               Agregar Producto
-          </Button>{" "} */}
+          </Button> */}
                     </div>
                 </div>
                 <div className="">

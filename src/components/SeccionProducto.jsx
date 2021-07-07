@@ -249,7 +249,7 @@ export default function SeccionProducto({ setUser }) {
                                     <div>
                                         <p className="my-auto ms-1 text-success">
                                             <strong>
-                                                Devolución inmediata{" "}
+                                                Devolución inmediata
                                             </strong>
                                         </p>
                                         <p className="grey-text ms-1 mb-0">

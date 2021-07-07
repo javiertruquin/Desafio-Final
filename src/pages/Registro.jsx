@@ -36,7 +36,6 @@ export default function Registro({ setToken }) {
       localStorage.setItem("token", JSON.stringify(data));
       setToken(data.token);
       history.push("/");
-      // window.location.replace('/');
     } catch (error) {
       console.log(error.response.data);
     }

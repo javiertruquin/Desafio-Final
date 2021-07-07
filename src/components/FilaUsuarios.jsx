@@ -49,17 +49,17 @@ export default function FilaUsuarios({ usuario, index, getUsuarios }) {
         <td className="col-4">
           <Button onClick={handleCrear2} variant="primary">
             <i className="fas fa-info-circle"></i>
-          </Button>{" "}
+          </Button>
           {/* <Button className="my-1" variant="secondary">
             <i className="far fa-edit"></i>
-          </Button>{" "} */}
+          </Button> */}
           <Button onClick={handleCrear} className="my-1" variant="secondary">
             <i className="far fa-edit"></i>
-          </Button>{" "}
+          </Button>
           {/* <Button variant="danger" onClick={eliminar}> */}
           <Button variant="danger" onClick={eliminar}>
             <i className="far fa-trash-alt"></i>
-          </Button>{" "}
+          </Button>
         </td>
       </tr>
 

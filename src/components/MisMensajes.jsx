@@ -34,7 +34,7 @@ export default function MisMensajes() {
         </div>
         <Button size="xl" className="mb-4" variant="outline-dark">
             Realizar otra consulta
-          </Button>{" "}
+          </Button>
       </div>
     </>
   );

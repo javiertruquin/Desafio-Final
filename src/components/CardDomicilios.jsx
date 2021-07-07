@@ -145,7 +145,7 @@ export default function CardDomicilios({
             variant="outline-dark"
           >
             Editar
-          </Button>{" "}
+          </Button>
           <Button
             size="md"
             type="submit"
@@ -154,7 +154,7 @@ export default function CardDomicilios({
             variant="outline-dark"
           >
             Guardar
-          </Button>{" "}
+          </Button>
         </div>
       </Form>
     </>

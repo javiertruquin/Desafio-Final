@@ -110,7 +110,7 @@ export default function Login({ setUser, setToken }) {
                                                 className="mx-auto text-center mb-4"
                                             >
                                                 <p className="li-footer">
-                                                    {" "}
+                                                    
                                                     ¿Olvidaste la contraseña?
                                                 </p>
                                             </a>

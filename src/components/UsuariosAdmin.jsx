@@ -92,7 +92,7 @@ export default function UsuariosAdmin({user}) {
                                 onClick={handleCrear}
                                 className="btn-dash py-2 px-4"
                             >
-                                <i className="fas fa-plus-square me-3"></i>{" "}
+                                <i className="fas fa-plus-square me-3"></i>
                                 Agregar vendedor
                             </button>
                         </div>
