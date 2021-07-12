@@ -60,6 +60,7 @@ export default function CardDomicilios({
                   readOnly={disabledDomicilio}
                   placeholder="Título"
                   name="titulo"
+                  required
                   onChange={(e) => handleChangeDomicilio(e)}
                 />
               </Form.Group>
@@ -72,6 +73,7 @@ export default function CardDomicilios({
                   readOnly={disabledDomicilio}
                   onChange={(e) => handleChangeDomicilio(e)}
                   placeholder="Provincia"
+                  required
                   name="provincia"
                 />
                 <Form.Control
@@ -80,6 +82,7 @@ export default function CardDomicilios({
                   readOnly={disabledDomicilio}
                   onChange={(e) => handleChangeDomicilio(e)}
                   placeholder="Localidad"
+                  required
                   name="localidad"
                 />
               </Form.Group>
@@ -90,6 +93,7 @@ export default function CardDomicilios({
                   readOnly={disabledDomicilio}
                   placeholder="Calle"
                   name="calle"
+                  required
                   onChange={(e) => handleChangeDomicilio(e)}
                 />
                 <Form.Control
@@ -98,6 +102,7 @@ export default function CardDomicilios({
                   readOnly={disabledDomicilio}
                   placeholder="Número"
                   name="numero"
+                  required
                   onChange={(e) => handleChangeDomicilio(e)}
                 />
               </Form.Group>
