@@ -1,4 +1,4 @@
-import Mensaje from "./Mensaje";
+import SeccionMensaje from "./SeccionMensaje";
 import { Table } from "react-bootstrap";
 
 export default function Mensajes({ articles, getMensajes }) {
@@ -24,7 +24,7 @@ export default function Mensajes({ articles, getMensajes }) {
         </thead>
         <tbody>
           {articles.map((mensaje) => (
-            <Mensaje
+            <SeccionMensaje
               mensajesolo={mensaje}
               getMensajes={getMensajes}
               key={mensaje._id}

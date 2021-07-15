@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Modal, Nav } from "react-bootstrap";
 import Swal from "sweetalert2";
 
-export default function Mensaje({ mensajesolo, getMensajes }) {
+export default function SeccionMensaje({ mensajesolo, getMensajes }) {
   const { _id, nombre, email, mensaje, fecha } = mensajesolo;
   const [abrir, setAbrir] = useState(false);
   const handleClose = () => setAbrir(false);
