@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function CardCarrito({ carrito, setUser }) {
     const [input, setInput] = useState({ cantidad: carrito.cantidad });
-    const [producto, setProducto] = useState({});
     const [opciones, setOpciones] = useState([]);
-    const [cantidad, setCantidad] = useState(carrito.cantidad);
 
     const deleteToCart = async () => {
         try {
@@ -26,7 +24,6 @@ export default function CardCarrito({ carrito, setUser }) {
             const response = await axios.get(
                 "/producto/" + carrito.producto?._id
             );
-            setProducto(response.data);
             let opcion = [];
             let cantidad;
             if (response.data.stock > 10) {
@@ -40,13 +37,13 @@ export default function CardCarrito({ carrito, setUser }) {
             setOpciones(opcion);
         };
         getProducto();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleChange = async (e) => {
         const { name, value } = e.target;
         let changedInput = { [name]: value };
         setInput(changedInput);
-        setCantidad(changedInput);
         try {
             const productoModificado = {
                 productoBuscado: carrito.producto._id,

@@ -21,7 +21,7 @@ export default function Registro({ setToken }) {
         if (form.checkValidity() === false) {
             return event.stopPropagation();
         }
-        if (passCheck1 != passCheck2) {
+        if (passCheck1 !== passCheck2) {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",

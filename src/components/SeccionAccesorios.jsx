@@ -18,7 +18,7 @@ export default function SeccionAccesorios({
     getFavoritos,
 }) {
     const [computadoras, setComputadoras] = useState([]);
-    const [categoria, setCategoria] = useState(filtro);
+    let categoria = filtro;
 
     const getComputadoras = async () => {
         const params = { categoria };
@@ -27,6 +27,7 @@ export default function SeccionAccesorios({
     };
     useEffect(() => {
         getComputadoras();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [categoria]);
 
     return (

@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Exito from "../Exito.css";
 
 export default function VentaExitosa() {
     return (

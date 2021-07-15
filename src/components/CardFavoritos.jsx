@@ -4,16 +4,14 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-export default function CardFavoritos({ favorito, handleClose,productosFavoritos,getFavoritos}) {
+export default function CardFavoritos({ favorito, handleClose}) {
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
   const [esFavorito, setEsFavorito] = useState(true)
-  const [productoFavorito, setProductoFavorito] = useState({});
-  const [token, setToken] = useState(localToken);
   let history = useHistory();
 
   const addToFav = async () => {
     setEsFavorito(!esFavorito);
-    if (!token) {
+    if (!localToken) {
       Swal.fire({
         icon: "error",
         title: "Oops...",

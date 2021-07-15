@@ -1,22 +1,19 @@
 import axios from "axios";
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
 import CardDomicilios from "./CardDomicilios";
 import Swal from "sweetalert2";
 
 export default function MisDatos({ userComplete, getUsuario }) {
-    const [validated, setValidated] = useState(false);
     const [input, setInput] = useState({});
     const [inputPassword, setInputPassword] = useState("");
     const [disabledCuenta, setDisabledCuenta] = useState(true);
     const [disabledSensible, setDisabledSensible] = useState(true);
     const [agregarForm, setAgregarForm] = useState(false);
-    const [domicilioVacio, setDomicilioVacio] = useState();
 
     const { nombre, apellido, documento, email, telefono } = userComplete;
 
     const handleSubmit = async (event) => {
-        const form = event.currentTarget;
         event.preventDefault();
         try {
             // Consulta post a /productos
@@ -60,7 +57,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 <Form
                     className="form-profile"
                     noValidate
-                    validated={validated}
+                    validated={false}
                     onSubmit={handleSubmit}
                 >
                     <div className="my-5">
@@ -218,7 +215,6 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 {agregarForm && (
                     <CardDomicilios
                         accion="agregar"
-                        vacio={domicilioVacio}
                         userComplete={userComplete}
                         getUsuario={getUsuario}
                     />

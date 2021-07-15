@@ -13,7 +13,7 @@ SwiperCore.use([Pagination]);
 
 function SeccionCompus({ setUser, filtro, limite,productosFavoritos,getFavoritos }) {
   const [computadoras, setComputadoras] = useState([]);
-  const [categoria, setCategoria] = useState(filtro);
+  let categoria = filtro;
 
   const getComputadoras = async () => {
     const params = { categoria, limite };
@@ -22,9 +22,11 @@ function SeccionCompus({ setUser, filtro, limite,productosFavoritos,getFavoritos
   };
   useEffect(() => {
     getComputadoras();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoria]);
   useEffect(() => {
     getComputadoras();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

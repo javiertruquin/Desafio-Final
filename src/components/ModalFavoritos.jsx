@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import CardFavoritos from "../components/CardFavoritos";
 
@@ -10,8 +10,8 @@ export default function ModalFavoritos({
     getFavoritos,
 }) {
     useEffect(() => {
-        // El useEffect se llama al abrir y cerrar el modal y actualiza los favoritos.
         return getFavoritos;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [crear]);
 
     return (

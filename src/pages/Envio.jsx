@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import SeccionCarrito from "../components/SeccionCarrito";
 import SeccionEnvio from "../components/SeccionEnvio";
 import SeccionTarjetas from "../components/SeccionTarjetas";
 import "../Favoritos.css";
@@ -12,7 +11,6 @@ const localToken = JSON.parse(localStorage.getItem("token")) || "";
 
 export default function Envio({ setUser, user }) {
   const [validated, setValidated] = useState(false);
-  const [token, setToken] = useState(localToken);
   const [domicilio, setDatosDomicilio] = useState({});
   const [datosTarjeta, setDatosTarjeta] = useState();
   const [crear, setCrear] = useState(false);
@@ -20,7 +18,7 @@ export default function Envio({ setUser, user }) {
   const handleCrear = () => setCrear(true);
   let history = useHistory();
 
-  if (!token) {
+  if (!localToken) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -79,8 +77,7 @@ export default function Envio({ setUser, user }) {
         noValidate
         validated={validated}
         onSubmit={enviarDatos}
-        className="col-12 col-md-10 mt-2 needs-validation"
-        className="form-compra"
+        className="col-12 col-md-10 mt-2 needs-validation form-compra"
       >
         <div className="row mx-auto ">
           <div className="col-12 col-lg-6">

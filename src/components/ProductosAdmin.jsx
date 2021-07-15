@@ -14,12 +14,10 @@ import Swal from "sweetalert2";
 
 export default function ProductosAdmin({ user }) {
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
-    const [token, setToken] = useState(localToken);
     const [crear, setCrear] = useState(false);
     const [productos, setProductos] = useState([]);
-    const [categoria, setCategoria] = useState("todos");
-    const [habilitado, setHabilitado] = useState("");
     const [params, setParams] = useState("todos");
+    let habilitado = "";
 
     const handleClose = () => setCrear(false);
     const handleCrear = () => setCrear(true);
@@ -35,6 +33,7 @@ export default function ProductosAdmin({ user }) {
     };
     useEffect(() => {
         getProductos();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleSelect = (eventKey) => {
@@ -60,13 +59,15 @@ export default function ProductosAdmin({ user }) {
     };
     useEffect(() => {
         getProductos();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [params]);
 
     useEffect(() => {
         getProductos();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [habilitado]);
 
-    if (!token) {
+    if (!localToken) {
         Swal.fire({
             icon: "error",
             title: "Oops...",

@@ -20,10 +20,10 @@ export default function UsuariosAdmin({user}) {
     const handleCrear = () => setCrear(true);
     const [rol, setRol] = useState("vendedor");
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
-    const [token, setToken] = useState(localToken);
 
     useEffect(() => {
         getUsuarios();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [rol]);
 
     const getUsuarios = async () => {
@@ -55,7 +55,7 @@ export default function UsuariosAdmin({user}) {
         }
     };
 
-    if (!token) {
+    if (!localToken) {
         Swal.fire({
             icon: "error",
             title: "Oops...",

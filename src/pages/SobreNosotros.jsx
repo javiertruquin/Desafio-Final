@@ -115,6 +115,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://ar.linkedin.com/"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
@@ -123,6 +124,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://twitter.com/home"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
@@ -131,6 +133,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.facebook.com/uno.de.estos.dias"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
@@ -139,6 +142,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.instagram.com/federicoalvarez3/?hl=es-la"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>
@@ -167,6 +171,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://ar.linkedin.com/in/javier-truquin"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
@@ -175,6 +180,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://twitter.com/truquin"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
@@ -183,6 +189,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.facebook.com/javiertruquin/"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
@@ -191,6 +198,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.instagram.com/javier.truquin/?hl=es-la"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>
@@ -223,6 +231,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://ar.linkedin.com/in/tom%C3%A1s-guerineau-b5109a160"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
@@ -231,6 +240,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://twitter.com/elonmusk"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
@@ -239,6 +249,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.facebook.com/tomas.guerineau"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
@@ -247,6 +258,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.instagram.com/tomas_guerineau/?hl=es-la"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>
@@ -275,6 +287,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.linkedin.com/in/andres-donadio-114415211/"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faLinkedinIn} />
                                     </a>
@@ -283,6 +296,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://twitter.com/andresdonadio1"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faTwitter} />
                                     </a>
@@ -291,6 +305,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.facebook.com/andres.donadio.9"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
@@ -299,6 +314,7 @@ export default function SobreNosotros() {
                                     <a
                                       href="https://www.instagram.com/andresdonadio/?hl=es-la"
                                       target="_blank"
+                                      rel="noreferrer" 
                                     >
                                       <FontAwesomeIcon icon={faInstagram} />
                                     </a>

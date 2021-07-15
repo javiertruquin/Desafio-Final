@@ -77,10 +77,12 @@ export default function SeccionProducto({ setUser }) {
     };
     useEffect(() => {
         getProducto();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         getProducto();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location]);
 
     return (

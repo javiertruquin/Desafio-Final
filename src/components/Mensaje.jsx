@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Modal, InputGroup, Nav } from "react-bootstrap";
+import { Button, Modal, Nav } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 export default function Mensaje({ mensajesolo, getMensajes }) {

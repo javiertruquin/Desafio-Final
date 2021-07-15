@@ -2,7 +2,7 @@ import axios from "axios";
 import { MDBInput } from "mdbreact";
 import { React, useEffect, useState } from "react";
 import { Dropdown, DropdownButton, Button } from "react-bootstrap";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SeccionEnvio({
     datosDomicilio,
@@ -11,7 +11,6 @@ export default function SeccionEnvio({
 }) {
     const [DomicilioCompleto, setDomicilioCompleto] = useState();
     const [domicilio, setDomicilio] = useState(user.domicilio);
-    const [telefono, setTelefono] = useState();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -21,7 +20,6 @@ export default function SeccionEnvio({
 
     const getUsuario = async () => {
         const response = await axios.get("/auth");
-        setTelefono(response.data.telefono);
         setDomicilio(response.data.domicilio);
     };
     useEffect(() => {

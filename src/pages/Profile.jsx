@@ -40,7 +40,7 @@ export default function Profile({ user, token, setImage, image }) {
         <div className="row">
           <div className="col-12 col-md-3 mb-4">
             <div className="card border-0 shadow">
-              <img src={image || user.image || imageProfile} className="card-img-top" />
+              <img src={image || user.image || imageProfile} className="card-img-top" alt="Foto de perfil no encontrada"/>
               <div className="card-body text-center d-flex">
                 <div>
                 <label htmlFor="file-input" style={{ cursor: 'pointer' }}>

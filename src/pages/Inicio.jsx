@@ -4,8 +4,6 @@ import SeccionCompus from "../components/SeccionCompus";
 import SeccionEnviosPagos from "../components/SeccionEnviosPagos";
 import SlideAccesorios from "../components/SlideAccesorios";
 import SlideNotebooks from "../components/SlideNotebooks";
-import axios from "axios";
-import { useEffect, useState } from "react";
 
 export default function Inicio({
     setUser,

@@ -8,7 +8,6 @@ import Swal from "sweetalert2";
 export default function Main({ user}) {
   const [articles, setArticles] = useState([]);
   const localToken = JSON.parse(localStorage.getItem("token")) || "";
-  const [token, setToken] = useState(localToken);
   const getVentas = async () => {
     const response = await axios.get(`/venta`);
     setArticles(response.data);
@@ -18,7 +17,7 @@ export default function Main({ user}) {
     getVentas();
   }, []);
 
-  if (!token) {
+  if (!localToken) {
     Swal.fire({
       icon: "error",
       title: "Oops...",

@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import SeccionCarrito from "../components/SeccionCarrito";
 import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function Carrito({ setUser, carrito }) {
     const localToken = JSON.parse(localStorage.getItem("token")) || "";
-    const [token, setToken] = useState(localToken);
-    if (!token) {
+    if (!localToken) {
         Swal.fire({
             icon: "error",
             title: "Oops...",

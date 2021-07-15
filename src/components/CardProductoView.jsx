@@ -19,7 +19,7 @@ export default function CardProductoView({
     const final = titulo.substring(0, 40);
     const checkFavoritos = () => {
         const found = productosFavoritos?.find(
-            (favorito) => favorito.producto._id == _id
+            (favorito) => favorito.producto._id === _id
         );
         if (found) {
             setEsFavorito(true);
@@ -29,6 +29,7 @@ export default function CardProductoView({
     };
     useEffect(() => {
         checkFavoritos();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [productosFavoritos]);
 
     useEffect(() => {

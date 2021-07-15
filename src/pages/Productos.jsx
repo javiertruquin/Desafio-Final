@@ -25,6 +25,7 @@ export default function Productos({
     };
     useEffect(() => {
         getComputadoras();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [categoria]);
 
     useEffect(() => {
@@ -32,6 +33,7 @@ export default function Productos({
             setCategoria(categoriaFiltrada);
         location.pathname === "/notebooks" && setCategoria(categoriaFiltrada);
         location.pathname === "/accesorios" && setCategoria(categoriaFiltrada);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location]);
 
     return (
