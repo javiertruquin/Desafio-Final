@@ -29,12 +29,23 @@ export default function CajaDeMensajes() {
         if (form.checkValidity() === false) {
             return event.stopPropagation();
         }
-        axios.post("/mensaje", datos);
-        Swal.fire({
-            icon: "success",
-            title: "Gracias por su consulta. Le responderemos a la brevedad",
-        });
-        history.push("/");
+        try{
+            axios.post("/mensaje", datos);
+            Swal.fire({
+                icon: "success",
+                title: "Gracias por su consulta. Le responderemos a la brevedad",
+            });
+            history.push("/");
+        }catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Revise los datos por favor",
+                timer: 1800,
+                showConfirmButton: false,
+            });
+            console.log(error.response.data);
+        }
     };
 
     return (

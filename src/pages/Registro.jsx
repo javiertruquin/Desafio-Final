@@ -37,6 +37,13 @@ export default function Registro({ setToken }) {
             setToken(data.token);
             history.push("/");
         } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Revise los datos por favor",
+                timer: 1800,
+                showConfirmButton: false,
+            });
             console.log(error.response.data);
         }
     };
