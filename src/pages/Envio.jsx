@@ -7,9 +7,9 @@ import { Form, Modal } from "react-bootstrap";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const localToken = JSON.parse(localStorage.getItem("token")) || "";
 
 export default function Envio({ setUser, user }) {
+  const localToken = JSON.parse(localStorage.getItem("token")) || "";
   const [validated, setValidated] = useState(false);
   const [domicilio, setDatosDomicilio] = useState({});
   const [datosTarjeta, setDatosTarjeta] = useState();

@@ -105,15 +105,10 @@ export default function Login({ setUser, setToken }) {
                                             >
                                                 Entrar
                                             </button>
-                                            <a
-                                                href="/"
-                                                className="mx-auto text-center mb-4"
-                                            >
-                                                <p className="li-footer">
+                                                <p className="li-footer mx-auto text-center mb-4">
                                                     
                                                     ¿Olvidaste la contraseña?
                                                 </p>
-                                            </a>
                                         </div>
                                         <div className="col-lg-6 text-center pt-4">
                                             <span className="textito-azul-login">

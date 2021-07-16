@@ -306,13 +306,14 @@
 }
 
 .btn-serie:hover {
-  background-color: #94c11e;
+  cursor: auto;
+  /* background-color: #94c11e;
   border: 1px solid #94c11e;
   color: white;
   font-family: "Saira Semi Condensed", sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 0.5rem; */
 }
 
 .container-buscador {
