@@ -10,11 +10,18 @@ export default function MisDatos({ userComplete, getUsuario }) {
   const [disabledCuenta, setDisabledCuenta] = useState(true);
   const [disabledSensible, setDisabledSensible] = useState(true);
   const [agregarForm, setAgregarForm] = useState(false);
+  const [validated, setValidated] = useState(false);
 
   const { nombre, apellido, documento, email, telefono } = userComplete;
 
   const handleSubmit = async (event) => {
+    const form = event.currentTarget;
     event.preventDefault();
+    setValidated(true);
+    if (form.checkValidity() === false) {
+      return event.stopPropagation();
+    }
+    
     try {
       // Consulta post a /productos
       const usuarioModificado = { ...input, id: userComplete._id };
@@ -25,6 +32,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
 
       if (!inputPassword) {
         await axios.put("/auth", usuarioModificado);
+        setDisabledCuenta(true)
       } else {
         await axios.put("/auth/password", passwordModificada);
         setInputPassword("");
@@ -57,7 +65,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
         <Form
           className="form-profile"
           noValidate
-          validated={false}
+        validated={validated}
           onSubmit={handleSubmit}
         >
           <div className="my-5">
@@ -73,11 +81,13 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 aria-label="Default"
                 type="email"
                 name="email"
+                maxLength="50"
                 onChange={(e) => handleChange(e)}
                 placeholder={"No email"}
                 defaultValue={email || ""}
                 aria-describedby="inputGroup-sizing-default"
                 disabled={disabledCuenta}
+                required
               />
             </InputGroup>
             <InputGroup className="mt-4 mb-3">
@@ -93,6 +103,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 onChange={(e) => handleChange(e)}
                 name="nombre"
                 aria-describedby="inputGroup-sizing-default"
+                maxLength="30"
                 placeholder={"No name"}
                 defaultValue={nombre || ""}
               />
@@ -108,6 +119,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 disabled={disabledCuenta}
                 name="apellido"
                 type="text"
+                maxLength="30"
                 onChange={(e) => handleChange(e)}
                 placeholder={"No apellido"}
                 defaultValue={apellido || ""}
@@ -121,7 +133,7 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 </InputGroup.Text>
               </InputGroup.Prepend>
               <Form.Control
-                type="text"
+                type="number"
                 onChange={(e) => handleChange(e)}
                 name="documento"
                 disabled={disabledCuenta}
@@ -141,6 +153,8 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 name="telefono"
                 disabled={disabledCuenta}
                 placeholder="Todavía no cargaste tu número de celular o teléfono"
+                maxLength="30"
+                minLength="10"
                 defaultValue={telefono || ""}
               />
             </InputGroup>
@@ -159,7 +173,6 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 type="submit"
                 className="mt-4"
                 variant="outline-dark"
-                onClick={() => setDisabledCuenta(true)}
               >
                 Guardar
               </Button>
@@ -178,6 +191,8 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 onChange={(e) => handleChangePassword(e)}
                 type="password"
                 name="password"
+                maxLength="30"
+                minLength="7"
                 disabled={disabledSensible}
                 placeholder="****************"
               />
@@ -196,7 +211,6 @@ export default function MisDatos({ userComplete, getUsuario }) {
                 type="submit"
                 className="mt-4"
                 variant="outline-dark"
-                onClick={() => setDisabledSensible(true)}
               >
                 Guardar
               </Button>
