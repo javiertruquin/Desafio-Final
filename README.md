@@ -30,7 +30,7 @@ Paso 1 Clone: GitHub https://github.com/javiertruquin/Desafio-Final
 Paso 2: npm i 
 Paso 3: npm start
 > Backend: 
-- Paso 1 Clone: GitHub https://github.com/javiertruquin/desfaio-final-backend
+- Paso 1 Clone: GitHub https://github.com/javiertruquin/desafio-final-backend
 - Paso 2: npm i 
 - Paso 3: npm run dev
 
